@@ -36,11 +36,13 @@
   .controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   @media (max-width: 620px) { .controls { grid-template-columns: 1fr; } }
   label { display: block; font-size: 13px; color: var(--muted); margin: 0 0 5px; font-weight: 600; }
-  select, textarea, input[type=password] {
+  select, textarea, input[type=password], input[type=number] {
     width: 100%; padding: 9px 11px; border: 1px solid var(--line); border-radius: 8px;
     background: #fff; color: var(--ink); font: inherit;
   }
   textarea { margin-top: 14px; min-height: 120px; resize: vertical; }
+  .check { display: flex; gap: 8px; align-items: flex-start; font-weight: 400; color: var(--ink); margin-top: 8px; }
+  .check input { width: auto; margin-top: 4px; }
   button {
     background: var(--ember); color: #fff; border: 0; border-radius: 8px;
     padding: 11px 20px; font: 600 15px/1 inherit; cursor: pointer; margin-top: 16px;
@@ -61,6 +63,7 @@
   .b-kill { background: var(--kill); }
   .b-major { background: var(--major); }
   .b-minor { background: var(--minor); }
+  .b-ok { background: #2f7d3a; }
   .item .title { font-weight: 600; }
   .item .meta { font-size: 14px; color: var(--ink); margin: 6px 0 0; }
   .item .meta b { color: var(--muted); font-weight: 600; }
@@ -168,6 +171,25 @@
       </div>
       <div id="analysis"></div>
     </details>
+  </div>
+
+  <div class="panel">
+    <h2 style="font-size:20px;margin:0 0 4px">Or — grade your numbers</h2>
+    <p class="sub" style="color:var(--muted);font-size:14px;margin:0 0 14px">Instant, in your browser. No key, no deck. Fill in what you have — blanks are skipped.</p>
+    <div class="controls">
+      <div><label>Largest customer (% of revenue)</label><input type="number" id="g_conc" placeholder="e.g. 35"></div>
+      <div><label>Gross margin (%)</label><input type="number" id="g_gm" placeholder="e.g. 72"></div>
+      <div><label>LTV : CAC (x)</label><input type="number" step="0.1" id="g_ltv" placeholder="e.g. 3.5"></div>
+      <div><label>CAC payback (months)</label><input type="number" id="g_pay" placeholder="e.g. 14"></div>
+      <div><label>Monthly churn (%)</label><input type="number" step="0.1" id="g_churn" placeholder="e.g. 2"></div>
+      <div><label>Runway (months)</label><input type="number" id="g_run" placeholder="e.g. 12"></div>
+      <div><label>Net revenue retention (%)</label><input type="number" id="g_nrr" placeholder="e.g. 105"></div>
+    </div>
+    <label class="check"><input type="checkbox" id="g_ip"> A founder or contractor has NOT signed IP assignment to the company</label>
+    <label class="check"><input type="checkbox" id="g_vest"> Some founder equity has no vesting schedule</label>
+    <label class="check"><input type="checkbox" id="g_verbal"> There are verbal / unsigned equity promises (advisors, early hires)</label>
+    <button id="grade">Grade my numbers</button>
+    <div id="gradeout"></div>
   </div>
 
   <div id="out"></div>
@@ -398,9 +420,79 @@ async function analyze() {
   }
 }
 
+const GRADE = [
+  { id: "g_conc", label: "Customer concentration", suffix: "%",
+    ev: v => v > 50 ? ["kill", ">50% of revenue", "One logo leaving takes the company with it — investors price it as binary risk."]
+      : v >= 25 ? ["major", "25–50%", "Heavy single-customer dependence; it will dominate the diligence call."]
+      : v >= 15 ? ["minor", "15–25%", "Have a diversification story ready."]
+      : ["ok", "<15%", "Healthy spread."] },
+  { id: "g_gm", label: "Gross margin", suffix: "%",
+    ev: v => v < 30 ? ["kill", "<30%", "At this margin it isn't a software business; venture math breaks."]
+      : v < 60 ? ["major", "30–60%", "Services-heavy or high inference cost; below SaaS norms."]
+      : v < 70 ? ["minor", "60–70%", "A touch under the 70–80% SaaS norm."]
+      : ["ok", "≥70%", "In the healthy SaaS band."] },
+  { id: "g_ltv", label: "LTV : CAC", suffix: "×",
+    ev: v => v < 1 ? ["kill", "<1:1", "You lose money on every customer."]
+      : v < 3 ? ["major", "<3:1", "Below the 3:1 bar — growth burns cash."]
+      : v <= 5 ? ["ok", "3–5:1", "Healthy."]
+      : ["minor", ">5:1", "Efficient — but you may be underinvesting in growth."] },
+  { id: "g_pay", label: "CAC payback", suffix: " months",
+    ev: v => v > 24 ? ["kill", ">24 mo", "Capital tied up far too long."]
+      : v > 18 ? ["major", "18–24 mo", "Above the 12–18 mo comfort zone."]
+      : v > 12 ? ["minor", "12–18 mo", "Acceptable, but watch it."]
+      : ["ok", "<12 mo", "Strong."] },
+  { id: "g_churn", label: "Monthly churn", suffix: "% / mo",
+    ev: v => v > 5 ? ["kill", ">5%/mo", "Leaky bucket — growth can't outrun it."]
+      : v > 3 ? ["major", "3–5%/mo", "High for SMB, very high for mid-market and up."]
+      : v > 1.5 ? ["minor", "1.5–3%/mo", "Okay for SMB; high for enterprise."]
+      : ["ok", "<1.5%/mo", "Solid."] },
+  { id: "g_run", label: "Runway", suffix: " months",
+    ev: v => v < 6 ? ["kill", "<6 mo", "Raising from weakness; close to default-dead."]
+      : v < 12 ? ["major", "6–12 mo", "Tight — you'll be back raising fast."]
+      : v < 18 ? ["minor", "12–18 mo", "Reasonable."]
+      : ["ok", "≥18 mo", "Comfortable."] },
+  { id: "g_nrr", label: "Net revenue retention", suffix: "%",
+    ev: v => v < 90 ? ["kill", "<90%", "The base shrinks even before you add new logos."]
+      : v < 100 ? ["major", "90–100%", "Expansion isn't covering churn."]
+      : v < 110 ? ["minor", "100–110%", "Fine; best-in-class is 120%+."]
+      : ["ok", "≥110%", "Strong expansion."] },
+];
+const TOGGLES = [
+  { id: "g_ip", sev: "kill", title: "IP not assigned to the company", why: "If a founder or contractor never assigned IP, the company may not own its core product — a classic deal-killer in diligence." },
+  { id: "g_vest", sev: "major", title: "Founder equity without vesting", why: "No vesting means a founder can walk with their full stake; investors treat unvested-by-default equity as a structural risk." },
+  { id: "g_verbal", sev: "major", title: "Verbal / unsigned equity promises", why: "Unpapered grants are hidden dilution that surfaces — badly — during cap-table diligence." },
+];
+function grade() {
+  const SEV = { kill: 0, major: 1, minor: 2, ok: 3 };
+  const LBL = { kill: "KILL", major: "MAJOR", minor: "WATCH", ok: "OK" };
+  const CLS = { kill: "b-kill", major: "b-major", minor: "b-minor", ok: "b-ok" };
+  const cards = [];
+  for (const r of GRADE) {
+    const el = $(r.id);
+    if (!el || el.value === "") continue;
+    const v = parseFloat(el.value);
+    if (isNaN(v)) continue;
+    const [sev, band, why] = r.ev(v);
+    cards.push({ sev, html: `<div class="item"><div class="title"><span class="badge ${CLS[sev]}">${LBL[sev]}</span>${esc(r.label)}: ${esc(el.value)}${r.suffix}</div><p class="meta"><b>band:</b> ${esc(band)} — ${esc(why)}</p></div>` });
+  }
+  for (const t of TOGGLES) {
+    if ($(t.id) && $(t.id).checked)
+      cards.push({ sev: t.sev, html: `<div class="item"><div class="title"><span class="badge ${CLS[t.sev]}">${LBL[t.sev]}</span>${esc(t.title)}</div><p class="meta">${esc(t.why)}</p></div>` });
+  }
+  if (!cards.length) { $("gradeout").innerHTML = `<p class="empty" style="margin-top:14px">Fill in at least one number or check a box.</p>`; return; }
+  cards.sort((a, b) => SEV[a.sev] - SEV[b.sev]);
+  const kills = cards.filter(c => c.sev === "kill").length;
+  const majors = cards.filter(c => c.sev === "major").length;
+  $("gradeout").innerHTML = `<div class="section"><h2>Your numbers</h2>`
+    + `<p class="sub">${kills} deal-killer${kills !== 1 ? "s" : ""}, ${majors} major flag${majors !== 1 ? "s" : ""}. Industry-typical bands, not hard rules.</p>`
+    + cards.map(c => c.html).join("") + `</div>`;
+  $("gradeout").scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
 $("run").addEventListener("click", render);
 $("analyze").addEventListener("click", analyze);
 $("file").addEventListener("change", e => handleFile(e.target.files[0]));
+$("grade").addEventListener("click", grade);
 
 if (window.KB_INLINE) { KB = window.KB_INLINE; render(); }
 else {
