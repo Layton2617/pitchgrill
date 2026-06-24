@@ -1,8 +1,9 @@
-"""对抗式融资就绪体检的核心。
+"""The engine.
 
-输入 stage/sector/wedge/deck/自述 → 用 KB 选出相关条目 → 构造 grounded prompt
-让模型扮演挑剔的投资人对照具体红旗审查这份 deck。有 ANTHROPIC_API_KEY 就调模型,
-没有就降级为确定性输出(直接结构化列出匹配到的 KB 条目)。
+Inputs (stage/sector/wedge/deck/founder note) -> pick relevant KB items -> build a
+grounded prompt that has the model play a skeptical investor checking the deck against
+specific red flags. With ANTHROPIC_API_KEY it calls the model; without it, it falls back
+to checklist mode (the matched KB items, ranked).
 """
 from __future__ import annotations
 
@@ -13,17 +14,17 @@ from dataclasses import dataclass, field
 
 from . import kb as kb_mod
 
-MODEL = "claude-sonnet-4-6"  # 可配置
+MODEL = "claude-sonnet-4-6"  # configurable
 MAX_TOKENS = 8000
 
-# 无 key 降级时每类最多展示多少条,避免把整个 KB 倒出来
+# Checklist-mode caps per category, so we don't dump the whole KB without a key
 DET_CAPS = {"red_flags": 15, "grilling": 10, "data_room": 24, "deck_lints": 8, "benchmarks": 12}
 _SEV = {"kill": 0, "major": 1, "minor": 2}
 
 
 @dataclass
 class Selection:
-    """从 KB 中按 stage/sector/wedge 选出的相关条目。"""
+    """KB items selected by stage/sector/wedge."""
 
     red_flags: list[dict] = field(default_factory=list)
     grilling: list[dict] = field(default_factory=list)
@@ -38,9 +39,9 @@ class Result:
     sector: str | None
     wedge: str
     selection: Selection
-    analysis: str | None  # 模型产出的 deck 专属分析;降级时为 None
-    grounded: bool        # True = 调了模型
-    narrowed: bool = False  # True = 降级模式下按相关度+严重度收敛过的清单
+    analysis: str | None  # per-deck analysis from the model; None in checklist mode
+    grounded: bool        # True = the model was called
+    narrowed: bool = False  # True = checklist mode ranked by relevance + severity
 
 
 def select(kb: kb_mod.KB, *, stage, sector, wedge) -> Selection:
@@ -67,10 +68,10 @@ def _overlap(item: dict, deck_terms: set) -> int:
 
 
 def _narrow(sel: Selection, deck: str, founder: str) -> Selection:
-    """降级模式:按 (与 deck 的关键词相关度↓, severity↑) 收敛成可读清单。
+    """Checklist mode: rank by (keyword overlap with the deck desc, severity asc) and cap.
 
-    关键词匹配只是粗启发(deck 多为中文时命中弱),所以严重度做兜底排序,
-    并由调用方在报告里标注'非 deck 专属诊断'。
+    Keyword overlap is a rough heuristic (weak when the deck isn't in English), so severity
+    is the tie-breaker, and the caller labels the report as 'not a per-deck diagnosis'.
     """
     dt = _terms(f"{deck}\n{founder}")
     rf = sorted(sel.red_flags, key=lambda f: (-_overlap(f, dt), _SEV.get(f.get("severity"), 9)))
@@ -87,17 +88,20 @@ def _narrow(sel: Selection, deck: str, founder: str) -> Selection:
 
 
 SYSTEM = (
-    "你是一位以挑剔著称的早期投资人,正在做投前尽调。下面给你一份创始人的 deck 文本和自述,"
-    "以及一个结构化的领域知识库(红旗 + 阈值、分阶段拷问、data room 清单、benchmark)。"
-    "你的任务不是给项目打分或预测成功率(早期项目 base rate 极低,预测无意义),"
-    "而是只做失分项自检:严格对照知识库里的具体红旗和阈值,审查这份 deck。\n\n"
-    "输出三段(用 markdown):\n"
-    "1. 命中的红旗 —— 逐条说明 deck 里哪句话/哪个数据触发了知识库里的哪条红旗,"
-    "引用阈值,标注 severity。没命中的不要编。\n"
-    "2. 最可能问倒人的拷问 —— 从知识库拷问里挑出针对这份 deck 最致命的几条,"
-    "并基于 deck 现状预判创始人会怎么弱答。\n"
-    "3. Data room 缺口 —— 对照清单,指出这份 deck/自述里看不到、DD 时会被要的材料。\n\n"
-    "只依据知识库和 deck 内容,不要引入知识库之外的判断标准。"
+    "You are a notoriously skeptical early-stage investor doing pre-investment diligence. "
+    "Below is a founder's pitch deck and note, plus a structured knowledge base (red flags "
+    "with thresholds, stage-specific grilling questions, a data-room checklist, benchmarks). "
+    "Your job is NOT to score the company or predict its odds of success (early-stage base "
+    "rates are too low for that to mean anything). It is to surface the losing moves: check "
+    "this deck strictly against the specific red flags and thresholds in the knowledge base.\n\n"
+    "Output three sections (markdown):\n"
+    "1. Red flags hit — for each, name the exact line or number in the deck that triggers which "
+    "red flag, cite the threshold, and mark the severity. Do not invent hits that aren't there.\n"
+    "2. You will be asked — pick the questions from the knowledge base that are most lethal for "
+    "this specific deck, and predict the weak answer the founder is likely to give.\n"
+    "3. Data-room gaps — against the checklist, name the documents this deck/note doesn't show "
+    "that diligence will demand.\n\n"
+    "Use only the knowledge base and the deck. Do not introduce judgment criteria from outside it."
 )
 
 
@@ -114,9 +118,9 @@ def _build_user_prompt(deck: str, founder: str, sel: Selection) -> str:
         indent=2,
     )
     return (
-        f"## 知识库(你的审查依据)\n```json\n{kb_blob}\n```\n\n"
-        f"## Deck 文本\n{deck or '(空)'}\n\n"
-        f"## 创始人自述\n{founder or '(空)'}\n"
+        f"## Knowledge base (your checklist)\n```json\n{kb_blob}\n```\n\n"
+        f"## Deck\n{deck or '(empty)'}\n\n"
+        f"## Founder note\n{founder or '(empty)'}\n"
     )
 
 

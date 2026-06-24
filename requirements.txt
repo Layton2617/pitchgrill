@@ -1,4 +1,4 @@
 pyyaml>=6.0
 anthropic>=0.40.0
-# 可选:解析 PDF deck。缺它时 CLI 会提示改用 .txt,不会崩。
+# Optional: parse PDF decks. Without it the CLI tells you to use .txt; it won't crash.
 pypdf>=4.0

@@ -1,14 +1,15 @@
-"""校验 KB 里所有来源 URL 的存活,可选地剔除死链。
+"""Check that every source URL in the KB is still live; optionally drop dead links.
 
-KB 由 LLM 生成,深链(带路径的文章 URL)约有 1-2 成是编错的 slug。阈值/实质内容
-通常没问题,坏的是 URL 精确路径,所以这步只动 sources、不动条目本身。
+Deep links (article URLs with a path) can have wrong slugs. Thresholds and substance are
+usually fine; what breaks is the exact URL path, so this only touches `sources`, never the
+items themselves.
 
-用法:
-    python scripts/check_sources.py kb_raw.json            # 只报告
-    python scripts/check_sources.py kb_raw.json --strip    # 删掉死链并写回
+Usage:
+    python scripts/check_sources.py kb_raw.json            # report only
+    python scripts/check_sources.py kb_raw.json --strip    # drop dead links, write back
 
-存活判定:200/3xx/401/403/429 视为真实(403/429 多是站点拦爬虫);404/410 及
-两次重试后仍连不通(000)视为死链。--strip 后记得重新 `explode_kb.py` 落盘。
+Live: 200/3xx/401/403/429 (403/429 are usually bot-blocks, not dead). Dead: 404/410 and
+anything still unreachable after a retry (000). After --strip, re-run explode_kb.py.
 """
 import argparse
 import json
@@ -43,9 +44,9 @@ def _check(url: str) -> tuple:
 
 
 def main(argv=None) -> int:
-    ap = argparse.ArgumentParser(description="校验 KB 来源 URL 存活")
-    ap.add_argument("kb_json", help="KB JSON(含 cells[].items[].sources)")
-    ap.add_argument("--strip", action="store_true", help="删掉死链并写回 JSON")
+    ap = argparse.ArgumentParser(description="Check that KB source URLs are live")
+    ap.add_argument("kb_json", help="KB JSON (with cells[].items[].sources)")
+    ap.add_argument("--strip", action="store_true", help="drop dead links and write back")
     args = ap.parse_args(argv)
 
     data = json.loads(open(args.kb_json, encoding="utf-8").read())

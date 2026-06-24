@@ -1,6 +1,6 @@
-"""加载 kb/ 下所有 yaml,建内存索引,提供按维度过滤的查询。
+"""Load every yaml under kb/, build an in-memory index, and filter by dimension.
 
-general wedge 的条目对所有 wedge 适用;指定 wedge 时叠加该 wedge 专属条目。
+`general` wedge items apply to every wedge; passing a wedge stacks its niche items on top.
 """
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ KB_ROOT = REPO_ROOT / "kb"
 
 GENERAL = "general"
 
-# type -> 落盘子目录
+# type -> subdirectory on disk
 TYPE_DIRS = {
     "red_flag": "red_flags",
     "grilling": "grilling",
@@ -74,7 +74,7 @@ def load_kb(root: Path | None = None) -> KB:
             cell = yaml.safe_load(yf.read_text(encoding="utf-8")) or {}
             wedge = cell.get("wedge", GENERAL)
             for item in cell.get("items") or []:
-                # benchmark 的 item 没有 wedge 字段时,从 cell 继承
+                # benchmark items have no per-item wedge; inherit it from the cell
                 item.setdefault("wedge", wedge)
                 bucket.append(item)
     return kb
@@ -84,7 +84,7 @@ def _stage_match(item: dict, stage: str | None) -> bool:
     if stage is None:
         return True
     stages = item.get("stage")
-    if not stages:  # 没标 stage 视为通用
+    if not stages:  # no stage tag means it applies to all stages
         return True
     return stage in stages
 

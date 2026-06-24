@@ -1,6 +1,6 @@
-"""把一个 KB JSON 文件按 cell 落盘成 kb/<type 复数>/<cell>.yaml。
+"""Explode a KB JSON file into kb/<type>/<cell>.yaml, one file per cell.
 
-用法:python scripts/explode_kb.py <kb.json>
+Usage: python scripts/explode_kb.py <kb.json>
 """
 import json
 import re
@@ -39,7 +39,7 @@ def main(argv: list[str]) -> int:
     written = 0
     skipped = []
 
-    seen = {}  # (dir, filename) -> count, 防止 cell 名 sanitize 后撞车
+    seen = {}  # (dir, filename) -> count, avoids collisions after sanitizing cell names
     for cell in cells:
         ctype = cell.get("type")
         subdir = TYPE_DIRS.get(ctype)
