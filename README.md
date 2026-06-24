@@ -8,6 +8,14 @@ It is not a scorer. It does not predict your odds of success (early-stage base r
 
 > 中文说明见文末。
 
+## Use it in your browser — no install
+
+**→ [layton2617.github.io/pitchgrill](https://layton2617.github.io/pitchgrill/)**
+
+Pick your stage and sector and you immediately see the red flags, the questions you'll be asked, and the data-room documents you'll need. No signup, no API key, nothing to install. Paste your deck to sharpen the ranking. If you have an Anthropic API key, you can also get a line-by-line read of your specific deck, run entirely in your browser.
+
+The rest of this README is for running it locally or from the command line.
+
 ## Why not just ask ChatGPT
 
 Paste your deck into a chatbot and you get polite, generic encouragement. pitchgrill ships a **structured knowledge base** that pins down what investors actually look for, as checkable rules:
@@ -97,6 +105,7 @@ To rebuild `kb/` from a single JSON file, or to re-check that every cited source
 ```bash
 python scripts/explode_kb.py kb.json              # JSON -> kb/*.yaml
 python scripts/check_sources.py kb.json --strip   # drop dead source links
+python scripts/build_web.py                        # rebuild docs/kb.json for the web page
 ```
 
 ## License

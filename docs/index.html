@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pitchgrill — get grilled before the VCs do</title>
+<meta name="description" content="Pick your stage and see the red flags, investor questions, and data-room gaps that kill fundraising. No install, no signup.">
+<style>
+  :root {
+    --ink: #1a1714;
+    --muted: #6b635c;
+    --line: #e7e2db;
+    --bg: #faf8f5;
+    --card: #ffffff;
+    --ember: #c8401c;
+    --kill: #c8401c;
+    --major: #c77d12;
+    --minor: #8a8278;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.6 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px 80px; }
+  header { padding: 48px 0 24px; }
+  h1 { font-size: 34px; margin: 0 0 6px; letter-spacing: -0.02em; }
+  h1 .dot { color: var(--ember); }
+  .tag { color: var(--muted); font-size: 17px; margin: 0; }
+  .lede { margin: 18px 0 0; max-width: 640px; }
+  .panel {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 20px; margin: 28px 0;
+  }
+  .controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 620px) { .controls { grid-template-columns: 1fr; } }
+  label { display: block; font-size: 13px; color: var(--muted); margin: 0 0 5px; font-weight: 600; }
+  select, textarea, input[type=password] {
+    width: 100%; padding: 9px 11px; border: 1px solid var(--line); border-radius: 8px;
+    background: #fff; color: var(--ink); font: inherit;
+  }
+  textarea { margin-top: 14px; min-height: 120px; resize: vertical; }
+  button {
+    background: var(--ember); color: #fff; border: 0; border-radius: 8px;
+    padding: 11px 20px; font: 600 15px/1 inherit; cursor: pointer; margin-top: 16px;
+  }
+  button:hover { background: #a8330f; }
+  button.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+  button.ghost:hover { background: #f3efe9; }
+  .hint { font-size: 13px; color: var(--muted); margin-top: 8px; }
+  .section { margin: 34px 0 0; }
+  .section h2 { font-size: 20px; margin: 0 0 4px; }
+  .section .sub { color: var(--muted); font-size: 14px; margin: 0 0 14px; }
+  .item { border-top: 1px solid var(--line); padding: 16px 0; }
+  .item:first-of-type { border-top: 0; }
+  .badge {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+    padding: 2px 7px; border-radius: 5px; color: #fff; vertical-align: 2px; margin-right: 8px;
+  }
+  .b-kill { background: var(--kill); }
+  .b-major { background: var(--major); }
+  .b-minor { background: var(--minor); }
+  .item .title { font-weight: 600; }
+  .item .meta { font-size: 14px; color: var(--ink); margin: 6px 0 0; }
+  .item .meta b { color: var(--muted); font-weight: 600; }
+  .item .src { font-size: 12px; color: var(--muted); margin-top: 6px; word-break: break-all; }
+  .q { font-weight: 600; margin: 0 0 6px; }
+  .ans { font-size: 14px; margin: 3px 0; }
+  .ans.s { color: #2f6b3a; }
+  .ans.w { color: #9a3526; }
+  details { margin-top: 16px; }
+  summary { cursor: pointer; font-weight: 600; color: var(--muted); }
+  .empty { color: var(--muted); font-style: italic; }
+  pre.analysis { white-space: pre-wrap; background: #fff7f3; border: 1px solid #f0d8cd;
+    border-radius: 8px; padding: 16px; font: 14px/1.6 inherit; }
+  footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--line);
+    color: var(--muted); font-size: 14px; }
+  a { color: var(--ember); }
+  .keyrow { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: end; }
+  @media (max-width: 620px) { .keyrow { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>pitchgrill<span class="dot">.</span></h1>
+    <p class="tag">Get grilled before the VCs do.</p>
+    <p class="lede">Pick your stage and sector. You will see the red flags an investor docks
+      you for, the questions that catch founders out, and the data-room documents diligence
+      will ask for. No install, no signup. Paste your deck to sharpen the ranking.</p>
+  </header>
+
+  <div class="panel">
+    <div class="controls">
+      <div>
+        <label for="stage">Stage</label>
+        <select id="stage">
+          <option value="pre-seed">Pre-seed</option>
+          <option value="seed" selected>Seed</option>
+          <option value="series-a">Series A</option>
+        </select>
+      </div>
+      <div>
+        <label for="sector">Sector</label>
+        <select id="sector">
+          <option value="">— any —</option>
+          <option value="saas">SaaS</option>
+          <option value="marketplace">Marketplace</option>
+          <option value="fintech">Fintech</option>
+          <option value="ai-infra">AI infra</option>
+          <option value="dev-tools">Dev tools</option>
+          <option value="consumer">Consumer</option>
+          <option value="healthtech">Healthtech</option>
+          <option value="hardware">Hardware</option>
+        </select>
+      </div>
+      <div>
+        <label for="wedge">Focus</label>
+        <select id="wedge">
+          <option value="general">General</option>
+          <option value="cross-border-cn">Cross-border (China &rarr; USD)</option>
+          <option value="ai-dev-tools">AI / dev tools</option>
+        </select>
+      </div>
+    </div>
+    <label for="deck" style="margin-top:14px">Your deck or pitch (optional — improves ranking)</label>
+    <textarea id="deck" placeholder="Paste your deck text, one-pager, or a few sentences about the company..."></textarea>
+    <button id="run">Show me what VCs will hit</button>
+
+    <details>
+      <summary>Have an Anthropic API key? Get a line-by-line analysis of your deck</summary>
+      <p class="hint">This runs entirely in your browser. Your key is sent only to Anthropic,
+        never stored and never sent anywhere else. Get a key at console.anthropic.com.</p>
+      <div class="keyrow">
+        <div>
+          <label for="key">Anthropic API key (sk-ant-...)</label>
+          <input type="password" id="key" placeholder="sk-ant-...">
+        </div>
+        <button class="ghost" id="analyze">Run AI analysis</button>
+      </div>
+      <div id="analysis"></div>
+    </details>
+  </div>
+
+  <div id="out"></div>
+
+  <footer>
+    Not a score. It does not predict your odds of success (early-stage base rates are too low) —
+    it surfaces the losing moves. Open source:
+    <a href="https://github.com/Layton2617/pitchgrill">github.com/Layton2617/pitchgrill</a>.
+    Every rule is editable YAML you can read and change.
+  </footer>
+</div>
+
+<script>
+const CAPS = { red_flags: 15, grilling: 10, data_room: 24, deck_lints: 8, benchmarks: 12 };
+const SEV = { kill: 0, major: 1, minor: 2 };
+let KB = null;
+
+const $ = id => document.getElementById(id);
+const esc = s => (s == null ? "" : String(s)).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+
+function terms(t) {
+  const m = (t || "").toLowerCase().match(/[a-z]{4,}/g) || [];
+  return new Set(m);
+}
+function overlap(item, dt) {
+  if (!dt.size) return 0;
+  const blob = ["title","threshold","detect","why","question","weak_answer","issue","fix","metric","red_flag","document","note"]
+    .map(k => item[k] || "").join(" ");
+  let n = 0;
+  for (const w of terms(blob)) if (dt.has(w)) n++;
+  return n;
+}
+function stageMatch(it, stage) {
+  const s = it.stage;
+  if (!s || !s.length) return true;
+  return s.includes(stage);
+}
+function wedgeMatch(it, wedge) {
+  const iw = it.wedge || "general";
+  return iw === "general" || iw === wedge;
+}
+function pick(bucket, { stage, wedge, sector }) {
+  return (KB[bucket] || []).filter(it => {
+    if (!stageMatch(it, stage)) return false;
+    if (!wedgeMatch(it, wedge)) return false;
+    if (bucket === "benchmarks" && sector && it.sector !== sector) return false;
+    return true;
+  });
+}
+function srcLine(it) {
+  const s = (it.sources || []).filter(Boolean);
+  return s.length ? `<div class="src">${esc(s.join("  ·  "))}</div>` : "";
+}
+
+function render() {
+  const stage = $("stage").value, wedge = $("wedge").value, sector = $("sector").value;
+  const dt = terms($("deck").value);
+
+  let rf = pick("red_flags", { stage, wedge, sector })
+    .sort((a, b) => overlap(b, dt) - overlap(a, dt) || (SEV[a.severity] ?? 9) - (SEV[b.severity] ?? 9))
+    .slice(0, CAPS.red_flags);
+  let gr = pick("grilling", { stage, wedge, sector })
+    .sort((a, b) => overlap(b, dt) - overlap(a, dt)).slice(0, CAPS.grilling);
+  let drAll = pick("data_room", { stage, wedge, sector });
+  let dr = drAll.filter(d => d.required).concat(drAll.filter(d => !d.required)).slice(0, CAPS.data_room);
+  let bm = pick("benchmarks", { stage, wedge, sector }).slice(0, CAPS.benchmarks);
+  let dl = pick("deck_lints", { stage, wedge, sector }).sort((a, b) => overlap(b, dt) - overlap(a, dt)).slice(0, CAPS.deck_lints);
+
+  const out = [];
+
+  out.push(`<div class="section"><h2>Red flags</h2><p class="sub">What an investor docks you for in diligence.</p>`);
+  out.push(rf.length ? rf.map(f => {
+    const cls = { kill: "b-kill", major: "b-major", minor: "b-minor" }[f.severity] || "b-minor";
+    const lbl = (f.severity || "?").toUpperCase();
+    return `<div class="item"><div class="title"><span class="badge ${cls}">${lbl}</span>${esc(f.title || f.id)}</div>
+      ${f.threshold ? `<p class="meta"><b>threshold:</b> ${esc(f.threshold)}</p>` : ""}
+      ${f.why ? `<p class="meta">${esc(f.why)}</p>` : ""}
+      ${f.detect ? `<p class="meta"><b>how to spot:</b> ${esc(f.detect)}</p>` : ""}
+      ${srcLine(f)}</div>`;
+  }).join("") : `<p class="empty">Nothing for this combination.</p>`);
+  out.push(`</div>`);
+
+  out.push(`<div class="section"><h2>You will be asked</h2><p class="sub">The questions most likely to catch you out — and the answer that gives you away.</p>`);
+  out.push(gr.length ? gr.map(g => `<div class="item">
+      <p class="q">${esc(g.question || g.id)} <span style="color:var(--muted);font-weight:400">· ${esc(g.theme || "")}</span></p>
+      ${g.strong_answer ? `<p class="ans s">✔ ${esc(g.strong_answer)}</p>` : ""}
+      ${g.weak_answer ? `<p class="ans w">✘ ${esc(g.weak_answer)}</p>` : ""}
+      ${srcLine(g)}</div>`).join("") : `<p class="empty">Nothing for this combination.</p>`);
+  out.push(`</div>`);
+
+  out.push(`<div class="section"><h2>Data room you'll need</h2><p class="sub">Documents diligence will ask for. Must-haves first.</p>`);
+  out.push(dr.length ? dr.map(d => `<div class="item">
+      <div class="title">${d.required ? `<span class="badge b-major">MUST</span>` : ""}${esc(d.document || d.id)}</div>
+      ${d.note ? `<p class="meta">${esc(d.note)}</p>` : ""}
+      ${d.category ? `<p class="src">${esc(d.category)}</p>` : ""}</div>`).join("") : `<p class="empty">Nothing for this combination.</p>`);
+  out.push(`</div>`);
+
+  if (bm.length) {
+    out.push(`<div class="section"><details><summary>Metric benchmarks (${bm.length})</summary>`);
+    out.push(bm.map(b => `<div class="item"><div class="title">${esc(b.metric || "")} <span style="color:var(--muted);font-weight:400">· ${esc(b.sector || "")}</span></div>
+      ${b.healthy ? `<p class="meta"><b>healthy:</b> ${esc(b.healthy)}</p>` : ""}
+      ${b.red_flag ? `<p class="meta"><b>red line:</b> ${esc(b.red_flag)}</p>` : ""}
+      ${srcLine(b)}</div>`).join(""));
+    out.push(`</details></div>`);
+  }
+  if (dl.length) {
+    out.push(`<div class="section"><details><summary>Deck mistakes to fix (${dl.length})</summary>`);
+    out.push(dl.map(d => `<div class="item"><div class="title">${esc(d.issue || d.id)}</div>
+      ${d.why ? `<p class="meta">${esc(d.why)}</p>` : ""}
+      ${d.fix ? `<p class="meta"><b>fix:</b> ${esc(d.fix)}</p>` : ""}</div>`).join(""));
+    out.push(`</details></div>`);
+  }
+
+  $("out").innerHTML = out.join("");
+  $("out").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+const SYSTEM = "You are a notoriously skeptical early-stage investor doing pre-investment diligence. "
+  + "Below is a founder's pitch deck and a structured knowledge base (red flags with thresholds, "
+  + "stage-specific grilling questions, a data-room checklist, benchmarks). Your job is NOT to score "
+  + "the company or predict odds of success. It is to surface the losing moves: check this deck strictly "
+  + "against the specific red flags and thresholds in the knowledge base.\n\n"
+  + "Output three sections (markdown):\n"
+  + "1. Red flags hit — for each, name the exact line or number in the deck that triggers which red flag, "
+  + "cite the threshold, mark severity. Do not invent hits that aren't there.\n"
+  + "2. You will be asked — pick the questions most lethal for this specific deck and predict the weak "
+  + "answer the founder is likely to give.\n"
+  + "3. Data-room gaps — name the documents this deck doesn't show that diligence will demand.\n\n"
+  + "Use only the knowledge base and the deck. Do not introduce criteria from outside it.";
+
+function mdLite(t) {
+  return esc(t)
+    .replace(/^### (.*)$/gm, "<b>$1</b>")
+    .replace(/^## (.*)$/gm, "<b>$1</b>")
+    .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
+}
+
+async function analyze() {
+  const key = $("key").value.trim();
+  const deck = $("deck").value.trim();
+  const box = $("analysis");
+  if (!key) { box.innerHTML = `<p class="hint">Paste an API key first.</p>`; return; }
+  if (!deck) { box.innerHTML = `<p class="hint">Paste your deck in the box above first.</p>`; return; }
+  box.innerHTML = `<p class="hint">Running… this takes ~20s.</p>`;
+
+  const stage = $("stage").value, wedge = $("wedge").value, sector = $("sector").value;
+  const subset = {
+    red_flags: pick("red_flags", { stage, wedge, sector }),
+    grilling: pick("grilling", { stage, wedge, sector }),
+    data_room: pick("data_room", { stage, wedge, sector }),
+    benchmarks: pick("benchmarks", { stage, wedge, sector }),
+  };
+  const user = "## Knowledge base (your checklist)\n```json\n" + JSON.stringify(subset)
+    + "\n```\n\n## Deck\n" + deck;
+  try {
+    const r = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "x-api-key": key,
+        "anthropic-version": "2023-06-01",
+        "anthropic-dangerous-direct-browser-access": "true",
+      },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-6",
+        max_tokens: 4000,
+        system: SYSTEM,
+        messages: [{ role: "user", content: user }],
+      }),
+    });
+    const data = await r.json();
+    if (!r.ok) { box.innerHTML = `<p class="hint">Error: ${esc((data.error && data.error.message) || r.status)}</p>`; return; }
+    const text = (data.content || []).filter(b => b.type === "text").map(b => b.text).join("");
+    box.innerHTML = `<pre class="analysis">${mdLite(text)}</pre>`;
+  } catch (e) {
+    box.innerHTML = `<p class="hint">Request failed: ${esc(e.message)}</p>`;
+  }
+}
+
+$("run").addEventListener("click", render);
+$("analyze").addEventListener("click", analyze);
+
+fetch("kb.json").then(r => r.json()).then(d => { KB = d; render(); })
+  .catch(() => { $("out").innerHTML = `<p class="empty">Could not load the knowledge base.</p>`; });
+</script>
+</body>
+</html>
