@@ -158,6 +158,8 @@
       <b>Privacy:</b> in no-key mode nothing leaves your browser; with a key, your deck goes only to api.anthropic.com
       (not stored, no analytics, no server of ours in the middle).</p>
     <button id="run">Show me what VCs will hit</button>
+    <button id="demo" class="ghost" style="display:none;margin-left:8px">Run AI analysis — free demo, no key</button>
+    <div id="demoout"></div>
 
     <details>
       <summary>Have an Anthropic API key? Get a line-by-line analysis of your deck</summary>
@@ -207,6 +209,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 const CAPS = { red_flags: 15, grilling: 10, data_room: 24, deck_lints: 8, benchmarks: 12 };
+const DEMO_ENDPOINT = ""; /* set to your Cloudflare Worker URL to enable the keyless free demo — see serverless/README.md */
 const SEV = { kill: 0, major: 1, minor: 2 };
 let KB = null;
 if (window.pdfjsLib) pdfjsLib.GlobalWorkerOptions.workerSrc =
@@ -496,10 +499,32 @@ function grade() {
   $("gradeout").scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
+async function runDemo() {
+  const box = $("demoout");
+  const deck = $("deck").value.trim();
+  if (!deck && !window._deckB64) { box.innerHTML = `<p class="hint">Add your deck first — upload a PDF or paste text.</p>`; return; }
+  box.innerHTML = `<p class="hint">Running the free demo… ~20s.</p>`;
+  const payload = {
+    stage: $("stage").value, sector: $("sector").value, wedge: $("wedge").value,
+    deck: window._deckB64 ? "" : deck, pdfBase64: window._deckB64 || "",
+  };
+  try {
+    const r = await fetch(DEMO_ENDPOINT, {
+      method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(payload),
+    });
+    const data = await r.json();
+    if (!r.ok) { box.innerHTML = `<p class="hint">${esc(data.error || ("error " + r.status))}</p>`; return; }
+    box.innerHTML = `<pre class="analysis">${mdLite(data.analysis || "")}</pre>`;
+  } catch (e) {
+    box.innerHTML = `<p class="hint">Request failed: ${esc(e.message)}</p>`;
+  }
+}
+
 $("run").addEventListener("click", render);
 $("analyze").addEventListener("click", analyze);
 $("file").addEventListener("change", e => handleFile(e.target.files[0]));
 $("grade").addEventListener("click", grade);
+if (DEMO_ENDPOINT) { $("demo").style.display = ""; $("demo").addEventListener("click", runDemo); }
 
 if (window.KB_INLINE) { KB = window.KB_INLINE; render(); }
 else {

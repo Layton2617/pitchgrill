@@ -1,0 +1,19 @@
+name = "pitchgrill-demo"
+main = "worker.js"
+compatibility_date = "2026-06-01"
+
+[vars]
+ALLOWED_ORIGIN = "https://layton2617.github.io"
+KB_URL = "https://layton2617.github.io/pitchgrill/kb.json"
+MODEL = "claude-sonnet-4-6"
+PER_IP_PER_DAY = "3"
+GLOBAL_PER_DAY = "100"
+
+# Rate-limit counter store. Create it once and paste the id below:
+#   wrangler kv namespace create RL
+[[kv_namespaces]]
+binding = "RL"
+id = "PUT_YOUR_KV_NAMESPACE_ID_HERE"
+
+# ANTHROPIC_API_KEY is a secret, not a var — set it with:
+#   wrangler secret put ANTHROPIC_API_KEY

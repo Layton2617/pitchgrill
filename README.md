@@ -14,6 +14,8 @@ It is not a scorer. It does not predict your odds of success (early-stage base r
 
 Pick your stage and sector and you immediately see the red flags, the questions you'll be asked, and the data-room documents you'll need. No signup, no API key, nothing to install. Upload your deck PDF (or paste text) to sharpen the ranking. With an Anthropic API key you also get a line-by-line read of your specific deck — image-heavy PDFs included — run entirely in your browser.
 
+Want visitors to run the AI analysis **without their own key**? Deploy the optional Cloudflare Worker in [`serverless/`](serverless/) — it holds your key server-side, rate-limited so a public endpoint can't run up your bill.
+
 The rest of this README is for running it locally or from the command line.
 
 ## Why not just ask ChatGPT
