@@ -1,0 +1,188 @@
+cell: rf:consumer
+type: red_flag
+wedge: general
+items:
+- id: consumer-retention-curve-no-flatten
+  sector: consumer
+  domain: retention/engagement
+  title: Retention curve never flattens (no plateau)
+  why: 'For consumer apps the single most predictive metric is whether the retention
+    curve asymptotes to a horizontal line — a stable cohort of users who keep coming
+    back. A curve that decays toward zero means you have a ''leaky bucket'': every
+    dollar of acquisition buys a temporary user, and growth is purely paid-driven
+    with no compounding base. Consumer investors will reject decks that show only
+    top-line MAU growth while hiding cohort retention, because masking a non-flattening
+    curve with fresh acquisition is the classic consumer trap.'
+  severity: kill
+  detect: Ask for the cohort retention chart (day/week/month N retention by signup
+    cohort). Look for a flattening tail. If only cumulative MAU/downloads are shown,
+    treat the absence of cohort curves as the red flag itself.
+  threshold: 'Industry-typical benchmarks: consumer social/utility apps often need
+    a Month-1 retention plateau above ~25-35% and a curve that visibly flattens by
+    Month 3-6; subscription consumer products look for the curve to stabilize rather
+    than a fixed number.'
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - a16z.com
+  - ycombinator.com/library
+- id: consumer-cac-payback-blended-masking
+  sector: consumer
+  domain: unit economics / growth
+  title: Blended CAC hides that paid channels don't pay back
+  why: Consumer founders frequently report 'blended CAC' that averages cheap organic/viral
+    users with expensive paid users, making acquisition look efficient. Consumer investors
+    specifically separate organic from paid and look at fully-loaded paid CAC against
+    contribution-margin LTV. If paid channels alone don't pay back in a reasonable
+    window, the business can't scale beyond the organic ceiling — and organic almost
+    never scales linearly with spend.
+  severity: major
+  detect: Request CAC split by channel (organic vs paid), fully-loaded (including
+    creative, discounts, referral incentives). Compute paid-only CAC payback against
+    gross-margin-adjusted LTV. Check whether marketing spend is rising faster than
+    new-user growth (deteriorating marginal CAC).
+  threshold: 'Industry-typical: consumer subscription targets ~12 month CAC payback
+    or better and LTV:CAC ~3:1, but these are heuristics, not absolutes; marginal
+    (not average) paid CAC is what matters.'
+  stage:
+  - seed
+  - series-a
+- id: consumer-no-organic-acquisition
+  sector: consumer
+  domain: distribution / growth loops
+  title: No organic or viral acquisition loop — 100% paid
+  why: 'Great consumer companies have a structural growth loop (virality, SEO/UGC,
+    network effects, word-of-mouth) so that a meaningful share of new users arrive
+    for free. A consumer product that acquires essentially all users through paid
+    ads has no defensible distribution moat: rising auction costs and platform dependence
+    (Meta/Google/TikTok) cap the outcome and compress margins over time. Consumer
+    investors specifically probe the K-factor / organic mix because paid-only consumer
+    businesses rarely become venture-scale.'
+  severity: major
+  detect: 'Ask: what fraction of new users are organic/referred/word-of-mouth? Is
+    there a measurable viral coefficient (K) or a self-reinforcing loop? Check sensitivity
+    of growth to ad-spend cuts. Heavy reliance on a single ad platform is a compounding
+    flag.'
+  threshold: 'Industry-typical: a viral coefficient K>1 means self-sustaining growth
+    (rare); strong consumer apps often show 30%+ of installs from organic/referral.
+    Treat numbers as directional.'
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - a16z.com
+- id: consumer-marketplace-leakage
+  sector: consumer
+  domain: marketplace dynamics
+  title: Disintermediation / leakage after first match
+  why: For consumer marketplaces, the existential risk is that buyers and sellers
+    transact once on-platform then take the relationship off-platform to dodge fees
+    — especially in high-value, repeat, relationship-based categories (home services,
+    tutoring, freelance). Leakage destroys take-rate and GMV retention while your
+    CAC paid for a customer the platform no longer monetizes. Consumer/marketplace
+    investors specifically interrogate why a repeat buyer would keep paying the platform.
+  severity: kill
+  detect: Look at repeat GMV per matched pair over time and the ratio of repeat to
+    first transactions. Ask what on-platform value (payments, trust/escrow, scheduling,
+    dispute resolution, discovery) retains the relationship. High-ticket + repeat
+    + low platform-embedded-value = high leakage risk.
+  threshold: 'Industry-typical: take-rate of roughly 10-20% is common, but the real
+    signal is whether repeat transactions stay on-platform; declining take-rate or
+    falling repeat share signals leakage.'
+  stage:
+  - seed
+  - series-a
+  sources:
+  - a16z.com
+  - bvp.com
+- id: consumer-marketplace-one-sided-liquidity
+  sector: consumer
+  domain: marketplace dynamics
+  title: One-sided liquidity / chicken-and-egg not solved
+  why: 'Consumer marketplaces fail when one side is starved: too few sellers means
+    buyers churn (no inventory), too few buyers means sellers churn (no demand). Investors
+    look for evidence of liquidity in a constrained beachhead (a city, a category,
+    a campus) rather than thin coverage everywhere. A founder bragging about national
+    GMV with no dense, liquid market segment is a classic consumer-marketplace red
+    flag.'
+  severity: major
+  detect: 'Ask for liquidity metrics within a constrained market: search-to-fill rate,
+    % of listings that transact, time-to-first-response, buyer-to-active-seller ratio.
+    Geographic/category concentration of GMV is good; thin national spread is a flag.'
+  threshold: 'Industry-typical: marketplaces target a high fill/match rate in their
+    dense markets (e.g., majority of requests filled); exact numbers vary by vertical.'
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - a16z.com
+  - bvp.com
+- id: consumer-subscription-churn-trial-illusion
+  sector: consumer
+  domain: subscription economics
+  title: High involuntary/early churn masked by trials and annual prepay
+  why: Consumer subscription decks often headline subscriber counts inflated by free
+    trials and discounted intro offers, then suffer steep churn at first true renewal.
+    Consumer investors specifically separate trial conversion, month-1 post-conversion
+    churn, and involuntary churn (failed payments). Monthly consumer churn compounds
+    brutally — modest-sounding monthly numbers imply most subscribers gone within
+    a year.
+  severity: major
+  detect: 'Ask for: trial-to-paid conversion, churn at first paid renewal vs steady-state,
+    monthly vs annual plan mix, and involuntary (payment-failure) churn. Beware metrics
+    that count trial users as ''subscribers'' or that lean on annual prepay to hide
+    monthly retention.'
+  threshold: 'Industry-typical: consumer subscription monthly churn under ~5% is considered
+    healthy; above ~5-8%/month is a concern. Trial-to-paid varies widely by category.'
+  stage:
+  - seed
+  - series-a
+- id: consumer-brand-margin-cac-trap
+  sector: consumer
+  domain: DTC / physical product economics
+  title: DTC gross margins too thin to absorb CAC and returns
+  why: For consumer physical/DTC brands, contribution margin after COGS, shipping,
+    payment fees, and returns must comfortably exceed CAC, or the brand simply buys
+    revenue at a loss. Investors specifically dock DTC startups whose first-order
+    economics are underwater and who depend on assumed repeat purchase to ever turn
+    profitable. Free shipping and generous returns quietly destroy margin in apparel/food
+    categories.
+  severity: major
+  detect: Compute contribution margin per order fully loaded (COGS + shipping + payment
+    + returns/refunds + fulfillment) vs first-order CAC. Check repeat-purchase rate
+    and whether profitability relies on unproven future repeat. Returns rate in apparel
+    can be a silent killer.
+  threshold: 'Industry-typical: DTC brands often aim for ~60-70%+ gross margin before
+    marketing and contribution-positive on first order, or fast repeat to recover
+    CAC; treat as heuristics.'
+  stage:
+  - seed
+  - series-a
+- id: consumer-platform-dependency-distribution-risk
+  sector: consumer
+  domain: platform / channel risk
+  title: Existential dependence on a single platform (App Store, TikTok, Meta, Google)
+  why: Consumer growth often rides on a gatekeeper — Apple/Google app stores (30%
+    tax, ATT privacy changes), or a single algorithmic feed (TikTok/Meta) for both
+    acquisition and engagement. Consumer investors specifically probe this because
+    platform policy or algorithm shifts (e.g., iOS ATT gutting ad targeting) can erase
+    a consumer company's economics overnight. Concentration in one acquisition or
+    distribution channel is a sector-specific structural risk.
+  severity: major
+  detect: Map % of users/revenue/acquisition dependent on each platform. Ask about
+    exposure to app-store fees, ATT/privacy-driven attribution loss, and algorithm/policy
+    changes. Single-channel dependence (>~70% from one source) plus no owned audience
+    (email/SMS) is the flag.
+  threshold: 'Industry-typical: investors get cautious when a single platform drives
+    the majority of acquisition or revenue and there''s no owned/direct channel as
+    a hedge.'
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - a16z.com

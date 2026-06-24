@@ -1,0 +1,155 @@
+cell: gr:saas
+type: grilling
+wedge: general
+items:
+- id: saas-01
+  sector: saas
+  theme: Net Revenue Retention vs Gross Retention
+  question: What's your net revenue retention, and separately your gross dollar retention
+    — and how much of NRR is upsell from a small number of accounts?
+  strong_answer: 'Founder gives both numbers and understands the difference: e.g.
+    ''Gross dollar retention is 90% (churn + downgrades), NRR is 118% driven by seat
+    expansion in our mid-market cohort, not one whale.'' They can decompose NRR into
+    logo retention, downgrade, and expansion, show it''s broad-based across the cohort,
+    and note that NRR above ~120% is industry-typical for top expansion-motion SaaS
+    while gross retention below ~85% (SMB) or ~90% (enterprise) signals a leaky bucket.'
+  weak_answer: 'Founder quotes only a single ''retention'' number, conflates NRR with
+    logo retention, or proudly cites 130% NRR while their gross retention is 75% —
+    meaning they''re masking heavy churn with a couple of expanding accounts. Worse:
+    they don''t know gross dollar retention at all, or count expansion from a single
+    account as if it were a durable motion.'
+  stage:
+  - seed
+  - series-a
+  sources: []
+- id: saas-02
+  sector: saas
+  theme: Magic Number / CAC payback as the real growth engine
+  question: What's your CAC payback period and net-new-ARR-per-dollar-of-S&M (magic
+    number), and is it improving or degrading as you scale spend?
+  strong_answer: 'Founder ties go-to-market efficiency to a unit they actually manage:
+    ''CAC payback is ~14 months on a gross-margin basis, magic number ~0.9 and holding
+    as we 3x''d spend.'' They distinguish blended vs paid CAC, compute payback on
+    gross profit (not revenue), and know the rough bars: payback under ~12 months
+    is healthy for SMB, under ~18-24 for enterprise; magic number above ~0.75 justifies
+    pouring in more capital.'
+  weak_answer: 'Founder computes CAC payback on revenue instead of gross profit, uses
+    blended CAC to hide that paid CAC is exploding, or has never calculated a magic
+    number. Tell-tale: ''CAC is low because most growth is organic'' while they''re
+    simultaneously asking to raise to fund a sales team — they can''t say what a marginal
+    sales dollar returns.'
+  stage:
+  - seed
+  - series-a
+- id: saas-03
+  sector: saas
+  theme: ACV / sales motion coherence
+  question: What's your average contract value, and does your sales motion match it
+    — i.e. why are you running an enterprise field sales motion on a $5K ACV product
+    (or self-serve on a $100K product)?
+  strong_answer: 'Founder shows the motion is economically consistent with deal size:
+    low-ACV ($1-10K) → self-serve/PLG or inside sales; mid ($15-50K) → inside sales
+    + SE; high ($75K+) → field sales with longer cycles. They can explain the fully-loaded
+    cost of a rep vs the quota they can carry, and why their ACV supports (or doesn''t
+    yet support) that motion.'
+  weak_answer: Founder is selling a cheap product with expensive humans (a $300K/year
+    AE closing $8K deals) or trying to push a complex, security-reviewed enterprise
+    product purely through a credit-card self-serve funnel. They haven't connected
+    ACV to acceptable CAC, so the motion will never pay back regardless of conversion.
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+- id: saas-04
+  sector: saas
+  theme: Seat-based vs usage-based pricing durability
+  question: Is your revenue seat-based or usage/consumption-based, and what happens
+    to your NRR if customers automate away the very seats or workflows you charge
+    for?
+  strong_answer: 'Founder has thought about the pricing-model risk explicitly. For
+    seat-based: they show expansion isn''t purely headcount-dependent (new use cases,
+    modules). For usage-based: they can show usage is tied to a growing customer value
+    metric, not a cost the customer wants to minimize, and they understand usage-based
+    revenue is harder to forecast and recognizes the down-sell risk in a downturn.
+    In the AI era they directly address whether their product helps customers reduce
+    the headcount that drives their own seat count.'
+  weak_answer: 'Founder picked a pricing model by default (''everyone charges per
+    seat'') with no view on whether the value metric scales with the customer. Especially
+    damning now: an AI-adjacent SaaS that charges per human seat while pitching that
+    it eliminates human work — they can''t explain why a customer who cuts seats won''t
+    cut their bill.'
+  stage:
+  - seed
+  - series-a
+- id: saas-05
+  sector: saas
+  theme: Gross margin reality (true COGS of SaaS)
+  question: What's your gross margin, and what's actually in your COGS — hosting,
+    support, customer success, third-party API/model costs, payment processing?
+  strong_answer: Founder reports software-grade margins (industry-typical ~70-85%)
+    with a correct COGS definition that includes infra, customer support/success allocable
+    to delivery, and any per-transaction third-party costs (e.g. LLM inference, data,
+    payment fees). If margins are lower they explain why (heavy services, AI inference)
+    and the path to improving them. They distinguish gross margin from contribution
+    margin.
+  weak_answer: Founder claims '90%+ margins' but has excluded support, customer success,
+    and especially per-call model/API costs from COGS — so the real margin is 50-60%.
+    Or they don't know their margin at all, or treat hosting as their only COGS line.
+    A heavy-services business dressed up as pure SaaS gives itself away here.
+  stage:
+  - seed
+  - series-a
+- id: saas-06
+  sector: saas
+  theme: Logo vs revenue concentration and SMB churn structure
+  question: What share of ARR is your top 10 accounts, and how does churn differ by
+    segment — are you bleeding SMB logos while quoting blended retention?
+  strong_answer: 'Founder gives segment-level retention: ''SMB logo churn ~3%/month
+    is structural for the segment, so we under-invest there and focus expansion on
+    mid-market where gross retention is 92%.'' They know top-account concentration
+    and have a view on de-risking it. They treat SMB monthly churn as a known cost
+    of that segment rather than a surprise.'
+  weak_answer: Founder presents one blended retention number that hides catastrophic
+    SMB churn under a few stable enterprise logos, or has dangerous concentration
+    (top account >20-30% of ARR) without acknowledging it. They're surprised that
+    4-5% monthly SMB logo churn caps their growth no matter how good acquisition is.
+  stage:
+  - seed
+  - series-a
+- id: saas-07
+  sector: saas
+  theme: Bookings vs ARR vs revenue / contract quality
+  question: When you say ARR, do you mean committed recurring contracts — and how
+    much is annual prepaid vs monthly, multi-year vs auto-renew, with what discount
+    and cancellation terms?
+  strong_answer: 'Founder is rigorous: ARR = recurring, committed run-rate only (excluding
+    one-time services, pilots, and non-recurring usage). They know the mix of annual-prepaid
+    vs monthly, multi-year contracts, and that heavy upfront discounting or generous
+    out-clauses inflates headline ARR. They separate ''bookings'' from ''ARR'' from
+    ''GAAP revenue'' cleanly.'
+  weak_answer: Founder inflates 'ARR' by including one-off implementation fees, non-binding
+    pilots, or annualizing a single big month. Or they've bought growth with steep
+    multi-year discounts and 30-day cancellation clauses, so the 'recurring' revenue
+    isn't actually committed. The conflation of bookings and ARR is the giveaway.
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+- id: saas-08
+  sector: saas
+  theme: Time-to-value / implementation friction
+  question: What's your time-to-first-value and onboarding/implementation effort —
+    and how does that drive your early churn and sales cycle length?
+  strong_answer: 'Founder connects onboarding friction to retention and CAC: ''Median
+    time-to-value is 9 days; accounts that don''t hit our activation milestone in
+    30 days churn 3x more, so onboarding is a retention lever, not a cost center.''
+    For enterprise they quantify implementation length and whether it requires services
+    revenue or professional-services partners, and how that lengthens payback.'
+  weak_answer: Founder treats onboarding as an afterthought, can't name an activation
+    metric, or has a product that requires months of professional services to deliver
+    value but books it as SaaS. They don't connect slow time-to-value to their early-life
+    churn, so they keep filling a bucket that leaks at the top.
+  stage:
+  - pre-seed
+  - seed
+  - series-a

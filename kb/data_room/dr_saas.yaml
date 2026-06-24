@@ -1,0 +1,107 @@
+cell: dr:saas
+type: data_room
+wedge: general
+items:
+- id: saas-saas-metrics-pack
+  sector: saas
+  category: Metrics & Cohorts
+  document: 'SaaS metrics pack: monthly MRR/ARR bridge (new, expansion, contraction,
+    churned), logo and net/gross revenue retention, cohort retention curves by signup
+    month'
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: The single most-requested SaaS artifact. The MRR bridge separating expansion
+    from contraction/churn is what reveals whether growth is real or treadmill. Net
+    revenue retention >100% (industry-typical benchmark, ~110-120% for top performers)
+    is the headline number investors anchor on; under 100% is a near deal-blocker
+    at Series A. Cohort curves expose whether retention flattens (good) or keeps decaying
+    (bad).
+- id: saas-cac-payback-ltv
+  sector: saas
+  category: Unit Economics
+  document: CAC, CAC payback period, and LTV:CAC by channel and segment, with the
+    exact cost components included in CAC (fully-loaded S&M) and the magic number
+    / sales efficiency calculation
+  required: true
+  stage:
+  - seed
+  - series-a
+  note: 'Investors scrutinize how CAC is constructed (fully-loaded vs blended vs paid-only).
+    Industry-typical guardrails: CAC payback under ~12 months, LTV:CAC around 3:1+,
+    magic number above ~0.75. Less load-bearing at pre-seed where there is little
+    spend history, hence stage-scoped to seed/series-a.'
+- id: saas-arr-contract-schedule
+  sector: saas
+  category: Revenue Quality
+  document: 'Contract/subscription schedule: per-customer ACV, contract start/end
+    and renewal dates, billing terms (monthly vs annual prepaid), auto-renew/termination-for-convenience
+    clauses, and customer concentration'
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: Distinguishes recognized ARR from booked-but-cancelable revenue. Month-to-month
+    and termination-for-convenience contracts materially discount ARR quality. Concentration
+    >~20-25% in one logo is a flag. This is specific to subscription businesses vs
+    the generic cap table / financials.
+- id: saas-product-usage-engagement
+  sector: saas
+  category: Product Engagement
+  document: 'Product usage / engagement data: DAU/WAU/MAU and DAU:MAU stickiness,
+    feature adoption depth, seats provisioned vs active, and activation-funnel conversion
+    to the ''aha'' milestone'
+  required: false
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: For SaaS, usage is the leading indicator of retention before it shows up in
+    revenue. DAU:MAU stickiness (industry-typical ~20%+ for engaged tools), seat utilization,
+    and activation rate predict NRR. Important but rarely a hard deal-blocker on its
+    own, so required=false.
+- id: saas-pipeline-sales-funnel
+  sector: saas
+  category: Go-To-Market
+  document: 'Sales pipeline and funnel: lead -> SQL -> opportunity -> closed-won conversion
+    rates, average sales cycle length, ASP/ACV trend, and quota attainment per rep
+    (for sales-led motions)'
+  required: false
+  stage:
+  - seed
+  - series-a
+  note: Shows GTM repeatability and whether the motion scales beyond founder-led sales.
+    Sales cycle length and per-rep ramp/quota attainment indicate whether hiring more
+    reps multiplies revenue. Relevant once a GTM motion exists, hence seed/series-a.
+- id: saas-tech-infra-security
+  sector: saas
+  category: Security & Compliance
+  document: 'Security & compliance posture: SOC 2 (Type I/II) status or roadmap, data
+    processing / sub-processor list, GDPR/DPA terms, uptime SLA history, and architecture/multi-tenancy
+    & data-isolation overview'
+  required: false
+  stage:
+  - seed
+  - series-a
+  note: For B2B SaaS, SOC 2 is increasingly a prerequisite to close enterprise deals;
+    its absence caps the addressable pipeline rather than blocking the round itself.
+    Multi-tenant data isolation and SLA history matter for enterprise diligence. More
+    material once selling upmarket, so seed/series-a.
+- id: saas-gross-margin-cogs
+  sector: saas
+  category: Margins & Infrastructure Cost
+  document: 'SaaS gross margin breakdown: hosting/infrastructure (cloud) spend, third-party
+    API/data costs, customer support and onboarding/implementation costs allocated
+    to COGS'
+  required: false
+  stage:
+  - seed
+  - series-a
+  note: True software gross margin should trend toward ~70-80%+ (industry-typical).
+    Low margins from heavy services, expensive infra, or pass-through third-party
+    API costs (notably AI/LLM inference) signal the business is less 'software-like'
+    than it appears. Distinct from generic P&L because the COGS composition is the
+    diligence point.

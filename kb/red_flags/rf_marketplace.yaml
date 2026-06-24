@@ -1,0 +1,205 @@
+cell: rf:marketplace
+type: red_flag
+wedge: general
+items:
+- id: mkt-leakage-disintermediation
+  sector: marketplace
+  domain: unit economics / retention
+  title: Platform leakage / disintermediation — buyers and sellers transact off-platform
+    after first match
+  why: Once two sides meet, they have an incentive to take repeat business off-platform
+    to avoid the take rate. High-value, low-frequency, relationship-based categories
+    (home services, B2B, freelance, tutoring) are most exposed. Leakage caps LTV,
+    breaks the take-rate model, and means GMV growth overstates the durable business.
+    Investors look for whether the platform adds ongoing value beyond discovery (payments,
+    escrow, scheduling, dispute resolution, insurance, reviews) that makes staying
+    on-platform rational, not just enforced.
+  severity: major
+  detect: Ask for repeat-transaction rate on-platform vs. cohort survival; second-order
+    GMV (transactions 2..N from a matched pair) as a share of total. Look at the ratio
+    of intros/leads to completed on-platform transactions. Check whether contact info
+    is exchanged before payment. Categories with high ticket + low frequency + offline
+    fulfillment are the tell.
+  threshold: 'Industry-typical concern: if a large share (often cited >50%) of repeat
+    business between an already-matched pair happens off-platform, or if on-platform
+    repeat rate is far below the natural category repeat rate.'
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - https://a16z.com/marketplace-100/
+  - https://www.bvp.com/atlas
+- id: mkt-take-rate-mispriced
+  sector: marketplace
+  domain: monetization
+  title: Take rate too low (no real business) or too high (invites disintermediation)
+  why: Take rate is the core monetization lever and there's a narrow viable band per
+    category. Too low and there's no business even at scale; too high and you create
+    the incentive to disintermediate or you suppress supply/demand. The 'right' take
+    rate is category-dependent (digital goods tolerate high rates; high-ticket physical/services
+    tolerate low ones). A founder who can't justify their take rate against the concrete
+    value the platform delivers, or who assumes they can raise it later without churn,
+    is a flag.
+  severity: major
+  detect: 'Ask: what is take rate by category, how was it set, and what value justifies
+    it (trust, payments, demand-gen, logistics)? Model the business at scale at the
+    current rate — does it clear fixed costs? Ask what happens to retention if take
+    rate rises 200-300bps. Compare to category benchmarks.'
+  threshold: 'Industry-typical: blended take rate often cited in a ~10-20% band, but
+    varies widely by category (services/high-ticket far lower, digital far higher);
+    the flag is mismatch with category economics, not an absolute number.'
+  stage:
+  - seed
+  - series-a
+  sources:
+  - https://www.bvp.com/atlas
+- id: mkt-one-sided-liquidity
+  sector: marketplace
+  domain: liquidity / supply-demand balance
+  title: One-sided liquidity — chicken-and-egg solved on only one side, or aggregate
+    GMV hiding thin per-market liquidity
+  why: 'A marketplace''s real asset is liquidity: the probability that a given listing
+    transacts (supply side) and that a given search finds a match (demand side) within
+    a reasonable time. Founders often over-build one side, or report healthy aggregate
+    numbers that mask the fact that most individual geographies/categories are below
+    liquidity threshold. Marketplaces win market-by-market; aggregate GMV across many
+    sub-scale markets is fragile and will not retain.'
+  severity: major
+  detect: 'Ask for liquidity metrics, not just GMV: sell-through / fill rate (% of
+    listings that transact within X days), search-to-fill / match rate (% of buyer
+    sessions that find a match), and time-to-match. Demand these per-market (by geo
+    and category), not blended. Look for a single dense beachhead vs. spread-thin
+    geographic expansion.'
+  threshold: 'Industry-typical: sell-through often targeted in the 20-60% range depending
+    on category; the flag is wide variance across markets or median sub-scale markets,
+    not the headline average.'
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - https://www.lennysnewsletter.com/p/how-to-kickstart-and-scale-a-marketplace
+  - https://a16z.com/marketplace-100/
+- id: mkt-supply-concentration
+  sector: marketplace
+  domain: supply risk / power dynamics
+  title: Supply-side concentration — a small number of sellers/power suppliers drive
+    most GMV
+  why: When a handful of large suppliers account for most GMV, they gain pricing power
+    over the platform, can demand lower take rates, and can defect (taking their demand
+    with them) or go direct. It also signals the marketplace is really a managed-supply
+    business, not a true network. Concentrated supply is fragile and limits the long-tail
+    network effects that justify a marketplace valuation multiple.
+  severity: minor
+  detect: 'Ask for GMV concentration: share of GMV from top 1%, 10%, and top-20 suppliers;
+    same for the demand side. Ask churn/defection rate among top suppliers and whether
+    any have gone direct or to a competitor. Watch for category captains that the
+    platform is dependent on.'
+  threshold: 'Industry-typical concern: top 10% of suppliers driving the large majority
+    of GMV (e.g., >70-80%) signals dependence, though some skew is normal in any marketplace.'
+  stage:
+  - seed
+  - series-a
+  sources:
+  - https://www.bvp.com/atlas
+- id: mkt-gmv-vanity-net-revenue
+  sector: marketplace
+  domain: metrics / financial quality
+  title: GMV as a vanity metric — net revenue, contribution margin, and incentive-driven
+    GMV obscured
+  why: GMV is easy to inflate and is not revenue. Marketplaces frequently report GMV
+    while burying that much of it is subsidized (buyer/seller incentives, free shipping,
+    promo), gross vs. net of cancellations/returns/refunds, or includes first-party
+    / managed inventory that shouldn't count as marketplace GMV. Investors want to
+    see what the business looks like after subsidies and the path from GMV to net
+    revenue to contribution margin.
+  severity: major
+  detect: Ask for the GMV→net revenue→contribution margin bridge. Separate organic
+    GMV from incentive-driven GMV (and the incentive % of GMV). Net out cancellations,
+    returns, refunds. Ask whether any 1P/managed inventory is included. Check if 'transactions'
+    include free or near-zero-value ones.
+  threshold: 'Industry-typical: scrutinize if incentives/subsidies are a high share
+    of GMV (e.g., double-digit %) or if net revenue is a much smaller fraction of
+    reported GMV than the stated take rate would imply.'
+  stage:
+  - seed
+  - series-a
+  sources:
+  - https://a16z.com/16-startup-metrics/
+  - https://a16z.com/marketplace-100/
+- id: mkt-no-defensible-network-effect
+  sector: marketplace
+  domain: defensibility / moat
+  title: No genuine cross-side network effect — multi-tenanting and easy switching
+    with no winner-take-most dynamic
+  why: 'Marketplaces are pitched on network effects, but many categories don''t actually
+    have winner-take-most dynamics: suppliers and buyers multi-tenant across platforms
+    (Uber/Lyft drivers, restaurants on multiple delivery apps), switching costs are
+    near zero, and the marginal value of more participants saturates quickly. Without
+    a real cross-side network effect, the marketplace competes on price/incentives
+    forever and has no moat — it''s a brokerage with permanent CAC.'
+  severity: major
+  detect: Ask whether each side multi-tenants and what share does. Test whether adding
+    more supply meaningfully improves the demand experience past current density (saturation).
+    Look for switching costs / lock-in beyond habit. Distinguish local network effects
+    (per-market) from global; many marketplaces only have weak local ones.
+  threshold: 'Industry-typical concern: high multi-tenanting on both sides (e.g.,
+    majority of active participants also active on a competitor) plus no measurable
+    retention lift from added density.'
+  stage:
+  - seed
+  - series-a
+  sources:
+  - https://www.nfx.com/post/network-effects-manual
+  - https://a16z.com/marketplace-100/
+- id: mkt-cac-payback-via-both-sides
+  sector: marketplace
+  domain: growth economics
+  title: Double-sided CAC ignored — acquisition cost counted on only one side, or
+    supply CAC hidden
+  why: Marketplaces must pay to acquire (and often re-acquire, due to leakage/multi-tenanting)
+    both buyers AND suppliers, but founders frequently present blended CAC/LTV on
+    the demand side only and treat supply as 'free.' True payback must load both sides'
+    acquisition + the subsidies used to bootstrap each market. Markets that need to
+    be seeded repeatedly (because supply churns or leaks) have structurally worse
+    payback than the headline suggests.
+  severity: minor
+  detect: Ask for CAC and payback computed across both sides, including supply acquisition
+    and bootstrapping subsidies. Check supplier churn (re-acquisition cost). Verify
+    LTV uses on-platform repeat behavior net of leakage, not gross category frequency.
+    Ask payback per new market opened.
+  threshold: 'Industry-typical: payback commonly targeted under ~12-18 months, but
+    the flag is whether supply-side and subsidy costs are even included, not the headline
+    number.'
+  stage:
+  - seed
+  - series-a
+  sources:
+  - https://a16z.com/16-startup-metrics/
+  - https://www.bvp.com/atlas
+- id: mkt-trust-safety-fraud
+  sector: marketplace
+  domain: trust & safety / risk
+  title: Trust, safety, and fraud not built in — fake listings, payment fraud, GMV
+    washing, and liability exposure
+  why: 'Marketplaces are uniquely exposed to fraud and trust failures: fake/duplicate
+    listings, payment and chargeback fraud, collusion to wash GMV for incentives,
+    counterfeit goods, and safety incidents between strangers. A single trust failure
+    can collapse a side of the network. Beyond reputation, there''s real legal/liability
+    exposure (platform liability, payments/KYC obligations, category-specific regulation)
+    that founders pre-Series-A often haven''t scoped.'
+  severity: minor
+  detect: Ask about fraud rate, chargeback rate, fake-listing detection, identity/KYC
+    on both sides, and dispute/refund processes. Probe whether reported GMV could
+    include wash transactions farming incentives. Ask about platform liability stance
+    and any category-specific regulatory regime (payments money-transmission, gig
+    classification, safety).
+  threshold: 'Industry-typical: payment fraud/chargeback rates above roughly 1% draw
+    scrutiny; the flag is more the absence of any trust-and-safety system than a specific
+    rate.'
+  stage:
+  - seed
+  - series-a
+  sources:
+  - https://www.bvp.com/atlas

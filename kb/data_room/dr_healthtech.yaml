@@ -1,0 +1,139 @@
+cell: dr:healthtech
+type: data_room
+wedge: general
+items:
+- id: ht-regulatory-pathway
+  sector: healthtech
+  category: Regulatory
+  document: 'FDA/CE regulatory strategy memo: device classification and clearance
+    pathway determination — explicitly stating 510(k) (predicate device + substantial
+    equivalence), De Novo (novel low/moderate-risk, no predicate), PMA (Class III),
+    or non-device / enforcement-discretion / Clinical Decision Support (CDS) carve-out
+    under 21st Century Cures Act. For software, the SaMD risk categorization (IMDRF
+    framework) and whether any AI/ML functionality triggers a Predetermined Change
+    Control Plan (PCCP). Include CE/MDR (EU 2017/745) classification if pursuing Europe.'
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: 'Deal-blocker because it determines whether the product can be legally marketed
+    at all and sets the entire timeline/cost. The single most common founder self-deception
+    in healthtech is claiming ''we''re not a regulated device'' or assuming 510(k)
+    when no valid predicate exists (forcing the much slower De Novo). Investors want
+    the FDA pre-submission (Q-Sub) meeting minutes if held. FDA: fda.gov/medical-devices/classify-your-medical-device;
+    IMDRF SaMD framework.'
+- id: ht-clearance-status-correspondence
+  sector: healthtech
+  category: Regulatory
+  document: 'Actual regulatory status evidence and FDA/Notified Body correspondence:
+    any 510(k) clearance letters / K-numbers, De Novo grant, PMA approval, or for
+    earlier stage the Pre-Submission (Q-Sub) request and FDA feedback, IRB approvals,
+    and IDE (Investigational Device Exemption) if running clinical studies. Also any
+    FDA Warning Letters, 483 observations, recalls, or MDR (Medical Device Reporting)
+    adverse-event filings against the company.'
+  required: false
+  stage:
+  - seed
+  - series-a
+  note: 'Stage-specific: at pre-seed often nothing exists yet, but by seed/Series-A
+    investors verify claims against the FDA 510(k) database (accessdata.fda.gov/scripts/cdrh/cfdocs/cfPMN/pmn.cfm)
+    and openFDA. A Warning Letter or unresolved 483 is a hard red flag. Required becomes
+    true once the company claims to be marketing a cleared device.'
+- id: ht-hipaa-phi-program
+  sector: healthtech
+  category: Privacy & Security
+  document: 'HIPAA compliance package: completed Security Risk Assessment (required
+    under the Security Rule), Business Associate Agreements (BAAs) with every covered
+    entity customer AND every downstream subprocessor (cloud, analytics, LLM vendors),
+    evidence of a HIPAA-eligible/configured infrastructure (e.g., signed BAA with
+    AWS/GCP/Azure), the company''s role determination (Covered Entity vs Business
+    Associate), Notice of Privacy Practices, and policies for the Privacy, Security,
+    and Breach Notification Rules.'
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: 'Deal-blocker: if PHI flows through the product without BAAs in place (especially
+    the often-missed BAA with the cloud/LLM subprocessor), every transaction is a
+    HIPAA violation and customers cannot legally use the product. A signed cloud BAA
+    is necessary but NOT sufficient — the services must be on the vendor''s HIPAA-eligible
+    list and configured accordingly. HHS: hhs.gov/hipaa/for-professionals.'
+- id: ht-breach-exposure
+  sector: healthtech
+  category: Privacy & Security
+  document: 'PHI breach exposure documentation: incident response / breach notification
+    runbook (60-day individual notice and HHS reporting; immediate HHS notice for
+    breaches >500 individuals), history of any reportable breaches (cross-checked
+    against the HHS ''Wall of Shame'' breach portal), cyber-liability insurance covering
+    HIPAA breaches with limits, penetration test results, encryption-at-rest/in-transit
+    attestation, and SOC 2 Type II report if available.'
+  required: false
+  stage:
+  - seed
+  - series-a
+  note: 'Not always a pre-seed blocker, but material because HIPAA civil penalties
+    scale to industry-typical max ~$2M+ per violation category per year and the average
+    healthcare breach cost is the highest of any industry (~$9-11M per IBM Cost of
+    a Data Breach, industry-typical not absolute). Investors check the public HHS
+    breach portal: ocrportal.hhs.gov/ocr/breach. SOC 2 is increasingly a hospital
+    procurement gate.'
+- id: ht-reimbursement-strategy
+  sector: healthtech
+  category: Reimbursement & Business Model
+  document: 'Reimbursement and payment strategy memo answering ''who actually pays'':
+    applicable CPT codes (existing, Category III emerging, or a Category I application
+    path), CMS coverage / NCD-LCD status, any RPM/RTM (Remote Physiologic/Therapeutic
+    Monitoring) or PDT (prescription digital therapeutic) coding strategy, executed
+    or pipeline payer contracts, and clarity on the payment model (FFS reimbursement
+    vs cash-pay vs employer/provider B2B subscription vs at-risk/value-based).'
+  required: true
+  stage:
+  - seed
+  - series-a
+  note: 'Deal-blocker for clinical products because a clinically validated product
+    with no reimbursement path is not a business — the graveyard of digital health
+    is full of CE/FDA-cleared products no one will pay for. Key non-obvious point:
+    a CPT code existing does NOT mean payers cover it or set an adequate rate. AMA
+    owns CPT (ama-assn.org/practice-management/cpt); CMS coverage at cms.gov. a16z
+    and Rock Health have extensively written on reimbursement-as-the-real-moat.'
+- id: ht-clinical-evidence
+  sector: healthtech
+  category: Clinical Validation
+  document: 'Clinical validation / evidence dossier: peer-reviewed publications, prospective/RCT
+    or real-world-evidence study protocols and results, ClinicalTrials.gov registrations,
+    analytical + clinical validation reports (sensitivity/specificity, PPV/NPV vs
+    an established gold standard), and for AI/ML models the algorithm validation,
+    training/test dataset provenance, and bias/subgroup performance analysis to address
+    algorithmic bias.'
+  required: false
+  stage:
+  - seed
+  - series-a
+  note: 'Stage-dependent: pre-seed may have only pilot/feasibility data, but clinical
+    buyers (hospitals, payers) and FDA require it before adoption/clearance, so it
+    gates revenue. Investors verify trials against clinicaltrials.gov. AI bias documentation
+    is increasingly required by FDA''s GMLP and hospital procurement. Distinguish
+    marketing claims from peer-reviewed evidence — over-claiming on thin data is a
+    classic healthtech red flag.'
+- id: ht-liability-malpractice
+  sector: healthtech
+  category: Liability & Insurance
+  document: 'Professional liability and clinical-risk package: product/professional
+    liability and medical malpractice insurance (and, if the company employs or contracts
+    clinicians or operates as/through a clinical entity, medical professional liability
+    + the corporate structure for it, e.g. the friendly-PC / MSO model and state corporate-practice-of-medicine
+    compliance), clinical governance / medical director oversight, state medical &
+    telehealth licensure coverage, and product liability allocation terms in customer
+    contracts.'
+  required: false
+  stage:
+  - seed
+  - series-a
+  note: Specific to healthtech because clinical software/services carry patient-harm
+    liability that generic SaaS does not, and any care-delivery or telehealth model
+    triggers state Corporate Practice of Medicine (CPOM) rules requiring a PC/MSO
+    ('friendly PC') structure — a frequently-missed legal landmine. Required where
+    the product touches clinical decisions or delivers care; less critical for pure
+    back-office/admin healthtech.

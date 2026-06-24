@@ -1,0 +1,208 @@
+cell: rf:biotech
+type: red_flag
+wedge: general
+items:
+- id: bio-fto-patent-runway
+  sector: biotech
+  domain: IP / freedom-to-operate
+  title: No freedom-to-operate analysis or thin patent runway behind the core asset
+  why: 'In biotech the asset IS the IP. Founders often pitch a molecule/platform without
+    a freedom-to-operate (FTO) opinion, meaning a competitor''s composition-of-matter
+    or method-of-use patent can block commercialization regardless of trial success.
+    Equally common: relying on a single patent with a near-term expiry, so the effective
+    exclusivity window after approval is too short to recoup capital. Investors specifically
+    check that composition-of-matter (not just formulation/method) coverage exists,
+    that the priority dates leave meaningful runway post-approval, and that key patents
+    are owned or exclusively licensed worldwide rather than only filed as provisionals.'
+  severity: major
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  detect: 'Ask for the FTO opinion and the patent family chart (which patents, granted
+    vs pending, jurisdictions, expiry dates). Flag if: only provisional applications
+    filed; no composition-of-matter claim; effective patent life after expected approval
+    is short; or core IP is licensed non-exclusively / only in some territories.'
+  threshold: 'Industry-typical: investors want roughly 10+ years of effective patent
+    life remaining after expected market launch; composition-of-matter coverage in
+    US/EU/major markets. Treat as guidance, not absolute.'
+  sources:
+  - https://www.bvp.com
+- id: bio-license-terms
+  sector: biotech
+  domain: IP / licensing
+  title: Core IP in-licensed from a university with onerous or undisclosed terms
+  why: Many biotechs are built on a university license (Bayh-Dole tech). Founders
+    gloss over the terms, but milestone payments, royalty stacking, diligence obligations,
+    sublicensing restrictions, and field-of-use carve-outs can quietly cap enterprise
+    value or trigger reversion of the IP if development milestones are missed. A license
+    that lets the university claw back rights on a missed milestone is an existential
+    risk a generic 'we have IP' pitch hides.
+  severity: major
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  detect: 'Request the actual license agreement. Check for: reversion/termination
+    on missed diligence milestones, royalty rate and stacking, upfront/milestone fees,
+    field-of-use limits, sublicensing consent requirements, and whether improvements
+    are captured. Flag any non-exclusive grant or narrow field.'
+  threshold: Industry-typical academic exclusive licenses run low-single-digit to
+    high-single-digit royalties plus milestones; reversion clauses on missed diligence
+    are a red flag. Guidance, not absolute.
+  sources: []
+- id: bio-stage-mislabel-clinical
+  sector: biotech
+  domain: Scientific / clinical stage
+  title: Preclinical data oversold as de-risked, or animal efficacy extrapolated to
+    humans
+  why: 'A recurring biotech-specific tell: founders present mouse/cell-line efficacy
+    as if it predicts clinical success, ignoring that the vast majority of drugs that
+    work in animals fail in humans. The honest framing distinguishes target validation,
+    lead optimization, IND-enabling tox, and clinical readiness. Red flags: no predictive/translational
+    model, efficacy only in an artificial overexpression model, no PK/ADME or tox
+    data, single n, or claiming a ''platform'' before a single validated asset. Investors
+    discount preclinical claims heavily and look for human-relevant evidence (biomarkers,
+    ex vivo human tissue, genetic validation of the target).'
+  severity: major
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  detect: 'Probe: what stage exactly (target ID / lead opt / IND-enabling / Phase
+    1-ready)? Is there PK/PD, ADME, GLP tox? Is the animal model translationally validated?
+    Is the human target genetically validated? Flag reliance on a single overexpression
+    model or absence of any tox data while claiming clinical readiness.'
+  threshold: 'Industry-typical: only ~10% of drugs entering Phase 1 reach approval;
+    preclinical-to-clinical attrition is severe. Use as context for discounting, not
+    a hard number.'
+  sources:
+  - https://www.ycombinator.com/library
+- id: bio-regulatory-pathway
+  sector: biotech
+  domain: Regulatory / FDA
+  title: Vague or wrong regulatory pathway — no IND plan, mismatched classification,
+    or no FDA interaction
+  why: 'Biotech investors dock founders who can''t articulate the specific regulatory
+    route: drug (IND/NDA/BLA) vs device (510(k)/PMA) vs diagnostic (LDT/IVD), the
+    relevant FDA division, whether a pre-IND meeting has occurred, and what endpoints
+    the agency will accept. Misclassifying a product (e.g., assuming a combination
+    product or a diagnostic follows a faster path than it does), assuming a 505(b)(2)
+    shortcut without basis, or budgeting no time for FDA hold risk signals naivety.
+    The endpoint the FDA requires often defines trial size and cost — getting it wrong
+    invalidates the whole plan.'
+  severity: major
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  detect: 'Ask: what is the regulatory classification and which FDA center/division?
+    Has there been a pre-IND or pre-submission meeting? What primary endpoint will
+    the agency accept and is there precedent? Flag absence of any FDA interaction
+    plan, hand-wavy ''breakthrough designation'' assumptions, or endpoints with no
+    regulatory precedent.'
+  threshold: 'Industry-typical: a pre-IND meeting before filing is standard; expecting
+    accelerated/breakthrough pathways without surrogate-endpoint basis is a flag.
+    Guidance, not absolute.'
+  sources:
+  - https://www.fda.gov
+- id: bio-trial-cost-timeline
+  sector: biotech
+  domain: Capital / trial economics
+  title: Trial cost and timeline grossly underestimated; financing plan ignores attrition
+  why: 'Specific to therapeutics: founders routinely underbudget clinical trials (patient
+    recruitment, CRO costs, manufacturing of clinical material, long-term follow-up)
+    and present a timeline-to-revenue that ignores the 8-12+ year drug development
+    cycle. A plan showing revenue within a typical VC fund life, or one round of financing
+    carrying an asset ''to market,'' reveals they don''t understand the capital staircase.
+    Investors want to see the cost/timeline per phase, the value-inflection milestones
+    that enable the next raise, and realistic attrition baked in.'
+  severity: major
+  stage:
+  - seed
+  - series-a
+  detect: 'Ask for per-phase cost and duration estimates and the milestone-financing
+    map. Flag: revenue projected within ~5-6 years for a preclinical drug, single-round
+    ''to market'' plans, no clinical-grade manufacturing cost line, or trial size
+    that doesn''t match the required endpoint''s powering.'
+  threshold: 'Industry-typical: Phase 1 often ~1-2 yrs and low tens of millions; Phase
+    3 can run 3-4 yrs and well over $100M; total development commonly $1B+ and 10+
+    years risk-adjusted. Highly variable; use as sanity check.'
+  sources:
+  - https://www.bvp.com
+- id: bio-cmc-manufacturing
+  sector: biotech
+  domain: CMC / manufacturing
+  title: No CMC / manufacturing scale-up plan — process not reproducible or not cGMP-able
+  why: CMC (Chemistry, Manufacturing, Controls) is a biotech-specific killer, especially
+    for biologics, cell/gene therapy, and complex modalities. A process that works
+    at bench scale but can't be reproducibly scaled to cGMP, lacks defined critical
+    quality attributes, depends on a single CDMO or scarce raw material/viral vector
+    capacity, or has no comparability/stability data, can stall an otherwise promising
+    asset at the FDA. 'The science works' pitches that omit how the product will actually
+    be made at consistent quality and cost-of-goods are a major flag — for cell/gene
+    therapy, COGS can make an approved product commercially unviable.
+  severity: major
+  stage:
+  - seed
+  - series-a
+  detect: 'Ask: is the process defined with critical quality attributes? Is there
+    a CDMO/manufacturing plan and is capacity secured (e.g., viral vector slots)?
+    Is there scale-up, comparability, and stability data? What is projected cost-of-goods
+    at commercial scale? Flag single-source dependencies and undefined processes.'
+  threshold: 'Industry-typical: cell/gene therapy COGS and limited CDMO/viral-vector
+    capacity are well-known bottlenecks; expect a named manufacturing strategy by
+    Series A. Guidance, not absolute.'
+  sources:
+  - https://www.fda.gov
+- id: bio-platform-vs-asset
+  sector: biotech
+  domain: Strategy / scientific risk
+  title: '''Platform'' story with no lead asset, or a single-asset company with binary
+    risk and no hedge'
+  why: Two opposite but sector-specific traps. (1) Platform pitches that promise many
+    drugs but have not validated a single program — investors discount unvalidated
+    platforms heavily and want at least one asset proving the platform reduces risk
+    or speed. (2) Single-asset companies whose entire value rests on one Phase 2/3
+    readout (binary risk) with no follow-on pipeline, so a single trial miss is terminal.
+    Investors evaluate whether the scientific bet is one coin-flip or a portfolio,
+    and whether the team can actually translate platform claims into IND-ready assets.
+  severity: minor
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  detect: 'For platforms: ask which single asset validates it and what de-risking
+    it demonstrates. For single-asset cos: ask about pipeline depth and what happens
+    if the lead fails. Flag platforms with zero advanced programs and single-asset
+    stories with no backup and a fully binary readout.'
+  threshold: 'Industry-typical: investors expect a platform to show at least one validating
+    program before Series A; pure single-asset binary bets carry a valuation discount.
+    Guidance, not absolute.'
+  sources:
+  - https://a16z.com
+- id: bio-key-person-academic
+  sector: biotech
+  domain: Team / scientific dependency
+  title: Critical dependence on a single academic founder/PI with conflicts or part-time
+    commitment
+  why: 'Biotech-specific team risk: the science often lives in one academic founder''s
+    head or lab, the founder remains a full-time professor (part-time on the company),
+    and there may be institutional conflict-of-interest constraints or unresolved
+    questions about whether key data/IP belong to the university. Reproducibility
+    risk compounds this — if results were generated by one grad student and never
+    independently replicated, the entire thesis may not survive due diligence. Investors
+    check for an empowered full-time leadership team, independent data replication,
+    and clean separation of company vs academic IP.'
+  severity: minor
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  detect: 'Ask: is the scientific founder full-time or staying in academia? Have the
+    core results been independently replicated outside the founding lab? Are there
+    COI management plans and clean IP assignment from the institution? Flag part-time-PI-as-CSO,
+    un-replicated key data, and ambiguous data/IP ownership.'
+  threshold: 'Industry-typical: investors expect a full-time CSO/CEO and independently
+    replicated core data before a priced round. Guidance, not absolute.'
+  sources: []

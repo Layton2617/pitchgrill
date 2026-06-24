@@ -1,0 +1,187 @@
+cell: rf:saas
+type: red_flag
+wedge: general
+items:
+- id: saas-net-dollar-retention-below-100
+  sector: saas
+  domain: retention
+  title: Net Dollar Retention below 100% (revenue leaks faster than it expands)
+  why: NDR (a.k.a. NRR) measures revenue from the existing cohort a year later, including
+    upsell minus churn and downgrades. Below 100% means the install base is shrinking
+    before new logos — you're filling a leaky bucket and growth is purely a sales-spend
+    treadmill. SaaS investors treat NDR as the single best predictor of durable compounding;
+    sub-100% caps your terminal multiple regardless of top-line growth. Founders who
+    quote gross retention to hide negative net expansion get caught immediately.
+  severity: major
+  detect: Ask for NDR/NRR computed on the trailing-12-month cohort, separated into
+    gross retention, upsell/expansion, and downgrade. Cross-check against gross logo
+    retention. Watch for blended numbers that mix new-logo revenue into the cohort.
+  threshold: 'Industry-typical: best-in-class >120%, healthy 100-110%, sub-100% is
+    a flag (more lenient for SMB/PLG, stricter for enterprise where >110-120% is expected).'
+  stage:
+  - seed
+  - series-a
+  sources:
+  - bvp.com
+  - a16z.com
+- id: saas-magic-number-cac-payback-too-long
+  sector: saas
+  domain: unit-economics
+  title: CAC payback period too long / Magic Number below ~0.75
+  why: CAC payback (months of gross margin to recover fully-loaded customer acquisition
+    cost) and the SaaS Magic Number (net new ARR / prior-quarter S&M spend) measure
+    go-to-market efficiency specific to subscription models. A payback over ~18-24
+    months means you burn cash for years before a customer is profitable — fatal when
+    capital tightens. Investors specifically dock founders who quote LTV/CAC (easily
+    gamed by assuming infinite lifetime) instead of the harder-to-fudge payback and
+    magic number.
+  severity: major
+  detect: Ask for CAC payback in months using fully-loaded S&M (not just paid ads)
+    and gross margin (not revenue). Compute Magic Number from quarterly net-new ARR
+    vs prior-quarter S&M. Flag if LTV/CAC is the only metric offered or if LTV assumes
+    implausibly low churn.
+  threshold: 'Industry-typical: payback <12mo strong, 12-18mo acceptable, >24mo a
+    flag; Magic Number >0.75 means you should invest more in sales, <0.5 means GTM
+    is broken.'
+  stage:
+  - seed
+  - series-a
+  sources:
+  - bvp.com
+  - a16z.com
+- id: saas-gross-margin-not-software-grade
+  sector: saas
+  domain: unit-economics
+  title: Gross margin not software-grade (heavy COGS from hosting, services, or third-party
+    APIs)
+  why: SaaS commands software multiples because gross margins sit at 70-85%+. If COGS
+    is bloated by cloud/hosting, expensive third-party API costs (e.g. LLM inference),
+    or large professional-services revenue dressed up as recurring, the business is
+    really a services or reseller business wearing a SaaS costume. Investors specifically
+    separate true subscription gross margin from services margin, because a high services
+    mix signals an un-scalable, un-self-serve product and compresses valuation toward
+    services multiples.
+  severity: major
+  detect: 'Ask for gross margin broken out: subscription vs services. Inspect COGS
+    line items (hosting, support, third-party API/inference, payment fees). Compute
+    services revenue as % of total — high and rising is a flag.'
+  threshold: 'Industry-typical: subscription gross margin 70-85%; below 60-65% needs
+    explanation; services should be a minority and ideally declining as % of revenue.'
+  stage:
+  - seed
+  - series-a
+  sources:
+  - bvp.com
+- id: saas-logo-concentration-whale-dependency
+  sector: saas
+  domain: revenue-quality
+  title: Revenue concentration in a few logos (whale dependency)
+  why: 'A subscription book where a handful of accounts drive most ARR carries hidden
+    churn risk: one non-renewal craters the metrics and renegotiation leverage sits
+    entirely with the customer. SaaS investors scrutinize concentration because it
+    inflates apparent traction (a few big enterprise pilots) while masking a lack
+    of repeatable, broad-based demand. It also distorts NDR and CAC — your numbers
+    reflect bespoke deals, not a product the market broadly pulls.'
+  severity: minor
+  detect: Ask for % of ARR from top 1, top 5, top 10 customers, and the largest single
+    customer. Check contract end dates and renewal status of the whales. Flag if top
+    customer is >10-15% of ARR or top 10 exceed ~50%.
+  threshold: 'Industry-typical: no single customer >10% of ARR (some tolerate ~15-20%
+    at early stage); top 10 ideally <40-50%.'
+  stage:
+  - seed
+  - series-a
+  sources: []
+- id: saas-pilots-and-loi-masquerading-as-arr
+  sector: saas
+  domain: revenue-quality
+  title: ARR inflated by pilots, LOIs, non-recurring, or annualized one-month deals
+  why: ARR has a precise meaning — committed, recurring, contracted annual revenue.
+    SaaS founders routinely inflate it by counting paid pilots, LOIs/verbal commits,
+    one-time setup fees, usage spikes annualized from a single good month, or month-to-month
+    deals annualized as if locked-in. Investors specifically audit ARR composition
+    because a number padded with non-recurring or non-committed revenue overstates
+    both growth rate and retention durability, and it's the metric every downstream
+    valuation hangs on.
+  severity: major
+  detect: Reconcile ARR to signed contracts and the billing system. Strip out one-time
+    fees, services, pilots, LOIs, and trials. Check whether month-to-month is annualized
+    x12 vs contracted annual. Compare 'ARR' to GAAP recurring revenue run-rate.
+  threshold: 'Industry-typical: committed/contracted ARR should match billings; pilots
+    and LOIs counted as ARR is a flag at any stage.'
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - bvp.com
+- id: saas-plg-activation-and-free-to-paid-conversion
+  sector: saas
+  domain: product-led-growth
+  title: Weak activation / free-to-paid conversion in a PLG motion
+  why: For product-led SaaS, the funnel that matters is signup to activation (first
+    value) to free-to-paid conversion — not lead-to-demo. A large free user base with
+    low conversion or weak activation means the product isn't self-evidently valuable
+    and you'll be forced into a costly sales motion you positioned away from. Investors
+    dock PLG founders who tout vanity signup counts while burying activation rate
+    and conversion, because those two numbers determine whether the self-serve flywheel
+    actually compounds or just leaks.
+  severity: minor
+  detect: Ask for activation rate (defined by a clear first-value event), free-to-paid
+    conversion %, and time-to-value. Distinguish free signups from activated users
+    from paying users. Flag big signup numbers with undisclosed or sub-2% conversion.
+  threshold: 'Industry-typical: free-to-paid 2-5% (freemium) up to 15-25% (free trial);
+    activation should be a majority of signups reaching first value.'
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - a16z.com
+  - ycombinator.com/library
+- id: saas-quick-ratio-churn-masking-growth
+  sector: saas
+  domain: growth-quality
+  title: Low SaaS Quick Ratio (gross adds offset by heavy churn)
+  why: The SaaS Quick Ratio (new + expansion MRR divided by churned + contraction
+    MRR) reveals growth quality that net MRR hides. A founder can show steady net
+    growth while churning out nearly as much as they add — meaning every dollar of
+    new sales is wasted re-filling the bucket. Investors use it to detect a high-churn,
+    low-stickiness product masquerading as a growth story; a low quick ratio predicts
+    the moment growth stalls as the addressable top-of-funnel saturates.
+  severity: minor
+  detect: Compute (new MRR + expansion MRR) / (churned MRR + contraction MRR) per
+    month. Flag values near or below ~2 despite a healthy-looking net growth line.
+    Pair with gross churn trend.
+  threshold: 'Industry-typical: Quick Ratio >4 healthy, ~2-4 marginal, <2 a flag (the
+    bucket leaks faster than it should for the growth claimed).'
+  stage:
+  - seed
+  - series-a
+  sources:
+  - a16z.com
+- id: saas-thin-wedge-no-expansion-or-moat
+  sector: saas
+  domain: defensibility
+  title: 'Feature-not-a-company: thin wedge with no expansion path or switching cost'
+  why: Many SaaS pitches are a single feature a platform incumbent (Salesforce, Microsoft,
+    Notion, the obvious category leader) can ship as a checkbox. SaaS investors specifically
+    probe for switching costs (data lock-in, workflow embedding, integrations) and
+    a land-and-expand roadmap, because subscription value depends on stickiness and
+    account expansion over years. A product with low switching cost, no second act,
+    and an incumbent who could bundle it for free has no durable recurring revenue
+    thesis.
+  severity: major
+  detect: Ask what stops the obvious incumbent from bundling this, what creates switching
+    cost (data, integrations, workflow depth, multi-product), and the concrete expansion
+    roadmap (seats, modules, usage). Flag single-feature scope with no module/upsell
+    path and trivially exportable data.
+  threshold: 'Industry-typical: expansion revenue should be a meaningful and growing
+    share of new ARR; near-zero expansion plus low switching cost is the flag.'
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - a16z.com
+  - sequoiacap.com

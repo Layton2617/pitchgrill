@@ -1,0 +1,172 @@
+cell: gr:biotech
+type: grilling
+wedge: general
+items:
+- id: bio-fto-patent-runway
+  sector: biotech
+  theme: Freedom-to-operate & patent runway
+  question: What's your freedom-to-operate position, and when does your core composition-of-matter
+    patent expire relative to your expected launch?
+  strong_answer: We've run a formal FTO analysis with patent counsel covering the
+    major players (names the 2-3 blocking patent families and how we design around
+    or in/out-license them). Our composition-of-matter patent was filed in 2023, so
+    it runs to ~2043, and with Hatch-Waxman patent term extension for FDA review time
+    we expect effective protection into the late 2040s — meaning 12-15+ years of exclusivity
+    post-launch even on a 7-8 year clinical timeline. We also have a method-of-use
+    and formulation layer as backup, and we know which third-party claims we'd need
+    to clear before commercialization.
+  weak_answer: We've filed a provisional, so we're protected. We're not aware of anyone
+    else working on this, so FTO isn't really an issue for us. (Reveals no formal
+    FTO search, conflates a provisional with issued protection, and doesn't grasp
+    that composition-of-matter patents filed pre-clinical can expire before or shortly
+    after launch, gutting commercial exclusivity.)
+  sources: []
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+- id: bio-stage-trial-cost-timeline
+  sector: biotech
+  theme: Preclinical vs clinical stage, trial cost & timeline
+  question: Walk me through your path to a value-inflecting clinical readout — what
+    does it cost and how long until you have human efficacy data?
+  strong_answer: 'We''re preclinical, targeting IND in ~18 months. The first value
+    inflection is the Phase 2a proof-of-concept readout: from today that''s roughly
+    4-5 years and the capital to get there is on the order of $40-60M including IND-enabling
+    tox, CMC, Phase 1 safety, and the 2a. We''ve sized each phase (IND-enabling ~$5-8M,
+    Phase 1 ~$10-15M industry-typical) and structured the raise so this round funds
+    clear go/no-go milestones, not just runway. We know Phase 1->approval success
+    is ~10% industry-wide and have picked an indication where biomarker-driven 2a
+    de-risks before the expensive Phase 3.'
+  weak_answer: We'll be in the clinic in a year or so and this round gets us to data.
+    Trials are expensive but we'll raise more then. (No phase-by-phase cost breakdown,
+    conflates 'in the clinic' with a meaningful efficacy readout, no awareness that
+    Phase 1 safety data is not value-inflecting, and no go/no-go milestone framing
+    — signals they don't understand biotech's milestone-based financing.)
+  sources:
+  - https://www.bvp.com
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+- id: bio-regulatory-pathway-ind
+  sector: biotech
+  theme: Regulatory pathway (IND/FDA)
+  question: What's your regulatory pathway, your primary endpoint, and have you had
+    — or planned — a pre-IND meeting with FDA?
+  strong_answer: We're going 505(b)(1) NDA via the standard IND route. We have a pre-IND
+    meeting scheduled to align on our IND-enabling tox package, proposed Phase 1 design,
+    and our primary endpoint, which is a clinically validated, FDA-accepted endpoint
+    for this indication. The indication qualifies for Fast Track and likely Orphan
+    Drug designation given the patient population, which gives us 7 years of market
+    exclusivity independent of patents plus potential Breakthrough/accelerated approval
+    on a surrogate endpoint. We know the approvable endpoint, not just the one that's
+    easy to hit.
+  weak_answer: FDA approval is the last step, we'll deal with the regulatory side
+    once we have the science working. Our trial will show the drug improves [soft/unvalidated
+    metric]. (Treats FDA as a late checkbox rather than a co-designer of the development
+    plan, doesn't know whether their endpoint is regulatorily acceptable, no awareness
+    of pre-IND meetings or designations like Orphan/Fast Track that materially change
+    the economics and timeline.)
+  sources:
+  - https://www.fda.gov
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+- id: bio-cmc-scaleup
+  sector: biotech
+  theme: CMC / manufacturing scale-up
+  question: How will you manufacture this at clinical and commercial scale, and what
+    are the CMC risks that could stall your IND?
+  strong_answer: 'We have a CMC plan with a CDMO identified for GMP material. We understand
+    that ''CMC, manufacturing, and controls'' is a common reason IND filings get clinical
+    holds — so we''re locking process, analytics, and stability early. For our modality
+    the scale-up risks are specific: (for biologics) cell-line stability and aggregation/glycosylation
+    comparability across scale; (for cell/gene therapy) vector yield, potency assay
+    development, and lot-to-lot consistency. We''ve budgeted for a comparability bridge
+    if we change process between Phase 1 and Phase 3, because a process change late
+    can force you to repeat clinical work.'
+  weak_answer: Manufacturing is just an outsourcing problem, any CDMO can make it
+    once we prove the science. (Underestimates that CMC is a top cause of clinical
+    holds, ignores comparability risk when process changes between phases, and is
+    unaware that for biologics/cell-gene therapy the manufacturing process effectively
+    *is* the product and potency-assay/scale-up failures can kill an otherwise-working
+    drug.)
+  sources:
+  - https://www.fda.gov
+  stage:
+  - seed
+  - series-a
+- id: bio-scientific-technical-risk
+  sector: biotech
+  theme: Scientific / technical risk & target validation
+  question: What's the single biggest scientific risk that kills this program, and
+    is your target clinically or just preclinically validated?
+  strong_answer: The biggest risk is target validation in humans — animal models are
+    notoriously poor predictors, especially in CNS, oncology, and inflammation. Our
+    edge is human-genetics or human-tissue evidence linking the target to disease
+    (e.g., loss-of-function carriers are protected), which is the kind of validation
+    associated with materially higher clinical success rates. The next risk is therapeutic
+    index — we've defined the exposure-response and the safety margin from tox studies.
+    We can articulate the one experiment that would most cheaply de-risk the program,
+    and we're funding that first.
+  weak_answer: The science is solid, it works great in our mouse model and the data
+    is very promising. (Mouse efficacy is the baseline, not the differentiator — most
+    drugs that work in mice fail in humans. No mention of human-relevant target validation,
+    therapeutic index, or which experiment de-risks the central hypothesis; 'promising'
+    without naming the kill-shot risk signals they haven't stress-tested their own
+    biology.)
+  sources:
+  - https://www.nature.com
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+- id: bio-capital-timeline-dilution
+  sector: biotech
+  theme: Long capital timeline before revenue
+  question: You're 8-10 years and several hundred million from revenue — how do you
+    create value and de-risk between now and then so each round is an up-round?
+  strong_answer: 'We don''t run this like SaaS — revenue isn''t the metric, value
+    inflections are. We map each raise to a specific de-risking event (IND clearance,
+    Phase 1 safety, biomarker-driven Phase 2a POC), and each inflection should re-rate
+    the company. We''ve modeled total capital-to-approval and the dilution path, and
+    we have multiple exit ramps that don''t require us to fund Phase 3 ourselves:
+    a partnering/licensing deal with pharma post-Phase 2, M&A, or platform deals.
+    We know pharma BD buys de-risked assets, so our job is to reach the data package
+    that triggers that interest.'
+  weak_answer: We'll keep raising larger rounds until we get the drug approved and
+    start selling it. (No concept of milestone-driven value creation or partnering/licensing
+    as the realistic exit — assumes going it alone through Phase 3 and self-commercialization,
+    ignores that biotech value is created in step-functions at data readouts and that
+    most assets are monetized via pharma partnership or acquisition long before revenue.)
+  sources:
+  - https://www.bvp.com
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+- id: bio-ip-inventorship-institution
+  sector: biotech
+  theme: IP ownership & institutional license terms
+  question: Who actually owns the foundational IP — and if it's licensed from a university,
+    what are the exclusivity, field-of-use, and diligence terms?
+  strong_answer: The core IP was invented at [university] and we hold an exclusive,
+    worldwide license across all fields-of-use relevant to our indications, with a
+    defined royalty stack, sublicensing rights, and achievable diligence milestones
+    we negotiated to match a realistic clinical timeline. Inventorship has been formally
+    determined and all founders/contributors have assigned their rights. We've confirmed
+    the license can't be clawed back if we hit our milestones, and we know the total
+    royalty burden so it doesn't crush downstream partnering economics.
+  weak_answer: The professor founder developed it in their lab and brought it to the
+    company, so we own it. (Almost always wrong — university IP belongs to the institution
+    under Bayh-Dole, not the professor; reveals no tech-transfer license, risk of
+    field-of-use gaps, undefined diligence milestones that can trigger clawback, royalty
+    stacking that erodes partnering value, and unresolved inventorship/assignment
+    — all of which can make the company un-fundable.)
+  sources: []
+  stage:
+  - pre-seed
+  - seed
+  - series-a

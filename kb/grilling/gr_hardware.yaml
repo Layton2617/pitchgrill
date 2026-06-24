@@ -1,0 +1,167 @@
+cell: gr:hardware
+type: grilling
+wedge: general
+items:
+- id: hw-bom-margin
+  sector: hardware
+  theme: Unit economics / BOM
+  question: What's your current BOM cost at your actual order volume, and what does
+    it need to hit at scale to reach your target gross margin?
+  strong_answer: 'Founder gives a costed bill of materials line by line, distinguishes
+    today''s low-volume cost (e.g. at 1k units) from projected cost at 100k units,
+    names the specific components driving cost down (injection-molded vs machined
+    enclosure, switching to a cheaper MCU/SoC, custom vs off-the-shelf PCBA), and
+    ties it to a credible gross margin target (industry-typical: 35-50%+ for hardware
+    to sustain a business; sub-25% is a warning). They know the difference between
+    BOM cost, fully-loaded COGS (assembly, test, freight, yield loss, scrap, warranty/returns
+    reserve), and ASP.'
+  weak_answer: Quotes a single BOM number with no volume attached, conflates BOM with
+    COGS (forgets assembly labor, test, freight, duties, yield loss, warranty), assumes
+    margins automatically improve 'at scale' without naming which components or steps
+    drive it, or targets software-like 80%+ gross margins on a physical product.
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - https://bolt.io/
+- id: hw-dfm-tooling
+  sector: hardware
+  theme: Manufacturing / DFM & tooling
+  question: Where are you in the EVT/DVT/PVT cycle, and what's your tooling investment
+    and lead time to mass production?
+  strong_answer: 'Founder speaks fluently about the prototype-to-production path:
+    breadboard, EVT (engineering validation), DVT (design validation), PVT (production
+    validation), then MP/ramp. They know hard tooling (injection mold steel tools)
+    is a 6-16 week lead time and a five-to-six-figure capital outlay per part, that
+    design changes after tooling is cut are expensive, and they''ve done DFM (design
+    for manufacturing) reviews with their CM. They can state which gates they''ve
+    cleared and what''s left.'
+  weak_answer: Treats the working prototype as if it's nearly the product ('we just
+    need to manufacture it'), doesn't know EVT/DVT/PVT terminology, hasn't budgeted
+    for tooling, is surprised that mold lead times and tooling costs exist, or assumes
+    3D-printed prototypes translate directly to molded parts.
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - https://www.ycombinator.com/library
+- id: hw-cm-supply
+  sector: hardware
+  theme: Supply chain / contract manufacturing
+  question: Who is your contract manufacturer, do you have second sources for critical
+    components, and how exposed are you to single-source or long-lead parts?
+  strong_answer: 'Founder names the CM (or the tier they''re targeting and why), discusses
+    minimum order quantities (MOQs) and how that gates working capital, identifies
+    single-sourced or allocation-constrained components (specialty ICs, sensors, displays,
+    batteries, magnets, RF front-ends) and has second-source or redesign plans. They
+    reference real lead times (industry-typical: many semiconductors and custom parts
+    run 12-52 week lead times) and how they manage component obsolescence and last-time-buys.'
+  weak_answer: Hasn't selected or visited a CM, can't name MOQs, has no idea which
+    parts are single-sourced or on allocation, assumes any part is buyable on demand
+    from Digi-Key at volume, or has no plan for component end-of-life and substitution.
+  stage:
+  - seed
+  - series-a
+  sources: []
+- id: hw-working-capital
+  sector: hardware
+  theme: Capital intensity / cash conversion cycle
+  question: What's your cash conversion cycle — how long is cash tied up between paying
+    suppliers and getting paid by customers, and how much working capital does a unit
+    of growth consume?
+  strong_answer: 'Founder understands hardware ties up cash in inventory: they pay
+    the CM (often 30-50% deposit upfront, balance before/on shipment), wait through
+    manufacturing and freight (weeks of in-transit inventory), then collect from channel/customers
+    on net-30/60/90 terms — a negative cash cycle that can run 90-180+ days. They
+    know growth burns cash even at positive gross margin, and have a plan (deposits/pre-orders,
+    inventory/PO financing, supplier terms, factoring) to fund the working capital
+    gap rather than diluting equity for inventory.'
+  weak_answer: Models the business like SaaS where revenue funds itself, ignores the
+    upfront supplier deposits and inventory float, is shocked that profitable growth
+    still requires cash, or plans to fund inventory purchases entirely with priced
+    equity rounds.
+  stage:
+  - seed
+  - series-a
+  sources:
+  - https://www.bvp.com/atlas
+- id: hw-certs-compliance
+  sector: hardware
+  theme: Certifications & regulatory
+  question: What certifications does your product require to ship in your target markets,
+    and have you budgeted the time and cost for them?
+  strong_answer: Founder lists the applicable marks for their product class and geographies
+    — e.g. FCC (US emissions for any radio/electronics), CE/UKCA (EU/UK), UL/ETL safety
+    listing, RoHS/REACH, IEC 62368-1 for IT/AV equipment, UN 38.3 + IEC 62133 for
+    lithium batteries (also DOT/IATA for battery shipping), and Bluetooth SIG / Wi-Fi
+    Alliance for wireless. They know testing happens at a recognized lab, runs weeks
+    to months and thousands to tens of thousands of dollars, and that a failed pre-scan
+    means a respin. Medical, automotive, or aviation founders cite FDA / ISO 13485
+    / IEC 60601, AEC-Q / ISO 26262, or DO-178/254 as relevant.
+  weak_answer: Hasn't identified required certifications, treats compliance as a formality
+    to handle 'at the end,' didn't budget lab time or cost, doesn't know wireless/battery
+    products carry extra regimes, or assumes a US cert covers global markets.
+  stage:
+  - seed
+  - series-a
+  sources: []
+- id: hw-yield-quality
+  sector: hardware
+  theme: Yield, quality & field reliability
+  question: What's your production yield and your expected field failure / return
+    rate, and how do you reserve for warranty and RMAs?
+  strong_answer: 'Founder tracks first-pass yield off the line and a target (industry-typical
+    mature electronics: 95%+ FPY; early ramps are far lower), has functional test
+    fixtures and burn-in for catching defects before shipment, and estimates field
+    failure rate and RMA cost with a warranty reserve baked into COGS. They understand
+    that a hardware defect ships physically — recalls, returns, and reverse logistics
+    are expensive and brand-damaging, unlike a software patch — and have a firmware
+    OTA path to fix what''s fixable in the field.'
+  weak_answer: Has no yield number or test plan, assumes every assembled unit works,
+    hasn't reserved for warranty/returns, has no RMA or reverse-logistics process,
+    or believes hardware bugs can all be patched later like software.
+  stage:
+  - seed
+  - series-a
+  sources: []
+- id: hw-recurring-revenue
+  sector: hardware
+  theme: Business model / recurring revenue
+  question: Is this a one-time hardware sale or do you have attach — recurring software,
+    service, or consumables — and what's the realistic attach rate and LTV?
+  strong_answer: 'Founder is clear-eyed that pure one-time hardware sales are lumpy
+    and low-multiple, and either embraces that (with strong gross margin and repeat/replacement
+    cycles) or has a credible attach: SaaS subscription, service contract, or razor-and-blade
+    consumables. They cite a defensible attach rate from data or comparable products
+    and don''t assume 100% of buyers convert to recurring. They distinguish hardware
+    GM from software GM in the blended model.'
+  weak_answer: Slaps a SaaS subscription on the deck to claim software multiples with
+    no evidence anyone will pay recurring, assumes near-100% attach, or has no answer
+    for why a one-time-sale hardware business deserves a software-style valuation.
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources: []
+- id: hw-team-mech-firmware
+  sector: hardware
+  theme: Team / cross-disciplinary capability
+  question: Who on the team owns mechanical, electrical, and firmware, and have any
+    of them shipped a physical product to mass production before?
+  strong_answer: Founder shows the discipline coverage hardware needs — ME, EE/PCB,
+    firmware/embedded, and someone who owns manufacturing/operations and supplier
+    relationships — and ideally has team members or advisors who have taken a product
+    through NPI to volume production at a CM. They know which competencies they'll
+    hire vs. outsource (design house, CM, sourcing agent) and the risk of relying
+    entirely on outsourced design.
+  weak_answer: All-software or all-hardware team with a critical discipline missing
+    and no plan to fill it, no one who has shipped to mass production, or full reliance
+    on an outsourced design firm with no in-house ability to own the design and the
+    CM relationship.
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources: []

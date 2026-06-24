@@ -1,0 +1,184 @@
+cell: rf:hardware
+type: red_flag
+wedge: general
+items:
+- id: hw-gross-margin-trap
+  sector: hardware
+  domain: unit economics
+  title: Negative or thin gross margins disguised by pre-scale BOM assumptions
+  why: Hardware founders routinely quote a future BOM at volume (e.g. '$40 at 100k
+    units') while shipping units that cost more to build than they sell for today.
+    Investors dock you when current fully-loaded COGS (BOM + assembly + yield loss
+    + freight + duties + warranty reserve + returns) isn't shown, or when the path
+    to >40-50% gross margin depends on volume discounts no supplier has committed
+    to. Unlike software, you can't margin your way out later — every unit shipped
+    at negative margin burns cash.
+  severity: kill
+  detect: Ask for a line-item BOM at current volume vs. target volume, with yield,
+    freight, duties, warranty/returns reserve, and contract-manufacturer NRE amortization
+    included. Flag if 'gross margin' excludes any of these or relies on uncommitted
+    volume pricing.
+  threshold: 'Industry-typical: consumer hardware investors want a credible path to
+    40%+ gross margin; sub-30% at scale is a hard sell unless attached to recurring
+    software/consumables revenue.'
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources: []
+- id: hw-no-dfm-tooling-cliff
+  sector: hardware
+  domain: manufacturing
+  title: No DFM / hand-built prototypes with an unfunded tooling and NRE cliff ahead
+  why: 'A working prototype hand-assembled by the founders is not evidence the product
+    can be manufactured. Hardware-specific failure: the jump from prototype to DFM
+    (design for manufacturing), injection-mold tooling, and certification carries
+    large lump-sum NRE costs (tooling can be $50k-$500k+) and 3-9 month lead times
+    that founders haven''t budgeted or scheduled. Investors dock you for treating
+    ''it works on my bench'' as de-risked when the manufacturing transition is the
+    actual risk.'
+  severity: major
+  detect: 'Ask: has the design gone through DFM with the contract manufacturer? What
+    is the tooling cost and lead time? Has anyone built units on the production line/process,
+    or only by hand? Flag absence of a tooling budget line and timeline.'
+  threshold: 'Industry-typical: injection-mold tooling commonly $50k-$500k+ and 8-16
+    week lead times; expect this to appear explicitly in the use-of-funds.'
+  stage:
+  - seed
+  - series-a
+  sources: []
+- id: hw-single-source-supply-chain
+  sector: hardware
+  domain: supply chain
+  title: Single-source critical components or single CM with no second source
+  why: 'Hardware-specific concentration risk: a design that depends on one sole-source
+    part (a specific sensor, MCU, battery cell, or display) or a single contract manufacturer
+    with no qualified alternative is one allocation shortage, price hike, EOL notice,
+    or geopolitical event away from being unable to ship. The 2020-2023 chip shortage
+    made this a standard diligence item. Investors dock you for not knowing your sole-source
+    parts or having no second-source plan.'
+  severity: major
+  detect: Ask for the list of sole-sourced components and their lead times, last-time-buy/EOL
+    exposure, and whether a second source is qualified or qualifiable. Ask if the
+    CM relationship has a backup. Flag 'we'll figure it out' answers.
+  threshold: 'Industry-typical: investors expect critical components to have either
+    a second source qualified or an explicit qualification plan; long-lead (>26 week)
+    sole-source parts are a specific flag.'
+  stage:
+  - seed
+  - series-a
+  sources: []
+- id: hw-certification-regulatory-gap
+  sector: hardware
+  domain: regulatory
+  title: Certifications (FCC/CE/UL/FDA) and safety compliance treated as an afterthought
+  why: Physical products that emit RF, plug into mains, contain batteries, or touch
+    the body face mandatory certification before they can legally ship — FCC/CE for
+    emissions, UL/IEC for safety, FDA for medical, UN38.3 for lithium battery transport.
+    These add cost ($10k-$100k+), months of schedule, and can force redesigns. A founder
+    who hasn't scoped which certs apply, or assumes they're trivial, is hiding a launch-blocking
+    risk. Distinct from generic 'legal risk' because failing cert means you literally
+    cannot sell.
+  severity: major
+  detect: Ask which certifications the product requires in each target market, whether
+    pre-compliance testing has been done, and whether the timeline/budget includes
+    cert. For medical/body-contact/battery products, probe deeper. Flag if certs aren't
+    in the plan.
+  threshold: 'Industry-typical: cert costs of $10k-$100k+ and 1-4 months should be
+    in the budget and schedule before any ship date is promised.'
+  stage:
+  - seed
+  - series-a
+  sources: []
+- id: hw-inventory-working-capital
+  sector: hardware
+  domain: unit economics
+  title: Working-capital / cash-conversion-cycle blindness (you fund inventory before
+    you get paid)
+  why: 'Hardware burns cash in a way software never does: you pay suppliers for components
+    and pay the CM for a production run months before customers pay you, and minimum
+    order quantities (MOQs) force you to buy more than you can immediately sell. A
+    profitable-on-paper hardware company can die from a negative cash-conversion cycle.
+    Investors dock founders who don''t model inventory, MOQs, supplier payment terms,
+    and the cash tied up per growth cycle — growth itself consumes cash here.'
+  severity: kill
+  detect: 'Ask for the cash-conversion cycle: supplier payment terms, MOQ-driven inventory
+    commitment, manufacturing lead time, and days from production payment to customer
+    cash. Model how much cash a 2x growth cycle consumes. Flag if inventory isn''t
+    a use-of-funds line.'
+  threshold: 'Industry-typical: investors want to see how many months of inventory
+    must be pre-funded and that the raise covers at least one full production+sell-through
+    cycle plus buffer.'
+  stage:
+  - seed
+  - series-a
+  sources: []
+- id: hw-pure-hardware-margin-no-recurring
+  sector: hardware
+  domain: business model
+  title: One-time hardware sale with no recurring software/consumables/service attach
+  why: 'Hardware-only businesses carry software-like valuation expectations but commodity-like
+    economics: one-time revenue, no expansion, churn-equivalent re-purchase cycles
+    measured in years, and constant margin pressure from cheaper clones. Hardware
+    investors specifically look for a recurring layer (SaaS subscription, consumables
+    razor/blade, marketplace, services) that lifts LTV and defensibility. A pure box-shifting
+    model with no recurring attach is docked because it can''t compound.'
+  severity: major
+  detect: Ask what fraction of LTV is recurring vs. one-time, and what the attach
+    rate and retention of any software/consumable is. Flag a deck that shows only
+    device ASP with no recurring revenue line or a re-purchase cycle longer than the
+    product's relevance.
+  threshold: 'Industry-typical: investors favor models where recurring/consumable
+    revenue is a meaningful and growing share of LTV; pure one-time hardware needs
+    exceptional margins or volume to compensate.'
+  stage:
+  - seed
+  - series-a
+  sources:
+  - https://a16z.com/
+- id: hw-no-moat-cloneable
+  sector: hardware
+  domain: defensibility
+  title: Easily cloneable design with no IP, software lock-in, or supply-chain moat
+  why: A physical product can be bought, torn down, and reverse-engineered — and contract
+    manufacturers in low-cost regions can produce a near-identical clone within months,
+    often undercutting price. Hardware-specific defensibility comes from patents on
+    genuinely novel mechanisms, proprietary firmware/algorithms, hard-won manufacturing
+    process know-how, exclusive component access, network/data effects, or brand.
+    Investors dock founders who can't articulate why a well-funded fast-follower or
+    the CM itself won't simply copy the device.
+  severity: major
+  detect: 'Ask: what stops a competitor or your own CM from cloning this in 6 months?
+    Probe for granted/filed patents on core mechanisms, firmware/software lock-in,
+    data network effects, or exclusive supply. Flag ''our design is better'' as the
+    only answer.'
+  threshold: 'Industry-typical: filed/granted patents alone are weak in fast-moving
+    consumer categories; investors want a layered moat (IP + software + brand/distribution).'
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources: []
+- id: hw-crowdfund-fulfillment-reality
+  sector: hardware
+  domain: go-to-market
+  title: Crowdfunding/pre-order traction with no proven fulfillment or unit economics
+  why: A successful Kickstarter/Indiegogo is treated by naive founders as validation,
+    but hardware investors know pre-order dollars are often raised at or below cost,
+    before DFM, and the campaign is the easy part — mass fulfillment, support, returns,
+    and the cash gap between pledge and delivery is where hardware crowdfunding projects
+    famously implode (long delays, undelivered rewards). Docked when traction is all
+    pre-orders with no shipped units, no margin proof, and no fulfillment plan.
+  severity: minor
+  detect: 'Ask: of pledged/pre-ordered units, how many have actually shipped and at
+    what realized margin? What is the delay vs. promised date? What is the return/refund
+    rate? Flag campaigns where pledge pricing is below loaded COGS or nothing has
+    shipped at scale.'
+  threshold: 'Industry-typical: investors discount pre-order traction heavily until
+    units ship on time at positive margin with a return rate in a normal band (often
+    single-digit to low-teens % depending on category).'
+  stage:
+  - pre-seed
+  - seed
+  sources:
+  - https://www.ycombinator.com/library

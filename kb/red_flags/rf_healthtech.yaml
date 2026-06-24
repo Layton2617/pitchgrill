@@ -1,0 +1,226 @@
+cell: rf:healthtech
+type: red_flag
+wedge: general
+items:
+- id: healthtech-regulatory-pathway-misclassification
+  sector: healthtech
+  domain: regulatory
+  title: Founder can't name their FDA/CE pathway — or claims they're exempt when they
+    aren't
+  why: 'Software that diagnoses, drives treatment decisions, or makes clinical claims
+    is usually a medical device (SaMD) and needs FDA clearance (510(k) if a predicate
+    exists, De Novo if novel-but-low/moderate-risk, PMA for high-risk Class III) or
+    a CE mark under EU MDR. Founders routinely mislabel their product as ''clinical
+    decision support'' to hide under the FDA CDS non-device carve-out (21st Century
+    Cures §3060) — but that exemption only holds if the clinician can independently
+    review the basis for the recommendation. A ''wellness app'' positioning collapses
+    the moment marketing copy makes a diagnostic or treatment claim. The cost difference
+    is existential: a 510(k) is ~6-12 months and low six figures; a De Novo or PMA
+    is multi-year and millions, with clinical trials. Misclassification means the
+    go-to-market timeline and burn the founder pitched is fiction.'
+  severity: kill
+  detect: 'Ask: ''Is your product a regulated medical device? Which class, and which
+    pathway — 510(k), De Novo, or PMA?'' Then ask for the predicate device (510(k))
+    or the CDS-exemption argument. Red flag if they say ''we''re just wellness/decision
+    support'' but the deck shows diagnostic accuracy claims, or if they have no Q-Sub/pre-submission
+    meeting with FDA scheduled and no regulatory advisor. Check whether marketing
+    language (''detects'', ''diagnoses'', ''treats'') contradicts their claimed non-device
+    status.'
+  threshold: 510(k) ~6-12 months and roughly $50k-$250k in direct costs; De Novo/PMA
+    typically 1-3+ years and $1M-$10M+ with clinical data (industry-typical, varies
+    widely)
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources: []
+- id: healthtech-reimbursement-no-cpt-no-payer
+  sector: healthtech
+  domain: reimbursement
+  title: No clear answer to 'who actually pays' — no CPT code, no payer contract,
+    just 'we'll bill insurance'
+  why: 'In US healthcare the buyer, the user, and the payer are three different parties,
+    and revenue dies in the gap. ''Insurance will cover it'' is meaningless without
+    a path to reimbursement: an existing CPT/HCPCS code that covers the service, or
+    a strategy to get one (CPT Category III codes take years and don''t guarantee
+    payment; Category I requires evidence and AMA review). Even with a code, each
+    commercial payer and Medicare/Medicaid sets its own coverage policy and rate —
+    a code existing is not coverage, and coverage is not adequate payment. Digital
+    therapeutics have repeatedly proven this: clinically validated products with FDA
+    clearance still failed because no payer would reimburse them (Pear Therapeutics
+    went bankrupt despite three FDA-cleared products). Cash-pay or employer-paid sidesteps
+    this but caps the market. If the founder hasn''t modeled the actual dollar flow,
+    the revenue projections are unfounded.'
+  severity: kill
+  detect: 'Ask: ''Walk me through one transaction — who writes the check, what CPT/HCPCS
+    code is billed, at what rate, and which payers have a coverage policy for it?''
+    Red flag if the answer is ''we''ll bill insurance'' with no specific code, no
+    signed or piloted payer/employer contract, and no reimbursement timeline. Ask
+    whether they''re pursuing a new Category III CPT (multi-year) vs. mapping to existing
+    codes (RPM 99453-99458, RTM, CCM, etc.).'
+  threshold: New CPT Category I code pathway commonly takes 2-5+ years from application
+    to payment; Category III is a temporary tracking code with no guaranteed reimbursement
+    (industry-typical)
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - https://www.ama-assn.org/practice-management/cpt
+- id: healthtech-hipaa-phi-no-baa
+  sector: healthtech
+  domain: compliance
+  title: Handling PHI without a HIPAA program — no BAAs, no risk analysis, breach
+    exposure baked in
+  why: 'If the startup touches protected health information (PHI) on behalf of a covered
+    entity, it is a Business Associate and is directly liable under HIPAA. The non-negotiable
+    mechanics: a signed Business Associate Agreement (BAA) with every covered-entity
+    customer and every downstream subprocessor (including cloud vendors — AWS/GCP/Azure
+    sign BAAs, but you must execute and configure them), a documented Security Risk
+    Analysis, encryption, access controls, and a breach-notification process (60-day
+    rule). Breaches carry tiered civil penalties up to ~$2M+ per violation category
+    per year, plus mandatory HHS OCR reporting and, for 500+ records, public posting
+    on the ''Wall of Shame'' and media notice. The hidden landmine for consumer-facing
+    healthtech: tracking pixels (Meta Pixel, Google Analytics) on pages handling health
+    data have triggered major HHS/FTC enforcement and class actions — many founders
+    ship these by default. A weak HIPAA posture is both an enforcement risk and a
+    deal-blocker for hospital/payer customers who audit it in procurement.'
+  severity: kill
+  detect: 'Ask: ''Are you a Business Associate? Show me your BAA template, your subprocessor
+    BAAs, and your most recent Security Risk Analysis.'' Red flag if they conflate
+    ''we''re SOC 2'' with HIPAA (different things), have no signed cloud BAA, can''t
+    produce a risk analysis, or run third-party marketing/analytics scripts on PHI-handling
+    pages. Ask how they''d handle a breach of 500+ records and whether they carry
+    cyber/breach insurance.'
+  threshold: Breach notification within 60 days; 500+ affected individuals require
+    HHS + media notice and public posting; penalties tiered up to ~$1.5M-$2M per violation
+    category per year (industry-typical, adjusted for inflation)
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - https://www.hhs.gov/hipaa/for-professionals/index.html
+  - https://www.hhs.gov/hipaa/for-professionals/breach-notification/index.html
+- id: healthtech-clinical-evidence-gap
+  sector: healthtech
+  domain: clinical
+  title: Clinical claims with no peer-reviewed evidence — retrospective/single-arm
+    data dressed up as validation
+  why: 'Healthcare buyers (health systems, payers, clinicians) and regulators discount
+    marketing-grade evidence. ''Validated'' in a healthtech deck often means a retrospective
+    chart review, a single-arm study with no control, vendor-funded analysis, or accuracy
+    metrics on a non-representative dataset — none of which support payer coverage
+    or FDA labeling claims. The evidence hierarchy matters: prospective randomized
+    controlled trials and peer-reviewed publications drive coverage decisions and
+    clinical adoption; algorithm performance must be validated on external, diverse
+    populations (otherwise it fails on real-world demographics and degrades over time
+    — model drift). For AI/ML diagnostics specifically, sensitivity/specificity on
+    the training distribution tells you nothing about deployment performance. Without
+    a real evidence-generation plan and budget, the product cannot get reimbursed,
+    cannot get into guidelines, and the clinical claims are liability exposure.'
+  severity: major
+  detect: 'Ask: ''What''s your highest level of evidence — and is it prospective,
+    controlled, externally validated, and peer-reviewed?'' Red flag if the only evidence
+    is retrospective, single-arm, internally funded, or validated on the same data
+    distribution it was trained on. For AI: ask about external/multi-site validation,
+    demographic subgroup performance, and a model-monitoring/drift plan. Ask if results
+    are published or just in a deck.'
+  threshold: Payer coverage and clinical guideline inclusion typically require prospective
+    controlled evidence, ideally RCT-level and peer-reviewed; retrospective/single-arm
+    data is generally insufficient (industry-typical)
+  stage:
+  - seed
+  - series-a
+  sources: []
+- id: healthtech-malpractice-liability-loop
+  sector: healthtech
+  domain: legal
+  title: Product sits in the clinical decision loop with no clear liability allocation
+    or malpractice coverage
+  why: 'When software influences diagnosis or treatment, the question ''who is liable
+    if it''s wrong?'' has no settled answer — and that ambiguity is the risk. If the
+    tool is the final word, the company faces product-liability exposure; if a clinician
+    must review, the founder needs that ''human in the loop'' to be real, documented
+    in the workflow, and defensible (the FDA CDS carve-out and malpractice defense
+    both depend on it). AI diagnostics raise unresolved questions: is an erroneous
+    algorithm output a product defect or practicing medicine? Telehealth/care-delivery
+    models add corporate-practice-of-medicine (CPOM) constraints — in many US states
+    a non-physician corporation can''t employ physicians or own a medical practice,
+    forcing a ''friendly PC / MSO'' structure that, if done wrong, is illegal fee-splitting
+    and unwinds the cap table. Founders frequently have neither the right entity structure,
+    professional/product liability insurance, nor contractual liability allocation
+    with provider customers.'
+  severity: major
+  detect: 'Ask: ''If your product contributes to a misdiagnosis, who is liable, and
+    what insurance covers it?'' Red flag if there''s no professional liability / product
+    liability coverage, no contractual liability allocation with provider customers,
+    and — for care delivery — no MSO/friendly-PC structure in CPOM states. Probe whether
+    the ''clinician reviews the output'' claim is actually enforced in the workflow
+    or just a disclaimer.'
+  threshold: Corporate-practice-of-medicine restrictions apply in a majority of US
+    states (~30+), typically requiring an MSO + physician-owned PC structure (industry-typical)
+  stage:
+  - seed
+  - series-a
+  sources: []
+- id: healthtech-sales-cycle-pilot-purgatory
+  sector: healthtech
+  domain: go-to-market
+  title: 12-24 month hospital/payer sales cycles modeled as SaaS-speed — and pilots
+    that never convert
+  why: 'Selling into health systems and payers is structurally slow and not captured
+    by generic SaaS GTM assumptions. A single hospital deal can take 12-24+ months
+    and clear multiple gates: clinical champion, IT/security review, HIPAA and InfoSec
+    questionnaires, EHR integration approval (Epic/Cerner are gatekeepers — App Orchard/Epic-listed
+    status and HL7/FHIR integration cost real time and money), VAC (value analysis
+    committee) for any clinical product, legal, and procurement. ''Pilot purgatory''
+    is the canonical failure: dozens of unpaid or cheap pilots that signal interest
+    but never convert to enterprise contracts, burning runway while showing fake traction.
+    Founders who model healthtech with SaaS sales velocity, SaaS CAC payback, and
+    SaaS churn will run out of cash before deals close. The integration dependency
+    on EHR vendors is also a strategic chokehold founders underweight.'
+  severity: major
+  detect: 'Ask: ''What''s your average sales cycle from first contact to signed paid
+    contract, and how many pilots have converted to paying enterprise deals?'' Red
+    flag if the model assumes <6-month enterprise cycles, if ''traction'' is mostly
+    free pilots/LOIs, or if there''s no EHR-integration plan (Epic/Cerner/FHIR). Ask
+    who the economic buyer is and whether they''ve cleared a VAC and security review.'
+  threshold: Enterprise health-system/payer sales cycles commonly run 12-24+ months;
+    pilot-to-paid conversion is the key metric, not pilot count (industry-typical)
+  stage:
+  - seed
+  - series-a
+  sources: []
+- id: healthtech-data-provenance-rights
+  sector: healthtech
+  domain: data
+  title: AI/ML trained on health data without clear rights, de-identification, or
+    consent provenance
+  why: 'Healthtech data moats are only assets if the rights are clean. Training models
+    on patient data requires a lawful basis: proper HIPAA de-identification (Safe
+    Harbor''s 18 identifiers or Expert Determination), or authorization/consent, or
+    a data-use agreement that actually permits model training and commercialization.
+    Many startups acquire data through clinical partnerships whose contracts don''t
+    grant ML-training or downstream-commercial rights, or they ''de-identify'' inadequately
+    (free-text notes and imaging can re-identify). GDPR adds special-category-data
+    constraints in the EU. The exposure compounds: a model trained on improperly obtained
+    PHI can be an unwound liability, the ''proprietary dataset'' moat evaporates if
+    rights are challenged, and re-identification of supposedly anonymized data is
+    a reportable breach. Investors increasingly diligence data provenance because
+    a tainted training set can poison the core IP.'
+  severity: major
+  detect: 'Ask: ''For every dataset you trained on, what''s the legal basis — Safe
+    Harbor de-id, Expert Determination, consent, or a DUA — and does that contract
+    grant ML-training and commercial-use rights?'' Red flag if data came from clinical
+    partners without explicit training/commercial rights, if ''de-identification''
+    is informal, or if they can''t produce data-use agreements. For EU data, ask about
+    GDPR special-category lawful basis.'
+  threshold: HIPAA Safe Harbor requires removal of all 18 specified identifiers; Expert
+    Determination requires a documented statistical opinion of low re-identification
+    risk (industry-typical compliance baseline)
+  stage:
+  - seed
+  - series-a
+  sources:
+  - https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html

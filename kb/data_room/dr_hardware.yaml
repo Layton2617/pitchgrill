@@ -1,0 +1,104 @@
+cell: dr:hardware
+type: data_room
+wedge: general
+items:
+- id: hw-bom-costed
+  sector: hardware
+  category: Unit Economics & Manufacturing
+  document: Costed Bill of Materials (BOM) with current-vs-target cost at scale
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: Line-item BOM showing landed cost per unit today and projected cost at volume
+    (e.g. 10k/100k units), plus identified cost-down path. Investors check whether
+    the spread between BOM cost and sale price leaves a gross margin that can support
+    a hardware business (industry-typical target >35-50% blended; pure-hardware deals
+    are often penalized below this). A BOM that only hits margin at unrealistic volumes
+    is a deal-blocker. Without it, true unit economics are unknowable.
+- id: hw-dfm-tooling
+  sector: hardware
+  category: Manufacturing Readiness
+  document: DFM/DFA package, tooling status, and CapEx for injection-mold/PCBA tooling
+  required: false
+  stage:
+  - seed
+  - series-a
+  note: Design-for-Manufacturing/Assembly review output, list of hard tooling (molds,
+    fixtures, test jigs) with amortized cost and lead times (industry-typical 8-16
+    weeks for steel molds), and remaining tooling CapEx. Tooling is a large, lumpy,
+    often-underestimated cash sink; investors size the raise against it. Stage-specific
+    because pre-seed teams are usually pre-tooling.
+- id: hw-cm-agreements
+  sector: hardware
+  category: Supply Chain & Partners
+  document: Contract manufacturer (CM/EMS) and key-supplier agreements, MOQs, and
+    lead times
+  required: true
+  stage:
+  - seed
+  - series-a
+  note: Signed or LOI-stage CM/EMS agreements, NRE terms, minimum order quantities,
+    payment terms, and capacity commitments. Critical because a single sole-sourced
+    component or an unsigned CM can halt production. Investors look for second-source
+    plans on critical parts. Deal-blocker at scale-up stage if the supply chain is
+    single-threaded with no fallback.
+- id: hw-certifications
+  sector: hardware
+  category: Regulatory & Compliance
+  document: Regulatory certification plan and status (FCC/CE/UL/RoHS/REACH, and sector-specific
+    marks)
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: 'Matrix of required certifications per target market with status (planned/in-test/granted),
+    test-lab quotes, and timeline. EMC/safety certs (FCC Part 15, CE, UL/ETL) gate
+    the ability to legally sell; medical/automotive/industrial add FDA, ISO 13485,
+    IATF 16949, etc. Cannot ship to a market without the mark, so missing or naive
+    cert planning is a deal-blocker. Reference: fcc.gov.'
+- id: hw-reliability-testing
+  sector: hardware
+  category: Quality & Reliability
+  document: Reliability/qualification test reports (HALT/HASS, environmental, drop,
+    thermal, lifecycle)
+  required: false
+  stage:
+  - seed
+  - series-a
+  note: Results from accelerated-life and environmental testing plus field-failure/RMA
+    data if shipping. Investors use this to estimate warranty reserve and field-failure
+    rate (industry-typical target <1-2% annualized for consumer hardware). High return/RMA
+    rates silently destroy margin. Stage-specific because pre-seed prototypes rarely
+    have qual data yet.
+- id: hw-inventory-cashcycle
+  sector: hardware
+  category: Working Capital
+  document: Inventory and cash-conversion-cycle model (deposits, WIP, finished goods,
+    DIO/DPO/DSO)
+  required: true
+  stage:
+  - seed
+  - series-a
+  note: Model of cash tied up in raw materials, work-in-progress, and finished-goods
+    inventory, plus supplier-deposit and customer-payment timing. Hardware can be
+    profitable on paper yet die from negative working-capital cycles where cash is
+    paid to suppliers months before customer revenue arrives. Investors size the raise
+    to cover the cash gap; an unmodeled cycle is a financing-failure risk. Stage-specific
+    to companies actually building/shipping.
+- id: hw-prototype-trl
+  sector: hardware
+  category: Product Maturity
+  document: Prototype/EVT-DVT-PVT stage evidence and Technology Readiness Level (TRL)
+    assessment
+  required: false
+  stage:
+  - pre-seed
+  - seed
+  note: Photos/video of working units, current build phase (proto -> EVT -> DVT ->
+    PVT -> MP), and an honest TRL rating. Lets investors judge how far from mass production
+    the team really is, since the proto-to-production 'valley of death' is where most
+    hardware startups stall. Especially weighted at early stage where a slick render
+    can hide the absence of a functioning unit.

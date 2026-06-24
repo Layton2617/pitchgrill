@@ -1,0 +1,219 @@
+cell: rf:fintech
+type: red_flag
+wedge: general
+items:
+- id: fintech-licensing-gap
+  sector: fintech
+  domain: regulatory-licensing
+  title: Operating without (or ahead of) required money-transmitter / lending / e-money
+    licenses
+  why: 'Many fintechs ship product before securing the licenses their activity legally
+    requires: state money-transmitter licenses (MTLs) for holding/moving customer
+    funds, lending licenses for any credit product, e-money/EMI authorization in the
+    EU/UK, or a federal/state charter. Founders often assume a sponsor-bank or BaaS
+    partner fully covers them when in many models it does not. Operating unlicensed
+    is not a fixable diligence footnote — it can void revenue, trigger cease-and-desist
+    orders, and create personal liability for officers. Investors check whether the
+    regulatory perimeter was mapped BEFORE launch, not after.'
+  severity: kill
+  detect: 'Ask: which specific activities (custody, transmission, lending, FX, crypto)
+    and which licenses/exemptions cover each, today, in writing? Look for a regulatory
+    memo from outside fintech counsel. Red flag if the answer is ''our bank partner
+    handles it'' with no agent-of-payee or exemption analysis, or if they''re live
+    in states where they hold no MTL and claim no exemption.'
+  threshold: Holding customer funds in 1+ states without an MTL or a documented exemption
+    (agent-of-payee, etc.) is industry-typically disqualifying for that activity.
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - https://www.csbs.org/
+  - https://www.consumerfinance.gov/
+- id: fintech-sponsor-bank-concentration
+  sector: fintech
+  domain: partnerships-infrastructure
+  title: Single-sponsor-bank dependency with no redundancy or migration path
+  why: 'BaaS fintechs run on a sponsor bank for the charter, ledger, card issuance,
+    and FBO accounts. A single-bank dependency is an existential concentration risk:
+    regulators have issued consent orders against sponsor banks (e.g., the wave of
+    OCC/FDIC actions on bank-fintech programs), and a partner exit, program freeze,
+    or BaaS-middleware failure (the Synapse collapse stranded customer funds) can
+    take the whole company offline overnight. Investors increasingly treat ''one sponsor
+    bank, no second bank in onboarding, no portability of the program'' as a structural
+    weakness rather than a normal early-stage state.'
+  severity: major
+  detect: 'Ask: how many sponsor banks are live or contracted, what''s the notice/termination
+    clause, and what''s the realistic migration time if the bank exits? Check whether
+    the FBO/custody arrangement and ledger are portable. Red flag: 100% volume on
+    one bank, contract with short unilateral termination, no diversification plan,
+    reliance on an unregulated middleware layer that commingles the ledger.'
+  threshold: 100% of volume on a single sponsor bank with no second bank in onboarding
+    is industry-typically a flag by Series A.
+  stage:
+  - seed
+  - series-a
+  sources:
+  - https://www.occ.gov/
+  - https://www.fdic.gov/
+- id: fintech-kyc-aml-bsa-program
+  sector: fintech
+  domain: compliance-program
+  title: Thin or undocumented KYC/AML/BSA program (no CIP, no SAR filing, no named
+    BSA officer)
+  why: 'Any fintech touching money movement inherits BSA/AML obligations: a written
+    AML program, a designated BSA/AML compliance officer, Customer Identification
+    Program (CIP), sanctions/OFAC screening, transaction monitoring, and SAR/CTR filing.
+    Early founders frequently treat KYC as a one-time identity-vendor integration
+    rather than an ongoing program. Weak AML is the single most common reason sponsor
+    banks terminate fintech programs and a top FinCEN enforcement area. Diligence
+    looks for a real program with audit trails, not just an Alloy/Persona logo.'
+  severity: kill
+  detect: 'Ask for: the written AML policy, who the named BSA officer is, the last
+    independent AML audit/test, SAR filing process and volume, OFAC screening cadence,
+    and transaction-monitoring rules. Red flag: no named BSA officer, no independent
+    AML review, ''we use [KYC vendor]'' as the entire answer, or no SARs ever filed
+    despite material volume.'
+  threshold: No designated BSA/AML officer or no independent AML audit at any material
+    volume is industry-typically a flag.
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - https://www.fincen.gov/
+  - https://www.ffiec.gov/bsa_aml_infobase/
+- id: fintech-fraud-chargeback-losses
+  sector: fintech
+  domain: unit-economics-risk
+  title: Fraud, chargeback, and credit-loss rates that exceed program/network thresholds
+    or eat the margin
+  why: Fraud and chargeback losses are a fintech-specific P&L line that can silently
+    dwarf gross margin. Card networks enforce chargeback-ratio programs (Visa VDMP
+    / Mastercard ECM) — breaching them brings fines and can get a program shut down.
+    ACH return rates have NACHA thresholds. For lending/BNPL/credit products, charge-off
+    and first-payment-default rates determine whether the unit economics are real.
+    Founders often quote revenue without netting fraud/chargeback/loss reserves, making
+    margins look better than they are. Investors want loss rates benchmarked against
+    network thresholds and the cohort vintage curve.
+  severity: major
+  detect: 'Ask for: dispute/chargeback ratio vs Visa/Mastercard thresholds, ACH return
+    rate vs NACHA limits, fraud loss as % of volume, and (for credit) charge-off /
+    first-payment-default by vintage. Red flag: losses not netted from revenue, chargeback
+    ratio near 0.9%/1% network thresholds, rising return rates, or no fraud reserve.'
+  threshold: Chargeback ratio approaching ~0.9-1.0% (Visa/Mastercard monitoring) or
+    ACH unauthorized-return rate near ~0.5% (NACHA) is industry-typically a flag.
+  stage:
+  - seed
+  - series-a
+  sources:
+  - https://www.nacha.org/
+  - https://usa.visa.com/support/consumer/visa-rules.html
+- id: fintech-interchange-economics
+  sector: fintech
+  domain: unit-economics-revenue
+  title: Over-reliance on interchange / fragile core economics (Durbin, sponsor revenue-share,
+    take-rate)
+  why: 'Many consumer fintechs depend on debit interchange as the primary revenue
+    driver. This is fragile: the Durbin Amendment exempts only banks under $10B in
+    assets from capped interchange, so the economics hinge on staying on a small sponsor
+    bank — and proposed Durbin/Reg II changes can compress it. Interchange is also
+    split with the sponsor bank and processor, so the real net take rate is far below
+    the gross ~1.5-2%. Investors flag businesses where the entire model breaks if
+    interchange compresses, the sponsor''s exempt status changes, or where the founder
+    quotes gross interchange without the revenue-share haircut.'
+  severity: major
+  detect: 'Ask: what % of revenue is interchange, what''s the net take rate after
+    sponsor/processor splits, and what happens if Durbin exemption or rates change?
+    Check sensitivity to a 20-30% interchange cut. Red flag: >70% revenue from interchange,
+    gross rate quoted with no split disclosed, no second revenue line.'
+  threshold: More than ~70% of revenue from debit interchange with no diversified
+    line is industry-typically a concentration flag.
+  stage:
+  - seed
+  - series-a
+  sources:
+  - https://www.federalreserve.gov/paymentsystems/regii-about.htm
+  - https://a16z.com/
+- id: fintech-fund-custody-commingling
+  sector: fintech
+  domain: custody-funds-safeguarding
+  title: Improper custody / commingling of customer funds and unreliable reconciliation
+    ledger
+  why: 'How customer money is held is a core fintech question with legal weight: funds
+    should sit in properly structured FBO/for-benefit-of accounts at an insured bank,
+    segregated from operating capital, with a continuously reconciled ledger so every
+    customer''s balance maps to real money. The Synapse failure showed what happens
+    when the ledger and the bank balances don''t reconcile — customers couldn''t access
+    funds. Commingling customer funds with operating cash, running on a middleware
+    ledger you don''t control, or being unable to produce a real-time reconciliation
+    are serious red flags. Pass-through FDIC insurance also requires correct account
+    titling.'
+  severity: kill
+  detect: 'Ask: where exactly is customer money held (account titling, which bank),
+    is it segregated FBO, who controls the ledger of record, and can they reconcile
+    customer balances to bank balances on demand? Red flag: customer funds in an operating
+    account, ledger owned by an unregulated middleware, no daily reconciliation, or
+    vague answers on FDIC pass-through eligibility.'
+  threshold: Any commingling of customer funds with operating capital is industry-typically
+    disqualifying.
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - https://www.fdic.gov/resources/deposit-insurance/
+  - https://www.consumerfinance.gov/
+- id: fintech-pci-data-security
+  sector: fintech
+  domain: data-security-compliance
+  title: PCI-DSS scope mishandled / sensitive financial data stored unsafely (no SOC
+    2, GLBA gaps)
+  why: Fintechs handle card data (PCI-DSS), bank credentials, and consumer financial
+    data (GLBA Safeguards Rule). Mismanaging PCI scope — e.g., touching raw PANs instead
+    of tokenizing through the processor — pulls the company into a heavy compliance
+    regime and creates breach liability. Sponsor banks and enterprise customers require
+    SOC 2 and a defined PCI compliance level. Founders sometimes store data they should
+    never touch or have no attestation. Investors and partners treat missing PCI attestation
+    / SOC 2 plus sloppy data handling as a deal-slowing or deal-killing diligence
+    finding.
+  severity: major
+  detect: 'Ask: what PCI level/SAQ applies, is card data tokenized or do they touch
+    PANs, is there a SOC 2 (Type I/II) and a GLBA safeguards program? Red flag: storing
+    raw card/account numbers, no PCI attestation, no SOC 2 roadmap at Series A, no
+    documented incident-response plan.'
+  threshold: Touching/storing raw PANs without PCI DSS attestation, or no SOC 2 by
+    Series A, is industry-typically a flag.
+  stage:
+  - seed
+  - series-a
+  sources:
+  - https://www.pcisecuritystandards.org/
+  - https://www.ftc.gov/business-guidance/privacy-security/gramm-leach-bliley-act
+- id: fintech-state-coverage-rollout
+  sector: fintech
+  domain: geographic-regulatory-coverage
+  title: Overstated geographic coverage — live in states/countries where licensing
+    isn't complete
+  why: US fintech licensing is state-by-state (MTLs across ~50 jurisdictions, each
+    with surety bonds, net-worth minimums, and call reports), and lending adds state
+    usury/rate caps and per-state lending licenses. Founders often claim 'nationwide'
+    while actually licensed in a handful of states or relying on a partner's footprint
+    that has gaps. Expanding into a state without the license — or above its rate
+    cap — creates rescission risk and regulatory exposure. Internationally, EMI/PSD2
+    and local authorizations don't transfer. Investors check that the stated TAM/coverage
+    matches the actual licensed perimeter and ongoing reporting obligations.
+  severity: minor
+  detect: 'Ask for the exact list of states/countries where they''re licensed or covered
+    by a partner''s license, with citations, vs where they actually onboard customers.
+    Check lending products against per-state rate caps. Red flag: ''available nationwide''
+    with MTLs in only a few states, no surety bonds posted, or onboarding users in
+    states not on the license list.'
+  threshold: Serving customers in any state lacking the required MTL/lending license
+    (without a valid exemption) is industry-typically a flag.
+  stage:
+  - seed
+  - series-a
+  sources:
+  - https://nmlsconsumeraccess.org/
+  - https://www.csbs.org/

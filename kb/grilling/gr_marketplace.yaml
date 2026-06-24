@@ -1,0 +1,191 @@
+cell: gr:marketplace
+type: grilling
+wedge: general
+items:
+- id: marketplace-liquidity-take-rate
+  sector: marketplace
+  theme: Take rate vs. liquidity tension
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  question: What's your take rate today, and how did you arrive at it — and at what
+    take rate do you start seeing supply or demand disintermediate around you?
+  strong_answer: 'Founder cites their actual blended take rate (industry-typical marketplace
+    take rates cluster roughly 10-30%, with goods marketplaces lower ~5-15% and services
+    higher ~15-30%), explains it''s benchmarked against the value they add (trust,
+    payments, discovery, fulfillment) not against competitors, and knows their disintermediation
+    rate — what % of matched transactions eventually go off-platform. They can name
+    the specific ''why pay us'' moment: e.g. escrow/insurance/guarantee that only
+    exists on-platform. They talk about take rate as something earned by adding more
+    workflow value over time, not a lever they''ll just crank.'
+  weak_answer: Founder quotes a take rate 'because that's what [Uber/Airbnb] charge'
+    with no link to value delivered, has no idea what their off-platform leakage is,
+    or says they'll 'increase take rate later once we have lock-in' without any mechanism
+    that actually creates lock-in. Treating take rate as a pricing decision rather
+    than a function of defensibility against disintermediation is the tell.
+  sources:
+  - a16z.com
+  - bvp.com
+- id: marketplace-disintermediation-leakage
+  sector: marketplace
+  theme: Disintermediation / platform leakage
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  question: Once a buyer and seller meet on your platform, what stops them from transacting
+    off-platform on the second order?
+  strong_answer: 'Founder has measured repeat-transaction-on-platform rate and can
+    explain the structural reasons people stay: payments/escrow with recourse, reputation
+    that doesn''t transfer off-platform, recurring discovery (you need a NEW match
+    each time, like food delivery or ride-hail), insurance/guarantees, or compliance.
+    They distinguish high-leakage categories (high-value, repeat, relationship-based
+    like home cleaning or freelance) from low-leakage (one-off, low-trust, discovery-heavy)
+    and have designed retention mechanics accordingly. They may quote a specific GMV-retained-on-platform
+    metric.'
+  weak_answer: 'Founder says ''we have great UX so they won''t leave'' or ''our reviews
+    keep them.'' Reviews and UX do not stop disintermediation in high-value repeat
+    categories. Worse: they haven''t even considered that the first match is the only
+    one they monetize. No measurement of off-platform leakage at all.'
+  sources:
+  - a16z.com
+  - ycombinator.com/library
+- id: marketplace-cold-start-side
+  sector: marketplace
+  theme: Cold-start / which side first
+  stage:
+  - pre-seed
+  - seed
+  question: Which side of the marketplace did you build first, why that side, and
+    how are you solving the cold-start chicken-and-egg in a specific geography or
+    category?
+  strong_answer: Founder explains they constrained the market (single city, single
+    vertical, single use case) to reach liquidity in a narrow slice rather than spreading
+    thin — the classic 'do things that don't scale' / hyper-local launch. They built
+    the harder-to-acquire side first (usually supply, but they justify which is the
+    constrained side for THEIR market), often by manually aggregating supply, faking
+    demand, or single-player-mode utility before the network exists. They have a concrete
+    liquidity threshold per market and a playbook to repeat market-by-market.
+  weak_answer: Founder launched nationally/globally from day one 'to get scale,' chased
+    both sides simultaneously with paid acquisition, or can't say which side is the
+    constraint. Saying 'we'll grow both sides together with marketing' signals they
+    don't understand that liquidity is local and concentrated, not an average across
+    a thin national footprint.
+  sources:
+  - a16z.com
+  - ycombinator.com/library
+  - sequoiacap.com
+- id: marketplace-liquidity-metric
+  sector: marketplace
+  theme: Real liquidity measurement
+  stage:
+  - seed
+  - series-a
+  question: How do you measure marketplace liquidity — not GMV, but the actual probability
+    that a listing sells or a request gets filled?
+  strong_answer: 'Founder uses real liquidity metrics: search-to-fill rate, % of listings
+    that transact within N days, % of buyer requests that get a match/response, utilization
+    rate of supply, time-to-match. They distinguish liquidity from raw GMV (which
+    can be juiced by a few whales) and track it per-market/per-category since liquidity
+    is local. For services they cite fill rate and response time; for goods, sell-through
+    and days-to-sale. They know their liquidity is improving cohort over cohort.'
+  weak_answer: Founder leads with GMV and total listings/users as the headline. Vanity
+    metrics like cumulative GMV, total registered sellers, or app downloads instead
+    of fill rate / match rate. If asked 'what % of buyers who search find what they
+    want and transact?' they don't have the number. Confusing scale of the catalog
+    with liquidity is the giveaway.
+  sources:
+  - a16z.com
+  - bvp.com
+- id: marketplace-supply-concentration
+  sector: marketplace
+  theme: Supply concentration / power-seller risk
+  stage:
+  - seed
+  - series-a
+  question: What share of GMV comes from your top 10% of suppliers, and what happens
+    to the marketplace if your top sellers leave or go direct?
+  strong_answer: Founder knows their supply concentration (Gini / top-decile GMV share)
+    and treats heavy concentration as a risk to actively manage — power sellers have
+    leverage to negotiate down take rate or disintermediate, and a thin long tail
+    means fragile liquidity. They have a strategy to deepen the long tail and reduce
+    dependence, or they've consciously chosen a concentrated-supply model and built
+    switching costs (tooling, integrations, working capital) that make top sellers
+    sticky. They distinguish fragmented-supply marketplaces (more defensible) from
+    concentrated ones.
+  weak_answer: Founder doesn't know the concentration number, or brags that 'a few
+    great sellers drive most of our volume' as if it's pure strength without recognizing
+    the dependency and disintermediation leverage it creates. No plan for what happens
+    when a whale defects.
+  sources:
+  - a16z.com
+- id: marketplace-fragmentation-fit
+  sector: marketplace
+  theme: Why a marketplace beats incumbents/aggregation
+  stage:
+  - pre-seed
+  - seed
+  question: Why is this market structurally suited to a marketplace rather than a
+    managed/1P model or the existing fragmented status quo — what's the fragmentation
+    on each side?
+  strong_answer: 'Founder shows the market has the right shape: fragmented supply
+    AND fragmented demand, frequent enough transactions, high enough order value to
+    support a take rate, and a real matching/trust problem the current channels (Craigslist,
+    classifieds, word-of-mouth, brokers) solve badly. They''ve considered whether
+    a managed marketplace (controlling pricing/quality/fulfillment) beats a pure listings
+    model for their category, and why. They cite the specific inefficiency they remove.'
+  weak_answer: Founder picks a marketplace model by default without asking whether
+    1P/managed/SaaS would serve the market better, in a category that's actually concentrated
+    on one side (e.g. a few large suppliers) where a marketplace adds little. Or transactions
+    are too infrequent/low-value to ever support a viable take rate, and they haven't
+    done that math.
+  sources:
+  - a16z.com
+  - bvp.com
+- id: marketplace-managed-unit-economics
+  sector: marketplace
+  theme: Managed-marketplace margin reality
+  stage:
+  - seed
+  - series-a
+  question: If you're a managed marketplace, what's your contribution margin per transaction
+    after you net out the operational cost of guaranteeing quality, fulfillment, support,
+    and chargebacks/refunds?
+  strong_answer: Founder separates headline take rate from true contribution margin
+    — managed marketplaces eat real per-order costs (vetting, ops, support, refunds,
+    insurance, returns) that pure listings marketplaces don't. They show net contribution
+    margin per order and how it improves with scale/automation, and they're honest
+    that managed models trade higher take rate for lower gross margin. They know which
+    costs are fixed vs. variable per transaction.
+  weak_answer: Founder presents the gross take rate as if it were margin, ignoring
+    the cost of delivering the 'managed' promise. No line item for refunds/chargebacks,
+    support cost per order, or quality-control labor. Assumes margins magically improve
+    at scale without naming the specific cost that automates away.
+  sources:
+  - a16z.com
+  - bvp.com
+- id: marketplace-gmv-quality
+  sector: marketplace
+  theme: GMV quality / organic vs. subsidized demand
+  stage:
+  - seed
+  - series-a
+  question: What share of your GMV is organic/repeat versus driven by incentives,
+    subsidies, or paid acquisition — and what's your true blended CAC payback against
+    net revenue, not GMV?
+  strong_answer: Founder breaks GMV into organic, repeat, and incentive-driven, and
+    shows organic/repeat rising over time as proof of real liquidity and network effects.
+    CAC payback is computed against net revenue (their take), not GMV, and they account
+    for the two-sided cost of acquiring both supply and demand. They know their organic/word-of-mouth
+    share and viral coefficient if any, and can show a market cohort that became self-sustaining
+    after subsidies were pulled.
+  weak_answer: Founder reports growth that is actually bought with promos/subsidies
+    and computes CAC payback against GMV (making it look 5-20x better than reality),
+    or only counts demand-side CAC while ignoring the cost of acquiring supply. Can't
+    show any cohort or market that stayed liquid after incentives were removed. 'Growth'
+    that collapses when subsidies stop.
+  sources:
+  - a16z.com
+  - bvp.com
+  - ycombinator.com/library

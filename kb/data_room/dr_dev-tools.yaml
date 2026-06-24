@@ -1,0 +1,109 @@
+cell: dr:dev-tools
+type: data_room
+wedge: general
+items:
+- id: devtools-oss-license-audit
+  sector: dev-tools
+  category: IP & Licensing
+  document: Open-source license audit / SBOM for the codebase and all dependencies,
+    with a copyleft (GPL/AGPL) exposure breakdown
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: Dev-tools are usually built on heavy OSS dependency trees and often ship code
+    to customer machines/CI. An AGPL/GPL contaminant in a distributed binary or a
+    permissively-relicensed core can poison the whole product and tank an acquisition.
+    Investors want a dependency license inventory (e.g. from FOSSA/Snyk/Syft) showing
+    no copyleft in distributed paths. This is the single most sector-specific IP risk
+    for dev-tools.
+- id: devtools-oss-vs-commercial-strategy
+  sector: dev-tools
+  category: Business Model
+  document: 'Open-core / OSS-vs-commercial boundary memo: what is open-source, what
+    is paid, the license chosen for the OSS core (e.g. Apache-2.0 vs BSL/SSPL), and
+    the relicensing/CLA position'
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: Almost unique to dev-tools and infra. Investors need to see a defensible line
+    between free and paid, protection against hyperscaler 'strip-mining' (the reason
+    MongoDB/Elastic/HashiCorp adopted SSPL/BSL), and whether contributors signed a
+    CLA so the company can relicense. A fuzzy open-core boundary is a known monetization
+    killer in this sector.
+- id: devtools-bottoms-up-adoption-metrics
+  sector: dev-tools
+  category: Metrics & Traction
+  document: 'Bottoms-up adoption funnel: GitHub stars/forks, package downloads (npm/PyPI/crates/Docker
+    pulls), active installs, signups, and free-to-paid (PLG) conversion rates'
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: Dev-tools are overwhelmingly product-led and bottoms-up. The investor's core
+    diligence is whether developers actually adopt and whether usage converts to revenue.
+    Industry-typical PLG free-to-paid conversion is ~2-5%; weekly-active / monthly-active
+    developer ratio and download-to-signup are the real leading indicators here, not
+    generic MRR alone.
+- id: devtools-design-partner-integrations
+  sector: dev-tools
+  category: Ecosystem & Integrations
+  document: 'Integration / ecosystem map: supported languages, frameworks, CI systems,
+    IDEs, cloud/registry integrations, plus any marketplace listings (GitHub/VS Code/JetBrains/cloud
+    marketplaces) and partner agreements'
+  required: false
+  stage:
+  - seed
+  - series-a
+  note: A dev-tool's defensibility and TAM are largely a function of where it plugs
+    in. Investors assess lock-in via depth of integrations and whether distribution
+    rides on marketplaces (which can also be a platform-risk dependency). Specific
+    to this sector because the 'wedge + expand' thesis depends on the integration
+    surface.
+- id: devtools-security-posture-supply-chain
+  sector: dev-tools
+  category: Security & Trust
+  document: 'Security posture pack: code-signing/provenance (SLSA level), dependency
+    CVE scan, secrets-handling, and—if the tool runs in customer CI/prod or has agent/elevated
+    access—SOC 2 status and least-privilege scoping'
+  required: false
+  stage:
+  - seed
+  - series-a
+  note: Dev-tools frequently execute in the customer's build pipeline or production
+    with broad permissions, making them a supply-chain attack vector (cf. Codecov,
+    SolarWinds). Enterprise buyers gate on this, so it's a revenue-blocker at series-a
+    even though it's only sometimes a true deal-blocker earlier. SOC 2 Type II is
+    industry-typical for selling upmarket.
+- id: devtools-pricing-usage-model
+  sector: dev-tools
+  category: Pricing & Monetization
+  document: 'Pricing model rationale: per-seat vs usage/consumption (build minutes,
+    tokens, hosts, API calls) vs tiered, with COGS/gross-margin per unit and any unbounded-usage
+    cost exposure'
+  required: false
+  stage:
+  - seed
+  - series-a
+  note: 'Dev-tools pricing is a known minefield: per-seat under-monetizes heavy programmatic
+    usage, while usage-based pricing on a compute-heavy tool (CI, builds, AI inference)
+    can run negative gross margin if not metered. Investors want to see the unit economics
+    survive at scale—specific to infra/dev-tools where COGS is often real compute,
+    unlike pure SaaS.'
+- id: devtools-self-host-vs-cloud
+  sector: dev-tools
+  category: Deployment & Architecture
+  document: 'Deployment model doc: cloud/SaaS vs self-hosted/on-prem/air-gapped split,
+    data-residency handling, and the support/update burden of each'
+  required: false
+  stage:
+  - seed
+  - series-a
+  note: Many dev-tool buyers (regulated, security-conscious eng orgs) demand self-hosted
+    or air-gapped deployments, which materially changes support cost, telemetry/observability,
+    and update cadence versus a pure SaaS. This deployment fork is characteristic
+    of dev-tools/infra and drives both gross margin and sales motion.

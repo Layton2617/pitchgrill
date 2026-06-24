@@ -1,0 +1,176 @@
+cell: rf:ai-infra
+type: red_flag
+wedge: general
+items:
+- id: ai-infra-gross-margin-cloud-passthrough
+  sector: ai-infra
+  domain: unit-economics
+  title: Sub-50% gross margins masked as 'software' while really reselling GPU compute
+  why: Many AI-infra startups (inference APIs, fine-tuning platforms, vector DBs with
+    hosted compute) pass through cloud/GPU cost and report SaaS-style headline margins
+    that collapse under scrutiny. Investors dock you when COGS is dominated by NVIDIA/cloud
+    rent rather than your own IP, because gross margin won't expand with scale the
+    way a software comp would — you're a thin layer on someone else's capex. The tell
+    is margin that moves with token volume, not with customer count.
+  severity: major
+  detect: Ask for gross margin computed with ALL compute COGS included (not 'adjusted'),
+    then margin per workload type. Check whether margin improves or degrades as usage
+    scales. Look for reserved-instance / committed-spend arbitrage being booked as
+    durable margin.
+  threshold: 'industry-typical: true gross margin <50-60% for an ''AI software'' positioning
+    is a flag; healthy infra software is 70%+. (typical, not absolute)'
+  stage:
+  - seed
+  - series-a
+  sources: []
+- id: ai-infra-wrapper-no-moat
+  sector: ai-infra
+  domain: defensibility
+  title: Thin wrapper over a single foundation-model provider with no switching cost
+  why: An ai-infra investor specifically fears the 'OpenAI ships it' / 'the model
+    lab absorbs this layer' risk. If your product is a convenience layer (prompt orchestration,
+    caching, simple RAG) over one provider's API, the provider can replicate it natively
+    and your differentiation evaporates. This is distinct from generic competition
+    risk — it's structural to building ON TOP of a fast-moving platform that has every
+    incentive to move up the stack into you.
+  severity: major
+  detect: Ask what survives if the underlying model lab ships your feature as a native
+    primitive next quarter. Probe for proprietary data flywheel, multi-model abstraction
+    with real customer lock-in, or systems IP (kernels, scheduling) vs. API glue.
+  threshold: 'industry-typical: if >70% of value-add disappears when the upstream
+    provider adds one feature, it''s a wrapper.'
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - https://a16z.com/who-owns-the-generative-ai-platform/
+- id: ai-infra-benchmark-overfit
+  sector: ai-infra
+  domain: technical-credibility
+  title: Performance claims (latency / throughput / cost-per-token) shown only on
+    cherry-picked benchmarks
+  why: AI-infra is rife with 'we're 10x faster' claims measured on a single batch
+    size, sequence length, or quantization that flatters the system but doesn't reflect
+    production. Investors with infra fluency dock you for benchmarks that omit p99
+    latency, real concurrency, cold-start, or accuracy degradation from the optimization.
+    The non-obvious flag is presenting speedups without the accuracy/quality tradeoff
+    they bought.
+  severity: major
+  detect: Ask for p50/p99 latency under realistic concurrency, the batch size and
+    context length used, and the quality/accuracy delta vs baseline at that speed.
+    Request a head-to-head on the customer's actual workload, not MLPerf-style synthetics.
+  threshold: 'industry-typical: any throughput claim without stated batch size, context
+    length, and quality delta should be treated as unverified.'
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources: []
+- id: ai-infra-open-source-monetization-gap
+  sector: ai-infra
+  domain: go-to-market
+  title: Huge OSS adoption (GitHub stars / downloads) with no path from free self-host
+    to paid
+  why: Much ai-infra goes to market open-source (vector DBs, orchestration frameworks,
+    serving engines). Investors specifically fear the 'beloved project, zero revenue'
+    trap where the OSS version is good enough to self-host forever and the commercial
+    tier offers nothing the sophisticated infra buyer can't replicate. This differs
+    from generic monetization risk because the very users who adopt infra OSS are
+    the ones most capable of avoiding your paid SKU.
+  severity: major
+  detect: Ask what is deliberately NOT in OSS (the 'open-core line'), conversion rate
+    from OSS user to paid, and whether paid features are genuinely hard to self-build
+    (managed scale, compliance, SLAs) vs. cosmetic. Check downloads-to-revenue ratio
+    trend.
+  threshold: 'industry-typical: OSS-to-paid conversion <1-2% of active deployments,
+    or no defensible open-core line, is a flag.'
+  stage:
+  - seed
+  - series-a
+  sources: []
+- id: ai-infra-eval-as-vitamin
+  sector: ai-infra
+  domain: product-category
+  title: Building in a tooling category buyers treat as nice-to-have (eval, observability,
+    guardrails) without proven willingness-to-pay
+  why: 'Several hot ai-infra categories — LLM eval, observability, prompt management,
+    guardrails — have strong inbound interest but weak budgets because teams build
+    internal versions or treat them as optional until a production incident forces
+    the issue. The sector-specific flag: confusing developer enthusiasm and signups
+    with actual procurement budget line items. Infra investors have watched many of
+    these become features, not companies.'
+  severity: minor
+  detect: Ask for the actual budget line the buyer pays from and whether it's a standalone
+    line item or scavenged from another budget. Probe contraction/churn after the
+    initial incident-driven purchase. Check paid logo count vs. free signups.
+  threshold: 'industry-typical: if >80% of users are on free tier and paid contracts
+    are sub-$25k ACV with no expansion, the category may be a feature.'
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources: []
+- id: ai-infra-gpu-supply-dependency
+  sector: ai-infra
+  domain: operations
+  title: Business model assumes cheap, available GPU capacity it doesn't control
+  why: 'For training/inference/fine-tuning infra, GPU availability and price ARE the
+    business. Investors dock startups whose margins or product promise depend on assumptions
+    about H100/H200 availability, spot pricing, or a single cloud''s quota that the
+    founder has no control over or contractual lock on. This is specific to ai-infra:
+    a sudden capacity crunch or price move can erase the entire value prop. Also relevant:
+    dependency on a single chip vendor with no fallback.'
+  severity: minor
+  detect: Ask about secured capacity commitments, multi-cloud / multi-vendor (incl.
+    AMD/TPU/custom silicon) fallback, and what the model looks like if GPU spot prices
+    double or supply tightens. Check whether reserved capacity is right-sized vs.
+    speculative.
+  threshold: 'industry-typical: zero contractually-secured capacity buffer or single-cloud/single-vendor
+    dependence for the core workload is a flag.'
+  stage:
+  - seed
+  - series-a
+  sources: []
+- id: ai-infra-model-commoditization-revenue-decay
+  sector: ai-infra
+  domain: market-timing
+  title: Revenue tied to a model-generation moment that price-decays faster than you
+    can grow
+  why: Token prices and inference costs in AI fall ~10x/year, and capabilities that
+    were a paid product (RAG, long context, function calling) get absorbed into base
+    models. An ai-infra investor specifically watches whether your revenue is 'inflating
+    away' — same usage producing less revenue each quarter, or your core capability
+    becoming a free model feature. This deflation dynamic is unique to AI and doesn't
+    show up in normal infra/SaaS where prices are stable.
+  severity: major
+  detect: Ask for revenue per unit of usage (per token / per call) trend over the
+    last 4 quarters and whether net revenue retention is driven by usage growth outrunning
+    price decay. Probe which roadmap items are at risk of being commoditized into
+    the base model.
+  threshold: 'industry-typical: net price-per-unit declining faster than usage grows
+    (negative real NRR) is a serious flag.'
+  stage:
+  - seed
+  - series-a
+  sources: []
+- id: ai-infra-poc-to-production-gap
+  sector: ai-infra
+  domain: traction-quality
+  title: Pipeline dominated by stalled POCs that never reach production deployment
+  why: 'AI-infra deals are notorious for enterprise POCs that look like traction but
+    never convert because the AI feature itself doesn''t make it to production (accuracy,
+    reliability, or ROI doesn''t clear the bar). Investors dock founders who report
+    POC counts as momentum without production conversion. This is sector-specific:
+    the bottleneck is often the customer''s own AI maturity, not your sales execution,
+    which makes the pipeline structurally unreliable.'
+  severity: minor
+  detect: Ask POC-to-paid-production conversion rate and median time-in-POC. Distinguish
+    'in production serving real traffic' from 'signed pilot.' Probe why stalled POCs
+    stalled — usually a model-quality or ROI wall, not procurement.
+  threshold: 'industry-typical: POC-to-production conversion <20-30% or POCs aging
+    past 2 quarters without deployment is a flag.'
+  stage:
+  - seed
+  - series-a
+  sources: []

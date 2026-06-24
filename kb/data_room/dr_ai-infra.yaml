@@ -1,0 +1,111 @@
+cell: dr:ai-infra
+type: data_room
+wedge: general
+items:
+- id: ai-infra-1
+  sector: ai-infra
+  category: Unit Economics / COGS
+  document: 'GPU/compute cost model and gross-margin bridge: per-inference (or per-token
+    / per-training-run) COGS broken out by cloud vs. reserved vs. owned hardware,
+    utilization rates, and a path-to-positive-gross-margin model. Include current
+    blended GPU-hour cost and committed-spend discounts.'
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: 'Deal-blocker for AI infra: many companies sell inference/training at negative
+    gross margin masked by cloud credits. Investors need to see real COGS once credits
+    expire. Industry-typical concern: gross margins often sit at 30-60% vs. 70-85%+
+    for classic SaaS.'
+- id: ai-infra-2
+  sector: ai-infra
+  category: Cloud Credits & Vendor Commitments
+  document: Schedule of cloud/compute credits (AWS/GCP/Azure activate, Nvidia Inception,
+    OpenAI/Anthropic startup credits), expiration dates and remaining balances, plus
+    any minimum-commitment / reserved-instance / capacity-reservation contracts and
+    take-or-pay obligations.
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: Specific to AI infra because credits materially distort burn and margins,
+    and capacity-reservation take-or-pay can be a large fixed liability. A startup
+    running primarily on expiring credits with a cliff is a financial-due-diligence
+    red flag unique to this sector.
+- id: ai-infra-3
+  sector: ai-infra
+  category: GPU Supply & Capacity Access
+  document: 'GPU/accelerator supply plan: contracted access to H100/H200/B200/MI300
+    or equivalent, allocations from cloud providers or neoclouds (CoreWeave, Lambda,
+    etc.), lead times, and contingency if a hardware generation or specific SKU becomes
+    unavailable.'
+  required: true
+  stage:
+  - seed
+  - series-a
+  note: Hardware scarcity is a sector-defining constraint. An infra company's growth
+    can be gated by chip allocation, not demand. Stage-skewed to seed/series-a where
+    scaling capacity matters; pre-seed often still on credits.
+- id: ai-infra-4
+  sector: ai-infra
+  category: Benchmarks & Performance Claims
+  document: Reproducible benchmark methodology and results substantiating performance/cost
+    claims (e.g., tokens/sec, latency p50/p99, cost-per-1M-tokens, throughput vs.
+    baseline like vLLM/TensorRT-LLM or a named cloud endpoint), including hardware
+    config, batch sizes, model/quantization, and dataset used.
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: AI infra is sold on '2x faster / 70% cheaper' claims that are frequently cherry-picked.
+    Investors verify with reproducible methodology against canonical baselines (vLLM,
+    TensorRT-LLM). MLPerf is the recognized neutral reference. Non-reproducible benchmarks
+    are a credibility red flag.
+- id: ai-infra-5
+  sector: ai-infra
+  category: Model & Data Provenance / Licensing
+  document: 'Provenance and license audit for any models, weights, and training data
+    shipped or fine-tuned: base-model licenses (Llama community license, Apache, MIT,
+    etc.) and field-of-use/commercial restrictions, dataset licenses, and confirmation
+    no output is encumbered by upstream provider terms.'
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: 'Sector-specific IP risk: restrictive base-model licenses (e.g., Llama''s
+    >700M MAU clause, non-commercial datasets) can poison a product. Distinct from
+    generic IP assignment that every startup has.'
+- id: ai-infra-6
+  sector: ai-infra
+  category: Platform Dependency / Concentration
+  document: Dependency map of upstream model providers and infra primitives (OpenAI/Anthropic/Google
+    APIs, Nvidia CUDA stack, single-cloud lock-in) with revenue/usage concentration
+    on each, plus a substitution/portability plan if a provider changes pricing, rate
+    limits, or terms.
+  required: false
+  stage:
+  - seed
+  - series-a
+  note: AI infra startups are often a thin layer on a foundation-model API or CUDA,
+    creating 'commoditization-by-platform' risk where the upstream vendor can absorb
+    the feature or change economics overnight. This is the dominant strategic concern
+    a16z/Sequoia probe for AI infra specifically.
+- id: ai-infra-7
+  sector: ai-infra
+  category: Reliability / SLA & Observability
+  document: 'Production reliability evidence: uptime/SLA track record, incident history,
+    autoscaling and failover architecture across regions/providers, and inference
+    observability (latency, error rates, cold-start, GPU OOM/queueing). Include any
+    enterprise SLA commitments and penalties.'
+  required: false
+  stage:
+  - seed
+  - series-a
+  note: Because GPU capacity is constrained and bursty, AI infra has reliability failure
+    modes (cold starts, OOM, queue backpressure, provider throttling) that classic
+    stateless SaaS doesn't. Enterprise buyers gate purchases on this; relevant once
+    selling to real customers.

@@ -46,10 +46,10 @@ class Result:
 
 def select(kb: kb_mod.KB, *, stage, sector, wedge) -> Selection:
     return Selection(
-        red_flags=kb_mod.select_red_flags(kb, stage=stage, wedge=wedge),
-        grilling=kb_mod.select_grilling(kb, stage=stage, wedge=wedge),
-        data_room=kb_mod.select_data_room(kb, stage=stage, wedge=wedge),
-        deck_lints=kb_mod.select_deck_lints(kb, stage=stage, wedge=wedge),
+        red_flags=kb_mod.select_red_flags(kb, stage=stage, wedge=wedge, sector=sector),
+        grilling=kb_mod.select_grilling(kb, stage=stage, wedge=wedge, sector=sector),
+        data_room=kb_mod.select_data_room(kb, stage=stage, wedge=wedge, sector=sector),
+        deck_lints=kb_mod.select_deck_lints(kb, stage=stage, wedge=wedge, sector=sector),
         benchmarks=kb_mod.select_benchmarks(kb, stage=stage, wedge=wedge, sector=sector),
     )
 

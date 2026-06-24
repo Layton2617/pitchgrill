@@ -1,0 +1,190 @@
+cell: rf:dev-tools
+type: red_flag
+wedge: general
+items:
+- id: devtools-monetization-gap
+  sector: dev-tools
+  domain: monetization
+  title: Strong adoption, no path from free/OSS usage to paid
+  why: Dev-tools routinely get adopted bottom-up by developers who have no budget
+    authority and a strong cultural resistance to paying for tooling. A product can
+    have 50k GitHub stars or huge npm download counts and still convert <1% to revenue
+    because the free tier (or self-hostable OSS) covers the actual job-to-be-done.
+    Investors dock you when the 'paid wall' is something developers route around (self-host,
+    scripts, the free tier) rather than something an org is forced to buy. The classic
+    failure is monetizing the individual developer instead of the team/org control
+    plane (SSO, audit, RBAC, governance, support SLAs) that a buyer actually pays
+    for.
+  severity: major
+  detect: Ask what specifically is gated behind paid and whether a competent developer
+    can replicate it in a weekend. Check the ratio of active users (or OSS downloads/stars)
+    to paying accounts, and whether paid features are 'developer features' vs 'buyer/org
+    features'. Look for a defined commercialization line (open-core boundary) vs ad-hoc
+    gating.
+  threshold: Free-to-paid conversion well under ~1-3% of active users with no enterprise
+    control-plane to upsell is a flag (industry-typical, not absolute).
+  stage:
+  - seed
+  - series-a
+  sources: []
+- id: devtools-oss-license-rug
+  sector: dev-tools
+  domain: open-source-strategy
+  title: Permissive OSS core with no moat against a hyperscaler or fork
+  why: If the core is Apache/MIT and the value is the software itself (not a managed
+    service, network, or data), AWS/GCP/Azure or a well-funded fork can offer the
+    same thing as a service and capture the monetization. The reflex fix—relicensing
+    to BSL/SSPL/Elastic/'fair-source' mid-flight—triggers community backlash, hostile
+    forks (OpenSearch, OpenTofu, Valkey, Redict are the canonical examples), and reputational
+    damage with the exact developers you depend on for distribution. Investors specifically
+    probe whether the license strategy was designed up front or is a panic move waiting
+    to happen.
+  severity: major
+  detect: Identify the license of the core and whether the moat is the code (weak)
+    vs the managed service/operational expertise/network. Ask if a relicense is planned
+    and what the CLA/contributor situation is. Check whether a hyperscaler already
+    offers, or could trivially offer, a competing managed version.
+  threshold: N/A
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - https://a16z.com/open-source-from-community-to-commercialization/
+- id: devtools-friction-ttv
+  sector: dev-tools
+  domain: developer-experience
+  title: 'High time-to-first-value: too many steps before the ''aha'''
+  why: Dev-tools live or die on activation friction. If a developer can't get to a
+    working result quickly (clone, configure, auth, deploy infra, read docs) they
+    abandon. Unlike most SaaS, the buyer evaluation IS the developer trying it solo
+    at midnight—there's no sales-assisted onboarding to compensate. A signup-to-value
+    path that requires talking to sales, a credit card before any value, heavy infra
+    setup, or a long quickstart is a sector-specific killer that investors test by
+    literally trying the product themselves.
+  severity: major
+  detect: Run the quickstart yourself and time signup-to-first-meaningful-output.
+    Count required steps and whether a credit card or sales call blocks the trial.
+    Check docs quality and whether there's a true self-serve free tier. Look at activation
+    rate (signed up -> reached aha) in the funnel.
+  threshold: Time-to-first-value beyond ~10-15 minutes, or any mandatory sales contact
+    before trial, is a flag (industry-typical).
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - https://www.ycombinator.com/library/6f-how-to-launch-a-developer-tool
+- id: devtools-bottom-up-no-expansion
+  sector: dev-tools
+  domain: go-to-market
+  title: Bottom-up land with no expansion or enterprise motion (flat NDR)
+  why: 'Dev-tools PLG depends on a land-and-expand curve: individual dev -> team ->
+    org-wide rollout -> enterprise contract. If usage stays trapped at the individual/small-team
+    level and never expands to seat/usage growth or an enterprise control plane, you
+    get flat net dollar retention and a thin ACV that can''t support a real sales
+    org. This is distinct from generic ''low retention''—the specific dev-tools failure
+    is great logo acquisition with no mechanism to grow a single account 5-10x over
+    time, because the product was never designed for org-level adoption (no admin,
+    no team workspaces, no usage that compounds with codebase/traffic).'
+  severity: major
+  detect: Look at net dollar retention and per-account usage/seat growth over 12+
+    months. Ask whether there's an enterprise tier (SSO/SAML, RBAC, audit logs, SOC2)
+    and any closed enterprise deals. Check whether usage naturally grows with the
+    customer's scale (good) or is a fixed per-dev license (capped).
+  threshold: NDR below ~110-120% for a PLG dev-tool, or no enterprise tier by Series
+    A, is a flag (industry-typical).
+  stage:
+  - seed
+  - series-a
+  sources: []
+- id: devtools-platform-dependency
+  sector: dev-tools
+  domain: platform-risk
+  title: Existential dependence on one platform/IDE/CI's API or marketplace policy
+  why: Many dev-tools are built as an extension of a single platform—a VS Code extension,
+    a GitHub App, a CI plugin, a browser extension, a wrapper around one model/API.
+    That platform owns the distribution, the pricing terms, and can ship your feature
+    natively (the 'sherlocking' risk) or change API/marketplace terms overnight. Investors
+    specifically dock you when your entire business is one ToS change or one first-party
+    feature announcement away from zero, especially if the platform has a history
+    of absorbing popular extensions.
+  severity: major
+  detect: Identify which single platform the product depends on for distribution AND
+    functionality. Ask what happens if that platform builds the feature natively or
+    changes API access/pricing. Check for distribution diversification across multiple
+    ecosystems and whether there's value that lives outside the host platform.
+  threshold: N/A
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources: []
+- id: devtools-no-bottom-up-distribution
+  sector: dev-tools
+  domain: go-to-market
+  title: Top-down sales motion for a developer-adopted product (channel mismatch)
+  why: 'Selling a dev-tool exclusively top-down to CIOs/VPs without developer pull
+    is a sector-specific anti-pattern: developers will reject or quietly bypass tools
+    imposed on them, and procurement-led dev-tools have brutal CAC and long sales
+    cycles for low ACV. The winning dev-tools motion is developer-led adoption that
+    creates internal demand which then converts to a purchase. Investors flag when
+    there''s no organic developer signal (no OSS traction, no community, no self-serve
+    signups) and the entire pipeline is outbound enterprise sales—it signals the product
+    doesn''t actually delight the end user.'
+  severity: minor
+  detect: 'Check the mix of inbound/self-serve vs outbound-sourced revenue. Look for
+    organic developer signals: GitHub stars/issues, Discord/Slack community, Stack
+    Overflow mentions, blog/HN traction. Ask what % of paying customers started as
+    a bottom-up developer adoption.'
+  threshold: N/A
+  stage:
+  - seed
+  - series-a
+  sources:
+  - https://www.ycombinator.com/library/6f-how-to-launch-a-developer-tool
+- id: devtools-tool-not-platform
+  sector: dev-tools
+  domain: market-sizing
+  title: Single-feature tool that's a feature of a larger platform, not a category
+  why: A large share of dev-tools solve one narrow pain (a linter, a specific testing
+    helper, a single CLI utility). The sector-specific risk is that the surrounding
+    platform (your cloud, your CI vendor, your IDE, your observability suite) will
+    bundle it for free as table stakes, collapsing your standalone TAM. Investors
+    dock 'vitamin not painkiller' utilities and tools that have no roadmap from a
+    point solution to a workflow/platform with switching costs (stored config, data,
+    integrations, team workflows).
+  severity: minor
+  detect: 'Ask whether the product is a standalone purchase or a feature larger players
+    will absorb, and what the expansion roadmap to a platform looks like. Assess switching
+    cost: does the tool accumulate config/data/workflow lock-in over time, or is it
+    trivially swappable? Check if incumbents already bundle similar functionality.'
+  threshold: N/A
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources: []
+- id: devtools-cogs-margin
+  sector: dev-tools
+  domain: unit-economics
+  title: Compute/inference COGS eat the margin on a usage-priced dev-tool
+  why: For infra-heavy or AI/LLM-powered dev-tools (cloud build/CI, sandboxes, code-gen
+    agents, vector/observability backends), the cost to serve scales with usage and
+    can be a large fraction of revenue—unlike classic software's ~80%+ gross margins.
+    The sector trap is pricing per-seat or flat while costs are per-run/per-token,
+    so heavy users are unprofitable and growth burns cash. This is acute for AI coding
+    tools where model API spend per active user can exceed the subscription price.
+    Investors specifically check gross margin and whether the pricing model is aligned
+    to the cost driver.
+  severity: major
+  detect: Compute gross margin and COGS per active user, especially for power users.
+    Check whether pricing (per-seat/flat) matches the cost driver (per-token/per-run/per-GB).
+    Ask about the most expensive 5% of users and whether they're profitable. For AI
+    tools, compare model/inference spend per user to ARPU.
+  threshold: Gross margin below ~50-60% for a software-sold dev-tool, or top users
+    served at a loss, is a flag (industry-typical).
+  stage:
+  - seed
+  - series-a
+  sources: []

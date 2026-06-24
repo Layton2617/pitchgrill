@@ -1,0 +1,95 @@
+cell: dr:consumer
+type: data_room
+wedge: general
+items:
+- id: consumer-cohort-retention-curves
+  sector: consumer
+  category: Retention & Engagement
+  document: Cohort retention curves by signup month (D1/D7/D30 for apps; M1-M12 repeat-purchase
+    for commerce), showing whether curves flatten into a stable plateau vs. decay
+    to zero
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: The single most scrutinized consumer artifact. A flattening curve proves organic
+    product-market fit; a curve that decays to zero means paid growth is renting users.
+    Deal-blocker for any retention-driven consumer thesis.
+- id: consumer-cac-payback-ltv
+  sector: consumer
+  category: Unit Economics
+  document: Blended and paid-only CAC, CAC payback period (months), and cohort-based
+    LTV/CAC by acquisition channel, net of refunds/returns and including shipping/COGS
+    for physical goods
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: 'Investors separate blended vs. paid CAC to detect organic mix inflating efficiency.
+    Industry-typical targets: CAC payback under 12 months, LTV/CAC above 3x; weaker
+    is a flag but contextual. Required because consumer is a unit-economics game.'
+- id: consumer-channel-concentration-cac-trend
+  sector: consumer
+  category: Acquisition & Distribution
+  document: Channel mix breakdown with spend, CAC trend over time per channel (Meta/TikTok/Google/influencer/organic),
+    and platform dependency / single-channel concentration analysis
+  required: true
+  stage:
+  - seed
+  - series-a
+  note: Sector-specific because consumer growth lives and dies on paid-social CAC
+    inflation and platform/algorithm risk. >70% of acquisition from one channel is
+    a structural fragility flag (e.g., iOS ATT, TikTok ban risk).
+- id: consumer-organic-virality-metrics
+  sector: consumer
+  category: Growth Mechanics
+  document: Organic share of new users, viral/k-factor or referral coefficient, and
+    word-of-mouth attribution; for content/social products, DAU/MAU stickiness ratio
+  required: false
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: Distinguishes a brand/network-effect product from a paid-funnel arbitrage.
+    DAU/MAU above ~50% (industry-typical) signals genuine habit. Not a hard blocker
+    but heavily weights the multiple.
+- id: consumer-aov-repeat-margin
+  sector: consumer
+  category: Commerce Economics
+  document: AOV, gross margin after returns and fulfillment, repeat-purchase rate,
+    and purchase frequency / time-to-second-purchase (for transactional/DTC); subscription
+    churn and ARPU (for subscription consumer)
+  required: true
+  stage:
+  - seed
+  - series-a
+  note: 'Specific to consumer commerce: thin margins after returns/shipping kill otherwise-attractive
+    top lines. Second-purchase rate is the leading indicator of LTV. Deal-blocker
+    for DTC where margin structure determines viability.'
+- id: consumer-brand-nps-sentiment
+  sector: consumer
+  category: Brand & Sentiment
+  document: NPS over time, app-store / review-platform ratings and volume, return/complaint
+    rates, and UGC / social sentiment trend
+  required: false
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: Consumer-specific proxy for durable brand equity and reorder intent. App-store
+    rating below ~4.0 or declining review velocity is an early churn warning that
+    precedes the retention curve breaking.
+- id: consumer-inventory-supply-chain
+  sector: consumer
+  category: Operations & Supply Chain
+  document: 'For physical-goods: inventory turnover, cash conversion cycle, supplier
+    concentration/contracts, MOQs, and working-capital requirements per growth scenario'
+  required: false
+  stage:
+  - seed
+  - series-a
+  note: 'Unique to physical consumer brands: growth can be cash-negative if working
+    capital is locked in inventory. Single-supplier or single-factory concentration
+    is a continuity risk. Not relevant for pure-digital consumer.'

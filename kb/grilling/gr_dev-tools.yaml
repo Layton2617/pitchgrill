@@ -1,0 +1,174 @@
+cell: gr:dev-tools
+type: grilling
+wedge: general
+items:
+- id: devtools-01
+  sector: dev-tools
+  theme: Bottom-up adoption vs. top-down sales motion
+  question: Walk me through the exact path from a single developer running `npm install`
+    (or signing up) to a paid contract. Where does the credit card or procurement
+    actually enter, and who signs it?
+  strong_answer: 'Founder describes a concrete PLG funnel with measured conversion
+    at each step: individual dev adopts in a side project, spreads to their team (seats/usage
+    grow organically), hits a natural paywall (rate limits, collaboration, SSO/RBAC,
+    audit logs), and a team lead or platform/eng-manager converts on a self-serve
+    plan; enterprise tier is gated by security/compliance features that the champion
+    uses to justify procurement. They know their free-to-paid conversion rate, time-to-value
+    (first ''aha'' in minutes), and which feature reliably triggers the upgrade. They
+    can name the buyer persona that differs from the user persona at the enterprise
+    tier.'
+  weak_answer: 'We''ll get developers to love it and then ''go enterprise'' / ''monetize
+    later'' — vague hand-waving that conflates the user (developer) with the buyer,
+    no specific paywall trigger, and an assumption that grassroots love automatically
+    converts to revenue. Or the inverse: a pure top-down enterprise pitch for a product
+    whose value is inherently individual-developer-felt, ignoring that devs route
+    around tools they didn''t choose.'
+  sources:
+  - https://www.bvp.com/atlas
+- id: devtools-02
+  sector: dev-tools
+  theme: Open source / open core monetization boundary
+  question: What stays in the free/OSS core forever, and what is the precise line
+    you charge for? How do you defend against a fork or a hyperscaler offering it
+    as a managed service?
+  strong_answer: 'Clear, principled open-core line: the engine/runtime is OSS to drive
+    adoption and trust, while the monetized layer is the operationally hard or organizationally-felt
+    stuff (managed hosting/SLA, multi-tenancy, SSO/SCIM, audit, RBAC, fleet management,
+    support). They have a deliberate license choice (e.g. permissive vs. copyleft
+    vs. source-available like BSL/SSPL) with a stated reason tied to cloud-provider
+    risk, and a moat beyond the code: the hosted control plane, proprietary data/telemetry,
+    ecosystem, and release velocity the community can''t match. They''ve thought about
+    the ''rug-pull'' reputational risk of relicensing.'
+  weak_answer: Open source as a marketing checkbox with no monetization line drawn
+    ('we'll figure out enterprise features'), or giving away the exact thing enterprises
+    would pay for. Belief that an OSS license alone is a moat, no answer on AWS/Azure/GCP
+    cloning it as a service, or a recent surprise relicense that burned community
+    trust. Can't articulate why anyone pays when the core is free.
+  sources:
+  - https://a16z.com/open-source-from-community-to-commercialization/
+  - https://www.bvp.com/atlas/roadmap-open-source
+- id: devtools-03
+  sector: dev-tools
+  theme: Developer time-to-value and integration friction
+  question: From `git clone` / signup to first real value in a developer's existing
+    workflow — how many minutes, how many steps, and how many things can break? What
+    does your onboarding drop-off curve look like?
+  strong_answer: 'Obsessive about time-to-first-value measured in minutes, with instrumented
+    activation funnels and known drop-off points. The tool meets devs where they are
+    (CLI, IDE extension, CI step, existing language/framework) rather than demanding
+    a new workflow. They quote a concrete TTV target (industry-typical: meaningful
+    ''aha'' within the first session, often <10-15 min) and have removed steps deliberately.
+    They understand that a docs page, a broken quickstart, or an auth requirement
+    upfront kills adoption, and they measure docs/quickstart completion like a product
+    surface.'
+  weak_answer: Treats onboarding as a docs problem, not a product problem; no activation
+    metric; requires heavy setup (deploy infra, configure YAML, get an API key approved)
+    before any value. 'Developers are smart, they'll figure it out.' Demo works on
+    the founder's machine but the public quickstart is stale or assumes a clean environment.
+    No idea where users drop off.
+  sources:
+  - https://www.ycombinator.com/library
+- id: devtools-04
+  sector: dev-tools
+  theme: Where you sit in the build/CI/CD/runtime stack and switching cost
+  question: Are you a workflow tool devs touch daily, or infrastructure that sits
+    in the critical path of every deploy? What specifically locks you in once adopted,
+    and what's the rip-out cost?
+  strong_answer: 'Knows exactly where in the SDLC they live (local dev, PR/CI, build,
+    deploy, runtime/observability) and the strategic implications: critical-path infra
+    has high switching cost and stickiness but a high reliability bar and long sales
+    cycles; daily-touch workflow tools have lower lock-in but faster adoption. They
+    name the lock-in mechanism — accumulated config/data, deep integrations, becoming
+    the system of record, the cost of re-instrumenting — and have a land-and-expand
+    path from a peripheral wedge toward the critical path. Net revenue retention reflects
+    this (industry-typical strong NRR for infra: ~120%+).'
+  weak_answer: Can't say where they sit in the stack or treats 'developer tool' as
+    one undifferentiated category. Claims to be 'mission-critical infrastructure'
+    but the product is a side-of-desk utility with trivial switching cost. No lock-in
+    story — a competitor with a slightly better feature could be swapped in over a
+    weekend, and the founder hasn't reckoned with that.
+  sources:
+  - https://www.bvp.com/atlas
+- id: devtools-05
+  sector: dev-tools
+  theme: Usage-based pricing, cost-of-goods, and the 'free tier eats margin' trap
+  question: How do you price relative to the underlying compute/storage/egress you
+    consume, and what's your gross margin on the free tier? When a heavy user 10x's
+    their usage, do you make or lose money?
+  strong_answer: Pricing aligned to a value metric that correlates with both customer
+    value AND their own COGS (compute, storage, egress, LLM tokens), so usage growth
+    is margin-accretive not margin-destructive. They know their gross margin at the
+    unit level, have a free-tier abuse/cost ceiling, and have modeled the worst-case
+    heavy free user. For infra reselling cloud, they understand the margin compression
+    and have a path to commit-based discounts/reserved capacity. They've avoided the
+    trap of a value metric devs can game to get value without paying.
+  weak_answer: 'Per-seat pricing on a product whose value (and cost) scales with usage,
+    or a generous free tier with no cost modeling (''it''s cheap''). Doesn''t know
+    free-tier COGS; surprised by the idea that a viral free user could be a cash drain.
+    For AI/infra tools: reselling tokens or compute at a margin they can''t actually
+    sustain, or no answer when asked what happens to margins as the underlying model/compute
+    provider changes prices.'
+  sources: []
+- id: devtools-06
+  sector: dev-tools
+  theme: Distribution and developer trust / credibility
+  question: How do developers discover you, and why do they trust you enough to put
+    you in their stack? What's your GTM that doesn't rely on outbound sales devs will
+    ignore?
+  strong_answer: 'Concrete developer-native distribution: high-quality docs and content,
+    OSS presence, package-registry/marketplace discovery (npm, PyPI, VS Code/JetBrains
+    marketplace, GitHub Actions), conference/community credibility, and word-of-mouth
+    among engineers. They understand devs are advertising-averse and trust peers,
+    working code, and transparent docs over sales decks. They can show organic signal
+    (GitHub stars with engagement, Discord/community activity, inbound from real teams)
+    and know which channel actually converts vs. vanity. Founder often has earned
+    technical credibility in the space.'
+  weak_answer: Plans to acquire developers via paid ads / SDR cold outreach / generic
+    'content marketing,' treating devs like a normal B2B funnel. Cites GitHub stars
+    as the headline metric with no engagement behind them. No technical credibility
+    on the team and no community presence. Believes a slick landing page and a sales
+    team will overcome devs' default skepticism toward tools pushed at them rather
+    than chosen.
+  sources:
+  - https://www.ycombinator.com/library
+- id: devtools-07
+  sector: dev-tools
+  theme: Platform-risk and being a feature of the underlying ecosystem
+  question: What happens to you if GitHub, your cloud provider, the language/framework
+    maintainers, or the foundation model vendor ships your core feature natively?
+    Why are you a company and not a feature?
+  strong_answer: 'Sober about platform risk and has a clear durable-value thesis:
+    the hard part is cross-platform/cross-vendor neutrality, depth that a platform
+    won''t prioritize, an opinionated workflow spanning multiple tools, or a data/network
+    asset the platform lacks. They''ve seen incumbents ship adjacent features and
+    have a wedge that benefits from rather than competes with the platform, or they''re
+    explicitly building toward a category the platform structurally won''t own. They
+    don''t depend on a single API/marketplace whose terms could change overnight.'
+  weak_answer: 'Hasn''t considered that the obvious owner (GitHub/AWS/the model provider/the
+    framework) could absorb the feature, or dismisses it (''they move slowly''). The
+    entire product is a thin layer on one vendor''s API with no defensibility — a
+    classic ''feature, not a company.'' For AI dev tools especially: a wrapper whose
+    value evaporates the moment the underlying model adds the capability, with no
+    proprietary data, distribution, or workflow moat.'
+  sources: []
+- id: devtools-08
+  sector: dev-tools
+  theme: Self-hosted / on-prem and enterprise security gating
+  question: Do your largest prospective customers require self-hosted or VPC deployment,
+    SOC 2, and air-gapped operation? How does that constrain your architecture, telemetry,
+    and release cadence?
+  strong_answer: Knows that serious enterprise dev-tool buyers (especially in regulated/security-conscious
+    orgs) often demand self-hosted/on-prem/VPC, SSO/SCIM, and SOC 2 Type II early,
+    and has architected with a deployable, single-tenant-capable path and licensed
+    control plane rather than a pure multi-tenant SaaS that can't be shipped behind
+    a firewall. They understand the support/telemetry/version-skew burden of customer-managed
+    deployments and have priced it. Compliance (SOC 2 at minimum) is on the roadmap
+    as a sales unblocker, timed to when enterprise deals demand it.
+  weak_answer: Pure cloud-only product pitching the enterprise without realizing that
+    target buyers won't send code/secrets to a third-party SaaS; no self-host story
+    and an architecture that can't be retrofitted for it. Treats SOC 2 as a far-future
+    nicety while chasing enterprise logos that gate on it. Hasn't grasped that dev
+    tools touch source code, credentials, and CI — the most security-sensitive surface
+    in the company.
+  sources:
+  - https://www.bvp.com/atlas

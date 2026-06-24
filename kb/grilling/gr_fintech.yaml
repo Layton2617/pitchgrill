@@ -1,0 +1,191 @@
+cell: gr:fintech
+type: grilling
+wedge: general
+items:
+- id: fintech-licensing-strategy
+  sector: fintech
+  theme: Licensing model & regulatory perimeter
+  question: 'Walk me through your exact licensing posture: are you operating under
+    your own money-transmitter / e-money / lending license, renting a sponsor bank''s
+    charter via a BaaS partner, or relying on an agent-of-the-payee or program-manager
+    exemption? Which specific activity triggers which requirement?'
+  strong_answer: 'Founder names the precise regulated activity and maps it to the
+    regime: e.g., ''We move customer funds, so we''re a money transmitter; rather
+    than getting 40+ state MTLs we operate under our sponsor bank''s exemption as
+    a program manager, and we hold customer funds in a FBO account titled to the bank.
+    For lending we use a bank-partner true-lender model where the bank originates
+    and we service, so we don''t need state lending licenses in most states — but
+    we do hold lending licenses in [specific states] where the true-lender doctrine
+    is contested. We have outside fintech regulatory counsel (names firm) and a written
+    legal memo for each product.'' They distinguish their own license vs. borrowed
+    charter clearly.'
+  weak_answer: '''We don''t need a license because we partner with a bank'' said with
+    no understanding of which activities the partnership actually covers, or ''our
+    lawyers are handling it'' with no specifics. Conflating money transmission with
+    banking, thinking a single MTL or a Stripe/Unit integration removes all regulatory
+    obligation, or believing they''re ''just a software company'' while clearly touching
+    customer funds.'
+  strong_answer_extra: ''
+  weak_answer_extra: ''
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - https://www.a16z.com
+  - https://www.bvp.com
+- id: fintech-sponsor-bank-concentration
+  sector: fintech
+  theme: Sponsor-bank dependency & concentration risk
+  question: Who is your sponsor bank / BaaS provider, what percentage of your volume
+    runs through them, and what's your plan if they exit the BaaS business, hit a
+    consent order, or your middleware partner fails like Synapse did?
+  strong_answer: 'Names the bank and middleware stack explicitly, knows the bank''s
+    regulatory standing, and has a concrete redundancy plan: ''Single sponsor today
+    (Column / Lead / Coastal / etc.), but we have a signed or in-progress second sponsor
+    for redundancy and we control the ledger ourselves rather than depending on a
+    middleware provider''s ledger. We''ve reconciled our FBO balances daily down to
+    the penny so we''d never have a Synapse-style shortfall.'' Aware that post-2023
+    consent orders (Blue Ridge, Cross River, etc.) raised compliance bars and longer
+    onboarding timelines, and budgets for that.'
+  weak_answer: Doesn't know which bank actually holds the charter behind their BaaS
+    vendor, has 100% concentration with no redundancy plan and treats it as 'not our
+    problem,' or is unaware of the Synapse collapse and what FBO/for-benefit-of reconciliation
+    failures did to end customers. Treating the sponsor bank as a commodity API rather
+    than a regulated counterparty whose risk appetite can change overnight.
+  strong_answer_extra: ''
+  weak_answer_extra: ''
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - https://www.bvp.com
+- id: fintech-kyc-aml-bsa
+  sector: fintech
+  theme: KYC/AML/BSA program ownership
+  question: 'Who owns the BSA/AML program — you or the bank — and what does your program
+    actually consist of: CIP/CDD, sanctions (OFAC) screening, SAR filing responsibility,
+    transaction monitoring, and a designated BSA officer?'
+  strong_answer: 'Knows the program is contractually split and can describe both sides:
+    ''The bank is ultimately liable to its regulators, but per our program agreement
+    we run first-line KYC/CIP using [vendor like Alloy/Persona], real-time OFAC screening,
+    and transaction monitoring; SARs are filed by the bank but we surface alerts.
+    We have a designated compliance lead, a written AML policy, and we''ve passed
+    the bank''s oversight audit.'' Understands CIP vs. CDD vs. EDD, knows false-positive/clear
+    rates matter to unit economics, and treats compliance as a product surface, not
+    a checkbox.'
+  weak_answer: '''The bank does all the compliance'' with no idea what they themselves
+    are contractually on the hook for, no named compliance owner, no transaction monitoring
+    before launch, or thinking KYC is just a one-time signup ID check. Underestimating
+    that weak AML is the #1 reason sponsor banks terminate fintech programs.'
+  strong_answer_extra: ''
+  weak_answer_extra: ''
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - https://www.fincen.gov
+- id: fintech-custody-flow-of-funds
+  sector: fintech
+  theme: Custody of customer funds & flow of funds
+  question: Draw me the flow of funds. Where do customer funds actually sit at every
+    moment, who has legal title, are they in an FBO/omnibus account, are they FDIC
+    pass-through insured, and could you ever commingle them with operating cash?
+  strong_answer: 'Can diagram funds end-to-end: customer money lands in an FBO account
+    titled to the bank for-benefit-of customers, never touches the company''s operating
+    account, pass-through FDIC insurance applies only if records are maintained to
+    identify each beneficial owner (and they maintain those records), and a daily
+    three-way reconciliation ties ledger to bank to processor. Knows commingling is
+    a fatal compliance breach. If they custody anything (crypto, securities), they
+    know whether that triggers additional custody rules.'
+  weak_answer: Customer funds flow through the company's own bank account 'temporarily,'
+    assumes FDIC insurance is automatic, can't explain who legally owns the float,
+    or doesn't reconcile daily. Says 'the money is safe, it's in a bank' without distinguishing
+    operating vs. FBO accounts. This is the exact failure mode that wiped out Synapse
+    end-users.
+  strong_answer_extra: ''
+  weak_answer_extra: ''
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources: []
+- id: fintech-fraud-chargeback-loss
+  sector: fintech
+  theme: Fraud & chargeback loss rates
+  question: What are your actual fraud loss and chargeback rates in basis points of
+    volume, where does the loss land — on you, the bank, or the customer — and how
+    close are you to card-network chargeback monitoring thresholds?
+  strong_answer: Quotes loss in bps of GMV/TPV and distinguishes first-party fraud,
+    ATO, and dispute/chargeback losses; knows card-network monitoring programs (Visa
+    VDMP / VFMP, Mastercard ECM/EFM) trigger fines roughly around the ~0.9–1% dispute
+    or ~0.65–1% fraud thresholds (industry-typical, varies by network) and tracks
+    distance to them; knows exactly who eats the loss per their bank agreement; has
+    fraud tooling and shows the rate trending down as the model learns. ACH return
+    rates (R01/R10) tracked separately against NACHA thresholds.
+  weak_answer: Doesn't know loss in bps, can't separate fraud from credit loss from
+    disputes, assumes 'the bank covers fraud' or 'chargebacks aren't our problem,'
+    or is unaware that exceeding network thresholds means fines and potential loss
+    of processing. Treats fraud as an edge case rather than a structural cost line
+    that can flip unit economics negative.
+  strong_answer_extra: ''
+  weak_answer_extra: ''
+  stage:
+  - seed
+  - series-a
+  sources: []
+- id: fintech-interchange-economics
+  sector: fintech
+  theme: Interchange & revenue economics
+  question: 'Break down your interchange economics: are you Durbin-exempt (sponsor
+    bank under $10B in assets), what''s your gross interchange, and after the bank''s
+    share, network fees, processor, rewards, and fraud, what''s your true net take
+    rate per transaction?'
+  strong_answer: Knows Durbin exemption hinges on the SPONSOR bank being under $10B
+    in assets (a key reason fintechs pick small banks), quotes gross interchange (industry-typical
+    ~1.5–2%+ on exempt debit) and walks down to net after the bank's rev-share, network
+    assessments, processor costs, rewards/cashback, and fraud losses — landing on
+    a realistic net take rate. Understands interchange is their core revenue and that
+    growing past the sponsor bank's $10B threshold (or the bank acquiring assets)
+    can crater margins. Knows credit vs. debit vs. card-present interchange differ.
+  weak_answer: Quotes gross interchange as if it's all profit, doesn't know about
+    Durbin or the $10B sponsor-bank threshold, can't name the rev-share split with
+    the bank, or ignores rewards and fraud as costs against interchange. Surprised
+    to learn the bank and networks take a large cut. Building a business model on
+    'we make ~2% on every swipe' without the waterfall.
+  strong_answer_extra: ''
+  weak_answer_extra: ''
+  stage:
+  - seed
+  - series-a
+  sources:
+  - https://www.a16z.com
+- id: fintech-state-coverage-pci
+  sector: fintech
+  theme: State-by-state coverage & PCI-DSS scope
+  question: Which states can you legally operate in today versus where you're geofenced
+    out, and what's your PCI-DSS scope — are you SAQ-A (outsourced card data) or do
+    card numbers touch your systems, requiring a full Level 1 audit?
+  strong_answer: 'Has a state-coverage map tied to license/exemption status (e.g.,
+    ''live in 46 states, blocked in NY [BitLicense/strict MTL], plus a few where the
+    lending true-lender risk is high''), knows MTLs are state-by-state and the multi-year
+    cost/time to fill gaps, and uses the NMLS process. On PCI: knows their SAQ level
+    — most fintechs stay SAQ-A by tokenizing through the processor so raw PANs never
+    touch their environment, vastly reducing scope; if card data does touch them they
+    understand the Level 1 ROC burden and have a roadmap. Mentions SOC 2 as table-stakes
+    alongside.'
+  weak_answer: Assumes one license covers all 50 states, plans a nationwide launch
+    without knowing NY/specific states are gated, or has no idea what their PCI SAQ
+    level is — sometimes unknowingly storing card numbers in their own database (full
+    Level 1 scope and major liability). Treats compliance geography and PCI scope
+    as something to figure out 'after we get traction.'
+  strong_answer_extra: ''
+  weak_answer_extra: ''
+  stage:
+  - seed
+  - series-a
+  sources:
+  - https://nmlsconsumeraccess.org
+  - https://www.pcisecuritystandards.org

@@ -1,0 +1,107 @@
+cell: dr:marketplace
+type: data_room
+wedge: general
+items:
+- id: mkt-cohort-retention-by-side
+  sector: marketplace
+  category: Marketplace metrics
+  document: Cohort retention split by side (buyers AND suppliers), showing logo +
+    GMV retention by signup cohort over 12-24 months
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: The defining marketplace question is whether BOTH sides stick. Single-side
+    or blended retention hides churn on the supply side, which is the usual marketplace
+    killer. Investors want supplier retention specifically because re-acquiring supply
+    is what determines if the model compounds. Deal-blocker if absent.
+- id: mkt-gmv-take-rate-bridge
+  sector: marketplace
+  category: Unit economics
+  document: 'GMV-to-net-revenue bridge: gross GMV, take rate (gross and net of incentives/discounts/refunds/chargebacks),
+    and the path to monetization beyond core take'
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: Marketplaces routinely quote GMV and a headline take rate that collapses once
+    you net out promos, refunds, and supplier subsidies. Reviewers reconstruct the
+    bridge to find the real take rate. Industry-typical take rates vary widely by
+    category (~3-5% high-frequency goods to 15-25%+ services/labor), so the level
+    matters less than whether it's defensible and net-honest.
+- id: mkt-liquidity-fill-rate
+  sector: marketplace
+  category: Marketplace metrics
+  document: 'Liquidity metrics: match/fill rate, time-to-fill (or time-to-first-transaction),
+    search-to-fill conversion, and supply utilization, segmented by geography/category'
+  required: true
+  stage:
+  - seed
+  - series-a
+  note: Liquidity is the core marketplace moat and is invisible in standard SaaS metrics.
+    Low fill rate or long time-to-fill signals the marketplace isn't actually clearing.
+    Must be cut by geo/category because marketplaces are won market-by-market, and
+    blended liquidity masks dead local markets. Industry-typical fill-rate benchmarks
+    differ per vertical.
+- id: mkt-supply-concentration
+  sector: marketplace
+  category: Concentration risk
+  document: 'Supply-side concentration: % of GMV from top 1/10/50 suppliers, plus
+    power-seller dependency and platform-risk (sellers who also sell on competing
+    platforms)'
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: Marketplace-specific concentration cuts on the supply side, not just customers.
+    If a handful of power sellers drive most GMV, they have pricing power and can
+    defect, taking demand with them. Industry-typical concern threshold is top-10
+    suppliers exceeding ~30-50% of GMV. This is distinct from generic customer-concentration
+    analysis.
+- id: mkt-disintermediation-leakage
+  sector: marketplace
+  category: Defensibility
+  document: 'Disintermediation / leakage analysis: estimated % of transactions taken
+    off-platform after first match, anti-leakage mechanisms, and repeat-on-platform
+    rate'
+  required: false
+  stage:
+  - seed
+  - series-a
+  note: Leakage (buyer and supplier transacting directly after meeting on the platform)
+    is a uniquely marketplace failure mode, especially in high-value/low-frequency
+    services. Reviewers want evidence the platform adds ongoing value (payments, trust,
+    logistics) that keeps transactions on-rails. Hard to measure precisely, so an
+    honest estimate + mitigation plan is what's expected.
+- id: mkt-cac-by-side-payback
+  sector: marketplace
+  category: Unit economics
+  document: CAC and payback computed separately for each side, including supplier
+    acquisition cost and the cost of supply incentives/onboarding subsidies
+  required: false
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: Marketplaces have two acquisition funnels with very different economics; supply
+    is often the harder, costlier side and is frequently buried in 'S&M' or 'incentives'
+    line items. Reviewers want supply CAC and subsidy burn isolated to judge whether
+    growth is bought. Blended CAC is misleading for a two-sided model.
+- id: mkt-trust-safety-compliance
+  sector: marketplace
+  category: Trust & regulatory
+  document: 'Trust & safety / regulatory pack: KYC/onboarding controls, fraud & chargeback
+    rates, dispute-resolution process, and applicable money-transmitter / payment-facilitator
+    and (for services) worker-classification posture'
+  required: false
+  stage:
+  - seed
+  - series-a
+  note: Marketplaces handling third-party funds may trigger money-transmission / payment-facilitator
+    obligations, and labor/services marketplaces face worker-classification exposure
+    (e.g. independent-contractor vs employee). Fraud and chargeback rates are marketplace-specific
+    health signals. Becomes a deal-blocker at Series A in regulated verticals (payments,
+    labor, regulated goods).

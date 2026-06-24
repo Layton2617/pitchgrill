@@ -98,12 +98,23 @@ def _wedge_match(item: dict, wedge: str | None) -> bool:
     return iw == wedge
 
 
-def _filter(items: list[dict], *, stage=None, wedge=None, **exact) -> list[dict]:
+def _sector_match(item: dict, sector: str | None) -> bool:
+    isec = item.get("sector")
+    if not isec:  # no sector tag means it applies to all sectors
+        return True
+    if not sector:  # sector-specific item, but no sector chosen
+        return False
+    return isec == sector
+
+
+def _filter(items: list[dict], *, stage=None, wedge=None, sector=None, **exact) -> list[dict]:
     out = []
     for it in items:
         if not _stage_match(it, stage):
             continue
         if not _wedge_match(it, wedge):
+            continue
+        if not _sector_match(it, sector):
             continue
         if any(it.get(k) != v for k, v in exact.items() if v is not None):
             continue
@@ -111,20 +122,20 @@ def _filter(items: list[dict], *, stage=None, wedge=None, **exact) -> list[dict]
     return out
 
 
-def select_red_flags(kb: KB, *, stage=None, wedge=None, domain=None) -> list[dict]:
-    return _filter(kb.red_flags, stage=stage, wedge=wedge, domain=domain)
+def select_red_flags(kb: KB, *, stage=None, wedge=None, sector=None, domain=None) -> list[dict]:
+    return _filter(kb.red_flags, stage=stage, wedge=wedge, sector=sector, domain=domain)
 
 
-def select_grilling(kb: KB, *, stage=None, wedge=None, theme=None) -> list[dict]:
-    return _filter(kb.grilling, stage=stage, wedge=wedge, theme=theme)
+def select_grilling(kb: KB, *, stage=None, wedge=None, sector=None, theme=None) -> list[dict]:
+    return _filter(kb.grilling, stage=stage, wedge=wedge, sector=sector, theme=theme)
 
 
-def select_data_room(kb: KB, *, stage=None, wedge=None, category=None) -> list[dict]:
-    return _filter(kb.data_room, stage=stage, wedge=wedge, category=category)
+def select_data_room(kb: KB, *, stage=None, wedge=None, sector=None, category=None) -> list[dict]:
+    return _filter(kb.data_room, stage=stage, wedge=wedge, sector=sector, category=category)
 
 
-def select_deck_lints(kb: KB, *, stage=None, wedge=None) -> list[dict]:
-    return _filter(kb.deck_lints, stage=stage, wedge=wedge)
+def select_deck_lints(kb: KB, *, stage=None, wedge=None, sector=None) -> list[dict]:
+    return _filter(kb.deck_lints, stage=stage, wedge=wedge, sector=sector)
 
 
 def select_benchmarks(kb: KB, *, stage=None, wedge=None, sector=None) -> list[dict]:

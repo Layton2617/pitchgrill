@@ -1,0 +1,174 @@
+cell: gr:consumer
+type: grilling
+wedge: general
+items:
+- id: consumer-organic-vs-paid-mix
+  sector: consumer
+  theme: Acquisition channel quality
+  question: What percentage of your new users came from organic/word-of-mouth versus
+    paid in the last 90 days, and how has that mix moved as you scaled spend?
+  strong_answer: Founder knows the split cold (e.g. '60% organic, 40% paid, and organic
+    share has held or grown as we scaled') and shows that paid is additive rather
+    than propping up the curve. They can name their k-factor or referral rate and
+    show organic users retain better. Crucially, they show what happens to growth
+    when they turn paid OFF — a real consumer product keeps growing.
+  weak_answer: Founder quotes a blended CAC and a top-line growth number but can't
+    separate organic from paid, or admits growth flattens immediately when they pause
+    spend. 'We're growing 30% MoM' with no channel decomposition means the growth
+    is rented, not owned — a classic consumer tell.
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - a16z.com
+  - sequoiacap.com
+- id: consumer-retention-curve-flatten
+  sector: consumer
+  theme: Retention curve shape
+  question: Show me your retention curve by monthly cohort — does it flatten, and
+    at what level? What's your Day 1 / Day 30 / Month 6 retention?
+  strong_answer: 'Founder shows a cohort retention curve that flattens (forms a ''smile''
+    or asymptotes to a stable plateau) rather than decaying to zero — proof of a durable
+    core of habitual users. They cite the plateau level for their category (industry-typical:
+    a flattening curve at all is the signal; consumer social ~20-30%+ Month 6 is considered
+    strong, but levels vary widely by category) and show newer cohorts plateauing
+    higher.'
+  weak_answer: Founder shows only Day 1 or Day 7 retention, or a single aggregate
+    number, or a curve still trending toward zero with no flattening. Talking about
+    'engagement' (sessions, time-in-app) instead of return rate, or hiding behind
+    MAU growth, gives away that the curve never flattens.
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - a16z.com/the-power-user-curve-the-best-way-to-understand-your-most-engaged-users/
+  - ycombinator.com/library
+- id: consumer-frequency-natural
+  sector: consumer
+  theme: Natural usage frequency
+  question: What is the natural frequency of the problem you solve — daily, weekly,
+    or a few times a year — and why does that make you a venture-scale business rather
+    than a feature?
+  strong_answer: 'Founder is honest about inherent frequency and has a clear theory
+    of habit: either the problem is naturally high-frequency (daily/weekly) creating
+    a habit loop, or it''s low-frequency but high-value/high-LTV with a defensible
+    reason customers return (e.g. travel, tax). They''ve matched their monetization
+    model to the frequency rather than fighting it.'
+  weak_answer: Founder claims high engagement for an intrinsically low-frequency use
+    case (e.g. a wedding-planning or moving app pitched as 'daily active'), or hasn't
+    thought about frequency at all and just assumes virality will carry them. Forcing
+    daily-use mechanics onto a low-frequency need is a consumer founder tell.
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - ycombinator.com/library
+- id: consumer-cac-payback-ltv
+  sector: consumer
+  theme: Paid economics under contribution margin
+  question: What's your CAC payback on a fully-loaded basis, and is your LTV:CAC computed
+    on contribution margin after COGS, payment fees, refunds, and returns — not revenue?
+  strong_answer: Founder computes LTV on gross-margin-adjusted contribution (net of
+    returns, chargebacks, shipping, payment processing) and discounts future revenue.
+    They target CAC payback within roughly 12 months (industry-typical for consumer
+    subscription) and acknowledge the discount rate. They distinguish marginal CAC
+    at scale from blended CAC and know it rises as they exhaust cheap channels.
+  weak_answer: Founder quotes a flattering LTV:CAC (e.g. '5:1') built on top-line
+    revenue, assumes lifetime is infinite or uses an unrealistic 36+ month horizon,
+    and ignores returns/refunds. Using blended CAC to mask that marginal paid CAC
+    is already underwater is the giveaway.
+  stage:
+  - seed
+  - series-a
+  sources:
+  - a16z.com
+  - bvp.com
+- id: consumer-subscription-churn-cancel
+  sector: consumer
+  theme: Subscription churn quality
+  question: What's your monthly logo churn for the subscription, how much of your
+    'retention' is just hard-to-cancel friction or forgotten trials, and what's your
+    involuntary (failed-payment) churn?
+  strong_answer: 'Founder separates voluntary from involuntary churn, knows their
+    failed-payment recovery rate (dunning), and can show that retained subscribers
+    are actively engaged — not just people who forgot to cancel. They''ve seen the
+    FTC click-to-cancel regulatory direction and built genuine value-based retention
+    rather than dark-pattern lock-in. Monthly consumer churn in the low single digits
+    (industry-typical: ~3-5%) with strong engagement.'
+  weak_answer: Founder reports low churn but engagement among subscribers is near
+    zero, or they brag about a difficult cancellation flow. Inability to break out
+    involuntary churn, or retention that depends on free-trial forgetfulness rather
+    than usage, reveals the revenue is fragile and regulatory-exposed.
+  stage:
+  - seed
+  - series-a
+  sources:
+  - ftc.gov
+- id: consumer-aov-repeat-cohort-spend
+  sector: consumer
+  theme: Repeat purchase economics (commerce/D2C)
+  question: 'For a commerce business: what share of revenue in a given quarter comes
+    from customers acquired in prior quarters, and what''s your second-order / repeat
+    purchase rate by cohort?'
+  strong_answer: 'Founder shows cohorts whose cumulative spend keeps climbing — repeat
+    customers compounding so that an increasing share of revenue is from the existing
+    base, not new acquisition. They know their repeat rate (industry-typical: a meaningful
+    share repurchasing within 90 days), AOV trend, and that LTV is built without ever-rising
+    ad spend. Brand loyalty shows up as repeat orders, not just NPS.'
+  weak_answer: Founder's revenue is dominated by first-time buyers every quarter —
+    a leaky bucket where every dollar of growth requires a dollar of new acquisition.
+    Quoting GMV growth while hiding repeat rate, or one-time-purchase products dressed
+    up as 'lifestyle brands,' gives away that there's no compounding base.
+  stage:
+  - seed
+  - series-a
+  sources:
+  - bvp.com
+  - a16z.com
+- id: consumer-platform-dependence
+  sector: consumer
+  theme: Platform / distribution dependence
+  question: How dependent is your acquisition on a single platform (TikTok, Meta,
+    App Store, Google) and what happens to CAC and reach if that platform's algorithm,
+    ad policy, or fee structure changes overnight?
+  strong_answer: Founder acknowledges concentration honestly, has data on multiple
+    working channels, and treats current cheap-channel arbitrage (e.g. a TikTok moment)
+    as a launchpad to owned channels (email, SMS, direct, brand search) rather than
+    a permanent strategy. They model ATT/privacy changes and App Store 30% take into
+    their economics and have a plan for when the arbitrage closes.
+  weak_answer: Founder's entire growth story rests on one platform's current algorithm
+    or a viral moment, with no second channel and no plan for when it regresses. Treating
+    a temporary distribution arbitrage as durable advantage — or being unaware of
+    how iOS privacy changes hit their attribution and CAC — is the consumer tell.
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - a16z.com
+  - ycombinator.com/library
+- id: consumer-organic-content-defensibility
+  sector: consumer
+  theme: Why won't this be a fad / what's the moat
+  question: Consumer products often spike then fade — what makes users keep coming
+    back after the novelty wears off, and where does your defensibility come from
+    given there's no enterprise switching cost?
+  strong_answer: 'Founder has a concrete moat thesis suited to consumer: network effects,
+    accumulating personal data/personalization that improves with use, social graph
+    lock-in, habit/identity, or brand. They show evidence (improving newer-cohort
+    retention, rising organic mix over time) that the product gets stickier, not just
+    bigger, and they''re candid that early virality is not the same as durability.'
+  weak_answer: Founder claims defensibility comes from 'first-mover advantage,' 'our
+    brand,' or 'execution' with no mechanism, and the retention data shows each cohort
+    decaying. Confusing a viral acquisition loop (cheap to copy) with a retention/network
+    moat is the classic consumer founder giveaway.
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  sources:
+  - a16z.com
+  - sequoiacap.com

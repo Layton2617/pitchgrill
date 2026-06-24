@@ -1,0 +1,181 @@
+cell: gr:ai-infra
+type: grilling
+wedge: general
+items:
+- id: ai-infra-1
+  sector: ai-infra
+  theme: Gross margin reality under inference economics
+  question: What's your gross margin per inference request today, and how does it
+    move as you scale — does it improve or does your COGS scale linearly with usage?
+  strong_answer: Founder gives current blended gross margin (e.g. industry-typical
+    software-style infra targets 60-80%, but many inference-heavy AI-infra businesses
+    sit at 30-50% early). They distinguish margin on cached/repeat workloads vs cold
+    inference, name the specific cost drivers (GPU-hours, token throughput, egress,
+    vector store reads), and show a concrete path to margin expansion via batching,
+    quantization, KV-cache reuse, speculative decoding, or routing cheaper models
+    for easy queries. They know their margin floor is set by underlying compute and
+    they're honest that they don't control GPU prices.
+  weak_answer: Claims '80% SaaS margins' without acknowledging COGS is GPU compute
+    they resell, or says 'margins improve with scale' with no mechanism — when in
+    reality compute cost scales nearly linearly with usage. Conflates the cloud provider's
+    negotiated discount with structural margin. Can't separate compute COGS from the
+    rest.
+  strong_answer_extra: ''
+  sources:
+  - a16z.com
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+- id: ai-infra-2
+  sector: ai-infra
+  theme: The 'wrapper of a cloud primitive' problem
+  question: If AWS/GCP/Azure or the model labs ship this as a native feature next
+    quarter, what's left of your business?
+  strong_answer: 'Founder has a clear answer for why the hyperscalers and labs structurally
+    won''t or can''t do this well: cross-cloud/cross-model neutrality (they can''t
+    be neutral), a workload the labs deprioritize, deep integration with customer
+    data/governance the cloud won''t touch, or a control plane that''s valuable precisely
+    because it sits above any single provider. They cite specific past features the
+    clouds did absorb and explain why theirs is different. They treat the labs as
+    both supplier and competitor and have a multi-vendor stance.'
+  weak_answer: Says 'we move faster than AWS' or 'we have better UX,' or insists the
+    incumbents 'aren't focused on this' — when the feature is an obvious roadmap item
+    (e.g. managed vector DB, model gateway, fine-tuning service) that clouds have
+    repeatedly shown they will commoditize. No structural moat beyond a head start.
+  sources:
+  - a16z.com
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+- id: ai-infra-3
+  sector: ai-infra
+  theme: GPU supply, reserved capacity, and cash exposure
+  question: Where does your compute come from, and have you made any reserved/committed
+    capacity purchases? What happens to your cash and your margins if GPU spot availability
+    or pricing swings?
+  strong_answer: Founder knows their exact supply mix (hyperscaler on-demand vs neoclouds
+    like CoreWeave/Lambda/together vs reserved commitments), the tradeoff they've
+    made between cheaper reserved capacity and the cash/inventory risk of pre-committing,
+    and how utilization on reserved hardware affects unit economics. They can speak
+    to multi-region/multi-vendor fallback, and they treat committed GPU spend as inventory
+    risk, not just an expense. They know current-generation vs prior-generation pricing
+    dynamics.
+  weak_answer: '''We just use the OpenAI/Anthropic API'' for an infra company whose
+    value prop depends on owning the compute layer, or has signed large multi-year
+    GPU reservations with no utilization plan (stranded-capacity risk), or is unaware
+    that prior-gen GPU prices can collapse when new generations ship and strand their
+    cost basis.'
+  sources: []
+  stage:
+  - seed
+  - series-a
+- id: ai-infra-4
+  sector: ai-infra
+  theme: Model-agnosticism vs deep dependency
+  question: How tightly is your product coupled to a specific model or provider, and
+    what breaks when the model you build on gets deprecated, reprices, or changes
+    behavior?
+  strong_answer: Founder has an explicit abstraction/routing layer, has already survived
+    at least one model deprecation or major behavior change, and runs an eval harness
+    that catches regressions when a provider silently updates a model. They treat
+    model providers as swappable and have benchmarked alternatives. They know their
+    switching cost and have a deprecation runbook. For training/fine-tuning plays,
+    they know how their artifacts port across base models.
+  weak_answer: Hard-coded to one model's quirks, no eval/regression suite, and reacts
+    with surprise to the idea that providers deprecate models on short notice or change
+    outputs between versions. Treats 'we use the best model' as a strategy rather
+    than a dependency. Their whole product would need rework if the underlying model
+    changed.
+  sources: []
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+- id: ai-infra-5
+  sector: ai-infra
+  theme: Benchmarks vs production performance
+  question: Your benchmark numbers (latency, throughput, accuracy) — were those measured
+    under real concurrent production load with real customer data, or in a controlled
+    single-stream setting?
+  strong_answer: 'Founder distinguishes benchmark conditions explicitly: tokens/sec
+    at p50 vs p99 under concurrency, cold-start vs warm, batch size effects, and tail
+    latency under load. They report production SLOs, not just headline numbers, and
+    acknowledge where their published benchmark differs from real-world (e.g. context
+    length, prompt distribution, noisy-neighbor effects on shared GPUs). They know
+    their numbers degrade under load and quantify by how much.'
+  weak_answer: Quotes a single impressive throughput or latency number with no concurrency,
+    no percentile, measured on an idealized prompt — the classic 'benchmaxxing.' Can't
+    explain p99 vs p50, or claims numbers hold under load without ever testing it.
+    Surprised when asked about tail latency.
+  sources: []
+  stage:
+  - seed
+  - series-a
+- id: ai-infra-6
+  sector: ai-infra
+  theme: Where the value accrues in the stack
+  question: As models keep getting cheaper and more capable, does that commoditize
+    your layer or strengthen it — and why does value accrue to you rather than getting
+    squeezed between the model labs above and compute below?
+  strong_answer: 'Founder has a clear thesis on value capture: they benefit from model
+    deflation (cheaper models expand their addressable workloads) rather than being
+    disintermediated by it. They explain why they''re not a thin margin-taker sandwiched
+    between labs and clouds — e.g. they own the orchestration/governance/data layer,
+    accumulate proprietary workload data, or have switching costs that grow with usage.
+    They''ve thought about whether rising model capability eats their feature (e.g.
+    better models removing the need for their tooling).'
+  weak_answer: Hasn't considered that the thing they sell (e.g. prompt orchestration,
+    RAG plumbing, agent scaffolding) could be absorbed into the model itself as capabilities
+    improve. Assumes 'AI is growing so we grow' without identifying where durable
+    value sits. Their roadmap is a list of features models will likely subsume.
+  sources:
+  - sequoiacap.com
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+- id: ai-infra-7
+  sector: ai-infra
+  theme: Adoption friction in the buyer's existing stack
+  question: What does it actually take for an engineering team to adopt you — do they
+    have to rip out existing infra, route production traffic through you, or hand
+    you their data/model weights? How do you get past security review?
+  strong_answer: Founder knows their adoption is gated by platform/infra teams and
+    security review, not a credit card. They have a low-friction entry (shadow mode,
+    drop-in proxy, self-hosted/VPC deployment option) and a SOC 2 / data-residency
+    / on-prem story because their buyers won't send prompts or weights to a third
+    party. They can name the integration surface (e.g. OpenAI-compatible API, OpenTelemetry,
+    Kubernetes operator) and time-to-first-value in days, not months.
+  weak_answer: Expects teams to route all production inference through an unproven
+    external service with no self-hosted option, hasn't hit enterprise security review
+    yet, and underestimates that AI-infra buyers are deeply reluctant to send sensitive
+    prompts, embeddings, or model weights outside their boundary. Treats it like a
+    typical SaaS bottoms-up motion.
+  sources:
+  - bvp.com
+  stage:
+  - seed
+  - series-a
+- id: ai-infra-8
+  sector: ai-infra
+  theme: Open-source / commoditization defensibility
+  question: Your core capability — is there an open-source project (vLLM, Ollama,
+    LangChain, a popular vector DB, etc.) that does 80% of it for free, and what makes
+    a team pay you instead of self-hosting that?
+  strong_answer: 'Founder names the relevant OSS directly and is precise about the
+    gap they fill: the operational burden of self-hosting at scale, reliability/SLAs,
+    multi-tenancy, governance, or capabilities the OSS lacks. They may even build
+    on or contribute to that OSS and monetize the managed/enterprise layer (the classic
+    open-core play). They know their pricing has to beat the fully-loaded cost of
+    a team running the OSS themselves, including engineer time.'
+  weak_answer: Either unaware of the dominant open-source alternative in their space,
+    or dismisses it ('ours is better') without quantifying why someone pays rather
+    than self-hosts a free, well-supported project. No clear wedge above commodity
+    OSS. Pricing assumes the customer values their time at infinity.
+  sources: []
+  stage:
+  - pre-seed
+  - seed
+  - series-a

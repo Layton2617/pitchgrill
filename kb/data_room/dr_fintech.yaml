@@ -1,0 +1,134 @@
+cell: dr:fintech
+type: data_room
+wedge: general
+items:
+- id: fintech-licensing-coverage
+  sector: fintech
+  category: licensing
+  document: 'Licensing & regulatory authorization map: list of held/pending money-transmitter
+    licenses (state-by-state MTL coverage matrix), or the legal structure relied upon
+    instead — sponsor-bank/BaaS partner agency model, agent-of-payee exemption memos,
+    e-money/EMI or money-services-business (MSB) registration (FinCEN), and any lending
+    license (state lender/broker licenses, or bank-partner true-lender structure).
+    Include legal opinions supporting any exemption claimed.'
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: 'Deal-blocker. The #1 fintech diligence question is ''what legally lets you
+    do this.'' Operating in MT states without an MTL or a valid exemption is existential.
+    State-by-state MTL coverage is a hard gate; nationwide direct MTL coverage (~49
+    states + DC) typically takes 18-24 months and >$1-2M in surety bonds/legal — industry-typical,
+    not absolute. Pre-seed companies usually rely on a sponsor bank''s licenses, which
+    must be disclosed.'
+- id: fintech-sponsor-bank-dependency
+  sector: fintech
+  category: counterparty-risk
+  document: 'Sponsor-bank / BaaS partner documentation: the bank partnership agreement(s),
+    program agreement, and BIN-sponsor/processor stack; economics split; termination/exclusivity/MAC
+    clauses; minimum-volume commitments; and a concentration analysis showing % of
+    revenue and transaction volume dependent on each sponsor bank and on each program-manager/middleware
+    layer (e.g., a single BaaS middleware provider).'
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: Deal-blocker if a single sponsor bank or BaaS middleware layer is an undisclosed
+    single point of failure. Post-2023 (Synapse collapse, multiple OCC/FDIC consent
+    orders against sponsor banks like Blue Ridge, Cross River, Choice, Evolve), investors
+    treat sponsor-bank concentration and the middleware layer as primary risk. Investors
+    want a second sponsor-bank relationship or a credible path to one. Termination
+    clauses can shut the business off in 30-90 days.
+- id: fintech-kyc-aml-bsa-program
+  sector: fintech
+  category: compliance
+  document: 'Written BSA/AML/KYC/CIP compliance program: board-approved AML policy,
+    named BSA Officer, Customer Identification Program, Customer Due Diligence/EDD
+    and beneficial-ownership procedures, OFAC/sanctions screening vendor and process,
+    SAR/CTR filing procedures and volume history, transaction-monitoring rules and
+    vendor, and the most recent independent AML audit/exam (or remediation status).
+    Include any regulatory exam findings, MRAs, or consent orders.'
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: Deal-blocker at seed+ for anything touching money movement. A nominal-only
+    program, no named BSA Officer, or no independent AML audit is a red flag. Open
+    consent orders / unresolved MRAs are often a hard no. Even pre-seed, investors
+    expect at least a documented program and a screening vendor, not 'we'll do it
+    later.'
+- id: fintech-custody-of-funds
+  sector: fintech
+  category: custody
+  document: 'Customer-funds custody & safeguarding documentation: where customer funds
+    sit (FBO/for-benefit-of accounts at the bank, custodial accounts, vs. operating
+    accounts), proof of segregation, pass-through FDIC insurance structure and disclosures,
+    reconciliation cadence/controls, and (for crypto/stablecoin) qualified-custodian
+    arrangements and proof-of-reserves. Include the ledgering system and a statement
+    that customer funds are never commingled with operating capital.'
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: Deal-blocker. Synapse exposed that broken ledgering between program managers
+    and banks left ~$85M+ in customer funds unaccounted for. Investors now specifically
+    verify FBO segregation, reconciliation integrity, and that pass-through FDIC claims
+    are real. Commingling customer funds with operating funds is a fatal finding.
+- id: fintech-fraud-chargeback-loss-rates
+  sector: fintech
+  category: unit-economics
+  document: 'Fraud, chargeback, and credit-loss reporting: monthly fraud loss rate
+    and chargeback rate (as bps of TPV and as % by network), dispute/Reg E & Reg Z
+    liability exposure, first-party vs third-party fraud breakdown, ACH return rates
+    (NACHA unauthorized-return and admin-return rates), and for any lending/credit
+    product the charge-off/delinquency vintage curves and reserve methodology.'
+  required: true
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  note: Deal-blocker if fraud/loss is eating the margin and isn't tracked. Card-network
+    fraud-monitoring thresholds (e.g., Visa VDMP / Mastercard ECP) and NACHA return-rate
+    thresholds (unauthorized typically ~0.5%, overall admin ~3% — industry-typical,
+    not absolute) can trigger fines or program termination. Chargeback rates above
+    ~1% put the program at network-monitoring risk. For lending, vintage curves are
+    required to judge real loss performance vs growth.
+- id: fintech-interchange-economics
+  sector: fintech
+  category: unit-economics
+  document: 'Payment economics breakdown: interchange revenue per transaction and
+    net take rate after network fees, processor fees, sponsor-bank revenue share,
+    and rewards/funding costs; Durbin exemption status (whether the sponsor bank is
+    under or over the $10B asset threshold and thus exempt from Durbin debit-interchange
+    caps); and sensitivity of margin to interchange regulation and network fee changes.'
+  required: true
+  stage:
+  - seed
+  - series-a
+  note: Deal-blocker at seed+ for interchange-dependent models (debit cards, spend
+    management). Many fintechs' entire margin depends on partnering with a sub-$10B
+    'Durbin-exempt' sponsor bank to earn ~2x debit interchange — if the bank crosses
+    $10B or Durbin is amended, the business model breaks. The pending Reg II / proposed
+    debit-cap reductions are a known regulatory overhang investors probe. Less critical
+    pre-seed before economics are proven.
+- id: fintech-pci-dss-data-security
+  sector: fintech
+  category: compliance
+  document: 'PCI-DSS compliance & data-security attestation: current PCI-DSS Attestation
+    of Compliance (AOC) and SAQ/ROC at the appropriate level, scope/cardholder-data-environment
+    description and tokenization approach, SOC 2 Type II report, and breach/incident
+    history. Note whether card data is descoped to a processor (e.g., via tokenization)
+    or held in-scope.'
+  required: false
+  stage:
+  - seed
+  - series-a
+  note: 'Important but rarely a standalone deal-blocker at early stage if card data
+    is descoped to a compliant processor. Becomes required at Series A and for enterprise/B2B
+    distribution. The non-obvious point investors check: whether the startup actually
+    touches/stores PAN (in-scope, expensive) or has descoped via tokenization. A breach
+    history or SAQ mismatch with actual data flows is the red flag.'

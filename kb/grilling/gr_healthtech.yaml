@@ -1,0 +1,187 @@
+cell: gr:healthtech
+type: grilling
+wedge: general
+items:
+- id: healthtech-regulatory-pathway
+  sector: healthtech
+  theme: FDA/CE regulatory pathway & SaMD classification
+  question: Is your product a regulated medical device, and if so what's your specific
+    FDA pathway — 510(k), De Novo, or PMA — and what's your predicate device?
+  strong_answer: Founder knows their exact classification and has a defensible rationale.
+    E.g. 'We're a Class II SaMD going 510(k) with [named predicate device, K-number];
+    we've had a Pre-Sub meeting with FDA and they agreed on the pathway. Clearance
+    timeline is ~6-9 months post-submission. If we add the auto-diagnosis feature
+    it bumps us to De Novo, so we're shipping the clearance-light decision-support
+    version first and gating the diagnostic claim behind a separate submission.' They
+    distinguish what they CAN claim now (wellness/CDS under the 21st Century Cures
+    non-device CDS carve-out) vs what triggers device regulation, and they've budgeted
+    clinical/regulatory cost and time into the plan.
+  weak_answer: 'Vague hand-waving that regulation is a future problem: ''We''re a
+    wellness app so FDA doesn''t apply to us'' (while making implied diagnostic/treatment
+    claims that clearly trigger device rules), or ''we''ll just get FDA approval''
+    (conflating clearance/510(k) with approval/PMA, signaling they don''t know the
+    difference), or ''our lawyers are looking into it'' with no pathway named. Treating
+    FDA as a checkbox rather than a 12-24 month, multi-million-dollar gating event
+    that shapes the entire roadmap.'
+  sources:
+  - fda.gov
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+- id: healthtech-reimbursement-who-pays
+  sector: healthtech
+  theme: Reimbursement & who actually pays (CPT codes / payer contracts)
+  question: Who actually pays for this — patient cash, provider out of operating margin,
+    or a payer — and if it's reimbursed, what CPT code does the claim go out under?
+  strong_answer: 'Founder maps the money flow precisely and names the code. E.g. ''Providers
+    bill under RPM codes 99453/99454/99457 (industry-typical) and get ~$X/patient/month
+    from CMS; our revenue is a share of that, so the provider has positive ROI from
+    day one.'' Or for a novel service: ''There''s no existing CPT code, so today we
+    sell as a cash-pay/value-based service to risk-bearing groups (ACOs, capitated
+    practices) who save on downstream cost, and we''ve applied for a Category III
+    CPT code which takes ~2-3 years.'' They know the difference between coverage (will
+    payers cover it), coding (is there a code), and payment (what''s the rate), and
+    who the economic buyer is vs the user.'
+  weak_answer: '''Insurance will pay for it'' with no code, no payer named, and no
+    understanding that coverage decisions are per-payer and slow. Or assuming a CPT
+    code exists when it doesn''t, or that having a code means automatic payment. Confusing
+    the user (patient/clinician) with the buyer (hospital procurement / payer). Believing
+    employers or hospitals will pay out of goodwill for better outcomes without a
+    documented ROI or budget line. ''We''ll figure out reimbursement after we get
+    traction'' for a product whose entire unit economics depend on it.'
+  sources:
+  - cms.gov
+  stage:
+  - seed
+  - series-a
+- id: healthtech-clinical-evidence
+  sector: healthtech
+  theme: Clinical validation & evidence generation
+  question: What clinical evidence do you have that this works, what's your study
+    design, and is your evidence good enough for the audience that gates you — FDA,
+    payers, or clinicians?
+  strong_answer: Founder distinguishes the three different evidence bars and has a
+    sequenced plan. 'For FDA clearance we ran a validation study against ground truth
+    showing sensitivity/specificity of X/Y on N patients across multiple sites. For
+    payer coverage we need outcomes/economic evidence, so we have a pragmatic RCT
+    or a real-world prospective study powered for a clinical endpoint, not just engagement.
+    For clinician adoption we're publishing peer-reviewed in [journal].' They know
+    retrospective/single-site data won't move payers, and that 'AI accuracy on a held-out
+    test set' is not clinical validation. They've budgeted study cost and time and
+    have a clinical/KOL advisor.
+  weak_answer: 'Engagement metrics or model AUC presented as clinical proof: ''Our
+    algorithm is 95% accurate'' with no description of the reference standard, population,
+    or whether it''s prospective. ''Doctors love it'' (anecdote, not evidence). Believing
+    a single small pilot equals validation. Not understanding that the evidence bar
+    differs by stakeholder, or that real-world clinical studies take years and serious
+    money. Dismissing the need for an RCT when payers will demand one.'
+  sources: []
+  stage:
+  - seed
+  - series-a
+- id: healthtech-hipaa-phi-baa
+  sector: healthtech
+  theme: HIPAA / PHI handling & breach exposure
+  question: How is PHI handled across your stack, are you a covered entity or business
+    associate, and do you have BAAs in place with every vendor that touches data —
+    including your LLM provider?
+  strong_answer: 'Founder knows their HIPAA role and the data chain. ''We''re a Business
+    Associate; we sign BAAs with our provider customers and we have signed BAAs with
+    every downstream subprocessor — cloud, analytics, and our model provider. PHI
+    is encrypted at rest and in transit, access is role-based and logged, and we de-identify
+    (Safe Harbor / Expert Determination) before any secondary use or model training.
+    We have a breach response plan tied to the 60-day notification rule and we carry
+    cyber/breach insurance.'' For AI: they know piping PHI to a consumer LLM API without
+    a BAA and with training-on-data enabled is a violation, and they''ve architected
+    around it.'
+  weak_answer: '''We''re HIPAA compliant'' as a blanket claim with no specifics, or
+    confusing HIPAA compliance with SOC 2. Not knowing whether they''re a covered
+    entity or business associate. No BAAs with subprocessors, or unaware that the
+    LLM/analytics vendors need them. Planning to train models on identifiable PHI
+    without de-identification or consent. Treating a breach as a minor incident rather
+    than a regulated event with mandatory notification, OCR enforcement, and per-record
+    penalties. ''We''ll get compliant before launch'' while already handling real
+    patient data.'
+  sources:
+  - hhs.gov
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+- id: healthtech-liability-malpractice
+  sector: healthtech
+  theme: Clinical liability & malpractice exposure
+  question: When your product is wrong and a patient is harmed, who is liable — you
+    or the clinician — and how is that allocated in your contracts and your product
+    design?
+  strong_answer: Founder has thought through the liability structure and designed
+    for it. 'We position as decision support with a human-in-the-loop — the clinician
+    makes the final call, which keeps us out of practicing-medicine territory and
+    aligns with the CDS carve-out. Our contracts allocate liability, we carry product
+    liability and professional/tech E&O insurance sized to the risk, and our UX is
+    designed to avoid automation bias (we surface uncertainty, not just an answer).'
+    They know that the more autonomous/diagnostic the product, the more liability
+    shifts to them, and they understand state-by-state corporate-practice-of-medicine
+    (CPOM) rules if they employ or direct clinicians.
+  weak_answer: Never considered who's liable when the model is wrong. Assuming a terms-of-service
+    disclaimer fully shields them. Building an autonomous diagnostic/treatment tool
+    while claiming the doctor is fully responsible. Unaware of corporate practice
+    of medicine rules when standing up a telehealth/provider entity. No product liability
+    or E&O insurance. Believing 'the AI is just a tool' eliminates exposure, or that
+    'doctors are always liable' regardless of how the product is designed and marketed.
+  sources: []
+  stage:
+  - seed
+  - series-a
+- id: healthtech-sales-cycle-procurement
+  sector: healthtech
+  theme: Hospital/health-system sales cycle & procurement
+  question: What's your real sales cycle into a health system — who has to sign off
+    (clinical, IT/security, compliance, finance, the committee) and how long does
+    a pilot take to convert to paid, enterprise-wide?
+  strong_answer: 'Founder is realistic about the gauntlet. ''Selling into a health
+    system is 9-18 months (industry-typical): clinical champion, then InfoSec review/penetration
+    test, IT/EHR integration via FHIR/HL7, legal/BAA, value-analysis committee, and
+    budget approval. Pilots are easy to get and a trap — most die in ''pilot purgatory''
+    without a pre-agreed path and success criteria to convert. We negotiate conversion
+    terms and budget owner upfront, and we sell to risk-bearing/integrated systems
+    where the ROI lands on the same P&L.'' They know the EHR integration burden (Epic/Cerner)
+    and the difference between a free pilot and a real budget line.'
+  weak_answer: Assuming consumer/SMB SaaS sales motion and timelines apply to hospitals
+    ('we'll close deals in a few weeks'). Celebrating signed pilots as revenue without
+    a conversion path — classic pilot purgatory. Not knowing about the security review,
+    value-analysis committee, or EHR integration as hard gates. No named economic
+    buyer. Underestimating that the clinician who loves it has no budget authority,
+    and the person with budget has never seen the product. Burning runway on free
+    pilots that never convert.
+  sources: []
+  stage:
+  - seed
+  - series-a
+- id: healthtech-ai-claims-regulation
+  sector: healthtech
+  theme: AI/algorithm claims, locked vs adaptive, and label scope
+  question: If your AI is the product, is your model locked or continuously learning,
+    and how do you handle the fact that FDA clears a specific, frozen version with
+    a defined intended-use claim?
+  strong_answer: Founder understands the tension between ML and regulation. 'Our cleared
+    model is a locked version; we manage updates under a Predetermined Change Control
+    Plan (PCCP) so we can retrain within pre-authorized bounds without a new submission.
+    Our marketing claims stay strictly within the cleared intended-use statement —
+    we don't let sales over-claim beyond the label, which would be off-label promotion.
+    We monitor for model drift and have a post-market surveillance plan.' They know
+    off-label claims and unbounded auto-updating models are regulatory and legal landmines,
+    and they've designed the MLOps to fit the regulatory frame.
+  weak_answer: '''Our model gets smarter with every patient'' said proudly, with no
+    awareness that continuous learning breaks the ''cleared a fixed version'' model
+    and may require resubmission. Marketing diagnostic/outcome claims far beyond what''s
+    been validated or cleared (off-label promotion exposure). No concept of a PCCP,
+    model drift monitoring, or post-market surveillance. Treating the regulated AI
+    like a normal SaaS feature you can ship weekly. Equating high accuracy on internal
+    data with a clearable, claimable product.'
+  sources:
+  - fda.gov
+  stage:
+  - seed
+  - series-a

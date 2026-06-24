@@ -1,0 +1,88 @@
+cell: dr:biotech
+type: data_room
+wedge: general
+items:
+- id: biotech-fto-opinion
+  sector: biotech
+  category: Intellectual Property
+  document: Freedom-to-Operate (FTO) opinion and patent landscape analysis
+  required: true
+  stage:
+  - seed
+  - series-a
+  note: A written FTO analysis (ideally counsel-prepared) showing the core therapeutic/platform
+    does not infringe dominant third-party claims, plus a landscape map of blocking
+    patents. Unlike generic IP, biotech value collapses if a competitor's composition-of-matter
+    or method-of-use claim blocks the asset. Investors expect identification of in-licenses
+    needed and any blocking Cohen-Boyer/CRISPR/method patents. At pre-seed an informal
+    landscape memo may suffice; by Series A a formal opinion is often a deal-blocker.
+- id: biotech-patent-runway
+  sector: biotech
+  category: Intellectual Property
+  document: Composition-of-matter patent runway and exclusivity timeline
+  required: true
+  note: 'Schedule of issued/pending patents and provisionals with priority dates,
+    jurisdictions, and projected expiry, plus expected regulatory exclusivity (FDA
+    NCE 5-yr, orphan 7-yr, Hatch-Waxman PTE up to 5 yr, BPCIA 12-yr for biologics)
+    and any patent-term-adjustment. Because drug development burns ~10-15 years, investors
+    check that meaningful exclusivity (industry-typical: 10+ years post-launch) remains
+    at projected market entry — a method-of-use-only position with the composition
+    expired is a common deal-blocker.'
+- id: biotech-regulatory-strategy
+  sector: biotech
+  category: Regulatory
+  document: Regulatory pathway strategy and pre-IND/IND package status
+  required: true
+  note: Document specifying intended pathway (505(b)(1)/(2), BLA), target indication,
+    any FDA interactions (pre-IND meeting minutes, Type B meeting requests), designations
+    sought (Fast Track, Breakthrough, Orphan, RMAT), and IND-enabling study plan.
+    Investors want to see the regulatory de-risking sequence mapped, not just intent.
+    Pre-IND meeting minutes, where they exist, are high-value. Required because a
+    misjudged pathway can add years and tens of millions in cost.
+- id: biotech-preclinical-package
+  sector: biotech
+  category: Scientific Data
+  document: 'Preclinical data package: efficacy, PK/PD, and IND-enabling toxicology
+    (GLP)'
+  required: true
+  note: Consolidated in vivo proof-of-concept (relevant animal model), pharmacokinetics/pharmacodynamics,
+    and the status/plan for GLP tox studies (rodent + non-rodent, safety pharmacology,
+    genotox). Investors distinguish exploratory data from GLP-quality data that FDA
+    will accept for an IND. Reproducibility (independent replication, blinding) is
+    scrutinized given the field's replication concerns. Without credible target validation
+    and a clear path to IND-enabling tox, the asset is not financeable.
+- id: biotech-cmc-plan
+  sector: biotech
+  category: Manufacturing / CMC
+  document: CMC and manufacturing scale-up plan (drug substance/product, cGMP)
+  required: false
+  note: 'Chemistry, Manufacturing & Controls overview: synthetic route or cell-line/expression
+    system, analytical methods, stability, CDMO selection, and scale-up path to cGMP
+    material for clinical supply. For biologics/cell-and-gene therapy, CMC is often
+    the rate-limiter and a leading cause of clinical holds. Typically lighter at pre-seed;
+    becomes material at Series A when clinical material must be produced. Not always
+    a hard deal-blocker early, but unaddressed CMC for complex modalities is a serious
+    flag.'
+- id: biotech-clinical-cost-timeline
+  sector: biotech
+  category: Financial Planning
+  document: Phased clinical development plan with cost, timeline, and value-inflection
+    milestones
+  required: true
+  note: 'Gantt-style plan from IND through Phase 1/2 with per-phase cost estimates,
+    enrollment assumptions, and the capital required to reach the next value-inflection
+    (e.g., Phase 1 safety, Phase 2a proof-of-concept). Industry-typical reference
+    points: Phase 1 often single-digit to low-tens of millions; reaching Phase 2 readout
+    commonly $30M+ over multiple years. Investors need to see the financing-to-milestone
+    logic given that revenue is typically a decade away and multiple rounds are required.'
+- id: biotech-scientific-risk-register
+  sector: biotech
+  category: Risk / Science
+  document: Scientific and technical risk register with kill-criteria
+  required: false
+  note: Explicit enumeration of mechanism-of-action uncertainty, translational risk
+    (animal-to-human), biomarker validity, and pre-defined go/no-go kill-criteria
+    for each milestone. Sophisticated biotech investors value an honest risk register
+    and capital-efficient kill-criteria over an over-optimistic narrative. Not a strict
+    deal-blocker, but its absence signals scientific immaturity and is a meaningful
+    negative for science-led investors.
