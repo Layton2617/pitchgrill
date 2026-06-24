@@ -1,0 +1,197 @@
+cell: gr:fundraise-risk-exit:series-a
+type: grilling
+wedge: general
+items:
+- id: burn-multiple-efficiency
+  theme: fundraise-risk-exit
+  stage:
+  - series-a
+  wedge: general
+  question: What's your burn multiple, and walk me through how it's trended over the
+    last four quarters.
+  strong_answer: Founder gives net new ARR divided by net burn without hesitation,
+    cites the actual number (industry-typical 'good' is under ~1.5x, 'great' under
+    ~1.0x at Series A), and shows it improving quarter over quarter as the motion
+    matures. They explain *why* it moved — e.g. a specific channel that started compounding
+    or a CAC payback that dropped — not just that it moved. They distinguish gross
+    vs net burn and know their net-new ARR cleanly (no double-counting expansion as
+    new logos).
+  weak_answer: 'Founder doesn''t know the term, or computes it live and arrives at
+    something north of ~3-4x while framing it as ''we''re investing in growth.'' They
+    conflate bookings with ARR, can''t separate expansion from new business, or wave
+    at ''efficiency improving'' with no quarterly numbers. Worst tell: spending heavily
+    but ARR growth is linear, not compounding.'
+  sources:
+  - https://www.crv.com
+- id: net-revenue-retention-cohorts
+  theme: fundraise-risk-exit
+  stage:
+  - series-a
+  wedge: general
+  question: Show me your net revenue retention and your logo retention by cohort —
+    and tell me which is which.
+  strong_answer: Founder separates gross retention, net (dollar) retention, and logo
+    retention, and presents them by signup cohort, not blended. NRR is durable across
+    cohorts (industry-typical Series A SaaS benchmark ~110%+, with best-in-class higher)
+    and ideally improving for newer cohorts. They can point to the expansion mechanism
+    (seats, usage, upsell) and explain churn drivers honestly. Older cohorts retaining
+    well is the strongest possible signal of real product value.
+  weak_answer: A single blended retention number with no cohort breakdown, or quoting
+    NRR that's flattered by a couple of whale expansions masking heavy SMB logo churn.
+    Confusing gross and net retention. NRR below ~100% (net contraction) framed as
+    'we'll fix it post-raise.' Newer cohorts churning faster than older ones — a sign
+    the early adopters were unrepresentative.
+  sources:
+  - https://www.bvp.com/atlas/scaling-to-100-million
+  - https://a16z.com
+- id: default-alive-runway-milestones
+  theme: fundraise-risk-exit
+  stage:
+  - series-a
+  wedge: general
+  question: With this raise, what specific milestones get you to a Series B, and are
+    you default alive if you never raise again?
+  strong_answer: Founder names the concrete metrics a Series B investor will underwrite
+    (e.g. a specific ARR level, growth rate, and efficiency bar that's industry-typical
+    for the next round), maps spend to those milestones with buffer, and gives a runway
+    number (typically targeting ~24-30 months on a Series A). They can articulate
+    a credible path to default-alive — what they'd cut and when — even if the plan
+    is to keep raising. They show they've thought about the down case, not just the
+    plan.
+  weak_answer: Runway math that quietly assumes the next round happens on schedule,
+    no defined Series B bar (just 'grow a lot'), or a use-of-funds that's a generic
+    headcount plan rather than tied to provable milestones. Can't say what default-alive
+    would require. Treats fundraising as the milestone rather than the metrics that
+    unlock it.
+  sources:
+  - https://www.ycombinator.com/library
+- id: cap-table-founder-ownership
+  theme: fundraise-risk-exit
+  stage:
+  - series-a
+  wedge: general
+  question: Walk me through your cap table — founder ownership, option pool, and any
+    dead equity or messy SAFEs from the prior round.
+  strong_answer: Founder knows fully-diluted ownership cold, including how uncapped
+    or low-cap SAFEs convert and dilute. Founders still hold a healthy majority going
+    into the A (industry-typical to want founders meaningfully motivated for two more
+    rounds of dilution). They flag any dead equity (departed cofounder still holding
+    a large stake) proactively and have a plan. Option pool is sized realistically
+    for the next 18-24 months of hiring, and they understand pre- vs post-money pool
+    dynamics.
+  weak_answer: Vague on fully-diluted numbers, surprised by how much the SAFE stack
+    converts into, or a large chunk of equity held by an inactive founder with no
+    resolution. Founders already heavily diluted before the A, raising the question
+    of motivation through later rounds. Doesn't understand that the new pool comes
+    out of their pre-money. Discovers cap-table problems live in the room.
+  sources:
+  - https://www.ycombinator.com/library/8d-safe-financing-documents
+  - https://carta.com
+- id: cac-payback-channel-scalability
+  theme: fundraise-risk-exit
+  stage:
+  - series-a
+  wedge: general
+  question: What's your CAC payback by channel, and which channel are you betting
+    the Series A dollars on — does it scale or does CAC blow up as you spend more?
+  strong_answer: Founder breaks CAC payback down by channel (industry-typical healthy
+    payback is under ~12 months, best-in-class under 6), shows fully-loaded CAC (sales
+    + marketing, not just ad spend), and is honest about which channels saturate.
+    They have evidence that the channel they're scaling has headroom — incremental
+    CAC isn't rising steeply — and a second channel in development to de-risk single-channel
+    dependence. They distinguish paid acquisition from organic/word-of-mouth in the
+    blended number.
+  weak_answer: Blended CAC only, hiding that the cheap growth came from a founder's
+    network or a one-off viral moment that won't repeat with paid dollars. Doesn't
+    load sales salaries into CAC. Single fragile channel (e.g. one ad platform) with
+    no evidence it scales, or rising incremental CAC dismissed as noise. 'We'll figure
+    out distribution after the raise.'
+  sources:
+  - https://review.firstround.com
+  - https://www.bvp.com/atlas
+- id: tam-bottoms-up
+  theme: fundraise-risk-exit
+  stage:
+  - series-a
+  wedge: general
+  question: Build your TAM bottoms-up right now — number of customers times price
+    — and convince me this can be a fund-returner.
+  strong_answer: 'Founder constructs TAM from the unit economics they actually have:
+    realistic number of target accounts times their real ACV, then explains how price
+    or segment expansion grows it over time. They directly address the venture-scale
+    question — whether this can plausibly become a company large enough to return
+    a fund (industry-typical VC math needs a path to ~$100M+ ARR / multi-billion outcome).
+    They''re candid about where the market needs to expand and how they''d get there,
+    rather than quoting a top-down analyst figure.'
+  weak_answer: A top-down '$X billion market, we just need 1%' slide with no bottoms-up
+    grounding. ACV times account count produces a market too small for venture returns,
+    and the founder hasn't noticed. Inflates TAM by including adjacencies they have
+    no product for. Can't articulate why this is a venture outcome rather than a good
+    lifestyle or PE business.
+  sources:
+  - https://a16z.com
+  - https://www.sequoiacap.com
+- id: competitive-moat-incumbent-response
+  theme: fundraise-risk-exit
+  stage:
+  - series-a
+  wedge: general
+  question: What stops the incumbent — or a well-funded competitor — from shipping
+    your feature in two quarters and crushing you?
+  strong_answer: 'Founder names a durable wedge: a structural advantage (data network
+    effects, switching costs, a workflow lock-in, a distribution edge, or a hard technical/regulatory
+    barrier) rather than just ''we''re faster/better UX.'' They''re realistic that
+    the feature itself is copyable and explain why the *system* around it isn''t.
+    They show evidence of accumulating advantage (e.g. proprietary data that compounds
+    with usage) and have a credible answer for why the incumbent is structurally slow
+    to respond.'
+  weak_answer: Moat = 'we execute better' or 'we're first.' Treats current feature
+    lead as defensible. Hasn't thought about incumbent response at all, or claims
+    the big player 'won't bother' without evidence. Lists patents or 'our team' as
+    the moat. Dismisses competitors instead of respecting them — a tell for naivety
+    about the market.
+  sources:
+  - https://www.sequoiacap.com
+  - https://review.firstround.com
+- id: pipeline-quality-vs-quantity
+  theme: fundraise-risk-exit
+  stage:
+  - series-a
+  wedge: general
+  question: How much of your ARR is recurring contracted revenue versus pilots, POCs,
+    or month-to-month, and what's your sales cycle and win rate?
+  strong_answer: Founder cleanly separates committed recurring revenue from pilots/POCs
+    and one-time services, and doesn't inflate ARR with non-recurring or unconverted
+    pilots. They know their sales cycle length, win rate, and pilot-to-paid conversion,
+    and these are stable or improving. They show the revenue is repeatable across
+    customers (not concentrated in one or two whales — industry-typical concern if
+    a single customer is >~15-20% of ARR) and that pilots convert at a healthy rate.
+  weak_answer: ARR padded with pilots that haven't converted, or annualizing month-to-month
+    revenue as if it's contracted. Heavy customer concentration in one or two logos.
+    Can't state win rate or pilot conversion, or those numbers are deteriorating.
+    Long, unpredictable sales cycles with no pattern — meaning the dollars from this
+    round can't be reliably converted into pipeline.
+  sources:
+  - https://www.bvp.com/atlas
+  - https://www.ycombinator.com/library
+- id: founder-market-fit-why-you
+  theme: fundraise-risk-exit
+  stage:
+  - series-a
+  wedge: general
+  question: Why is this team the one that wins this market — and what's the hardest
+    thing you've learned that a newcomer wouldn't know?
+  strong_answer: Founder articulates a specific, hard-won insight about the market
+    that came from doing the work — a non-obvious truth about the customer, the buying
+    process, or the technical problem that only operators in this space would know.
+    They show founder-market fit through earned secrets, not just résumé. They're
+    self-aware about gaps in the team and have a hiring plan to close them. The insight
+    reframes how the investor sees the opportunity.
+  weak_answer: Generic passion ('we love this space') or a résumé recitation with
+    no proprietary insight. Can't name anything surprising they've learned. No self-awareness
+    about team gaps, or claims the founding team can do everything. The 'why us' is
+    interchangeable with any competitor's pitch — no earned secret that explains why
+    they specifically will win.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com

@@ -1,0 +1,404 @@
+cell: dr:seed
+type: data_room
+wedge: general
+items:
+- id: certificate-of-incorporation
+  category: corporate
+  stage:
+  - seed
+  wedge: general
+  document: Certificate of Incorporation + all amendments (Delaware C-corp stamped/filed
+    copy)
+  required: true
+  note: Investors check the entity is a Delaware C-corp, not an LLC or foreign entity.
+    A non-DE-Ccorp at seed forces a conversion that delays closing. The stamped/filed
+    copy proves the state actually recorded it.
+- id: bylaws
+  category: corporate
+  stage:
+  - seed
+  wedge: general
+  document: Current bylaws as amended
+  required: false
+  note: Rarely a deal-blocker on a standard YC/SAFE deal but reviewed to confirm board
+    mechanics and quorum rules don't conflict with the proposed financing.
+- id: board-consents-minutes
+  category: corporate
+  stage:
+  - seed
+  wedge: general
+  document: All board and stockholder consents/minutes since incorporation
+  required: true
+  note: Gaps here are the most common cleanup item. Every equity issuance, option
+    grant, and officer appointment should have a corresponding consent; missing consents
+    mean issuances may be unauthorized and have to be ratified pre-close.
+- id: ein-state-qualifications
+  category: corporate
+  stage:
+  - seed
+  wedge: general
+  document: EIN confirmation letter and foreign-qualification certificates for states
+    where the company has employees or an office
+  required: false
+  note: Operating with W-2 employees in a state without foreign-qualifying there is
+    a common quiet liability; flagged but usually curable.
+- id: good-standing-certificate
+  category: corporate
+  stage:
+  - seed
+  wedge: general
+  document: Certificate of Good Standing from Delaware (dated within ~30 days, industry-typical
+    freshness)
+  required: true
+  note: Confirms the franchise tax is paid and the entity is active. A void/forfeited
+    status blocks the company from legally issuing the new securities.
+- id: fully-diluted-cap-table
+  category: cap_table
+  stage:
+  - seed
+  wedge: general
+  document: Fully-diluted cap table (every share class, all options granted + reserved
+    pool, all SAFEs/notes with caps and discounts, post-money ownership %)
+  required: true
+  note: The single most-scrutinized document. Must reconcile to the stock ledger and
+    option ledger to the share. SAFEs shown only as dollar amounts (not modeled into
+    dilution) is a red flag that the founder doesn't understand their own ownership.
+- id: safe-note-ledger
+  category: cap_table
+  stage:
+  - seed
+  wedge: general
+  document: All outstanding SAFEs and convertible notes (executed copies) with a summary
+    ledger of amount, cap, discount, MFN, and date
+  required: true
+  note: Pre-seed SAFEs stack and convert at this round. Uncapped SAFEs, conflicting
+    MFN clauses, or 'pro-rata side letters' can blow up the post-money math; investors
+    model the as-converted table themselves.
+- id: stock-purchase-agreements-83b
+  category: cap_table
+  stage:
+  - seed
+  wedge: general
+  document: Founder restricted stock purchase agreements with vesting schedules +
+    filed 83(b) election proof (certified mail receipt or IRS confirmation) for each
+    founder
+  required: true
+  note: A missed 83(b) (35-day filing window, no extensions) is unfixable and creates
+    a personal tax bomb plus a phantom-income optics problem. Investors verify the
+    receipt date, not just the form.
+- id: option-plan-and-grants
+  category: cap_table
+  stage:
+  - seed
+  wedge: general
+  document: Equity incentive plan document, board-approved pool size, and all individual
+    option grant agreements/notices
+  required: false
+  note: Grants made without a board-approved plan, or above the authorized pool, are
+    invalid and must be ratified. Strike prices below the latest 409A are an IRC 409A
+    penalty risk for grantees.
+- id: stock-ledger
+  category: cap_table
+  stage:
+  - seed
+  wedge: general
+  document: Capitalization/stock ledger (e.g. Carta or Pulley export) reconciled to
+    issued share certificates
+  required: true
+  note: The legal source of truth for who owns what. A spreadsheet cap table that
+    doesn't tie to the ledger means there's no defensible record of ownership.
+- id: founder-ip-assignment
+  category: ip
+  stage:
+  - seed
+  wedge: general
+  document: IP assignment agreements (PIIA/CIIAA) for all founders AND all contractors/agencies,
+    plus prior-inventions schedules
+  required: true
+  note: 'Hard deal-blocker. If a founder or a contractor who wrote core code never
+    assigned IP to the company, the company may not own its own product. Contractor
+    IP is the most-missed: work-for-hire does not auto-vest for independent contractors.'
+- id: employee-piia
+  category: ip
+  stage:
+  - seed
+  wedge: general
+  document: Signed PIIA/confidentiality + invention-assignment agreements for every
+    current and former employee
+  required: true
+  note: Former engineers without a signed PIIA are a latent ownership/trade-secret
+    leak. Investors specifically ask about departed early hires.
+- id: ip-registrations
+  category: ip
+  stage:
+  - seed
+  wedge: general
+  document: Schedule of trademarks, patents/provisionals, and domain names owned,
+    with filing/registration numbers and owner of record
+  required: false
+  note: At seed, having few or no patents is normal. The check is that what exists
+    is owned by the company (not a founder personally) and the primary domain/trademark
+    isn't held by a third party or a prior employer.
+- id: oss-license-inventory
+  category: ip
+  stage:
+  - seed
+  wedge: general
+  document: Open-source dependency / license inventory flagging any copyleft (GPL/AGPL)
+    used in the distributed product
+  required: false
+  note: Non-obvious but increasingly asked, especially for infra/dev-tools. AGPL in
+    a SaaS codebase can force source disclosure; a clean SBOM pre-empts the question.
+- id: prior-employer-clearance
+  category: ip
+  stage:
+  - seed
+  wedge: general
+  document: Representation/evidence that founders are clear of prior-employer IP,
+    non-compete, and non-solicit obligations (incl. CA vs. non-CA jurisdiction analysis)
+  required: true
+  note: 'If a founder built the product at or shortly after leaving a competitor,
+    the prior employer may claim the IP. Jurisdiction matters: non-competes are unenforceable
+    in CA but live in many other states.'
+- id: founder-offer-employment
+  category: team
+  stage:
+  - seed
+  wedge: general
+  document: Founder employment offer letters / at-will agreements with title, comp,
+    and role
+  required: false
+  note: Confirms founders are actually employed by the company (relevant to IP assignment
+    and to the comp the round will fund).
+- id: team-roster-comp
+  category: team
+  stage:
+  - seed
+  wedge: general
+  document: 'Org chart / team roster: full-time vs. contractor, role, start date,
+    salary, equity, and W-2-vs-1099 classification'
+  required: false
+  note: Worker misclassification (1099s who are really employees) is a real back-tax/penalty
+    liability; investors scan for it. Also surfaces key-person concentration.
+- id: founder-vesting-status
+  category: team
+  stage:
+  - seed
+  wedge: general
+  document: Founder vesting status summary (% vested, cliff dates) and any acceleration
+    provisions
+  required: true
+  note: Unvested founder equity with standard 4yr/1yr reverse-vesting protects against
+    a co-founder walking with a big stake. Founders who fully vested themselves day
+    one is a governance red flag investors push to re-vest.
+- id: former-founder-separations
+  category: team
+  stage:
+  - seed
+  wedge: general
+  document: Separation / repurchase / release agreements for any departed co-founders
+    or early equity holders
+  required: true
+  note: A departed co-founder still holding a large unrepurchased stake (the 'dead
+    equity' problem) is a frequent killer. Investors want the cap table cleaned and
+    releases signed before they fund.
+- id: financial-statements
+  category: financials
+  stage:
+  - seed
+  wedge: general
+  document: 'Historical financials: P&L, balance sheet, and cash position (monthly,
+    since inception or last ~24 months)'
+  required: false
+  note: Audited statements are not expected at seed; QuickBooks/Pilot/Mercury exports
+    are fine. The check is that the numbers exist and reconcile to the bank balance.
+- id: burn-runway-model
+  category: financials
+  stage:
+  - seed
+  wedge: general
+  document: Current monthly net burn, cash on hand, and resulting runway in months
+    (with and without the new round)
+  required: true
+  note: Drives the round size and urgency. Runway under ~6 months (industry-typical
+    danger zone) signals a possible down-round or bridge and changes terms. Must be
+    a real number, not a forecast.
+- id: financial-projections
+  category: financials
+  stage:
+  - seed
+  wedge: general
+  document: Forward financial model / projections (12-24 months) with hiring plan
+    and use-of-funds tied to the raise
+  required: false
+  note: Judged for sane assumptions, not accuracy. Use-of-funds and the milestone
+    the round is meant to hit (next-round metrics) matter more than the bottom-line
+    revenue line.
+- id: bank-statements
+  category: financials
+  stage:
+  - seed
+  wedge: general
+  document: Recent bank statements (last ~3 months) confirming cash balance
+  required: false
+  note: Light verification that the stated cash position is real. Asked more often
+    by leads writing the priced round than by SAFE-only checks.
+- id: outstanding-debt-schedule
+  category: financials
+  stage:
+  - seed
+  wedge: general
+  document: Schedule of all debt, venture loans, lines of credit, and personal guarantees
+  required: true
+  note: Venture debt or a founder personal guarantee sitting senior to equity changes
+    the risk and must be disclosed. Hidden debt discovered post-LOI kills trust.
+- id: 409a-valuation
+  category: tax_compliance
+  stage:
+  - seed
+  wedge: general
+  document: Most recent 409A valuation report (independent appraisal) supporting the
+    common-stock strike price
+  required: false
+  note: Required before granting options, not strictly before a SAFE round. A stale
+    (>12 months, industry-typical) or post-material-event 409A means new grants need
+    a refresh; absence is fine if no options granted yet.
+- id: tax-returns-filings
+  category: tax_compliance
+  stage:
+  - seed
+  wedge: general
+  document: Federal and state corporate income tax returns filed to date (or confirmation
+    none due / extensions filed)
+  required: false
+  note: Many seed-stage cos owe little but still must file. Unfiled returns accrue
+    penalties; investors confirm filings are current or properly extended.
+- id: payroll-tax-compliance
+  category: tax_compliance
+  stage:
+  - seed
+  wedge: general
+  document: Proof of payroll tax registration and remittance in all employee states
+    (Gusto/Rippling reports), plus sales/use tax nexus assessment if applicable
+  required: false
+  note: Unremitted payroll taxes create personal liability for officers. SaaS sales-tax
+    nexus (post-Wayfair, economic-nexus thresholds ~$100k or 200 transactions per
+    state, industry-typical) is a quiet accruing liability investors increasingly
+    probe.
+- id: qsbs-eligibility
+  category: tax_compliance
+  stage:
+  - seed
+  wedge: general
+  document: 'QSBS (IRC 1202) eligibility confirmation: C-corp status, gross-assets-under-threshold
+    test at issuance, and active-business test'
+  required: false
+  note: Not a deal-blocker but a value-add investors love to confirm; QSBS can exempt
+    a large slice of gains. The gross-assets-at-issuance test (historically $50M,
+    raised under recent law, industry-typical) must be met when shares are issued.
+- id: customer-contracts
+  category: legal
+  stage:
+  - seed
+  wedge: general
+  document: Material customer contracts and the standard customer agreement / Terms
+    of Service, flagging any non-standard terms (exclusivity, IP assignment to customer,
+    MFN, uncapped liability)
+  required: false
+  note: At seed there are few; the risk is a single early enterprise contract that
+    assigns IP to the customer or grants exclusivity that limits the market.
+- id: vendor-data-agreements
+  category: legal
+  stage:
+  - seed
+  wedge: general
+  document: Key vendor/supplier agreements and any data processing agreements (DPAs);
+    for AI products, terms governing training-data and model-provider usage rights
+  required: false
+  note: 'Non-obvious for AI cos: whether the model provider''s terms permit the company''s
+    use case, and whether customer data can lawfully be used for training, are now
+    standard diligence questions.'
+- id: privacy-policy-data-handling
+  category: legal
+  stage:
+  - seed
+  wedge: general
+  document: Published privacy policy + ToS, and a description of PII handling / GDPR
+    / CCPA posture
+  required: false
+  note: Deal-blocker only if the product touches regulated data (health, kids, financial)
+    without the matching compliance. For general B2B SaaS, a reasonable policy suffices
+    at seed.
+- id: litigation-disputes
+  category: legal
+  stage:
+  - seed
+  wedge: general
+  document: Schedule of pending/threatened litigation, demand letters, and disputes
+    (incl. with former founders, employees, or prior employers) — or a 'none' representation
+  required: true
+  note: Any active dispute, especially IP-related, must be disclosed. An undisclosed
+    founder lawsuit surfacing later is a trust-destroying event that voids reps.
+- id: insurance-policies
+  category: legal
+  stage:
+  - seed
+  wedge: general
+  document: Insurance policies in force (general liability, E&O/tech, and D&O if any)
+  required: false
+  note: Often minimal at seed. Some leads require D&O as a condition of taking a board
+    seat; otherwise informational.
+- id: kpi-dashboard
+  category: product_metrics
+  stage:
+  - seed
+  wedge: general
+  document: 'Core metrics dashboard with definitions: MRR/ARR, MoM growth rate, gross/net
+    revenue retention, logo churn, CAC, and active-user counts'
+  required: true
+  note: Investors want the metric definitions, not just the numbers — how 'active
+    user' and 'churn' are defined reveals whether the founder is honest with themselves.
+    ~10-15% MoM growth or NRR >100% are industry-typical seed signals, not thresholds.
+- id: cohort-retention
+  category: product_metrics
+  stage:
+  - seed
+  wedge: general
+  document: Cohort retention curves (usage and revenue) by signup month
+  required: false
+  note: The single most predictive seed metric. A flattening retention curve beats
+    high top-line growth; a curve that decays to zero kills an otherwise-good story.
+    Required-feeling for product-led/consumer, lighter for early enterprise.
+- id: unit-economics
+  category: product_metrics
+  stage:
+  - seed
+  wedge: general
+  document: 'Unit economics: gross margin, CAC, LTV (or payback period), and the underlying
+    assumptions'
+  required: false
+  note: At seed the data is thin, so honesty about the assumptions matters more than
+    the ratio. LTV:CAC >3 or payback <12 months are industry-typical targets cited
+    later, directional only at seed.
+- id: pipeline-revenue-detail
+  category: product_metrics
+  stage:
+  - seed
+  wedge: general
+  document: 'Revenue/pipeline detail: top customers by revenue with concentration
+    %, and sales pipeline by stage'
+  required: false
+  note: Customer concentration (one logo >~25-30% of revenue, industry-typical concern
+    level) is a real risk flag. Lets investors sanity-check that ARR is recurring
+    contracts, not one-off pilots counted as revenue.
+- id: product-roadmap-demo
+  category: product_metrics
+  stage:
+  - seed
+  wedge: general
+  document: Product demo / access and a short roadmap tied to the use-of-funds and
+    the next-round milestone
+  required: false
+  note: Less a document than a check that the product is real and the roadmap maps
+    to the metrics the next round will require. Useful for tying the financial model
+    to product reality.

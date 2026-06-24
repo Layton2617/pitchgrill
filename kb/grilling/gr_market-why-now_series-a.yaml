@@ -1,0 +1,175 @@
+cell: gr:market-why-now:series-a
+type: grilling
+wedge: general
+items:
+- id: why-now-inflection
+  theme: market-why-now
+  stage:
+  - series-a
+  wedge: general
+  question: Why is now the moment this becomes possible — what changed in the last
+    18-24 months that wasn't true before?
+  strong_answer: 'Names a specific, datable inflection (a regulatory change, a cost
+    curve crossing a threshold, a platform/API becoming available, a behavior that
+    crossed mainstream adoption) and explains the causal chain to why the product
+    is now buildable AND buyable. Shows the company was started *because* of that
+    shift, not retrofitted to it. Ideally ties to a measurable: e.g., unit cost of
+    an input dropping ~order-of-magnitude (industry-typical framing, not a fixed rule),
+    or a buyer category that didn''t have budget line items two years ago and now
+    does.'
+  weak_answer: '''AI is changing everything'' / ''the market is huge and growing.''
+    Cites a generic secular trend (cloud, mobile, remote work) with no datable trigger,
+    or describes why the problem is important rather than why it''s newly solvable.
+    Treats ''now'' as ''always would have been good'' — which means there''s no reason
+    a competitor couldn''t have done it three years ago, or won''t wait.'
+  sources:
+  - https://review.firstround.com/
+  - https://a16z.com/
+- id: why-now-failed-before
+  theme: market-why-now
+  stage:
+  - series-a
+  wedge: general
+  question: Who tried this before and failed, and what specifically is different now
+    besides you being smarter?
+  strong_answer: Knows the graveyard cold — names the prior attempts (startups, incumbent
+    features, failed categories) and diagnoses the real cause of death (too early
+    on a cost curve, missing distribution, wrong buyer, regulatory wall). Then maps
+    each failure cause to a structural change that has since resolved it. Demonstrates
+    the founder studied the failures rather than being ignorant of them, and the 'why
+    now' is the removal of the specific blocker, not founder hubris.
+  weak_answer: '''No one has really done this'' or ''the incumbents are too slow/dumb.''
+    Claims a clean greenfield in a space that''s obviously been attempted, which signals
+    either ignorance of history or an undifferentiated ''we''ll execute better'' thesis.
+    Attributes prior failure to competence rather than timing/structure.'
+  sources:
+  - https://www.ycombinator.com/library
+- id: why-now-tam-construction
+  theme: market-why-now
+  stage:
+  - series-a
+  wedge: general
+  question: Walk me through your TAM bottom-up — how many buyers, paying what, and
+    why that number isn't a top-down fantasy?
+  strong_answer: 'Builds TAM from the bottom: a defined buyer count times a realistic
+    ACV grounded in current pricing/early deals, then explains the wedge-to-expansion
+    path. Distinguishes the TAM as it exists today from the TAM the ''why now'' shift
+    is creating. Acknowledges where the number is soft. A strong series-a story usually
+    points to a credible path to a $1B+ outcome (industry-typical bar for venture
+    scale, not an absolute rule), and shows the market is growing into the product,
+    not the deck inflating the market.'
+  weak_answer: '''It''s a $X trillion market and we just need 1%.'' Top-down Gartner-number
+    slide with no buyer math, no ACV grounding, and the ''1% of a huge number'' fallacy.
+    Cannot connect the headline TAM to who actually writes the first checks or why
+    the current beachhead expands.'
+  sources:
+  - https://a16z.com/
+  - https://www.bvp.com/atlas
+  - https://www.crv.com/
+- id: why-now-timing-too-early
+  theme: market-why-now
+  stage:
+  - series-a
+  wedge: general
+  question: How do you know you're not too early — that the market is ready to buy,
+    not just ready to nod?
+  strong_answer: 'Separates interest from urgency with evidence: buyers reallocating
+    existing budget (not asking for new budget), shrinking sales cycles, inbound pull,
+    or paid pilots converting. Shows a ''hair-on-fire'' wedge where the pain is acute
+    now, even if the full vision is years out. Names the leading indicator they watch
+    to know the market is accelerating, and can articulate what ''too early'' would
+    look like and why current data refutes it.'
+  weak_answer: Equates positive customer conversations and design-partner enthusiasm
+    with demand. Long sales cycles, lots of 'this is interesting, come back next year,'
+    pilots that don't convert to paid, or selling to innovators only with no path
+    to the early majority. Confuses being right eventually with being fundable now.
+  sources:
+  - https://review.firstround.com/
+  - https://www.ycombinator.com/library
+  - https://www.sequoiacap.com/article/pmf-framework/
+- id: why-now-incumbent-response
+  theme: market-why-now
+  stage:
+  - series-a
+  wedge: general
+  question: When the obvious incumbent ships this as a feature next quarter, why do
+    you still win?
+  strong_answer: 'Has a structural reason the incumbent won''t or can''t respond well:
+    channel conflict, a business-model conflict (cannibalizing existing revenue),
+    an architectural rewrite they won''t undertake, or a data/distribution advantage
+    that compounds. Frames the ''why now'' as a window the incumbent is structurally
+    slow to exploit, and shows why being a feature for them is a strategic full product
+    for the startup. Distinguishes ''they won''t'' from the weaker ''they haven''t
+    yet.'''
+  weak_answer: '''We move faster'' / ''they don''t get it'' / ''we''ll have a head
+    start.'' Relies on speed and focus alone against a player with distribution, data,
+    and budget. No structural moat — just a temporal lead that erodes the moment the
+    incumbent decides the category matters. Often the founder hasn''t even mapped
+    what the incumbent''s countermove would be.'
+  sources:
+  - https://a16z.com/
+  - https://www.bvp.com/atlas
+  - https://www.sequoiacap.com/
+- id: why-now-budget-source
+  theme: market-why-now
+  stage:
+  - series-a
+  wedge: general
+  question: Which budget line does this come out of, and whose budget shrinks when
+    you win?
+  strong_answer: Names the exact budget (existing line item, replacing a vendor, or
+    a new line a recent shift created) and the economic buyer who owns it. Shows the
+    purchase is a 'must-have' tied to a P&L the buyer is already accountable for,
+    or that the 'why now' created fresh budget (new compliance mandate, new cost center).
+    Can name what gets displaced — a tool, a headcount allocation, a manual process
+    — which proves the spend is real, not aspirational.
+  weak_answer: '''Companies will obviously want this'' with no identified budget owner.
+    Sells to a user with no purchasing authority, or requires the buyer to create
+    brand-new budget for a nice-to-have. Vague on whether it''s a new line or a reallocation
+    — usually means it''s neither yet, and deals stall in procurement.'
+  sources:
+  - https://review.firstround.com/
+  - https://www.bvp.com/atlas
+  - https://www.crv.com/
+- id: why-now-traction-vs-novelty
+  theme: market-why-now
+  stage:
+  - series-a
+  wedge: general
+  question: How much of your traction is the 'why now' tailwind versus durable demand
+    that survives the hype cooling off?
+  strong_answer: Honestly decomposes growth into novelty/experimental-budget pull
+    versus retained, expanding usage. Points to cohort retention and net revenue retention
+    holding up over time, and to use cases that are operationally embedded rather
+    than pilots funded from an exploration budget. Acknowledges which part of the
+    current pipeline is hype-driven and shows the durable core is already growing
+    independently — the tailwind accelerates a real business, it isn't the business.
+  weak_answer: Cannot separate hype from durable demand, or insists it's all durable.
+    Growth concentrated in experimental/innovation budgets, one-time pilots, or a
+    single hot trend with weak retention. Flat or declining cohort curves masked by
+    new-logo growth. Treats a spike as a trend.
+  sources:
+  - https://www.sequoiacap.com/article/pmf-framework/
+  - https://www.bvp.com/atlas
+  - https://review.firstround.com/
+- id: why-now-second-order
+  theme: market-why-now
+  stage:
+  - series-a
+  wedge: general
+  question: Your 'why now' is also everyone else's 'why now' — how does this same
+    shift not spawn ten funded competitors who commoditize you?
+  strong_answer: 'Acknowledges the shift is visible to all and explains what compounds
+    for the first/best mover: proprietary data flywheels, switching costs, distribution
+    lock-in, or a workflow position that gets stickier with use. Shows the ''why now''
+    opens the door but a separate, durable advantage keeps it open. Can name the actual
+    competitors already moving and why this team''s wedge converts the tailwind into
+    defensibility rather than a race to zero margin.'
+  weak_answer: Treats the obvious tailwind as if it's a private insight, unaware that
+    the same enablers (cheap APIs, a new platform, a regulation) lower the barrier
+    for everyone. No answer for commoditization beyond 'first-mover advantage.' Mistakes
+    a timing insight for a moat — the most common series-a 'why now' trap.
+  sources:
+  - https://a16z.com/
+  - https://www.sequoiacap.com/
+  - https://www.bvp.com/atlas

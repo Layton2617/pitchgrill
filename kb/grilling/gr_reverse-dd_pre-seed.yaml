@@ -1,0 +1,162 @@
+cell: gr:reverse-dd:pre-seed
+type: grilling
+wedge: general
+items:
+- id: captable-pre-seed-damage
+  theme: reverse-dd
+  stage:
+  - pre-seed
+  wedge: general
+  question: Walk me through your exact cap table today, including every angel, advisor,
+    SAFE, and the post-money cap and discount on each — what's your fully-diluted
+    founder ownership after this round?
+  strong_answer: 'Founder names the post-money SAFE caps and discounts from memory,
+    knows the dollars raised against each cap, and can state founder fully-diluted
+    ownership after the new round (industry-typical: founders want to stay well above
+    ~50% combined post-seed so the Series A still works). They flag any stacked SAFEs
+    and show they''ve modeled conversion, not just collected checks.'
+  weak_answer: '"My lawyer / the SAFEs handle the math, I''d have to check the post-money
+    cap." Or they''ve raised on multiple uncapped or high-cap post-money SAFEs without
+    realizing the overhang already dilutes them past the point where a priced Series
+    A is clean.'
+  sources:
+  - https://www.ycombinator.com/library/8h-how-to-build-your-cap-table
+  - https://carta.com/learn/startups/cap-table/
+  - https://www.nvca.org/model-legal-documents/
+- id: founder-equity-split-vesting
+  theme: reverse-dd
+  stage:
+  - pre-seed
+  wedge: general
+  question: How did you and your co-founders split equity, when did you decide it,
+    and is everyone on a 4-year vest with a cliff that started at incorporation —
+    including you?
+  strong_answer: 'A clear, recent split with a rationale (not just 50/50 by default),
+    all founders on standard vesting (industry-typical: 4-year vest, 1-year cliff)
+    with a documented start date, and acceleration terms understood. They''ve thought
+    about what happens if a co-founder leaves in year one.'
+  weak_answer: '"We''re all equal, no vesting, we trust each other." No vesting means
+    a co-founder can walk with a third of the company on day 90 — an automatic investor
+    red flag and a future-litigation risk.'
+  sources:
+  - https://www.ycombinator.com/library/5x-a-guide-to-co-founder-equity-splits
+  - https://www.nvca.org/model-legal-documents/
+- id: ip-ownership-prior-employer
+  theme: reverse-dd
+  stage:
+  - pre-seed
+  wedge: general
+  question: Did any of this technology, code, or idea originate while you were employed
+    somewhere else, and can you prove your former employer has no claim to the IP?
+  strong_answer: Founder confirms all IP is assigned to the company via signed PIIA/IP-assignment
+    agreements for every founder and contractor, that nothing was built on a prior
+    employer's time/equipment, and ideally that they reviewed their old employment/invention-assignment
+    agreement before starting. Open-source license compliance is also addressed.
+  weak_answer: '"I started building it nights and weekends while at my old job, but
+    it''s fine." Or contractors built core code with no assignment signed — meaning
+    the startup may not even own its own product.'
+  sources:
+  - https://www.nvca.org/model-legal-documents/
+  - https://www.ycombinator.com/library/4A-startup-legal-mechanics
+- id: why-cofounders-left
+  theme: reverse-dd
+  stage:
+  - pre-seed
+  wedge: general
+  question: Has anyone left the founding team or left the cap table already — who,
+    why, and how much do they still own?
+  strong_answer: Honest account of any departure, what equity they kept (and whether
+    unvested shares were repurchased), the relationship today, and the lesson learned.
+    A clean repurchase of unvested equity and an amicable separation agreement signals
+    maturity. If no one has left, they can speak to how the team handles conflict.
+  weak_answer: Visible discomfort, vague "it just didn't work out," or a dead co-founder
+    holding 20-30% with no vesting and no contact — a dormant equity stake that poisons
+    the next round.
+  sources:
+  - https://www.ycombinator.com/library/5x-a-guide-to-co-founder-equity-splits
+  - https://www.crv.com/content/
+- id: default-alive-runway
+  theme: reverse-dd
+  stage:
+  - pre-seed
+  wedge: general
+  question: With this raise, are you default alive or default dead — what's your monthly
+    burn, your runway in months, and what specifically does this money buy you?
+  strong_answer: 'Founder knows monthly net burn to the dollar, states runway (industry-typical
+    pre-seed target: ~18-24 months), and ties the raise to concrete milestones that
+    de-risk the Series A (specific traction or proof points), not just "hire and grow."
+    They know what ''default alive'' means and where they stand.'
+  weak_answer: '"We''ll raise more before we run out" with no burn number, no runway
+    figure, and a milestone list that''s just headcount. Treating the next round as
+    a guaranteed backstop is the classic pre-seed trap.'
+  sources:
+  - https://www.paulgraham.com/aord.html
+  - https://www.bvp.com/atlas
+- id: founder-market-fit-why-you
+  theme: reverse-dd
+  stage:
+  - pre-seed
+  wedge: general
+  question: Why are you the person who wins this market — what unfair, durable advantage
+    do you have that a smart team funded next week wouldn't?
+  strong_answer: 'Specific founder-market fit: earned insight from the problem, a
+    proprietary distribution channel or relationships, deep technical edge, or unique
+    data. The answer is concrete and hard to copy, not a credential list. They can
+    name who else could attack this and why they''d still win.'
+  weak_answer: '"We''re passionate and we move fast." Or a generic résumé recitation
+    with no link between the founder''s specific background and this specific market
+    — signals the idea is detachable from the team.'
+  sources:
+  - https://www.ycombinator.com/library/6L-how-to-evaluate-startup-ideas
+- id: evidence-vs-conviction
+  theme: reverse-dd
+  stage:
+  - pre-seed
+  wedge: general
+  question: Strip out the vision — what do you actually know to be true today from
+    real customer behavior, versus what you're still assuming?
+  strong_answer: A crisp separation of validated facts (specific customer conversations,
+    usage, LOIs, paid pilots, retention signals) from open hypotheses, plus the riskiest
+    remaining assumption and the cheapest experiment to test it. Shows intellectual
+    honesty and a falsifiable plan.
+  weak_answer: Everything is presented as fact, or the only 'evidence' is enthusiasm
+    from friends and warm intros. Can't distinguish what's proven from what's hoped
+    — signals the founder will burn the round chasing an untested assumption.
+  sources:
+  - https://www.ycombinator.com/library/6L-how-to-evaluate-startup-ideas
+  - https://www.sequoiacap.com/article/pmf-framework/
+- id: prior-raise-terms-skeletons
+  theme: reverse-dd
+  stage:
+  - pre-seed
+  wedge: general
+  question: Are there any side letters, MFN clauses, pro-rata promises, board or information-rights
+    commitments, or convertible notes with maturity dates that I'd find in diligence?
+  strong_answer: 'Founder proactively discloses every side letter, MFN, pro-rata or
+    board commitment, and any note maturity dates — and shows the round is structured
+    on clean standard docs (industry-typical: post-money SAFE or NVCA-style priced
+    docs). Transparency here is itself the signal.'
+  weak_answer: '"I don''t think so" followed by surprises in diligence — a note that
+    matures in three months, an angel promised a board seat, or MFN clauses that will
+    force re-pricing. Hidden terms that surface later kill trust and deals.'
+  sources:
+  - https://www.nvca.org/model-legal-documents/
+  - https://www.ycombinator.com/library/8h-how-to-build-your-cap-table
+  - https://www.bvp.com/atlas
+- id: single-point-of-failure
+  theme: reverse-dd
+  stage:
+  - pre-seed
+  wedge: general
+  question: What's the one thing that, if it broke tomorrow, kills the company — a
+    key person, a platform dependency, a regulatory change, or a single customer —
+    and what's your exposure?
+  strong_answer: Founder names the real single point of failure honestly (e.g., dependence
+    on one API/platform's policy, one anchor customer, one technical founder, a pending
+    regulatory question) and describes concrete mitigation or why the risk is acceptable
+    now. Self-awareness about fragility builds credibility.
+  weak_answer: '"Nothing, we''re diversified" at pre-seed (where concentration is
+    normal and pretending otherwise is dishonest), or genuine blindness to an obvious
+    platform/regulatory/key-person dependency the investor can see immediately.'
+  sources:
+  - https://www.bvp.com/atlas

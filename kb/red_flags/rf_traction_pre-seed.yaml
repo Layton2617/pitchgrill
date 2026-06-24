@@ -1,0 +1,149 @@
+cell: rf:traction:pre-seed
+type: red_flag
+wedge: general
+items:
+- id: flat-or-declining-growth
+  domain: traction
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Flat or decelerating week-over-week growth
+  why: Pre-seed has almost no absolute numbers to underwrite, so investors underwrite
+    the slope — a flattening curve says the product has already found its ceiling.
+  threshold: 'Paul Graham''s benchmark: 5-7% WoW is good, 10% exceptional, ~1% means
+    you haven''t figured it out yet. Sustained sub-~2% WoW or a curve bending down
+    is a flag.'
+  severity: major
+  detect: Look for a growth chart with no axis labels, cumulative (never-down) totals
+    instead of weekly net-new, or a 'hockey stick' that is all projection past today;
+    ask for the last 8 weeks of raw weekly active/new numbers and check the trend,
+    not the total.
+  sources:
+  - paulgraham.com/growth.html
+  - ycombinator.com/library
+- id: vanity-metrics-no-retention
+  domain: traction
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Headline signups/downloads with no retention cohort
+  why: Top-of-funnel numbers (signups, downloads, waitlist, LOIs) are cheap to manufacture
+    and prove nothing about whether anyone keeps using the product.
+  threshold: Any 'leaky bucket' cohort curve that decays toward zero rather than flattening
+    into a stable plateau is the flag; the absence of any cohort retention curve at
+    all is the bigger flag.
+  severity: major
+  detect: Deck leads with cumulative signups/waitlist/'users' but shows no cohort
+    retention curve or DAU/MAU; ask 'what % of users from 8 weeks ago are still active
+    this week?' — inability to answer is itself the flag.
+  sources:
+  - ycombinator.com/library
+- id: revenue-concentration
+  domain: traction
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  wedge: general
+  title: Single-customer revenue concentration
+  why: Early B2B revenue dominated by one logo means you're measuring one buyer's
+    enthusiasm, not a repeatable market, and the company dies if that customer churns.
+  threshold: A single customer above ~10-15% of revenue is a concentration flag; above
+    ~25-30% is severe. (Rule of thumb; tolerance loosens at the very earliest stage.)
+  severity: major
+  detect: Revenue chart shows a big total but a logo wall of 1-3 names; ask for revenue
+    broken out per customer and the % the top account represents — founders often
+    quote ARR without disclosing it's one pilot.
+  sources: []
+- id: founder-as-only-sales-channel
+  domain: traction
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: All deals closed by founder via personal network
+  why: Sales that only the founder can close through warm friends-and-family relationships
+    is unfalsifiable as product-market fit and gives no evidence the motion is repeatable
+    by a hired rep.
+  threshold: ''
+  severity: major
+  detect: Every customer is a former colleague, friend, or warm intro, no inbound
+    or cold-sourced deals, and no documented sales process; ask 'which customers came
+    from someone you didn't already know?' and 'has anyone other than a founder closed
+    a deal?'
+  sources:
+  - ycombinator.com/library
+- id: pilots-counted-as-revenue
+  domain: traction
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Free pilots / LOIs presented as committed revenue
+  why: Unpaid pilots, design partners, and non-binding LOIs convert far below founder
+    expectations, so counting them as 'ARR' or 'pipeline' inflates traction that doesn't
+    exist yet.
+  threshold: Treat any 'ARR' that includes unpaid, non-contracted, or LOI-only users
+    as a flag regardless of conversion assumption — only invoiced/paid revenue counts.
+  severity: kill
+  detect: Deck cites 'ARR' or 'committed' figures, but on inspection the customers
+    are on free pilots, trials, or LOIs with no signed paid contract; ask 'how much
+    of this is invoiced and paid cash?' and reconcile against bank/Stripe.
+  sources:
+  - ycombinator.com/library
+- id: high-churn-low-payback
+  domain: traction
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  wedge: general
+  title: Churn or unit economics that don't support a business
+  why: Even with growth, high churn and broken LTV:CAC mean every dollar of new revenue
+    is offset by losses, so the 'traction' is a treadmill, not a flywheel.
+  threshold: 'Common SaaS rules of thumb: LTV:CAC below 3:1 and CAC payback beyond
+    ~12 months are flags; persistent SMB logo churn of several % per month signals
+    a leaky base. Loose at pre-seed but directionally telling.'
+  severity: major
+  detect: Look for missing churn/retention slides or net revenue retention quoted
+    without logo churn; ask for monthly logo churn, gross margin, and rough CAC vs
+    ACV — vague or 'we haven't measured it' answers count as the flag at this stage.
+  sources: []
+- id: no-engagement-depth
+  domain: traction
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Users acquired but not actually using the core action
+  why: Accounts created without repeated completion of the product's core value action
+    means there is no behavioral evidence of need, which is the one thing pre-seed
+    traction is supposed to prove.
+  threshold: For a product that is supposed to be used daily, very low DAU/MAU or
+    near-zero repeat completion of the core action per active user is a flag; the
+    right ratio depends on the product's natural usage frequency.
+  severity: major
+  detect: Metrics are all 'users/accounts' with no usage frequency, session, or core-action
+    data; ask what the single most important user action is and what % of signups
+    have done it more than once.
+  sources:
+  - ycombinator.com/library
+- id: unattributed-paid-spike
+  domain: traction
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Growth driven by paid spend or one-off PR, not organic pull
+  why: A traction spike bought with ad spend or a single viral moment evaporates when
+    the budget or news cycle ends, masking the absence of durable organic/word-of-mouth
+    demand.
+  threshold: Organic/referral near 0% of new users, or growth that flatlines the moment
+    spend or PR stops, is the flag — the durable-demand test, not a fixed CAC number.
+  severity: minor
+  detect: Growth chart shows a discrete jump tied to a launch or campaign then a plateau;
+    ask for new users split by channel (organic vs paid vs referral) and what happened
+    to growth after the spend or PR stopped.
+  sources: []

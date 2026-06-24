@@ -1,0 +1,170 @@
+cell: rf:financials:series-a
+type: red_flag
+wedge: general
+items:
+- id: revenue-customer-concentration
+  domain: financials
+  stage:
+  - series-a
+  - series-b
+  wedge: general
+  title: Excessive customer revenue concentration
+  why: A single customer's churn or renegotiation can wipe out a quarter, making revenue
+    fragile and the company hostage to one buyer's roadmap.
+  threshold: single customer >10-15% of ARR, or top 3-5 customers >40-50% (industry-typical
+    thresholds, not absolute)
+  severity: major
+  detect: Ask for revenue by customer / a logo-level ARR breakdown; in the deck watch
+    for a small logo grid with one giant name, vague 'marquee customer' language,
+    or refusal to share concentration data.
+  sources:
+  - https://www.bvp.com/atlas
+  - https://review.firstround.com
+- id: unit-economics-ltv-cac
+  domain: financials
+  stage:
+  - series-a
+  - series-b
+  wedge: general
+  title: Broken LTV:CAC unit economics
+  why: If it costs more to acquire and retain a customer than the customer is worth,
+    growth burns cash with no path to a profitable engine — scaling makes losses worse,
+    not better.
+  threshold: LTV:CAC < 3:1 is a typical warning line; below ~1:1 is a kill (industry-typical,
+    varies by GTM motion)
+  severity: kill
+  detect: Recompute LTV:CAC yourself from raw inputs (gross-margin-adjusted ARPA,
+    churn, fully-loaded S&M); be suspicious if LTV uses revenue not gross profit,
+    assumes near-zero churn, or excludes salaries/commissions from CAC.
+  sources:
+  - https://a16z.com/16-startup-metrics/
+  - https://www.bvp.com/atlas
+- id: cac-payback-period
+  domain: financials
+  stage:
+  - series-a
+  - series-b
+  wedge: general
+  title: CAC payback period too long
+  why: A long payback means each new customer ties up cash for a long time before
+    returning it, forcing ever-larger funding rounds just to fund growth.
+  threshold: CAC payback > 12 months is a flag, > 18-24 months is serious for SMB/mid-market
+    SaaS (industry-typical; longer is tolerated for true enterprise)
+  severity: major
+  detect: Derive payback = CAC / (monthly new ARR x gross margin); on a self-report
+    ask 'how many months of gross margin to repay acquisition cost'; vagueness or
+    revenue-not-gross-margin math is the tell.
+  sources:
+  - https://www.bvp.com/atlas
+  - https://a16z.com/16-startup-metrics/
+- id: low-gross-margin-disguised-saas
+  domain: financials
+  stage:
+  - series-a
+  - series-b
+  wedge: general
+  title: Low or misclassified gross margin
+  why: A 'software' company with services-level margins is structurally a different,
+    lower-multiple business, and hidden COGS (hosting, support, third-party APIs,
+    human-in-the-loop) means the model never throws off the cash the SaaS narrative
+    promises.
+  threshold: blended gross margin < 70-75% for software (industry-typical); be alert
+    when AI/usage costs or implementation labor sit below the gross-margin line
+  severity: major
+  detect: Ask exactly what is inside COGS vs OPEX; in the deck look for 'gross margin'
+    shown without definition, services revenue lumped into ARR, or no mention of inference/hosting
+    cost at all.
+  sources:
+  - https://a16z.com/16-startup-metrics/
+  - https://www.bvp.com/atlas
+- id: net-revenue-retention
+  domain: financials
+  stage:
+  - series-a
+  - series-b
+  wedge: general
+  title: Weak net revenue retention / high churn
+  why: Low NRR means the company is filling a leaky bucket — it must win new logos
+    just to stand still, which caps durable growth and signals the product isn't sticky.
+  threshold: NRR < 100% is a flag, < 90% is serious; logo churn > 2-3%/month for SMB
+    or any meaningful enterprise gross churn (industry-typical)
+  severity: major
+  detect: Ask for a cohort retention chart and the gross vs net retention split; tells
+    include only showing 'logo growth', citing NRR without a cohort table, or topline
+    ARR rising while same-cohort revenue declines.
+  sources:
+  - https://www.bvp.com/atlas
+  - https://www.ycombinator.com/library
+- id: burn-multiple-runway
+  domain: financials
+  stage:
+  - series-a
+  - series-b
+  wedge: general
+  title: High burn multiple / thin runway
+  why: A high burn multiple shows the company buys very little net-new ARR per dollar
+    burned (capital-inefficient), and thin runway forces a raise from a position of
+    weakness.
+  threshold: burn multiple (net burn / net new ARR) > 1.5-2x is inefficient at Series
+    A; runway < 12 months at raise is a flag (industry-typical)
+  severity: major
+  detect: Compute net burn / net new ARR from the financial model; ask current cash,
+    monthly net burn, and months of runway; watch for gross-burn quoted as net, or
+    runway that assumes the new round already closed.
+  sources:
+  - https://www.bvp.com/atlas
+  - https://www.ycombinator.com/library
+- id: founder-dilution-cap-table
+  domain: financials
+  stage:
+  - series-a
+  wedge: general
+  title: Broken cap table / over-diluted founders
+  why: If founders own too little before the A, they lose the long-term motivation
+    to grind through 7-10 years, and a messy cap table (dead equity, too many SAFEs,
+    large advisor grants) scares off the next round.
+  threshold: founders collectively diluted to <50% pre-A (industry-typical concern);
+    also dead-equity from departed co-founders or option pool nearly exhausted
+  severity: major
+  detect: Read the cap table and SAFE/convertible stack; ask post-money ownership
+    after converting all SAFEs and the new round; red flags are large non-active-founder
+    stakes, stacked uncapped SAFEs, or 'we'll clean it up later'.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://nvca.org/model-legal-documents/
+- id: vanity-revenue-quality
+  domain: financials
+  stage:
+  - series-a
+  - series-b
+  wedge: general
+  title: Low-quality / non-recurring revenue dressed as ARR
+  why: Counting pilots, one-time setup fees, LOIs, or non-binding bookings as ARR
+    overstates the durable base, so the real recurring number an investor underwrites
+    is far smaller than the headline.
+  threshold: meaningful share of 'ARR' from pilots/POCs, one-time fees, or non-contracted
+    bookings (no single number; any material padding is the issue)
+  severity: major
+  detect: Reconcile 'ARR' to signed, recurring, paying contracts; ask % of revenue
+    under annual contract vs month-to-month vs pilot; tells are 'committed' or 'pipeline'
+    blended into ARR, ARR > trailing revenue, or LOIs counted as customers.
+  sources:
+  - https://www.bvp.com/atlas
+  - https://a16z.com/16-startup-metrics/
+- id: messy-financials-no-metrics
+  domain: financials
+  stage:
+  - series-a
+  wedge: general
+  title: No clean financials or inability to recite core metrics
+  why: Founders who can't produce GAAP-ish statements or instantly state their burn,
+    CAC, and retention either don't understand their own business or are hiding something
+    — both kill investor trust in DD.
+  threshold: ''
+  severity: major
+  detect: Request a basic P&L, monthly revenue/burn history, and a metrics one-pager;
+    on a call ask burn, runway, NRR, and CAC payback cold — fumbling, contradicting
+    the deck, or 'our accountant has that' is the signal.
+  sources:
+  - https://review.firstround.com
+  - https://www.ycombinator.com/library

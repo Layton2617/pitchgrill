@@ -1,0 +1,141 @@
+cell: cb:market-claims
+type: deck_lint
+wedge: cross-border-cn
+items:
+- id: cbcn-1
+  stage:
+  - market
+  - tam
+  wedge: cross-border-cn
+  issue: Presenting China market size as the headline TAM while raising a USD fund
+    whose LPs expect a US or global outcome. The slide says '$X00B China market' but
+    the fund's thesis, comps, and exit math are all US-denominated.
+  why: US VCs underwrite to US/global addressable revenue and US-listed or US-acquirer
+    exits. A large China TAM that the company cannot actually convert into dollars
+    the fund can return is, to the partner, an un-underwritable number. It also signals
+    the founder hasn't internalized whose money they're taking. Post-2021 (DiDi delisting,
+    VIE scrutiny, HFCAA), partners discount China-exposure exits heavily.
+  fix: Lead with the wedge you can actually capture in your first 24-36 months and
+    price that as your serviceable obtainable market, not China TAM. Build a bottoms-up
+    SOM (target accounts x ACV), then show China as optional upside in an appendix.
+    State the intended exit geography explicitly.
+- id: cbcn-2
+  stage:
+  - market
+  - tam
+  wedge: cross-border-cn
+  issue: Conflating China TAM with global/US TAM by applying China unit economics,
+    pricing, or penetration rates to the US without adjustment, e.g. assuming US SMBs
+    adopt at China WeChat-ecosystem rates or at China price points.
+  why: China and US markets differ on willingness-to-pay (US SaaS ACVs are often several
+    multiples of China equivalents), channel structure, regulatory friction, and competitive
+    density. A TAM built by porting China assumptions onto a US population count produces
+    a number experienced partners immediately distrust, which taints the rest of the
+    model.
+  fix: 'Build the US TAM independently from US comps: real US ACV bands, US logo counts
+    from sources the partner can verify, US-specific churn. If China traction informs
+    the model, show the explicit translation (price delta, adoption-curve delta) rather
+    than hiding it. One credible US number beats two big-looking blended ones.'
+- id: cbcn-3
+  stage:
+  - why-now
+  wedge: cross-border-cn
+  issue: No why-now, or a why-now that only works inside China (e.g. a China policy
+    tailwind, a domestic platform shift) with no articulation of what changed in the
+    US/global environment to make this the right moment there.
+  why: Why-now is where partners test whether a market window is real or the founder
+    is early/late. A China-only catalyst doesn't explain why a US-facing business
+    should be funded today. Cross-border founders often have a genuine why-now (supply-chain
+    reshoring, US enforcement actions creating compliance demand, a US platform API
+    opening) but fail to name it because they're anchored on the China narrative.
+  fix: 'Name a concrete, dated US/global inflection: a regulatory change, a cost-curve
+    crossover, an incumbent''s strategic shift, an enabling-tech threshold crossed
+    in the last 12-18 months. Tie your founding date to it. If the only catalyst is
+    in China, be honest that this is a China play and target funds that want that.'
+- id: cbcn-4
+  stage:
+  - why-now
+  - regulatory
+  wedge: cross-border-cn
+  issue: 'Ignoring the regulatory why-now and why-now-against: not addressing how
+    US-China regulatory shifts (CFIUS, export controls, outbound-investment rules,
+    data-localization, HFCAA delisting risk, potential app bans) affect either the
+    opportunity or the company''s own risk profile.'
+  why: For a CN-linked startup, regulation is both a potential tailwind (compliance
+    demand, decoupling-driven reshoring) and a direct existential risk to the cap
+    table and data architecture. Partners on the investment committee will raise CFIUS/data
+    questions regardless; a deck that pre-empts nothing forces the founder to improvise
+    on the hardest question in the room.
+  fix: 'Add a short slide: where the company is incorporated, where data/IP/servers
+    live, founder/team immigration status, and which decoupling trends are tailwinds
+    vs. risks for you specifically. Showing you''ve structured around this (e.g. US
+    C-corp, US-resident data) converts the partner''s biggest objection into a competence
+    signal.'
+- id: cbcn-5
+  stage:
+  - gtm
+  - distribution
+  wedge: cross-border-cn
+  issue: 'No credible story for US distribution: assuming a great product or China
+    traction will translate into US sales, with no US founding-team presence, no design-partner
+    logos, and no named first channel.'
+  why: The most common silent kill for cross-border decks. Partners know that China
+    product/engineering excellence does not transfer to US enterprise sales, where
+    buying is relationship-, reference-, and category-driven. Absent a US go-to-market
+    owner or early US logos, the partner assumes you'll burn the round learning US
+    distribution from scratch, which is exactly the risk they won't fund.
+  fix: 'Show at least one of: a US-based GTM founder/early hire with relevant network,
+    2-3 US design partners or paying logos (even small), or a concrete channel with
+    named partners and CAC assumptions. If China is your beachhead, frame the US as
+    a deliberate sequenced expansion with a hire plan, not an assumption.'
+- id: cbcn-6
+  stage:
+  - team
+  wedge: cross-border-cn
+  issue: 'Team slide that signals China-centricity without a US-market bridge: all
+    founders/leadership in China time zone, no US-resident operator, no advisor or
+    hire who has sold/built in the US market the deck is targeting.'
+  why: 'US enterprise and consumer buyers, plus follow-on US investors, weigh US presence
+    heavily for support, trust, and category credibility. A wholly China-based team
+    raises operational concerns (time zone, on-the-ground sales, hiring US talent)
+    and reinforces the suspicion that the US plan is aspirational. This is distinct
+    from distribution: it''s about whether the org can execute in-market at all.'
+  fix: 'Add a US anchor before the raise: a co-founder relocating, a senior US GTM
+    hire as the use-of-funds headline, or named US operators/advisors with logos the
+    partner recognizes. Make the team slide show a credible bicoastal/US-and-China
+    structure rather than a China org with US ambitions.'
+- id: cbcn-7
+  stage:
+  - competition
+  - market
+  wedge: cross-border-cn
+  issue: Using 'we already won in China so we'll win in the US' as the competitive
+    moat, ignoring that the US competitive set, incumbents, and switching costs are
+    entirely different and often stronger.
+  why: China dominance can reflect regulatory protection, local-platform lock-in,
+    or absence of the US incumbent rather than a transferable product or distribution
+    edge. Partners read 'we won China therefore US' as a category error about why
+    you won. It also implies the founder may underestimate well-capitalized US incumbents
+    who don't appear on a China-centric competitive map.
+  fix: Map the actual US competitive landscape including the incumbents and US-funded
+    startups you'll face, and articulate a moat that holds in the US (data, integrations,
+    pricing, a structural cost edge from China ops). If your real edge is a manufacturing/cost
+    advantage rooted in China, say that plainly rather than dressing it as market
+    dominance.
+- id: cbcn-8
+  stage:
+  - financials
+  - ask
+  wedge: cross-border-cn
+  issue: Use-of-funds and milestones denominated in China execution (China hiring,
+    China user growth) when the round's thesis is US expansion, so the ask doesn't
+    fund the risk the investor most wants de-risked.
+  why: Partners fund the next proof point. If the headline risk is 'can this team
+    crack the US' but the budget goes to China headcount, the round doesn't retire
+    the key risk before the next raise, making the Series A story weak. Cross-border
+    founders default to spending where execution is cheaper (China), which is rational
+    operationally but misaligned with what this specific investor is buying.
+  fix: 'Allocate the round''s use-of-funds to explicitly retire the US-execution risk:
+    US GTM hires, US design-partner conversion, US compliance/entity setup. State
+    the specific US milestone the round buys (e.g. N US paying logos, $X US ARR) so
+    the next-round narrative is clearly de-risked.'

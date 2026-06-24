@@ -1,0 +1,181 @@
+cell: gr:cac-business-model:seed
+type: grilling
+wedge: general
+items:
+- id: cac-payback-period-unknown
+  theme: cac-business-model
+  stage:
+  - seed
+  wedge: general
+  question: What's your fully-loaded CAC, and how many months does it take to pay
+    back?
+  strong_answer: 'A specific fully-loaded number that includes all sales and marketing
+    salaries, ad spend, tooling, and onboarding cost divided by customers acquired
+    in the same period. Founder states gross-margin-adjusted payback in months (industry-typical:
+    under 12 months for SMB SaaS, under 18-24 for enterprise is acceptable). They
+    distinguish blended CAC from paid CAC, acknowledge the early sample is small,
+    and show the trend across the last 2-3 cohorts rather than a single flattering
+    month. If pre-revenue, they say so plainly and frame CAC as a hypothesis with
+    the specific experiment that will test it and the budget allocated.'
+  weak_answer: Quoting only ad spend divided by signups while omitting sales salaries,
+    or citing a blended number dominated by founder-led free channels (network, launch
+    spike) and presenting it as repeatable. 'Our CAC is basically zero, it's all organic/word-of-mouth'
+    with no plan for what happens when organic taps out. Confusing CAC with cost per
+    lead or cost per signup.
+  sources:
+  - https://www.bvp.com/atlas
+  - https://www.ycombinator.com/library
+  - https://a16z.com
+- id: ltv-cac-ratio-credibility
+  theme: cac-business-model
+  stage:
+  - seed
+  wedge: general
+  question: Walk me through your LTV calculation — what retention and margin assumptions
+    is it built on?
+  strong_answer: LTV computed from gross margin (not revenue), an observed or conservatively-estimated
+    retention/churn curve, and a discount for the long tail rather than an infinite
+    geometric sum. Founder caps the lifetime assumption (e.g. uses a fixed horizon)
+    because at seed there isn't enough history to claim a true lifetime. They report
+    the LTV/CAC ratio (industry-typical healthy target around 3x or higher) but lead
+    with the caveat that the L in LTV is the weakest input this early, and they point
+    to whatever real retention data exists, however thin.
+  weak_answer: A large LTV/CAC ratio (10x+) derived from assuming near-zero churn
+    forever and using revenue instead of gross margin. Calculating lifetime as 1/churn
+    off two months of data. Treating LTV/CAC as the headline metric while having no
+    actual retention cohort to back the lifetime assumption.
+  sources:
+  - https://a16z.com
+  - https://www.bvp.com/atlas
+  - https://www.sequoiacap.com
+- id: channel-saturation-scaling
+  theme: cac-business-model
+  stage:
+  - seed
+  wedge: general
+  question: Which acquisition channel are you betting on, and what happens to CAC
+    when you 10x the spend on it?
+  strong_answer: Names a primary channel with early proof it converts, and is honest
+    that CAC rises with scale as the cheapest audience saturates and bidding competition
+    increases. Shows they've thought about channel concentration risk and have a hypothesis
+    for a second channel. References the reality that founder-led and organic channels
+    don't scale linearly, and explains the unit economics at the spend level needed
+    to hit the next milestone, not just today's small spend.
+  weak_answer: Assuming current CAC holds constant as spend scales 10-100x. Having
+    a single channel (often founder's personal network or a one-time PR/launch spike)
+    with no replacement plan. 'We'll just put more money into the channel that's working'
+    without acknowledging diminishing returns or rising costs.
+  sources:
+  - https://firstround.com
+  - https://a16z.com
+  - https://www.ycombinator.com/library
+- id: gross-margin-reality
+  theme: cac-business-model
+  stage:
+  - seed
+  wedge: general
+  question: What's your true gross margin once you load in cost of delivery — infra,
+    support, and any human-in-the-loop?
+  strong_answer: A gross margin figure that includes hosting/inference/COGS, payment
+    processing, customer support, and any services or human labor needed to deliver
+    the product. For software, founder targets industry-typical software-like margins
+    (often 70%+) and explains the path there if currently lower because of manual
+    onboarding or unoptimized infra. For AI products, they're candid about inference/token
+    cost per active user and how it trends with usage. They separate one-time onboarding
+    cost from recurring delivery cost.
+  weak_answer: Claiming 90%+ 'software margins' while quietly running a services-heavy
+    or human-in-the-loop operation, or ignoring inference/compute cost for an AI product.
+    Reporting margin on revenue without subtracting support and infra. Not knowing
+    the per-unit cost of serving an active customer.
+  sources:
+  - https://www.bvp.com/atlas
+  - https://a16z.com
+  - https://www.ycombinator.com/library
+- id: pricing-willingness-to-pay
+  theme: cac-business-model
+  stage:
+  - seed
+  wedge: general
+  question: How did you set your price, and how do you know customers will actually
+    pay it at that level?
+  strong_answer: 'Pricing anchored to the value or budget it displaces, with evidence
+    of real willingness to pay: signed contracts, paid pilots that converted, or at
+    minimum paid LOIs rather than verbal interest. Founder can articulate the buyer''s
+    budget line, who signs the check, and whether pricing is per-seat, usage, or platform
+    — and why. They''ve tested at least one price change or have a plan to, and they
+    distinguish ''people said they''d pay'' from ''people paid.'''
+  weak_answer: Price set by copying a competitor or by gut feel, justified only by
+    'comparable to X.' Citing free users or design-partner discounts as proof of willingness
+    to pay. 'Customers love it' with no closed paid deals. Discounting heavily to
+    win logos and counting that as validated pricing.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://firstround.com
+  - https://www.sequoiacap.com
+- id: net-revenue-retention-expansion
+  theme: cac-business-model
+  stage:
+  - seed
+  wedge: general
+  question: Of the customers you have, how many are still using it and paying more
+    over time — what's your retention and expansion?
+  strong_answer: Reports logo and dollar retention from real cohorts, however small,
+    and is precise about whether revenue expands or contracts within accounts. Acknowledges
+    the model depends on retention/expansion (industry-typical strong NRR for SaaS
+    sits above 100%, meaning existing customers grow) and shows engagement/usage trends
+    as a leading indicator since the cohorts are too young for hard NRR. Distinguishes
+    paying retention from free-tier activity, and is honest about any early churn
+    and why.
+  weak_answer: Reporting only top-of-funnel growth (signups, downloads, MAU) while
+    dodging whether early customers stuck around or paid again. 'Too early to measure
+    retention' used as a shield while also claiming strong PMF. Hiding churn behind
+    gross new-logo numbers. Counting free or trial users as retained.
+  sources:
+  - https://www.bvp.com/atlas
+  - https://a16z.com
+  - https://www.sequoiacap.com
+- id: sales-motion-repeatability
+  theme: cac-business-model
+  stage:
+  - seed
+  wedge: general
+  question: Are these deals closing because of you personally, or because the motion
+    is repeatable by someone who isn't a founder?
+  strong_answer: 'Honest that early deals are founder-led — that''s normal at seed
+    — but can point to the beginnings of a repeatable playbook: defined ICP, documented
+    sales steps, sales cycle length, win rate, and at least an early signal that a
+    non-founder (first AE/CSM) can close. Articulates what needs to be true for the
+    motion to be handed off and what the funding will test on that front. Knows the
+    deal size relative to the sales effort (whether the motion can ever support its
+    own CAC).'
+  weak_answer: Every deal closed by the founder's relationship or reputation, presented
+    as a scalable go-to-market with no plan to systematize it. No defined ICP — 'anyone
+    can use this.' Confusing founder charisma and warm intros with a sales motion.
+    No sense of sales cycle length or win rate.
+  sources:
+  - https://firstround.com
+  - https://www.ycombinator.com/library
+  - https://www.sequoiacap.com
+- id: path-to-business-model-at-scale
+  theme: cac-business-model
+  stage:
+  - seed
+  wedge: general
+  question: Where do these unit economics need to be for this to become a venture-scale
+    business, and what gets you there?
+  strong_answer: 'Connects today''s early, possibly-upside-down unit economics to
+    a credible end state: shows which lever (CAC down, ACV up, margin up, retention
+    up) drives the model and by how much, with reasoning grounded in the specific
+    business rather than generic SaaS benchmarks. Acknowledges where economics are
+    currently negative and why that''s acceptable at this stage, and ties the round''s
+    milestones directly to proving the next unit-economics claim. Frames the market
+    size large enough that the model, once efficient, is venture-scale.'
+  weak_answer: A hockey-stick spreadsheet where margins and CAC magically improve
+    with scale and no mechanism explains why. Treating current losses as self-correcting
+    without naming the lever. No connection between the money raised and which economic
+    assumption it de-risks. Either claiming economics already work (when the sample
+    is tiny) or hand-waving that 'scale fixes it.'
+  sources:
+  - https://www.sequoiacap.com
+  - https://a16z.com
+  - https://www.bvp.com/atlas

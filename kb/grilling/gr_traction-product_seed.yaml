@@ -1,0 +1,193 @@
+cell: gr:traction-product:seed
+type: grilling
+wedge: general
+items:
+- id: organic-vs-paid-growth-mix
+  theme: traction-product
+  stage:
+  - seed
+  wedge: general
+  question: How much of your growth is organic versus paid, and what happens to growth
+    the day you turn off the ad spend?
+  strong_answer: 'Founder separates the two cleanly: states the % of new users/revenue
+    from organic/word-of-mouth vs paid, knows blended and paid-only CAC, and can describe
+    what the demand curve looks like with paid off (e.g., a baseline of organic signups
+    that keeps compounding). Bonus: a viral/referral coefficient or a concrete word-of-mouth
+    mechanism (k-factor, % referred), and evidence that paid is amplifying real pull,
+    not manufacturing it. Shows payback period (industry-typical target: under ~12
+    months for SaaS) and that unit economics hold without subsidy.'
+  weak_answer: Cannot disaggregate paid from organic, quotes only a blended growth
+    number, or admits growth would 'slow a lot' but has never measured the organic
+    baseline. Treats ad spend as the product. Says 'we just need more capital to scale
+    acquisition' without a CAC or payback figure.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+  - https://a16z.com
+- id: retention-cohort-curve-flatten
+  theme: traction-product
+  stage:
+  - seed
+  wedge: general
+  question: Show me your retention cohort curve — does it flatten, and at what level?
+  strong_answer: 'Founder shows month-over-month (or week-over-week for consumer)
+    cohort retention where the curve flattens to a stable plateau rather than decaying
+    to zero — a ''smile'' or asymptote is the signal that a core of users found durable
+    value. Knows the plateau level by cohort and that later cohorts retain at least
+    as well as earlier ones. For consumer, references a credible benchmark (industry-typical:
+    D30 plateau that is non-trivial); for B2B SaaS, net revenue retention trending
+    toward or above ~100%. Can name the behavior that correlates with retained users.'
+  weak_answer: Presents cumulative signups or total users (a chart that only goes
+    up) instead of cohorts, or shows a curve that keeps declining with no flattening.
+    Conflates 'logins' with engagement. Says retention is 'good' without a curve,
+    or blames churn on factors outside the product.
+  sources:
+  - https://www.sequoiacap.com
+  - https://review.firstround.com
+  - https://a16z.com
+- id: who-are-your-power-users
+  theme: traction-product
+  stage:
+  - seed
+  wedge: general
+  question: Who are your power users, what do they have in common, and how many would
+    be 'very disappointed' if your product disappeared tomorrow?
+  strong_answer: 'Founder has run the Sean Ellis PMF survey or equivalent and reports
+    the % who''d be ''very disappointed'' (industry-typical PMF signal: ~40%+), then
+    segments it — identifying the specific persona/use case that drives that number.
+    Describes power-user behavior concretely (frequency, depth, which feature), has
+    talked to them, and is narrowing GTM to that segment rather than chasing everyone.
+    Can name the ''killer'' use case.'
+  weak_answer: Describes the target user as a broad demographic ('SMBs', 'millennials',
+    'developers') with no behavioral specificity. Has never measured disappointment/PMF,
+    can't name a single power user by name or segment, and treats all users as equivalent.
+    'Everyone can use it' as the answer.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+  - https://pmarchive.com
+- id: what-would-have-to-be-true
+  theme: traction-product
+  stage:
+  - seed
+  wedge: general
+  question: What's the single biggest reason you think this could fail, and what experiment
+    in the next 6 months would tell you?
+  strong_answer: Founder names a real, central risk (e.g., 'users churn after the
+    novelty', 'the wedge doesn't expand into the broader workflow', 'CAC won't come
+    down at scale') rather than a cosmetic one, and maps it to a falsifiable milestone
+    the seed round buys. Shows they think in terms of de-risking the next valuation
+    step, not just 'more growth'. Demonstrates intellectual honesty without losing
+    conviction.
+  weak_answer: Says 'execution' or 'we just need to move fast' — a non-answer that
+    names no specific risk. Or gives a trivial risk while dodging the obvious central
+    one the investor is already worried about. Treats the question as a trap and gets
+    defensive instead of engaging.
+  sources:
+  - https://a16z.com
+  - https://review.firstround.com
+  - https://www.sequoiacap.com
+- id: engagement-frequency-vs-need
+  theme: traction-product
+  stage:
+  - seed
+  wedge: general
+  question: How often does a user genuinely need this — is it a daily habit, an occasional
+    tool, or a one-time fix — and does your usage data match that?
+  strong_answer: 'Founder matches claimed frequency to actual DAU/MAU or usage cadence
+    (industry-typical strong consumer DAU/MAU: ~20%+; for B2B, frequency that fits
+    the real workflow). Is honest about whether it''s a vitamin or a painkiller, and
+    if low-frequency, shows how they still create durable value (high value-per-use,
+    switching costs, system-of-record). Doesn''t pretend an occasional tool is a daily
+    habit.'
+  weak_answer: Claims a daily/habitual product but DAU/MAU is in low single digits,
+    or has no engagement frequency data at all. Inflates engagement with vanity actions
+    (notifications opened, page loads). Cannot articulate the real job-to-be-done
+    or how often it recurs.
+  sources:
+  - https://a16z.com
+  - https://www.sequoiacap.com
+  - https://review.firstround.com
+- id: early-customers-source-and-arms-length
+  theme: traction-product
+  stage:
+  - seed
+  wedge: general
+  question: Where did your first customers come from — and how many are arm's-length
+    strangers versus your network, free pilots, or favors?
+  strong_answer: Founder is transparent about provenance and shows a growing share
+    of cold/arm's-length customers who pay full price and found the product through
+    a repeatable channel. Distinguishes design partners and friendly early adopters
+    (fine to have) from a true repeatable motion, and shows the trend moving toward
+    the latter. Can describe the one channel that's starting to work and why.
+  weak_answer: Most 'traction' is friends, ex-colleagues, free trials, or LOIs/'verbal
+    interest' counted as customers. Can't say how a stranger would find them. Conflates
+    pipeline or waitlist with paying customers, or counts unconverted free users as
+    proof of demand.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+  - https://www.bvp.com
+- id: why-now-and-why-not-incumbent
+  theme: traction-product
+  stage:
+  - seed
+  wedge: general
+  question: If this is such a good idea, why hasn't an incumbent already done it —
+    and what stops them from copying you in a quarter?
+  strong_answer: Founder articulates a credible 'why now' (a recent shift in tech,
+    regulation, behavior, or cost curve that just made this possible) and a real reason
+    incumbents won't or can't move (channel conflict, business-model cannibalization,
+    organizational incentives), plus an accumulating moat (data, network effects,
+    workflow lock-in, brand with a niche). Frames copyability as a race they're positioned
+    to win, not a thing that can't happen.
+  weak_answer: Says 'no one else is doing this' (usually false or a red flag) or 'we'll
+    move faster' as the only moat. Has no 'why now'. Assumes incumbents are dumb or
+    slow as the entire defensibility thesis. Cannot explain why the feature isn't
+    just a roadmap item for a larger player.
+  sources:
+  - https://a16z.com
+  - https://www.sequoiacap.com
+  - https://review.firstround.com
+- id: north-star-metric-and-trajectory
+  theme: traction-product
+  stage:
+  - seed
+  wedge: general
+  question: What's the one number you check every morning, and what has it done week-over-week
+    for the last three months?
+  strong_answer: 'Founder names a single metric that genuinely reflects delivered
+    value (e.g., weekly active teams, paid net revenue, transactions completed) —
+    not a vanity count — and recites its recent trajectory from memory, including
+    bad weeks. Shows consistent meaningful WoW growth (industry-typical early-stage
+    benchmark cited by YC: ~5-7% weekly) or a clear-eyed explanation of plateaus.
+    The metric ties directly to the business model.'
+  weak_answer: Picks a vanity metric (signups, downloads, social followers, total
+    registered users) or fumbles the actual numbers. Can only give cumulative/total
+    figures, not the rate of change. Different decks/conversations cite different
+    'key metrics', suggesting none is real.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+  - https://a16z.com
+- id: manual-vs-product-traction
+  theme: traction-product
+  stage:
+  - seed
+  wedge: general
+  question: How much of the value users get today is your product doing the work versus
+    you and your team doing it by hand behind the scenes?
+  strong_answer: Founder is candid about what's currently manual/concierge, and shows
+    a deliberate plan (and early evidence) for which parts are automating and which
+    remain a moat-building human layer. Frames manual work as intentional learning,
+    not hidden fragility, and can quantify how much human effort scales per new customer
+    and whether it's trending down.
+  weak_answer: Hides the manual work and implies a polished automated product, then
+    the unit economics fall apart under scrutiny because each customer requires heavy
+    founder labor. Or has automated nothing and has no theory of which parts ever
+    can. 'It's basically a feature plus a lot of us doing things manually' without
+    a path off it.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+  - https://a16z.com

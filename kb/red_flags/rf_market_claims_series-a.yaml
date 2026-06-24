@@ -1,0 +1,131 @@
+cell: rf:market_claims:series-a
+type: red_flag
+wedge: general
+items:
+- id: tam-bottom-up-vs-topdown-gap
+  domain: market_claims
+  stage:
+  - series-a
+  wedge: general
+  title: TAM built top-down from analyst reports, not bottom-up
+  why: A '$X billion market, we just need 1%' framing signals the founder hasn't computed
+    reachable demand from real unit economics, which is the only TAM an investor trusts.
+  threshold: bottom-up TAM (reachable accounts x realistic ACV) is typically a small
+    fraction of the cited top-down headline; expect it to collapse by roughly an order
+    of magnitude when reconstructed
+  severity: major
+  detect: Deck cites a Gartner/IDC/Statista headline number and a '1% of the market'
+    slide; ask the founder to reconstruct TAM as (reachable accounts x realistic ACV)
+    and watch it collapse.
+  sources: []
+- id: growth-without-retention
+  domain: market_claims
+  stage:
+  - series-a
+  wedge: general
+  title: Top-line growth masking flat or negative net retention
+  why: Rapid new-logo growth on a leaky bucket means the market is rejecting the product
+    after trying it, which kills the compounding thesis a Series A is priced on.
+  threshold: NRR <100% is a red flag; ~120%+ is best-in-class for enterprise SaaS
+    (lower expectations at SMB scale). SMB logo churn >2-3%/month is a warning zone.
+  severity: kill
+  detect: Deck shows ARR/MRR growth but no cohort retention curves or NRR; founder
+    gives gross adds without churn, or quotes 'low churn' without a cohort chart that
+    flattens.
+  sources: []
+- id: broken-cac-payback
+  domain: market_claims
+  stage:
+  - series-a
+  wedge: general
+  title: LTV:CAC or CAC payback that doesn't support paid scaling
+  why: If acquisition costs more than the customer returns within a reasonable window,
+    pouring Series A money into growth destroys value rather than proving a scalable
+    GTM motion.
+  threshold: LTV:CAC <3:1 and/or CAC payback >12-18 months are warning zones at Series
+    A (3:1 with <12mo payback is the common Series A bar).
+  severity: major
+  detect: Look for LTV computed with implausible lifetimes or gross-of-churn assumptions,
+    CAC excluding fully-loaded sales/marketing salaries; ask for blended vs paid CAC
+    and the discount/churn inputs behind LTV.
+  sources: []
+- id: customer-concentration
+  domain: market_claims
+  stage:
+  - series-a
+  - series-b
+  wedge: general
+  title: Revenue concentrated in one or few customers
+  why: If a single account can swing the P&L, the 'market demand' is really one relationship
+    and the loss of that logo would reprice the company overnight.
+  threshold: single customer >10% of revenue is the institutional concern line (GAAP
+    disclosure threshold); >15-20% or top-3 >30% draws hard diligence and multiple
+    discounts.
+  severity: major
+  detect: Deck shows a few marquee logos and big ARR but no customer count distribution;
+    ask for revenue-by-customer and check whether the largest 1-3 dominate, and whether
+    they are on annual vs month-to-month contracts.
+  sources: []
+- id: pilots-counted-as-demand
+  domain: market_claims
+  stage:
+  - series-a
+  wedge: general
+  title: Pilots, LOIs, and free users presented as validated demand
+  why: Non-paying pilots and letters of intent prove curiosity, not willingness to
+    pay, and Series A demand validation requires money changing hands at the claimed
+    price.
+  threshold: ARR materially inflated by non-recurring or non-paid usage is a red flag;
+    demand pseudo-everything if pilot-to-paid conversion is unknown or low.
+  severity: major
+  detect: Pipeline/'traction' slide blends signed paid customers with pilots, LOIs,
+    waitlist, and free tier; ask founder to separate paid recurring revenue from everything
+    else and report pilot-to-paid conversion.
+  sources: []
+- id: no-credible-competition
+  domain: market_claims
+  stage:
+  - series-a
+  wedge: general
+  title: '''No competitors'' or a self-serving competitive matrix'
+  why: Claiming no competition usually means either no market exists or the founder
+    doesn't understand the buyer's real alternatives (including status quo and spreadsheets),
+    undermining the entire demand claim.
+  threshold: ''
+  severity: minor
+  detect: Competition slide is empty, or a 2x2 where the startup conveniently occupies
+    the only good quadrant with all checkmarks; ask what the customer used before
+    buying and why they'd switch back.
+  sources: []
+- id: vanity-metrics-no-revenue-tie
+  domain: market_claims
+  stage:
+  - series-a
+  wedge: general
+  title: Vanity metrics (downloads, signups, GMV) substituted for revenue
+  why: Highlighting registered users or GMV while burying monetization signals the
+    market likes the product free but won't pay, which is the demand question a Series
+    A must answer.
+  threshold: self-serve free-to-paid conversion in the low single-digit percent is
+    normal, so headline signup counts say little about revenue; GMV cited without
+    take-rate / net revenue is a red flag.
+  severity: major
+  detect: Headline numbers are cumulative signups, app downloads, or GMV/'transactions
+    processed' with no MRR/ARR alongside; ask for paying customers, ARR, and the conversion
+    rate from the vanity metric to revenue.
+  sources: []
+- id: tam-shrinking-or-fad
+  domain: market_claims
+  stage:
+  - series-a
+  wedge: general
+  title: Market timing thesis rests on a fad or a declining/regulated category
+  why: If the cited growth is a one-time spike (pandemic, hype cycle) or the category
+    is structurally shrinking or facing regulatory headwinds, the demand a Series
+    A pays for evaporates over the hold period.
+  threshold: ''
+  severity: major
+  detect: '''Why now'' slide leans on a transient event or hype keyword with no durable
+    secular driver; check whether quoted growth rates predate or postdate the spike,
+    and probe regulatory/platform-risk exposure.'
+  sources: []

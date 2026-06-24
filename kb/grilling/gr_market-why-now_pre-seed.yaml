@@ -1,0 +1,176 @@
+cell: gr:market-why-now:pre-seed
+type: grilling
+wedge: general
+items:
+- id: why-now-inflection
+  theme: market-why-now
+  stage:
+  - pre-seed
+  wedge: general
+  question: Why is this possible now and not three years ago? Name the specific thing
+    that changed.
+  strong_answer: 'Points to a concrete, datable inflection: a new technology hitting
+    a cost/quality threshold (e.g., model cost dropping ~10x year over year as an
+    industry-typical pace), a regulatory change with an effective date, a behavior
+    shift backed by an adoption number, or an incumbent stack becoming unbundled.
+    The founder can say what was literally impossible or uneconomic before and is
+    now table stakes, and ties the company''s existence to that switch flipping.'
+  weak_answer: '''AI got better'' or ''the market is huge and growing'' or ''COVID
+    changed everything'' with no specific enabler, date, or threshold. Generic macro
+    tailwinds that would equally justify ten other companies, or a ''why now'' that
+    was equally true five years ago.'
+  sources:
+  - https://articles.sequoiacap.com/how-to-choose-your-startup-idea
+  - https://a16z.com/podcast/marc-andreessen-on-startup-timing/
+  - https://sequoiacap.com/article/writing-a-business-plan/
+- id: why-not-built-before
+  theme: market-why-now
+  stage:
+  - pre-seed
+  wedge: general
+  question: If this is such an obvious opportunity, why hasn't someone already built
+    it?
+  strong_answer: 'Explains the real barrier that kept others out and why it just dissolved
+    or why the founder is uniquely positioned to clear it now: a hard technical problem
+    newly solvable, a distribution channel that just opened, a dataset only recently
+    accessible, or incumbents structurally unable to act (channel conflict, margin
+    cannibalization). Distinguishes ''nobody could'' from ''nobody bothered'' honestly.'
+  weak_answer: '''Nobody has thought of it'' or ''incumbents are dumb/slow.'' Assumes
+    a vacuum exists by luck rather than identifying the specific obstacle. Cannot
+    name any prior attempt and treats the absence of competitors as pure validation
+    rather than a warning that the market may not exist.'
+  sources:
+  - https://sequoiacap.com/article/writing-a-business-plan/
+  - https://articles.sequoiacap.com/how-to-choose-your-startup-idea
+- id: why-now-graveyard
+  theme: market-why-now
+  stage:
+  - pre-seed
+  wedge: general
+  question: Companies tried this exact thing in the last cycle and died. What's different
+    for you besides timing?
+  strong_answer: Names the specific predecessors (e.g., the dead startups in the space),
+    diagnoses why each failed — premature on a cost curve, missing distribution, wrong
+    wedge, no real demand — and shows which of those failure causes has now structurally
+    changed versus which the founder is actively solving. Treats the graveyard as
+    evidence to be explained, not ignored.
+  weak_answer: Has never heard of the prior attempts, or waves them off with 'we'll
+    just execute better.' Cannot articulate the failure mode of the obvious comparables,
+    which signals the founder hasn't studied the market they claim is timed perfectly.
+  sources:
+  - https://articles.sequoiacap.com/how-to-choose-your-startup-idea
+  - https://a16z.com/podcast/marc-andreessen-on-startup-timing/
+- id: why-now-window-duration
+  theme: market-why-now
+  stage:
+  - pre-seed
+  wedge: general
+  question: How long does this window stay open before incumbents or a funded competitor
+    closes it?
+  strong_answer: 'Has a clear thesis on the window''s duration and what they get done
+    inside it: a defensible asset accrued during the window (proprietary data, switching
+    costs, a workflow lock-in, network effects). Acknowledges the window is finite
+    and ties the fundraise/milestone plan to capturing position before it closes.'
+  weak_answer: Either 'we have no competition' (window assumed infinite) or 'first-mover
+    advantage' as the entire moat. No view on how fast a well-funded incumbent could
+    replicate once the trend is obvious, and no asset that compounds during the window.
+  sources:
+  - https://a16z.com/podcast/marc-andreessen-on-startup-timing/
+  - https://articles.sequoiacap.com/how-to-choose-your-startup-idea
+- id: why-now-market-size-bottom-up
+  theme: market-why-now
+  stage:
+  - pre-seed
+  wedge: general
+  question: Walk me through your market size bottom-up. How many real buyers, paying
+    what, and is that growing or just being captured?
+  strong_answer: 'Builds the number from ICP up: count of reachable customers x realistic
+    ACV x a defensible attach/penetration assumption, and separates a today-small-but-fast-growing
+    market from a static one being redistributed. Shows the market is expanding because
+    of the why-now driver (more buyers entering, budgets shifting, new use unlocked),
+    not just a fixed pie being re-sliced.'
+  weak_answer: '''It''s a $50B TAM'' lifted from an analyst report (top-down only).
+    No buyer count, no per-customer economics, no distinction between a growing market
+    and a saturated one. The wedge market is either trivially small with no expansion
+    path or so broad it''s unbelievable.'
+  sources:
+  - https://review.firstround.com/the-most-common-go-to-market-questions-from-founders/
+  - https://review.firstround.com/12-frameworks-for-finding-startup-ideas-advice-for-future-founders/
+  - https://sequoiacap.com/article/writing-a-business-plan/
+- id: why-now-trend-vs-fad
+  theme: market-why-now
+  stage:
+  - pre-seed
+  wedge: general
+  question: How do you know this is a durable shift and not a hype cycle that deflates
+    in 18 months?
+  strong_answer: 'Distinguishes the lasting substrate from the froth: points to an
+    underlying cost curve, capability curve, or behavior that improves regardless
+    of sentiment, and shows real usage/retention signals rather than launch buzz.
+    Articulates what the world looks like after the hype clears and why the company
+    still matters then.'
+  weak_answer: Cites press coverage, conference buzz, or funding flowing into the
+    category as proof of durability. Conflates hype with demand. No second-order reasoning
+    about what survives when the narrative cools, and no retention or repeat-usage
+    evidence.
+  sources:
+  - https://sequoiacap.com/article/2026-this-is-agi/
+  - https://review.firstround.com/non-obvious-signs-of-early-startup-traction-and-how-to-spot-them/
+- id: why-now-customer-urgency
+  theme: market-why-now
+  stage:
+  - pre-seed
+  wedge: general
+  question: Why do customers need this now? What forces them to act this year instead
+    of living with the status quo?
+  strong_answer: 'Identifies a compelling trigger that makes inaction costly today:
+    a deadline, a competitive threat to the buyer, a budget line that just opened,
+    pain that crossed a tolerance threshold. Has evidence customers are already hacking
+    together a workaround or paying for a worse alternative, proving the demand exists
+    and is urgent, not latent.'
+  weak_answer: '''Everyone has this problem'' with no urgency — a vitamin, not a painkiller.
+    The honest answer is customers can keep doing what they do indefinitely. In an
+    early market the buyer isn''t even aware of the problem, and the founder mistakes
+    that for greenfield rather than no demand.'
+  sources:
+  - https://a16z.com/when-sales-isnt-just-selling-advice-for-founders-in-early-markets/
+  - https://a16z.com/need-more-time-or-lack-of-product-market-fit-guideposts-for-tech-founders-going-to-market-when-no-market-exists/
+  - https://review.firstround.com/non-obvious-signs-of-early-startup-traction-and-how-to-spot-them/
+- id: why-now-founder-edge
+  theme: market-why-now
+  stage:
+  - pre-seed
+  wedge: general
+  question: Why are YOU the right team to catch this wave right now versus the hundred
+    others who see the same trend?
+  strong_answer: 'Connects a specific, hard-won founder insight or unfair advantage
+    to this exact moment: deep domain experience that revealed the problem early,
+    access to a customer/data/distribution others lack, or technical capability that
+    maps directly to the new enabler. The why-now and the why-us are the same story.'
+  weak_answer: Generic credentials (ex-FAANG, top school) with no link to this market,
+    or pure passion. Saw the trend in the news like everyone else. The team's edge
+    would apply equally to any trendy idea, signaling no proprietary insight into
+    why this is the moment for them.
+  sources:
+  - https://sequoiacap.com/podcast/ben-horowitz-on-what-makes-a-great-founder/
+  - https://articles.sequoiacap.com/how-to-choose-your-startup-idea
+  - https://a16z.com/podcast/marc-andreessen-on-startup-timing/
+- id: why-now-too-early
+  theme: market-why-now
+  stage:
+  - pre-seed
+  wedge: general
+  question: What if you're too early? What has to be true in the market for this to
+    work, and is it true yet?
+  strong_answer: Names the dependencies that must exist (infrastructure maturity,
+    buyer readiness, a complementary technology, price points) and shows which are
+    already in place versus which they're betting will arrive. Has a survival plan
+    for the gap — low burn, a near-term wedge that pays today even if the big market
+    arrives later. Distinguishes being early-and-positioned from being early-and-bleeding-out.
+  weak_answer: Hasn't considered being early; assumes the market is ready because
+    they are. Or admits the full vision needs three external things to happen but
+    has no bridge revenue and a burn rate that won't survive the wait. 'Educating
+    the market' is the entire go-to-market plan.
+  sources:
+  - https://a16z.com/podcast/marc-andreessen-on-startup-timing/
+  - https://a16z.com/need-more-time-or-lack-of-product-market-fit-guideposts-for-tech-founders-going-to-market-when-no-market-exists/

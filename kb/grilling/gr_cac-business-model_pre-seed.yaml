@@ -1,0 +1,195 @@
+cell: gr:cac-business-model:pre-seed
+type: grilling
+wedge: general
+items:
+- id: cac-payback-unknown-at-preseed
+  theme: cac-business-model
+  stage:
+  - pre-seed
+  wedge: general
+  question: You have basically no paid acquisition data yet. So what makes you confident,
+    today, that this can ever be acquired profitably?
+  strong_answer: 'Founder reframes honestly: at pre-seed CAC is a hypothesis, not
+    a number. They show the unit math that HAS to be true for the model to work (e.g.
+    ''at $X ACV and Y% gross margin, payback under ~12 months industry-typical means
+    CAC must stay below $Z''), then name the 2-3 acquisition channels they''re testing
+    and the earliest cheap proxy signals they already have — organic pull, waitlist
+    conversion, a handful of unpaid closes, referral rate. They state what number
+    would falsify the thesis and the experiment to find it. Confidence is grounded
+    in a falsifiable model plus early non-paid demand signal, not in a deck.'
+  weak_answer: Quotes a precise blended CAC and LTV/CAC ratio (often 'we're targeting
+    3:1') derived entirely from a spreadsheet with no real spend behind it, or says
+    'we'll figure out CAC after we scale.' Treats CAC as a problem for later rather
+    than a core risk to de-risk now.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://a16z.com
+  - https://www.bvp.com
+- id: ltv-cac-ratio-derivation
+  theme: cac-business-model
+  stage:
+  - pre-seed
+  wedge: general
+  question: Where does your LTV number actually come from, and how much of it is retention
+    you haven't observed yet?
+  strong_answer: Founder distinguishes contribution-margin LTV (gross-margin-adjusted,
+    not revenue) from a revenue fantasy, and is transparent that at pre-seed real
+    LTV is unmeasurable because cohorts haven't aged. They give a conservative LTV
+    using a defensible retention/churn assumption, cite the comparable that informs
+    it, and show how sensitive the whole model is to churn (e.g. 'if monthly churn
+    is 5% vs 3% the LTV roughly halves'). They commit to the leading indicators they'll
+    watch — D30/M3 retention, logo and net-revenue retention once they have cohorts.
+  weak_answer: Computes LTV as ARPU divided by an optimistic churn assumption, often
+    assuming customers stay 3-5 years with zero data, no gross-margin haircut, and
+    a discount rate of zero. Presents a single LTV/CAC ratio as fact with no sensitivity
+    and no acknowledgment that retention is unproven.
+  sources:
+  - https://a16z.com
+  - https://www.bvp.com
+  - https://firstround.com
+- id: first-channel-and-saturation
+  theme: cac-business-model
+  stage:
+  - pre-seed
+  wedge: general
+  question: What's the first channel you'll prove, and what happens to CAC when that
+    channel saturates?
+  strong_answer: Names ONE wedge channel they have an unfair reason to win (founder
+    network, existing community, content/SEO surface, a specific integration/partner)
+    rather than listing every channel. Explains the mechanism and rough addressable
+    volume of that channel, acknowledges that early CAC is artificially low because
+    it's tapping warm/free supply, and has a hypothesis for the second channel and
+    how CAC degrades as they move from warm to cold demand. Shows they understand
+    channel economics, not just 'do marketing.'
+  weak_answer: Lists 'SEO, content, paid social, partnerships, outbound, and virality'
+    as the plan — i.e. no channel, because everything is the channel. Or assumes the
+    cheap early-adopter channel scales linearly forever with no saturation or rising
+    CAC.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://firstround.com
+  - https://a16z.com
+- id: willingness-to-pay-evidence
+  theme: cac-business-model
+  stage:
+  - pre-seed
+  wedge: general
+  question: Who has actually paid you money, and how did you arrive at the price —
+    not the price you hope to charge?
+  strong_answer: Cites real paying customers (or signed LOIs / deposits / prepays)
+    and explains pricing derived from observed willingness to pay or value delivered
+    (e.g. ties price to a quantifiable cost the product removes or revenue it creates
+    for the buyer). Distinguishes design-partner / discounted early pricing from intended
+    list price and explains the path between them. Can name who said no and why on
+    price.
+  weak_answer: Has only free pilots, 'lots of interest,' or signups, and set price
+    by copying a competitor or picking a round number. Confuses enthusiasm with revenue;
+    can't name a single customer who paid full intended price or explain why the price
+    is what it is.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://firstround.com
+- id: gross-margin-reality
+  theme: cac-business-model
+  stage:
+  - pre-seed
+  wedge: general
+  question: What's your true gross margin once you load in the costs you're currently
+    hiding — COGS, support, onboarding, and inference/compute?
+  strong_answer: 'Gives a fully-loaded gross margin and names the cost lines inside
+    it: hosting/compute, third-party API or model inference cost per unit of usage,
+    payment processing, human-in-the-loop or onboarding labor, and support. For AI
+    products specifically, can state cost-per-query/per-task and whether it trends
+    down or up with usage, and whether any customers are gross-margin-negative. Software-like
+    margins (industry-typical ~70-80%+) are claimed only if the cost stack actually
+    supports them.'
+  weak_answer: Assumes SaaS-grade ~80% margins by default while the product is actually
+    compute-heavy or service-heavy, and excludes inference cost, onboarding labor,
+    or support from COGS. Treats gross margin as a constant rather than something
+    that moves with usage and customer mix.
+  sources:
+  - https://a16z.com
+  - https://www.bvp.com
+  - https://www.sequoiacap.com
+- id: acquisition-vs-retention-leak
+  theme: cac-business-model
+  stage:
+  - pre-seed
+  wedge: general
+  question: If you can't keep the users you already have, why does cheaper acquisition
+    matter at all?
+  strong_answer: 'Treats retention as the precondition for the whole CAC model and
+    shows the earliest retention signal they have — even from a tiny cohort: repeat
+    usage, week-over-week active return, expansion within an account, or a qualitative
+    ''they''d be very disappointed without it'' (Sean Ellis-style PMF signal). Acknowledges
+    that a leaky bucket makes any CAC unprofitable regardless of how low it is, and
+    that fixing retention precedes scaling spend.'
+  weak_answer: Focuses entirely on top-of-funnel growth and growth-hacking acquisition
+    while waving away churn as 'we'll fix it later' or pointing to total-signup vanity
+    metrics. Has no cohort retention view and treats acquisition cost as the only
+    lever.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://firstround.com
+  - https://a16z.com
+- id: sales-motion-cac-mismatch
+  theme: cac-business-model
+  stage:
+  - pre-seed
+  wedge: general
+  question: Your price point and your sales motion don't match — how do you afford
+    to sell this?
+  strong_answer: 'Founder shows the ACV-to-sales-motion fit is coherent: low ACV implies
+    self-serve / product-led with near-zero human CAC; high ACV justifies a human
+    sales touch and a longer payback. They can articulate the loaded cost of the current
+    sales motion (their own founder-selling time counts), the sales cycle length,
+    and how the motion has to evolve as ACV or volume changes. They know the rough
+    boundary where a product is too cheap to sell with a human and too complex to
+    sell without one.'
+  weak_answer: Plans an enterprise sales team for a $20/month product, or expects
+    a $100k ACV enterprise deal to close self-serve with no humans. Ignores founder
+    selling time as a cost and has no view of sales cycle length or how the motion
+    scales.
+  sources:
+  - https://a16z.com
+  - https://www.bvp.com
+  - https://www.sequoiacap.com
+- id: payback-period-and-cash
+  theme: cac-business-model
+  stage:
+  - pre-seed
+  wedge: general
+  question: Even if LTV/CAC works on paper, how long until each customer pays back
+    the cash you spent to get them — and can you survive that gap?
+  strong_answer: 'Separates the LTV/CAC ratio from CAC payback period and explains
+    why payback drives burn: a healthy ratio with an 18-month payback still requires
+    heavy working capital. States a target payback (industry-typical under ~12 months
+    for early-stage software) and how upfront vs monthly pricing, annual prepay, or
+    deposits compress it. Connects payback directly to how much they must raise and
+    their runway math.'
+  weak_answer: Only knows the LTV/CAC ratio and has never computed payback period,
+    so can't say how much cash gets tied up acquiring customers. Assumes a good ratio
+    means good cash dynamics and is surprised by the working-capital implication.
+  sources:
+  - https://a16z.com
+  - https://www.bvp.com
+  - https://firstround.com
+- id: market-pull-vs-push
+  theme: cac-business-model
+  stage:
+  - pre-seed
+  wedge: general
+  question: Are customers coming to you, or are you chasing them — and what does that
+    tell you about real demand?
+  strong_answer: Distinguishes pull (inbound, organic word-of-mouth, unsolicited signups,
+    customers referring others) from push (every deal is a founder hustling). Quantifies
+    the pull they have, however small, and is candid that early traction is founder-driven.
+    Frames inbound and referral rate as the cheapest leading indicator that CAC can
+    fall over time, and shows whether the share of inbound is growing.
+  weak_answer: Every customer came from the founder personally pushing, but this is
+    presented as 'strong traction' without acknowledging it's unscalable and tells
+    you little about acquisition cost at scale. No referral or inbound signal, and
+    no awareness that pure push hides the real CAC problem.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://firstround.com

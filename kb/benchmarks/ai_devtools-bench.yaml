@@ -1,0 +1,165 @@
+cell: ai:devtools-bench
+type: benchmark
+wedge: ai-dev-tools
+items:
+- sector: dev-tools
+  wedge: ai-dev-tools
+  metric: GitHub stars
+  stage:
+  - pre-seed
+  - seed
+  healthy: 'Stars matter only as a derivative signal: look for stars converting into
+    installs/active usage, and for organic star velocity tied to real launch events
+    (Hacker News, Show HN, etc.). The absolute star count is noise unless paired with
+    activation/usage data. (The often-quoted ''~1-2% of stars become weekly-active
+    users'' is a rule of thumb, not a sourced benchmark.)'
+  red_flag: Large star count (10k+) with negligible npm/pip downloads, few unique
+    cloners, or download-to-star ratio near zero. A sharp non-organic spike (thousands
+    in days, no traffic source) suggests purchased stars. CMU/Socket/NCSU research
+    found ~6M suspected fake stars across 15,835 repos, with fake-star campaigns growing
+    two orders of magnitude (~100x) in 2024; at peak (July 2024) ~16% of repos with
+    star activity were tied to fake-star campaigns.
+  note: VANITY. a16z explicitly calls downloads a vanity metric and wants engagement/cohort
+    retention instead; the same applies to stars. Treat stars as a top-of-funnel awareness
+    proxy at best.
+  sources:
+  - https://a16z.com/16-startup-metrics/
+  - https://www.startuphub.ai/ai-news/cybersecurity/2026/github-fake-stars-reputation-as-a-service
+- sector: dev-tools
+  wedge: ai-dev-tools
+  metric: Activation rate (signup/install to first meaningful action / aha moment)
+  stage:
+  - seed
+  - series-a
+  healthy: 'Rule of thumb: a healthy PLG dev tool gets a meaningful share of signups
+    to the activation event (e.g. first successful API call, first agent run, first
+    PR generated) within the first session/week, with the aha moment reachable in
+    minutes without a sales touch. (Specific % targets vary widely by product and
+    are not standardized.)'
+  red_flag: Very low activation, or a long gap between install and first value (multi-day
+    setup, required onboarding call). High installs with low activation means the
+    funnel leaks before any retention question is even relevant.
+  note: 'This is the REAL metric that GitHub stars and downloads stand in for. a16z''s
+    framing: investors discount downloads and want engagement/cohort retention on
+    metrics that matter for the business. (Cited source supports the framing, not
+    a specific activation threshold.)'
+  sources:
+  - https://a16z.com/16-startup-metrics/
+- sector: dev-tools
+  wedge: ai-dev-tools
+  metric: Free-to-paid conversion (freemium)
+  stage:
+  - seed
+  - series-a
+  healthy: 'Industry-typical: open-source / dev-tool freemium converts low — roughly
+    0.5-3% (e.g. Elastic ~1% while building a multi-billion-dollar business). Self-serve
+    freemium more broadly: ~3-5% good, ~8-12% great. AI-native products skew a bit
+    higher (~6-8% good). Median free-to-paid across SaaS is ~8% with a ~10x gap between
+    top and bottom quintile.'
+  red_flag: Sub-1% freemium conversion with no clear paywall/expansion path, OR measuring
+    conversion at day-30 for a product with a 90-180 day eval cycle (understates true
+    conversion). Conversion looking 'high' only because the free tier is crippled
+    is a red flag for top-of-funnel health.
+  note: Industry-typical, not absolute. Freemium and free-trial numbers are NOT comparable
+    — see the separate free-trial row.
+  sources:
+  - https://www.getmonetizely.com/articles/whats-the-optimal-conversion-rate-from-free-to-paid-in-open-source-saas
+  - https://prems.ai/blog/free-to-paid-conversion-saas-2026
+- sector: dev-tools
+  wedge: ai-dev-tools
+  metric: Free-trial-to-paid conversion
+  stage:
+  - seed
+  - series-a
+  healthy: 'Industry-typical: opt-in (no credit card) trials convert ~8-12% on average,
+    ~10-15% great. Opt-out (card-required) trials convert far higher — roughly 40-60%
+    — but on a smaller, more-qualified top of funnel.'
+  red_flag: Comparing an opt-out (card-required) conversion rate against opt-in benchmarks
+    to look strong — the trial type swings the headline number ~4-5x, so the rate
+    is meaningless without knowing trial type and trial-start volume.
+  note: Industry-typical values. Trial type (opt-in vs opt-out) changes the number
+    ~4-5x, so always normalize before benchmarking.
+  sources:
+  - https://adv.me/articles/conversion-optimization/saas-free-trial-conversion-rate-benchmarks-2025/
+  - https://prems.ai/blog/free-to-paid-conversion-saas-2026
+- sector: dev-tools
+  wedge: ai-dev-tools
+  metric: Net dollar retention (NDR) / seat & usage expansion
+  stage:
+  - series-a
+  - series-b
+  healthy: 'Industry-typical (BVP cloud data): net retention averages ~140% at $1-10M
+    ARR (range ~105-145%), settling to ~120% at $10-100M+ (range ~105-125%), with
+    top performers 125%+ past $100M. Dev tools tend to sit at the high end due to
+    bottoms-up seat+usage expansion.'
+  red_flag: 'NDR at or below 100% for an early dev tool — means churn/contraction
+    is eating land-and-expand, which is the entire bottoms-up thesis (BVP: only the
+    bottom quartile of cloud companies run <100%). SMB-heavy books structurally run
+    lower; flag if expansion depends on price hikes rather than added seats/usage.'
+  note: Industry-typical. For usage-based AI tools, separate 'expansion from more
+    seats' vs 'expansion from more tokens billed' — the latter can mask flat human
+    adoption.
+  sources:
+  - https://www.bvp.com/atlas/scaling-to-100-million
+- sector: dev-tools
+  wedge: ai-dev-tools
+  metric: Weekly active usage / WAU-MAU stickiness (seat utilization)
+  stage:
+  - seed
+  - series-a
+  healthy: 'Industry-typical for B2B/dev tools: WAU/MAU 20-40% typical, 45%+ high-performing.
+    DAU/MAU runs lower for task-driven tools (Mixpanel pegs the SaaS average ~13%).
+    For paid seats, look for a majority of provisioned seats active weekly.'
+  red_flag: Many paid/provisioned seats but low weekly-active seat utilization — classic
+    'shelfware' that predicts non-renewal and inflates ARR-per-logo optics. High MAU
+    with low WAU/DAU signals novelty usage, not habit.
+  note: Seat count sold is closer to VANITY than seat utilization. WAU/MAU is the
+    better stickiness measure for task-driven dev tools than DAU/MAU.
+  sources:
+  - https://www.revos.ai/blog/wau-mau
+  - https://www.metrichq.org/saas/dau-mau-ratio/
+- sector: dev-tools
+  wedge: ai-dev-tools
+  metric: Design-partner conversion to paid
+  stage:
+  - pre-seed
+  - seed
+  healthy: 'A strong PMF signal is most/all design partners converting to paid contracts
+    at the exit-ramp date, with a defined trigger written into the agreement. Common
+    structure (CommonPaper benchmark): ~49% of agreements run 3 or 6 month terms,
+    ~43% offer a future subscription discount; converted deals often in the tens-of-K
+    ARR range early.'
+  red_flag: Design partners who never sign a paid contract, repeated free extensions
+    with no exit ramp, or 'partners' that are friends/advisors rather than budget-holding
+    buyers. Logos used for marketing without revenue is a vanity tell — ~61% of design-partner
+    agreements allow public customer-list use even without conversion.
+  note: Industry-typical / qualitative. Conversion of cold-recruited (not warm-intro)
+    partners is the stronger PMF evidence; logo lists alone lean vanity.
+  sources:
+  - https://commonpaper.com/standards/design-partner-agreement/
+  - https://a16z.com/a-framework-for-finding-a-design-partner/
+  - https://www.bvp.com/atlas/design-partners-the-pre-launch-edge-most-ai-founders-ignore
+- sector: ai-infra
+  wedge: ai-dev-tools
+  metric: Inference / blended gross margin
+  stage:
+  - series-a
+  - series-b
+  healthy: 'Industry-typical: AI-heavy companies run structurally lower gross margin
+    than mature SaaS (70-90%). Foundation-model economics are improving (per SaaStr:
+    OpenAI ~35% compute margin in early 2024 to ~70% by late 2025; Cursor projecting
+    ~74-85% by 2027), but AI app startups often start far lower — Bessemer''s ''AI
+    supernovas'' averaged ~25% gross margin early. Treat 50-70% as a realistic loaded-COGS
+    band for inference-shipping software, not a SaaS-like 80%+.'
+  red_flag: 'Gross margin presented at SaaS-like 80%+ while heavily inference-dependent
+    (suggests subsidized/loss-leader pricing, free credits not in COGS, or model costs
+    not fully loaded). Also: margin that only holds because of a temporary provider-credit
+    deal, or negative per-query contribution margin at the usage tier customers actually
+    live in (e.g. GitHub Copilot reportedly losing $20+/user/month).'
+  note: 'Industry-typical, not a rule. Per-token cost is falling fast (a16z ''LLMflation'':
+    ~10x/yr for equivalent performance), but higher usage (Jevons paradox) can consume
+    the savings — flag whether falling unit cost actually reaches the P&L. Distinguish
+    loaded inference COGS from gross-of-credits optics.'
+  sources:
+  - https://a16z.com/llmflation-llm-inference-cost/
+  - https://www.saastr.com/have-ai-gross-margins-really-turned-the-corner-the-real-math-behind-openais-70-compute-margin-and-why-b2b-startups-are-still-running-on-a-treadmill/

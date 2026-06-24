@@ -1,0 +1,177 @@
+cell: ai:data-flywheel
+type: grilling
+wedge: ai-dev-tools
+items:
+- id: moat-01
+  theme: moat-defensibility
+  wedge: ai-dev-tools
+  stage:
+  - pre-seed
+  - seed
+  question: Strip away the foundation model. If a competitor wired GPT/Claude into
+    the same IDE workflow tomorrow, what specifically would they NOT have that you
+    do?
+  strong_answer: 'Names a concrete asset the model layer can''t replicate: a corpus
+    of accepted-vs-rejected code suggestions tied to whether the diff survived in
+    main 30 days later; a graph of how their users'' private monorepos resolve symbols;
+    eval suites built from real customer regressions. The asset is causally upstream
+    of output quality, not just telemetry exhaust.'
+  weak_answer: '''Our prompts are better'' / ''we fine-tuned on our data'' / ''UX
+    and speed.'' These are all copyable in a quarter. Prompt scaffolding and a thin
+    RAG layer over public code are not a moat; they are a feature the model vendor
+    can ship natively, which has repeatedly happened.'
+  sources:
+  - https://a16z.com/the-economic-case-for-generative-ai-and-foundation-models/
+  - https://www.nfx.com/post/network-effects-manual
+- id: moat-02
+  theme: moat-defensibility
+  wedge: ai-dev-tools
+  stage:
+  - seed
+  - series-a
+  question: 'Does the data your product generates have a feedback loop, or is it a
+    one-time training set? Walk me through the exact loop: user action -> captured
+    signal -> model/product improvement -> better next user action.'
+  strong_answer: 'Closes the loop with a measurable signal. E.g.: dev accepts/edits/rejects
+    a completion -> the edit delta is labeled ground truth -> reranker retrained nightly
+    -> acceptance rate on the same prompt class climbs. They can cite that acceptance
+    rate moved (industry-typical: a few hundred bps over a couple quarters per cohort)
+    as users accumulate, not just as the base model improved.'
+  weak_answer: '''Every interaction makes us smarter'' with no named signal, no labeling
+    mechanism, and no metric that moved. A flywheel that can''t be drawn as a closed
+    loop with an observable output metric is marketing. Logging data you never feed
+    back is data exhaust, not a flywheel.'
+  sources:
+  - https://www.nfx.com/post/network-effects-manual
+  - https://www.firstround.com/
+- id: moat-03
+  theme: moat-defensibility
+  wedge: ai-dev-tools
+  stage:
+  - seed
+  - series-a
+  question: Is your data advantage WITHIN an account or ACROSS accounts? If customer
+    B's data can't legally or contractually improve what customer A sees, where does
+    cross-customer compounding actually come from?
+  strong_answer: 'Honest about the split. In dev tools most proprietary code is single-tenant
+    and contractually walled, so they identify what DOES cross safely: anonymized
+    acceptance/rejection patterns, language/framework-level signals, vulnerability
+    fingerprints, eval cases. They''ve designed the contract/DPA so aggregate signal
+    is permitted, and can quantify the within-account moat (switching cost) separately
+    from the across-account one (data scale).'
+  weak_answer: 'Assumes all customer data pools into one model with no mention of
+    tenancy, contracts, or IP indemnity. In code tooling this is a landmine: enterprise
+    buyers explicitly forbid their proprietary code training shared models. A ''flywheel''
+    that violates the buyer''s own security review will never close.'
+  sources:
+  - https://www.bvp.com/atlas/the-cloud-100-benchmarks-report
+  - https://ycombinator.com/library
+- id: moat-04
+  theme: moat-defensibility
+  wedge: ai-dev-tools
+  stage:
+  - series-a
+  - series-b
+  question: How does your moat survive the next model release? When the base model
+    gets 2x better and absorbs your current edge, does your accumulated data still
+    matter or does it get commoditized?
+  strong_answer: 'Their asset is orthogonal to base-model capability, so model improvements
+    are a tailwind not a threat: proprietary runtime/execution data, customer-specific
+    deployment context, ground-truth outcomes (did the PR ship, did the test pass,
+    did the incident recur). A smarter base model makes their context layer more valuable,
+    not less. They''ve already lived through one model upgrade and can show their
+    relative edge held.'
+  weak_answer: Their entire edge is being 6 months ahead on capability the foundation
+    labs are racing toward. Each model release resets them to zero. 'We'll always
+    be on the latest model' is not defensibility; everyone is on the latest model.
+    This is the classic 'GPT-wrapper gets eaten' pattern.
+  sources:
+  - https://a16z.com/the-economic-case-for-generative-ai-and-foundation-models/
+  - https://www.sequoiacap.com/article/ai-50-2024/
+- id: moat-05
+  theme: moat-defensibility
+  wedge: ai-dev-tools
+  stage:
+  - seed
+  - series-a
+  question: What is the cold-start cost for a new entrant to reach your current data
+    quality? Is it months, or is it structurally impossible without your distribution?
+  strong_answer: 'Identifies a structural gate, not just a head start: data only generatable
+    by being in the developer''s loop at scale (millions of real accept/reject events/day),
+    or a privileged integration point (default in a popular CI, IDE, or platform)
+    a newcomer can''t get without already having users. The cold-start is a chicken-and-egg
+    the incumbent already broke and the entrant must re-break.'
+  weak_answer: '''It took us 18 months to collect this data.'' A funded competitor
+    with the same model can replay 18 months in 6 with more capital and data-purchase.
+    If the only barrier is calendar time and money, it''s a lead, not a moat. No structural
+    chicken-and-egg means no real defensibility.'
+  sources:
+  - https://www.nfx.com/post/network-effects-manual
+  - https://www.firstround.com/
+- id: moat-06
+  theme: moat-defensibility
+  wedge: ai-dev-tools
+  stage:
+  - series-a
+  - series-b
+  question: Show me the marginal-data curve. Does the 10-millionth data point still
+    move quality, or did you saturate at 100k? Where on the S-curve are you, and who
+    else is already past the knee?
+  strong_answer: Knows their curve empirically. For many dev-tool tasks data value
+    saturates fast (a code linter's value plateaus early), so they argue moat elsewhere
+    (workflow lock-in, distribution). Where data DOES keep mattering (long-tail framework/repo-specific
+    behavior), they show quality still climbing with volume and that they're far enough
+    up the curve that a sub-scale entrant sits below the knee.
+  weak_answer: Assumes more data always means more moat, linearly, forever. If quality
+    saturated at a volume any competitor can also reach, the data lead is worthless
+    past that point. Conversely, claiming a steep curve with no measurement. Not knowing
+    where the knee is means not knowing whether the moat exists.
+  sources:
+  - https://www.nfx.com/post/network-effects-manual
+  - https://a16z.com/the-economic-case-for-generative-ai-and-foundation-models/
+- id: moat-07
+  theme: moat-defensibility
+  wedge: ai-dev-tools
+  stage:
+  - seed
+  - series-a
+  - series-b
+  question: 'Beyond data: what''s the switching cost once a team is in? If a dev tried
+    a better competitor next week, what breaks or what do they lose that isn''t in
+    the model?'
+  strong_answer: 'Points to accumulated, non-portable state: learned per-repo config,
+    custom rules/agents the team built, integration into their CI/review/deploy fabric,
+    org-specific memory the user would have to rebuild. Even with weak cross-account
+    data effects, this single-tenant accumulation creates real lock-in and rising
+    NDR (industry-typical strong NDR for infra/dev tools is well north of 100%).'
+  weak_answer: '''They love the product, they won''t leave.'' Affection is not a switching
+    cost. If the user''s state is trivially exportable and the value lives entirely
+    in the base model, churn to a cheaper or better wrapper is a one-click decision.
+    Low or unmeasured NDR exposes this immediately.'
+  sources:
+  - https://www.bvp.com/atlas/the-cloud-100-benchmarks-report
+  - https://www.firstround.com/
+- id: moat-08
+  theme: moat-defensibility
+  wedge: ai-dev-tools
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  question: Are you reselling intelligence or selling a system of record / system
+    of action? When the buyer renews, are they paying for the model's output or for
+    something only you accumulate and orchestrate?
+  strong_answer: 'Frames themselves as owning a workflow/system layer the model plugs
+    into: the place where dev intent, codebase context, execution results, and human
+    approvals are captured and acted on. The model is a swappable component; the durable
+    value is the orchestration + proprietary context + outcome data. They could swap
+    base models and the customer wouldn''t churn.'
+  weak_answer: The product IS the model output with light packaging; renewal is really
+    a renewal of the underlying model's usefulness. If you could be replaced by the
+    customer calling the API directly plus a weekend of glue code, you're an arbitrage
+    on model access, and that margin compresses to zero as model prices fall and labs
+    move up-stack.
+  sources:
+  - https://www.sequoiacap.com/article/ai-50-2024/
+  - https://a16z.com/the-economic-case-for-generative-ai-and-foundation-models/
+  - https://ycombinator.com/library

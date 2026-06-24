@@ -1,0 +1,193 @@
+cell: bm:dev-tools
+type: benchmark
+wedge: general
+items:
+- sector: dev-tools
+  metric: YoY growth rate (ARR)
+  stage:
+  - series-a
+  wedge: general
+  healthy: ~3x YoY ARR growth at Series A (the 'triple' phase of T2D3, which Bessemer/Notion
+    frame as starting from a ~$1-2M ARR base). Top-quartile dev-tools push toward
+    3x+.
+  red_flag: Below ~2x YoY at Series A, or growth decelerating sharply quarter-over-quarter
+    without a clear cause.
+  note: Dev-tools growth is often bottoms-up/PLG, so investors weight self-serve signups
+    and organic ARR over sales-driven bookings. The T2D3 framing applies post-product-market-fit;
+    pre-PMF the number matters less than the shape of the curve.
+  sources:
+  - bvp.com (Bessemer 'Scaling to $100 Million' / State of the Cloud)
+- sector: dev-tools
+  metric: Growth rate (seed, qualitative + early MoM)
+  stage:
+  - seed
+  wedge: general
+  healthy: Consistent ~10-20%+ MoM growth on the leading usage metric (active workspaces/projects,
+    not just signups) during the 'do things that don't scale' phase. Absolute ARR
+    can be tiny ($0-500K).
+  red_flag: Flat or sub-5% MoM on the core usage metric for several months, or signups
+    growing while activation/retention stays flat.
+  note: At seed for dev-tools, raw ARR is noise; investors look for a small cohort
+    of developers who are genuinely sticky. A handful of teams using it daily beats
+    a long list of trial signups.
+  sources:
+  - ycombinator.com/library
+- sector: dev-tools
+  metric: Net revenue retention (NRR / NDR)
+  stage:
+  - series-a
+  wedge: general
+  healthy: 120%+ is strong for dev-tools; best-in-class usage-based dev-tools (consumption
+    pricing) hit 130-150%+ as customer usage scales.
+  red_flag: Below ~100% (net churning), or for consumption-priced tools, NRR propped
+    up entirely by a few whales while the median account contracts.
+  note: 'Dev-tools land-and-expand naturally: one team adopts, usage spreads across
+    the org. Usage-based pricing structurally lifts NRR vs seat-based, so investors
+    discount headline NRR for consumption models and ask for net-of-whales / cohort
+    views.'
+  sources:
+  - bvp.com
+  - a16z.com
+- sector: dev-tools
+  metric: Gross margin
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: 70%+ for SaaS dev-tools; 75-85% expected for control-plane/SaaS. Infrastructure-heavy
+    dev-tools (CI/CD compute, hosting, data-plane) often run 50-70%, acceptable if
+    disclosed.
+  red_flag: Below ~50%, or a 'software' multiple being pitched while COGS is dominated
+    by passthrough cloud compute the company can't optimize.
+  note: 'The dev-tools-specific trap: infra-heavy tools (run-my-code, managed runtimes)
+    carry real COGS. Investors care less about the absolute number than whether margin
+    improves with scale; show the path from data-plane COGS to control-plane economics.'
+  sources:
+  - a16z.com
+- sector: dev-tools
+  metric: CAC payback period
+  stage:
+  - series-a
+  wedge: general
+  healthy: 'Under ~12 months on a gross-margin-adjusted basis is good; PLG-led dev-tools
+    often beat this materially via organic/self-serve CAC. Sales-assisted enterprise
+    motion: 12-18 months tolerated.'
+  red_flag: Above ~18-24 months, or payback only achievable by counting expansion
+    revenue (should be measured on new-logo CAC).
+  note: For PLG dev-tools, blended CAC is misleading because most acquisition is organic;
+    investors want paid-CAC payback isolated from organic, plus the % of new ARR that
+    arrives self-serve before any sales touch.
+  sources:
+  - firstround.com
+- sector: dev-tools
+  metric: Logo churn / gross revenue churn (annual)
+  stage:
+  - series-a
+  wedge: general
+  healthy: Gross revenue churn under ~10-15% annually for SMB/bottoms-up dev-tools;
+    under ~5-7% for tools selling into larger orgs. Logo churn naturally higher than
+    revenue churn in self-serve.
+  red_flag: Above ~20-25% annual gross revenue churn, especially if it's the team's
+    anchor accounts (not just long-tail self-serve trials) leaving.
+  note: Dev-tools see high long-tail logo churn from hobbyist/free-converted accounts
+    that's mostly harmless; the metric that matters is dollar churn among teams past
+    the activation threshold. Separate 'never activated' churn from 'activated then
+    left' churn.
+  sources:
+  - bvp.com
+- sector: dev-tools
+  metric: Burn multiple (net burn / net new ARR)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: 'Per David Sacks'' framework: under 1.0x is great, 1.0-1.5x is good at
+    Series A. Seed-stage is noisier and a higher multiple is tolerated while finding
+    PMF.'
+  red_flag: Above ~2x at Series A (burning $2+ to add $1 of net new ARR); above ~3x
+    reads as buying growth that won't compound.
+  note: Burn multiple = net burn / net new ARR. The single cleanest capital-efficiency
+    read for dev-tools because PLG should make it look excellent. A high burn multiple
+    on a PLG pitch is a contradiction investors will probe.
+  sources:
+  - sacks.substack.com/p/the-burn-multiple (David Sacks, Craft Ventures)
+- sector: dev-tools
+  metric: Magic number (sales efficiency)
+  stage:
+  - series-a
+  wedge: general
+  healthy: Above ~0.75 means S&M is paying back efficiently; above ~1.0 is strong
+    and a signal to pour more into go-to-market.
+  red_flag: Below ~0.5, meaning sales spend is not converting to ARR efficiently —
+    for a dev-tool that should be partly organic, this is a double red flag.
+  note: Less central for pure-PLG dev-tools that haven't built a sales motion yet;
+    becomes the key gate once they layer enterprise sales on top of self-serve. Premature
+    magic-number focus on a still-bottoms-up company is a misread.
+  sources:
+  - bvp.com
+- sector: dev-tools
+  metric: Activation rate (signup to 'aha'/integrated)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: A meaningful share of self-serve signups reach the core activation event
+    (e.g. first successful build/deploy/API call in production); healthy tools often
+    see 20-40%+ activate.
+  red_flag: Activation in low single digits, or a long, falling-off onboarding funnel
+    — signups grow but activated developers don't.
+  note: The most dev-tools-specific metric and the one generic SaaS benchmark lists
+    miss. For a developer tool, time-to-first-value and activation predict everything
+    downstream (retention, expansion). Define activation as production use, not account
+    creation.
+  sources:
+  - ycombinator.com/library
+  - firstround.com
+- sector: dev-tools
+  metric: Developer/usage retention curve (cohort, flattening)
+  stage:
+  - seed
+  wedge: general
+  healthy: Weekly/monthly usage-retention curve that flattens (stabilizes) rather
+    than decaying to zero — a flat asymptote at a non-trivial level is the seed-stage
+    PMF signal investors look for.
+  red_flag: Retention curve that decays toward zero with no flattening, indicating
+    no durable habit — fatal for a dev-tool even with strong top-of-funnel.
+  note: For seed dev-tools, a flattening engagement curve substitutes for revenue
+    benchmarks. Investors prefer this over ARR because it's harder to game and directly
+    reflects whether developers keep coming back.
+  sources:
+  - a16z.com
+  - ycombinator.com/library
+- sector: dev-tools
+  metric: Free-to-paid conversion (PLG)
+  stage:
+  - series-a
+  wedge: general
+  healthy: ~2-5% free-to-paid for bottoms-up dev-tools with a free tier; bottoms-up-to-enterprise
+    tools convert lower on % but with much higher ACV per converted team.
+  red_flag: Sub-1% conversion with no enterprise upmarket motion to compensate, or
+    a free tier so generous that teams never hit a paywall.
+  note: 'Benchmark depends heavily on pricing model: a generous free tier that drives
+    org-wide adoption can run a low % conversion yet still be healthy if it feeds
+    large expansion accounts. Investors evaluate conversion together with NRR, not
+    in isolation.'
+  sources:
+  - a16z.com
+  - firstround.com
+- sector: dev-tools
+  metric: Runway at raise
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: Raise with ~18-24 months of runway in the round so the team can hit the
+    next milestone (PMF at seed, T2D3-style scaling at Series A) without immediately
+    re-raising.
+  red_flag: Under ~6-9 months runway when starting the raise (negotiating from weakness),
+    or a plan that needs a perfect next round to survive.
+  note: 'Not a performance metric but a readiness gate: investors map runway against
+    the specific milestone the round must reach. For dev-tools, the milestone is usually
+    a proven activation+retention engine (seed) or repeatable expansion (Series A).'
+  sources:
+  - ycombinator.com/library

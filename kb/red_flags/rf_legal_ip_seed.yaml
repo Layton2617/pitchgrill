@@ -1,0 +1,157 @@
+cell: rf:legal_ip:seed
+type: red_flag
+wedge: general
+items:
+- id: ip-assigned-to-prior-employer
+  domain: legal_ip
+  stage:
+  - seed
+  - series_a
+  wedge: general
+  title: Core IP may belong to a founder's former employer
+  why: If a founder built the product (or its precursor) while employed elsewhere,
+    an invention-assignment or moonlighting clause can hand ownership of your core
+    technology to that employer, voiding the company's most valuable asset.
+  threshold: ''
+  severity: kill
+  detect: Look for founders who left a directly-adjacent employer shortly before starting;
+    ask 'did any of you start building this, or have the idea, while at a prior job,
+    and did you sign an invention-assignment/IP agreement there?' A vague or defensive
+    answer, or a competitor as ex-employer, is the tell.
+  sources:
+  - https://www.nvca.org
+- id: ip-not-assigned-to-company
+  domain: legal_ip
+  stage:
+  - seed
+  wedge: general
+  title: IP not formally assigned from founders/contractors to the company
+  why: Code or designs created by founders before incorporation, or by contractors
+    without a written work-for-hire/assignment, are owned by the individuals rather
+    than the company, so investors are funding an entity that doesn't actually own
+    what it sells.
+  threshold: ''
+  severity: kill
+  detect: Ask whether every founder signed a Confidential Information and Invention
+    Assignment Agreement (CIIAA) at incorporation and whether all contractors/agencies
+    signed IP-assignment clauses; missing or unsigned CIIAAs, or 'we used a freelancer
+    for the MVP' with no paperwork, is the flag.
+  sources:
+  - https://www.nvca.org
+- id: missing-founder-vesting
+  domain: legal_ip
+  stage:
+  - seed
+  wedge: general
+  title: No founder stock vesting (or no cliff structure)
+  why: Without vesting, a co-founder who walks early keeps their full equity stake,
+    leaving a dead-weight cap table that makes the company un-fundable and demoralizes
+    the remaining team.
+  threshold: 'industry-standard: 4-year vesting with a 1-year cliff'
+  severity: major
+  detect: Ask 'is founder equity subject to vesting, and what's the schedule?' No
+    vesting, fully-vested-at-grant, or a departed co-founder still holding a large
+    unvested-but-uncancelled block is the signal.
+  sources:
+  - https://review.firstround.com
+- id: cap-table-dead-equity
+  domain: legal_ip
+  stage:
+  - seed
+  wedge: general
+  title: Messy cap table or large dead equity / advisor over-grants
+  why: A cluttered cap table with departed founders, over-generous advisor grants,
+    or many small unsophisticated holders signals poor judgment and creates friction
+    and re-pricing risk in every future round.
+  threshold: 'rule of thumb: any single non-operating/departed holder above ~5-10%,
+    or advisors collectively above ~5%, draws scrutiny; founders should still hold
+    a strong majority at seed'
+  severity: major
+  detect: Request the cap table and pro-forma post-round; look for inactive founders/advisors
+    with outsized stakes, equity granted for vague 'advisory' roles, or a founder
+    team already diluted heavily before Series A.
+  sources:
+  - https://www.nvca.org
+- id: non-clean-prior-financing-instruments
+  domain: legal_ip
+  stage:
+  - seed
+  wedge: general
+  title: Stacked/uncapped or conflicting prior SAFEs and notes
+  why: A pile of SAFEs and convertible notes with inconsistent caps, discounts, MFN
+    clauses, or overdue maturity dates can silently over-dilute founders and new investors
+    on conversion, and create a debt-default trap.
+  threshold: model the aggregate as-converted dilution; outsized total promised on
+    conversion relative to the new round is the red flag (no single fixed cutoff)
+  severity: major
+  detect: Ask for every prior financing instrument and model the as-converted cap
+    table; many uncapped/MFN SAFEs, past-maturity notes, or a founder who can't tell
+    you their fully-diluted ownership is the tell.
+  sources:
+  - https://www.nvca.org
+- id: open-source-license-contamination
+  domain: legal_ip
+  stage:
+  - seed
+  - series_a
+  wedge: general
+  title: Copyleft / GPL open-source contamination of proprietary code
+  why: Building proprietary product on AGPL/GPL-licensed components can legally obligate
+    the company to release its source code, destroying the defensibility and licensability
+    of the core product.
+  threshold: ''
+  severity: major
+  detect: Ask 'do you track third-party/open-source licenses, and is any GPL/AGPL/copyleft
+    code linked into your distributed product?' No SBOM/license inventory, or 'we
+    just grabbed a library,' especially in a code-as-product business, is the flag.
+  sources:
+  - https://www.nvca.org
+- id: founder-related-party-conflicts
+  domain: legal_ip
+  stage:
+  - seed
+  wedge: general
+  title: Undisclosed related-party deals or competing side ventures
+  why: Founders running a parallel company, licensing the startup's IP to a side entity,
+    or steering revenue through related parties create conflicts of interest and IP-leakage
+    that investors treat as integrity red flags.
+  threshold: ''
+  severity: major
+  detect: Ask each founder about other companies they own/advise, any IP licensed
+    in or out, and customer/vendor relationships with entities they control; a founder
+    splitting time across ventures or an IP license to their own LLC is the signal.
+  sources:
+  - https://review.firstround.com
+- id: missing-corporate-hygiene
+  domain: legal_ip
+  stage:
+  - seed
+  wedge: general
+  title: Wrong entity type / jurisdiction or missing corporate records
+  why: Being an LLC instead of a Delaware C-corp, lacking board consents, or having
+    unissued/improperly-issued stock and no 83(b) filings makes the company structurally
+    un-investable by institutional VCs until expensive cleanup.
+  threshold: ''
+  severity: major
+  detect: Confirm Delaware C-corp status, ask for the corporate minute book/board
+    consents and 83(b) confirmations; an LLC, a foreign holding structure with no
+    clear reason, or 'our lawyer has all that somewhere' is the tell.
+  sources:
+  - https://www.nvca.org
+- id: regulatory-data-license-exposure
+  domain: legal_ip
+  stage:
+  - seed
+  - series_a
+  wedge: general
+  title: Unlicensed scraped/third-party data or regulated-data exposure
+  why: A product built on scraped data, data used outside its terms, or regulated
+    personal/health data without consent or compliance basis carries existential takedown
+    and liability risk that can erase the product overnight.
+  threshold: ''
+  severity: major
+  detect: Ask where training/product data comes from and what rights or consent cover
+    it; reliance on scraping a platform that prohibits it, no DPA/privacy basis for
+    PII, or 'it's public data so it's fine' is the flag.
+  sources:
+  - https://www.nvca.org

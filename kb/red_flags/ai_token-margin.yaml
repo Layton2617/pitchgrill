@@ -1,0 +1,182 @@
+cell: ai:token-margin
+type: red_flag
+wedge: ai-dev-tools
+items:
+- id: fin-gm-01
+  domain: financials
+  wedge: ai-dev-tools
+  stage:
+  - seed
+  - series-a
+  - series-b
+  - growth
+  title: Blended gross margin materially below SaaS norm (sub-60%) driven by inference
+    COGS
+  why: a16z explicitly states AI companies often run gross margins in the 50-60% range,
+    well below the 60-80%+ benchmark for comparable SaaS, because cloud inference
+    is a per-query variable cost rather than near-zero marginal cost. For an AI dev
+    tool (code assistants, agentic IDEs, CI/test-gen bots), every completion/agent
+    run hits the model API or GPU fleet, so COGS scales ~linearly with usage. A blended
+    GM in the 50-60s isn't automatically fatal for AI, but it should be explicitly
+    explained and trending up; a GM stuck below ~50% is a strong red flag that the
+    product is closer to a services/reseller business than software.
+  severity: high
+  detect: 'Ask for true gross margin with ALL inference/token/GPU spend AND model-provider
+    fees in COGS (founders often park inference in R&D or ''infra'' to flatter GM).
+    Recompute: GM = (revenue - hosting - token/API spend - GPU rental - human-in-the-loop
+    labeling/support) / revenue. Cross-check against the P&L line for OpenAI/Anthropic/Bedrock
+    invoices.'
+  threshold: 'a16z benchmark: SaaS comparable GM 60-80%+; AI companies often 50-60%.
+    Flag if blended GM <60% without a credible improvement plan; treat <50% as a serious
+    red flag (services-like economics).'
+  sources:
+  - https://a16z.com/the-new-business-of-ai-and-how-its-different-from-traditional-software/
+- id: fin-gm-02
+  domain: financials
+  wedge: ai-dev-tools
+  stage:
+  - series-a
+  - series-b
+  - growth
+  title: Inference/token spend is the single largest COGS line (>~23% of revenue)
+  why: ICONIQ's 2026 State of AI report finds inference averaging ~23% of revenue
+    at scaling-stage AI B2B companies (a16z separately notes AI companies often spend
+    25%+ of revenue on cloud infra). For dev tools the figure can run higher because
+    agentic workflows make many chained model calls per user action (plan -> tool-call
+    -> critique -> retry), so one 'task' can be many times the tokens of a single
+    chat turn. When inference alone is the dominant COGS line, GM becomes hostage
+    to model-provider pricing you don't control, and any provider price change or
+    forced model upgrade directly compresses margin. This is non-obvious because the
+    headline GM can look fine while the COGS mix is dangerously concentrated in a
+    third party's pricing.
+  severity: high
+  detect: 'Get COGS broken out by line. Compute inference-as-%-of-revenue. Ask: how
+    many model calls per billable user action, what''s the token cost per task, and
+    what % of COGS is a single vendor (OpenAI/Anthropic). Check exposure to a single
+    foundation-model vendor''s price list.'
+  threshold: 'ICONIQ: inference ~23% of revenue at scaling stage; a16z: cloud infra
+    often 25%+ of revenue. Flag if inference/token spend >25% of revenue, or if a
+    single model vendor is the majority of COGS (concentration risk).'
+  sources:
+  - https://www.iconiq.com/growth/reports/2026-state-of-ai-bi-annual-snapshot
+  - https://a16z.com/the-new-business-of-ai-and-how-its-different-from-traditional-software/
+- id: fin-gm-03
+  domain: financials
+  wedge: ai-dev-tools
+  stage:
+  - seed
+  - series-a
+  - series-b
+  title: Margin collapses (not improves) as usage/scale grows — inverted operating
+    leverage
+  why: 'The SaaS investment thesis rests on marginal cost approaching zero, so GM
+    expands as you scale. AI dev tools can do the opposite: because inference is variable
+    and per-action, heavier adoption means proportionally more tokens, and the most-engaged
+    ''activated'' accounts (the ones a growth deck celebrates) are exactly the ones
+    burning the most compute. If the cohort that uses the product more also costs
+    disproportionately more, GM falls as engagement rises — the inverse of operating
+    leverage. This is the most dangerous pattern because traction metrics and margin
+    move in opposite directions, masking the problem during a hot-growth fundraise.'
+  severity: high
+  detect: Plot gross margin by cohort vintage and by usage decile, not just blended.
+    Ask whether GM is trending up or down quarter-over-quarter as ARR grows. Look
+    at whether per-account COGS grows faster than per-account revenue. Volume discounts
+    from model providers should help — confirm they actually materialize at current
+    scale.
+  threshold: 'ICONIQ trajectory: AI-native GM rising from ~41% (2024) toward ~52%
+    (2026) as infra/pricing mature, i.e. GM should improve with scale. Flag if GM
+    is flat or declining as ARR grows, or if top usage-decile cohorts have GM materially
+    (e.g. 15-20pts) below the blended average.'
+  sources:
+  - https://www.iconiq.com/growth/reports/2026-state-of-ai-bi-annual-snapshot
+  - https://a16z.com/the-new-business-of-ai-and-how-its-different-from-traditional-software/
+- id: fin-gm-04
+  domain: financials
+  wedge: ai-dev-tools
+  stage:
+  - seed
+  - series-a
+  - series-b
+  - growth
+  title: Flat/seat-based pricing on unmetered token consumption — losing money on
+    power users
+  why: Dev tools default to per-seat pricing, but a single developer running an autonomous
+    agent overnight can consume orders of magnitude more tokens than a casual user.
+    Under flat per-seat pricing with unmetered usage, the heaviest users can go gross-margin-negative
+    individually while the blended average stays positive only because light/dormant
+    seats subsidize them. Even foundation-model vendors have publicly struggled with
+    this on 'unlimited' plans, where a fixed monthly cap can map to far more token
+    cost than revenue if fully exercised. For a startup with no balance sheet, a wave
+    of power-user adoption (or a usage-maximizing community) can flip the whole book
+    negative.
+  severity: high
+  detect: Map the per-customer GM distribution, not the average. Identify the GM of
+    the top 5-10% heaviest accounts — are any negative? Ask whether there are hard
+    usage caps/rate limits, whether pricing is per-seat / per-token / hybrid, and
+    what % of revenue is on uncapped flat plans. Run the 'what if every seat hit max
+    utilization' stress test.
+  threshold: No reliable industry multiple for power-user spread — measure your own
+    distribution. Flag if any meaningful cohort of accounts is GM-negative, if a majority
+    of revenue is uncapped flat/seat pricing on token-heavy workflows, or if top-decile
+    account GM is negative.
+  sources:
+  - https://www.bvp.com/atlas/the-ai-pricing-and-monetization-playbook
+- id: fin-gm-05
+  domain: financials
+  wedge: ai-dev-tools
+  stage:
+  - seed
+  - series-a
+  - series-b
+  title: No credible path to margin improvement — GM stuck and roadmap lacks COGS
+    levers
+  why: 'Bessemer''s 2025 State of AI cohort framing distinguishes ''Supernova'' companies
+    running ~25% (or negative) GM on thin-wrapper/unoptimized infra from ''Shooting
+    Star'' companies reaching ~60% GM with stronger unit economics. Falling inference
+    prices (''LLMflation'', which a16z measures at roughly 10x cheaper per year for
+    equivalent capability) help, but Jevons-paradox usage growth can offset it, so
+    passively waiting for the market to bail you out is not a plan. The red flag is
+    not a low GM today but the absence of specific, owned levers: model routing/cascading,
+    prompt/context compression, caching, fine-tuned smaller models, self-hosting at
+    scale, and pricing changes. If the only answer to ''how does GM improve'' is ''models
+    will get cheaper,'' the unit economics are someone else''s roadmap.'
+  severity: medium
+  detect: 'Ask for the explicit margin-bridge: current GM -> target GM with each lever
+    quantified (routing, caching, distillation, self-hosting, pricing). Check whether
+    they''ve actually shipped any COGS optimization or just plan to. Verify caching
+    hit rates and what % of calls go to the cheapest viable model.'
+  threshold: 'Bessemer cohorts: ~25% GM (Supernova/thin-wrapper) vs ~60% GM (Shooting
+    Star); AI GM generally not expected to reach 80%+ SaaS levels near-term. Flag
+    if GM has been flat for 3-4+ quarters with no shipped optimizations, or if the
+    improvement plan relies solely on external model-price declines.'
+  sources:
+  - https://www.bvp.com/atlas/the-state-of-ai-2025
+  - https://a16z.com/llmflation-llm-inference-cost/
+- id: fin-gm-06
+  domain: financials
+  wedge: ai-dev-tools
+  stage:
+  - series-a
+  - series-b
+  - growth
+  title: Reported GM flattered by excluding inference, free-tier burn, or human-in-the-loop
+    costs from COGS
+  why: 'Because AI companies sit between software and services, COGS classification
+    is unusually elastic and easy to game. Common dressing-up: parking inference/GPU
+    spend in R&D (''it''s experimental''), excluding the compute cost of free/trial
+    users (which for a viral dev tool can dwarf paid inference), and hiding human-in-the-loop
+    work — eval labeling, prompt tuning, manual escalations, customer-specific agent
+    babysitting — which a16z notes can run 10-15% of revenue for AI businesses. A
+    headline 75% GM that excludes free-tier inference and HITL labor can be a real
+    ~50%. This matters most for dev tools with generous free tiers and open-source
+    funnels, where unpaid usage is a structural COGS, not a marketing line.'
+  severity: medium
+  detect: 'Reconcile the GM number against actual cloud + model-vendor invoices. Ask
+    specifically: is free/trial inference in COGS? Is HITL/eval/labeling labor in
+    COGS or buried in R&D/S&M? What % of total token spend is unpaid users? Demand
+    a fully-loaded GM including these and compare to the reported figure.'
+  threshold: 'a16z: data/HITL work can run 10-15% of revenue. Flag if fully-loaded
+    GM is >10-15pts below reported GM, or if free-tier inference is a material unbudgeted
+    line.'
+  sources:
+  - https://a16z.com/the-new-business-of-ai-and-how-its-different-from-traditional-software/

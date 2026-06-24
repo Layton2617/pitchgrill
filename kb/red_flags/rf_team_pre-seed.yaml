@@ -1,0 +1,158 @@
+cell: rf:team:pre-seed
+type: red_flag
+wedge: general
+items:
+- id: solo-founder-no-cofounder
+  domain: team
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Solo founder with no co-founder and no plan to add one
+  why: A single founder carries all execution, morale, and key-person risk, and many
+    institutional pre-seed investors treat solo-founder as a structural disqualifier
+    absent overwhelming traction.
+  threshold: 1 founder (vs the common 2-3 co-founder preference at pre-seed)
+  severity: major
+  detect: Team slide lists one person; cap table shows ~100% founder equity; founder
+    self-report has no co-founder and no concrete recruiting pipeline for one.
+  sources:
+  - ycombinator.com/library
+- id: no-full-time-commitment
+  domain: team
+  stage:
+  - pre-seed
+  wedge: general
+  title: Founder(s) not full-time / still employed elsewhere
+  why: A founder keeping a day job signals unwillingness to bet on themselves and
+    tells investors the conviction and runway to escape velocity are not there.
+  threshold: any founder <100% FTE at close
+  severity: kill
+  detect: LinkedIn shows current employment overlapping the startup; founder self-report
+    says 'going full-time after we raise' or 'nights and weekends'; no resignation
+    date.
+  sources:
+  - ycombinator.com/library
+- id: broken-cofounder-cap-table
+  domain: team
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Lopsided co-founder equity split or no vesting
+  why: A wildly uneven split or absent vesting telegraphs unresolved conflict and
+    creates a dead-equity landmine if a co-founder leaves early, which scares off
+    the next round's lead.
+  threshold: no standard 4-yr vesting + 1-yr cliff; or a heavily skewed split among
+    comparably-contributing full-time co-founders
+  severity: major
+  detect: Cap table or SAFE side letter shows no founder vesting / no cliff; equity
+    split asymmetric without a contribution rationale; founder self-report can't explain
+    why the split is what it is.
+  sources:
+  - nvca.org
+  - ycombinator.com/library
+- id: missing-core-technical-builder
+  domain: team
+  stage:
+  - pre-seed
+  wedge: general
+  title: No in-house builder of the core product (outsourced/agency-built MVP)
+  why: If the defining hard thing (code, model, hardware, science) is outsourced,
+    the team can't iterate at startup speed and owns neither the IP velocity nor the
+    moat.
+  threshold: 0 full-time founders/employees who can build the core product
+  severity: kill
+  detect: No CTO/technical co-founder on team slide; product built by a dev shop or
+    freelancers per founder self-report; commit history (if shared) shows external
+    contractors.
+  sources:
+  - ycombinator.com/library
+- id: zero-domain-or-founder-market-fit
+  domain: team
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: No founder-market fit / no domain insight
+  why: Pre-seed is bought on the team's unfair insight into the problem, so founders
+    with no lived experience or unique 'why us, why now' have nothing differentiating
+    to underwrite.
+  threshold: ''
+  severity: major
+  detect: Bios show no relevant industry, user, or technical background; the 'why
+    us' slide is generic; founder self-report can't articulate a non-obvious insight
+    outsiders would miss.
+  sources:
+  - firstround.com
+  - a16z.com
+- id: founder-already-over-diluted
+  domain: team
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Founders already heavily diluted before the seed
+  why: If founders own little this early, incentive alignment erodes and the math
+    toward a Series A leaves no equity to keep founders motivated, making the deal
+    hard to syndicate.
+  threshold: founder ownership materially below the ~70-80% typically retained post-pre-seed
+    (heuristic, not a hard rule)
+  severity: major
+  detect: Cap table shows large pre-seed/angel/advisor/accelerator stacks; many uncapped
+    or low-cap SAFEs aggregating heavy dilution; founder self-report reveals friends-and-family
+    rounds with oversized stakes.
+  sources:
+  - nvca.org
+  - ycombinator.com/library
+- id: advisor-heavy-no-operators
+  domain: team
+  stage:
+  - pre-seed
+  wedge: general
+  title: Team slide padded with advisors/part-timers instead of doers
+  why: Listing big-name advisors and fractional helpers to mask a thin full-time team
+    signals the founders are selling optics over execution capacity.
+  threshold: advisor grants well above the typical ~0.25-1% per advisor, or more named
+    advisors than full-time team members (heuristic)
+  severity: minor
+  detect: Team slide dominated by 'Advisors' / 'Advisory Board' headshots; advisor
+    equity grants disproportionate on cap table; founder self-report shows advisors
+    give <a few hours/month.
+  sources:
+  - ycombinator.com/library
+- id: cofounder-churn-history
+  domain: team
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Recent co-founder departure or repeated team churn
+  why: A co-founder who already walked (or several early hires who left) is the single
+    strongest predictor of unresolved dysfunction and a likely future blow-up.
+  threshold: any co-founder departure (recency aggravates, but a departure at all
+    is the signal)
+  severity: major
+  detect: Cap table or filings list a former co-founder not on the team slide; gaps
+    between incorporation date and current team; founder self-report glosses over
+    'someone who used to be involved.'
+  sources:
+  - firstround.com
+  - ycombinator.com/library
+- id: founders-cannot-sell-or-recruit
+  domain: team
+  stage:
+  - pre-seed
+  wedge: general
+  title: No founder who can sell the vision (recruit, raise, or close)
+  why: Pre-seed survival depends on a founder who can recruit A-players and close
+    early customers below market price, and a team of pure builders with no seller
+    often stalls at the first hiring or sales wall.
+  threshold: ''
+  severity: minor
+  detect: All founder bios are deep IC/technical with no GTM, leadership, or recruiting
+    track record; thin early-hire pipeline; founder self-report struggles to name
+    talent they could pull in.
+  sources:
+  - a16z.com
+  - firstround.com

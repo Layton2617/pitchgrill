@@ -1,0 +1,202 @@
+cell: gr:cac-business-model:series-a
+type: grilling
+wedge: general
+items:
+- id: cac-payback-period-reality
+  theme: cac-business-model
+  stage:
+  - series-a
+  wedge: general
+  question: What's your CAC payback period, and does that number include blended sales,
+    marketing, onboarding, and the loaded cost of the AE and SDR — or just ad spend?
+  strong_answer: 'Founder gives a fully-loaded payback (paid media + content + the
+    burdened comp of every human who touches a deal: SDR, AE, SE, onboarding/CS) and
+    states it in months on a gross-margin-adjusted basis, not on revenue. They distinguish
+    self-serve from sales-assisted motions with separate numbers. They cite an industry-typical
+    benchmark of roughly 12 months for healthy SaaS (under ~18 considered acceptable,
+    under ~6 exceptional) and explain which direction theirs is trending cohort-over-cohort
+    and why. They know payback on a gross-profit basis, not just bookings.'
+  weak_answer: Quotes a payback computed only on ad spend, ignoring sales headcount
+    and onboarding cost, and expressed against revenue rather than gross profit —
+    producing a flatteringly short number. Cannot separate self-serve from sales-led.
+    Says 'a few months' without a cohort to back it, or has never adjusted for gross
+    margin so the number is structurally overstated.
+  sources:
+  - https://www.bvp.com/atlas/scaling-to-100-million
+  - https://a16z.com/16-startup-metrics/
+  - https://www.sequoiacap.com/article/pricing-your-product/
+- id: ltv-cac-denominator-honesty
+  theme: cac-business-model
+  stage:
+  - series-a
+  wedge: general
+  question: Walk me through your LTV calculation — what churn rate, what discount
+    rate, and what gross margin did you plug in, and how many months of actual retention
+    data is that built on?
+  strong_answer: LTV is built on gross-margin contribution (not revenue), uses observed
+    logo and net-revenue retention from real cohorts of sufficient age, applies a
+    discount rate, and caps the lifetime to a realistic horizon (e.g., 3 years) rather
+    than dividing by an optimistically tiny churn number that implies a 10+ year customer
+    life. Founder names the LTV/CAC ratio against the industry-typical ~3x benchmark,
+    and crucially flags that at Series A the company likely has too little retention
+    history to trust LTV at all — so they lead with payback and early retention curves
+    instead.
+  weak_answer: Reports a huge LTV/CAC (e.g., 8x+) derived from dividing by a tiny
+    early-churn number, using revenue not gross margin, with no discount rate and
+    an implied customer lifetime longer than the company has existed. Treats LTV as
+    a hard fact rather than a forward extrapolation from thin data. Doesn't volunteer
+    that the cohorts are too young to be predictive.
+  sources:
+  - https://a16z.com/16-startup-metrics/
+  - https://a16z.com/16-more-startup-metrics/
+  - https://www.forentrepreneurs.com/saas-metrics-2/
+- id: cac-trend-as-you-scale
+  theme: cac-business-model
+  stage:
+  - series-a
+  wedge: general
+  question: As you've spent more, has your CAC gone up, down, or flat — and which
+    of your channels still has room to absorb 5x the spend without CAC blowing up?
+  strong_answer: Shows CAC by channel over the last several quarters and is candid
+    that the cheapest channels (founder network, organic, a hot keyword) saturate
+    first. Identifies which channels have demonstrated headroom and the leading indicator
+    they watch for diminishing returns (rising CPC, falling conversion, longer cycles).
+    Has a concrete view that the Series A money buys CAC efficiency learnings, and
+    accepts CAC will likely rise as they move past early adopters — with a plan for
+    how unit economics still hold.
+  weak_answer: Assumes current blended CAC is constant and just multiplies it by the
+    funding to project growth. Cannot name which channels are saturating. Has grown
+    entirely on one channel (often founder-led or a single paid platform) and has
+    no evidence a second channel works. Treats a recent CAC dip as durable when it
+    was actually a one-off (a viral moment, a discount, a single big logo).
+  sources:
+  - https://www.bvp.com/atlas/scaling-to-100-million
+  - https://a16z.com/16-startup-metrics/
+- id: blended-vs-paid-cac-hiding
+  theme: cac-business-model
+  stage:
+  - series-a
+  wedge: general
+  question: What share of your customers came from organic, referral, and your own
+    network versus paid acquisition — and what does CAC look like if I strip out the
+    free channels?
+  strong_answer: 'Reports paid (marginal) CAC separately from blended CAC, and is
+    upfront about how much growth so far rode on non-repeatable sources: the founder''s
+    network, press, a launch spike, or word-of-mouth from a small loyal base. Shows
+    that paid CAC alone still produces acceptable economics, or explains exactly what
+    they''re funding to make it so. Understands that investors discount blended CAC
+    heavily because organic doesn''t scale linearly with capital.'
+  weak_answer: Only knows blended CAC and it looks great — because most customers
+    actually came free via the founder's relationships or a one-time spike. Paid CAC
+    is either untested or quietly 3-5x the blended number. Conflates 'people found
+    us' with a repeatable, capital-efficient acquisition engine.
+  sources:
+  - https://a16z.com/16-startup-metrics/
+  - https://www.ycombinator.com/library/8d-how-to-improve-your-growth-rate
+- id: net-revenue-retention-expansion
+  theme: cac-business-model
+  stage:
+  - series-a
+  wedge: general
+  question: What's your net revenue retention, and how much of your growth next year
+    comes from expanding existing accounts versus net-new logos you haven't acquired
+    yet?
+  strong_answer: 'Cites net revenue retention from real cohorts and distinguishes
+    it from gross retention so the expansion and churn forces are visible separately.
+    For an expansion-led model, NRR comfortably above 100% (industry-typical best-in-class
+    around 120%+ for usage/seat-expansion SaaS) and they can show the mechanism (seats,
+    usage, upsell). Connects retention directly to the LTV/CAC story: strong NRR means
+    CAC is paid back and then some without re-acquiring. Knows gross logo churn too,
+    since high NRR can mask churning small accounts.'
+  weak_answer: Doesn't separate gross from net retention, or quotes NRR above 100%
+    while gross logo churn is quietly high and masked by a few expanding whales. Plans
+    next year's growth almost entirely on net-new logos at an unproven CAC, with no
+    expansion motion. Confuses revenue retention with logo retention, or has no cohort
+    old enough to measure either.
+  sources:
+  - https://a16z.com/16-more-startup-metrics/
+- id: sales-efficiency-magic-number
+  theme: cac-business-model
+  stage:
+  - series-a
+  wedge: general
+  question: For every dollar you put into sales and marketing last quarter, how many
+    dollars of new annual recurring revenue did you get back?
+  strong_answer: 'Knows their magic number / sales efficiency off the top of their
+    head and can compute it (new ARR added in a period divided by prior-period S&M
+    spend). Treats roughly 1.0 as the industry-typical line where it''s efficient
+    to step on the gas and below ~0.5–0.7 as a signal the motion isn''t ready to scale.
+    Ties it to a deliberate decision: ''we''re at X, so we''re investing in repeatability
+    before pouring fuel on,'' rather than asking for capital to scale a motion that
+    isn''t yet efficient.'
+  weak_answer: Has never calculated sales efficiency or the magic number and has to
+    estimate live. The implied number is well under the efficient threshold, yet the
+    ask is to massively scale the sales team anyway. Treats more reps as the growth
+    plan without evidence that existing reps are hitting ramped quota.
+  sources:
+  - https://www.bvp.com/atlas/scaling-to-100-million
+  - https://a16z.com/16-startup-metrics/
+  - https://www.forentrepreneurs.com/saas-metrics-2/
+- id: rep-ramp-and-quota-attainment
+  theme: cac-business-model
+  stage:
+  - series-a
+  wedge: general
+  question: Outside of you the founder, how many reps have you hired, how long do
+    they take to ramp, and what percent of them are hitting quota?
+  strong_answer: Has hired at least a couple of non-founder reps and can show ramp
+    time to productivity and that a majority are reaching ramped quota — proving the
+    sale isn't dependent on founder charisma. Knows the payback economics assume a
+    certain quota and ramp, and the model is built on those proven numbers. Is honest
+    about which deals still need founder involvement and has a plan to remove themselves
+    from the critical path.
+  weak_answer: All or nearly all revenue is founder-sold; either no reps hired or
+    the few hired are missing quota or churned out. Claims the motion is repeatable
+    based on the founder's own deals. Has no measured ramp time, so the Series A plan
+    to hire many reps rests on an unproven assumption that hires will replicate the
+    founder.
+  sources:
+  - https://www.bvp.com/atlas/scaling-to-100-million
+- id: gross-margin-true-cost-to-serve
+  theme: cac-business-model
+  stage:
+  - series-a
+  wedge: general
+  question: What's your gross margin, and what's actually inside cost of goods — are
+    you counting hosting, third-party APIs, payment fees, and the support and services
+    it takes to keep a customer live?
+  strong_answer: States gross margin with a clear COGS definition that includes hosting/infra,
+    model or third-party API costs, payment processing, and the customer-success/support
+    and implementation labor required to deliver the product. Acknowledges where margin
+    is structurally thinner (e.g., heavy inference costs, services-heavy onboarding)
+    and the path to the industry-typical 70%+ software gross margin. Recognizes that
+    CAC payback and LTV are meaningless unless computed on this real gross margin.
+  weak_answer: Quotes a 90%+ gross margin that ignores API/inference costs, payment
+    fees, and the human cost of onboarding and supporting customers — or quotes revenue-based
+    unit economics with no margin adjustment at all. Hasn't separated true recurring
+    software margin from low-margin services revenue propping up the top line.
+  sources:
+  - https://a16z.com/16-startup-metrics/
+  - https://a16z.com/16-more-startup-metrics/
+- id: burn-multiple-capital-efficiency
+  theme: cac-business-model
+  stage:
+  - series-a
+  wedge: general
+  question: How many dollars are you burning to add one dollar of net new ARR right
+    now, and where does that ratio need to be for the next round?
+  strong_answer: 'Knows their burn multiple (net burn divided by net new ARR) and
+    frames it against the industry-typical bands — roughly under 1.0 is great, 1–1.5
+    good, 1.5–2 watch, above 2 concerning for an early-growth company. Explains how
+    the Series A spend bends that ratio toward efficiency over time rather than just
+    buying growth at any cost, and connects it to runway: how many months the round
+    buys and what milestone (efficient, repeatable acquisition) it must prove to raise
+    the next one.'
+  weak_answer: Doesn't know the burn multiple or has to compute it on the spot, and
+    the implied number is well above 2 — lots of cash consumed per dollar of new ARR
+    — with the plan being to keep spending. Frames the raise purely as 'more runway
+    to grow' with no efficiency milestone, signaling growth that only exists while
+    capital is being incinerated.
+  sources:
+  - https://www.bvp.com/atlas/scaling-to-100-million
+  - https://a16z.com/16-startup-metrics/

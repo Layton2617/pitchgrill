@@ -1,0 +1,179 @@
+cell: bm:consumer
+type: benchmark
+wedge: general
+items:
+- sector: consumer
+  metric: weekly growth rate (active users)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: 'YC''s framing: a good weekly growth rate during YC is 5-7% WoW; 10% WoW
+    is exceptional. 1% WoW signals you haven''t figured out what you''re doing. At
+    Series-A, growth typically decelerates but should be off a meaningfully larger
+    base.'
+  red_flag: Sub-1% WoW (or stagnant) growth, or growth that only exists while paid
+    spend is on and collapses when you stop spending.
+  note: For consumer, raw active-user growth matters more than revenue early because
+    monetization lags engagement. Investors discount purely paid-driven growth; they
+    want an organic/viral component. The 5-7%/10% WoW bands are PG/YC's, stated for
+    weekly (not monthly) growth.
+  sources:
+  - https://www.paulgraham.com/growth.html
+  - https://www.ycombinator.com/library/4D-yc-s-essential-startup-advice
+- sector: consumer
+  metric: retention curve (cohort retention / flattening)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: 'The single most important consumer signal: the retention curve must FLATTEN
+    (asymptote) rather than decay to zero. Benchmarks vary widely by use-case frequency,
+    so investors read the SHAPE first, then magnitude. Social/network apps target
+    materially higher steady-state retention than occasional-use apps.'
+  red_flag: A retention curve that keeps declining toward 0% with no flattening, indicating
+    no genuine habit/PMF even if top-line installs look good. Low single-digit long-run
+    retention for a supposedly daily-use app.
+  note: a16z (power-user curve) and Andrew Chen stress the flattening 'smile' over
+    absolute numbers. The specific D1/D7/D30 numbers in circulation are highly category-dependent
+    rules of thumb, not a universal bar, so I've dropped hard thresholds here. This
+    is the metric that most separates consumer from B2B diligence.
+  sources:
+  - https://a16z.com/the-power-user-curve-the-best-way-to-understand-your-most-engaged-users/
+  - https://andrewchen.com/retention-is-king/
+- sector: consumer
+  metric: DAU/MAU ratio (engagement / stickiness)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: 'Common heuristic: 20%+ is good for a consumer app and ~50%+ is excellent
+    (used roughly every other day), with the very best daily-habit products (messaging/social)
+    higher still. Only meaningful for products that should be high-frequency.'
+  red_flag: DAU/MAU in the low teens or below for a product positioned as daily-use,
+    implying it's occasional/novelty rather than habitual.
+  note: A monthly-use consumer service (e.g. travel) will legitimately have low DAU/MAU,
+    so investors apply this selectively. a16z lists DAU/MAU among core startup metrics;
+    the specific 20%/50% bands are widely-repeated heuristics, not from a single authoritative
+    source.
+  sources:
+  - https://a16z.com/16-startup-metrics/
+- sector: consumer
+  metric: organic vs. paid mix / virality (K-factor, % organic acquisition)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: Investors want a majority of acquisition to be organic/word-of-mouth at
+    seed. A K-factor above ~1 implies self-sustaining viral growth (rare); below 1
+    each cohort still needs external acquisition, but a meaningful viral coefficient
+    amplifies paid/organic spend.
+  red_flag: Near-100% paid acquisition with no organic tail, or a K-factor near zero
+    combined with high CAC, meaning growth is rented, not owned.
+  note: For consumer, paid-only growth is a structural risk because channels saturate
+    and CAC inflates. Investors probe the organic engine (referral loops, content/SEO,
+    network effects) far more than in B2B. K-factor is directional, not precise. The
+    specific 0.5 threshold previously cited isn't an established bar, so I've removed
+    it.
+  sources:
+  - https://www.nfx.com/post/network-effects-bible
+- sector: consumer
+  metric: LTV / CAC ratio
+  stage:
+  - series-a
+  wedge: general
+  healthy: 'Widely cited heuristic: LTV:CAC of ~3:1 or better once a paid engine is
+    being scaled. For consumer (lower ARPU, higher churn), the durability/credibility
+    of the LTV input matters more than a high headline ratio.'
+  red_flag: LTV:CAC below ~1:1 (paying more to acquire than a user is worth), or an
+    LTV that relies on retention/lifetime assumptions the cohort data doesn't support.
+  note: 'Consumer LTV is fragile because it compounds churn assumptions, so investors
+    scrutinize the retention input heavily. Mostly a Series-A metric: at seed there''s
+    rarely enough cohort maturity to trust LTV. The 3:1 rule is a heuristic, not a
+    law.'
+  sources:
+  - https://a16z.com/16-startup-metrics/
+- sector: consumer
+  metric: CAC payback period
+  stage:
+  - series-a
+  wedge: general
+  healthy: For consumer subscription/transactional models, recovering blended CAC
+    within ~12 months is a common target, with the strongest businesses well under
+    that. Tighter than typical B2B expectations because consumer churn is higher and
+    capital-recycling speed matters.
+  red_flag: 'Payback beyond ~18-24 months, especially paired with mediocre retention:
+    the user churns before paying back acquisition cost.'
+  note: a16z covers CAC and LTV/CAC; the specific payback-month bands are practitioner
+    conventions rather than a published a16z threshold. Series-A relevant; at seed
+    there's usually no stable paid funnel to measure. Removed the Bessemer source
+    as it doesn't address consumer CAC payback bands specifically.
+  sources:
+  - https://a16z.com/16-startup-metrics/
+- sector: consumer
+  metric: monthly user/revenue churn (subscription)
+  stage:
+  - series-a
+  wedge: general
+  healthy: For consumer subscription, monthly churn in the low-to-mid single digits
+    is reasonable; ~3-5% monthly is common and tolerable for a healthy consumer sub.
+    Annual plans materially improve this.
+  red_flag: Monthly churn of ~8-10%+, implying the base turns over in roughly 10-12
+    months and never builds durability. Worse if early cohorts churn faster than later
+    ones (no improving retention).
+  note: Consumer churn is structurally higher than B2B SaaS (where <1-2% monthly is
+    the norm), so investors judge it against consumer norms. The cross-cohort trend
+    (is churn improving as you iterate?) matters as much as the absolute level. a16z
+    defines monthly unit and net revenue churn.
+  sources:
+  - https://a16z.com/16-startup-metrics/
+- sector: consumer
+  metric: ARPU / monetization per active user
+  stage:
+  - series-a
+  wedge: general
+  healthy: 'No universal number, judged relative to CAC and engagement: ARPU should
+    be rising over time with a credible path where it comfortably exceeds blended
+    CAC over a reasonable horizon.'
+  red_flag: Flat or declining ARPU while CAC rises, ARPU so low that even strong retention
+    can't justify acquisition cost, or monetization that visibly suppresses engagement/retention.
+  note: 'For consumer, the core tension is monetization vs. growth: investors want
+    evidence you can monetize WITHOUT killing the engagement that drives the retention
+    curve. Highly category-dependent (ad-supported vs. transactional vs. subscription).
+    No specific public benchmark source for ARPU; the a16z 16-metrics list does not
+    cover it, so no source is cited here.'
+  sources: []
+- sector: consumer
+  metric: burn multiple (net burn / net new ARR)
+  stage:
+  - series-a
+  wedge: general
+  healthy: 'David Sacks'' bands: <1x great, 1-1.5x good, 1.5-2x suspect, 2-3x bad,
+    >3x extremely bad. Consumer companies with weaker per-dollar revenue early are
+    often given some latitude vs. B2B, but the discipline still applies.'
+  red_flag: 'Burn multiple >2x: spending more than $2 of net burn per $1 of net new
+    revenue, signaling inefficient growth that won''t survive a tight funding market.'
+  note: Increasingly central in post-2022 diligence. For pre-revenue/engagement-led
+    consumer plays at seed it's often not applicable; it becomes a real bar at Series-A
+    once there's revenue. Sacks defined the metric and bands. Corrected the source
+    URL (the prior one 404'd).
+  sources:
+  - https://sacks.substack.com/p/the-burn-multiple-51a7e43cb200
+- sector: consumer
+  metric: runway / months of cash
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: 'Conventional guidance: raise enough for ~18-24 months of runway to reach
+    the next milestone (clear engagement/retention proof at seed; efficient, monetizing
+    growth at Series-A).'
+  red_flag: Under ~6 months of runway at fundraise time (negotiating from weakness),
+    or a plan that hits zero before any milestone that would justify the next round.
+  note: 'Not consumer-specific but always diligenced. The real question: does this
+    runway buy a step-change in the metrics that matter for consumer (the flattening
+    retention curve, organic growth), or just more of the same? The 18-24 month figure
+    is widely-repeated convention, not a hard published threshold. Dropped the NVCA
+    source, which does not support this claim.'
+  sources:
+  - https://www.ycombinator.com/library/4D-yc-s-essential-startup-advice

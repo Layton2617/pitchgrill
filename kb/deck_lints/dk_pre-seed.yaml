@@ -1,0 +1,158 @@
+cell: dk:pre-seed
+type: deck_lint
+wedge: general
+items:
+- id: tam-top-down-percent-of-trillion
+  stage:
+  - pre-seed
+  wedge: general
+  issue: TAM is computed top-down as 'we only need 1% of a $X trillion market' (e.g.
+    1% of global retail / healthcare / a Gartner headline number)
+  why: The 1%-of-a-trillion move is the single most recognizable amateur tell on a
+    deck. It signals the founder hasn't thought about who actually buys, what they
+    pay, or how the company gets to those buyers. Reviewers stop reading because it
+    predicts every other number in the deck is reverse-engineered to look big rather
+    than built from reality.
+  fix: 'Replace with a bottom-up build: (# of reachable customers in your beachhead)
+    x (realistic annual contract value) = SAM you can name, then show the path to
+    expand. Anchor ACV in your own pricing or a close comparable, not a market-report
+    headline.'
+  source: https://www.ycombinator.com/library
+- id: traction-slide-vanity-metrics
+  stage:
+  - pre-seed
+  wedge: general
+  issue: 'Traction slide shows only vanity metrics: signups, waitlist size, pageviews,
+    app downloads, ''users'' with no engagement or revenue context'
+  why: Investors read vanity metrics as a deliberate substitute for the metric that
+    matters (retention/revenue). Showing 50k signups but hiding DAU, repeat usage,
+    or paying customers reads as 'the real number is bad,' which is worse than showing
+    a small honest number. It triggers distrust of the whole deck.
+  fix: 'Lead with the hardest real number you have: paying customers, MRR/ARR, week-4
+    or month-3 retention cohorts, or revenue retention. If pre-revenue, show depth-of-engagement
+    (e.g. a tight retention curve that flattens) and one design-partner with a signed
+    LOI. One credible cohort beats a six-figure vanity count.'
+  source: https://www.sequoiacap.com/article/writing-a-business-plan/
+- id: no-ask-no-use-of-funds
+  stage:
+  - pre-seed
+  wedge: general
+  issue: 'No ask slide: deck never states how much is being raised, on what terms/instrument,
+    or what the money buys (no use-of-funds)'
+  why: A deck with no ask forces the investor to guess round size and what milestone
+    the capital unlocks. Ambiguity here reads as the founder not having a plan, and
+    it makes the meeting unactionable. Reviewers can't model whether the raise gets
+    you to a fundable next milestone, so they pass rather than do that work for you.
+  fix: 'Add a closing slide: amount (industry-typical pre-seed range ~$500k-$2M, not
+    an absolute), instrument (SAFE/note), and a use-of-funds tied to a concrete milestone
+    the round reaches (e.g. ''gets us to $30k MRR / 18 months runway''). Break spend
+    into 3-4 buckets (eng/GTM/etc.).'
+  source: https://www.ycombinator.com/library/4A-a-guide-to-seed-fundraising
+- id: no-clear-problem-solution-in-search-of-problem
+  stage:
+  - pre-seed
+  wedge: general
+  issue: 'Solution-in-search-of-a-problem: deck opens with the product/tech (''we
+    built an AI agent that...'') and never states a sharp, painful, specific customer
+    problem'
+  why: Pre-seed is bet on a problem and a founder, not a feature. If the first 30
+    seconds are about your tech stack rather than whose hair is on fire, the reviewer
+    can't tell if anyone wants this. 'Cool tech, unclear who needs it' is one of the
+    most common quiet rejections.
+  fix: Open with the problem stated as a specific person's pain ('Ops managers at
+    mid-size logistics firms spend 6 hrs/week reconciling X by hand'). Quantify the
+    pain in time/money, then introduce the product as the answer. Tech goes later,
+    as proof you can deliver.
+  source: https://review.firstround.com/
+- id: no-competition-or-quadrant-with-you-top-right
+  stage:
+  - pre-seed
+  wedge: general
+  issue: '''We have no competitors'' or a 2x2 magic quadrant with your logo conveniently
+    alone in the top-right corner'
+  why: Claiming no competitors signals you either don't understand the market or are
+    ignoring how customers solve the problem today (incumbents, spreadsheets, doing
+    nothing). The self-serving 2x2 with axes chosen to isolate you is transparent
+    and erodes credibility. Both make the reviewer trust your market judgment less.
+  fix: Name the real alternatives including the status quo ('today they use Excel
+    + a contractor'). Show an honest comparison on the 1-2 dimensions where you genuinely
+    win, and acknowledge where incumbents are stronger. Articulating why you win against
+    a strong competitor is more convincing than pretending none exist.
+  source: https://a16z.com/
+- id: hockey-stick-projections-no-assumptions
+  stage:
+  - pre-seed
+  wedge: general
+  issue: Financial projection is a 5-year hockey-stick to $100M ARR with no stated
+    assumptions (no CAC, conversion, or growth-driver math behind the curve)
+  why: Every reviewer has seen the identical hockey stick. Without the assumptions
+    underneath (what drives the inflection?), the chart conveys zero information and
+    signals magical thinking. At pre-seed they're underwriting your reasoning, not
+    your spreadsheet; an unjustified curve says you haven't done the reasoning.
+  fix: 'Show a shorter projection (12-24 months) driven by visible levers: top-of-funnel
+    x conversion x ACV x retention. State the 2-3 assumptions the whole model hinges
+    on so a reviewer can stress-test them. Defensible and modest beats unjustified
+    and huge.'
+  source: https://www.ycombinator.com/library
+- id: team-slide-no-why-us
+  stage:
+  - pre-seed
+  wedge: general
+  issue: Team slide is just logos/titles (ex-FAANG badges) with no 'why this team
+    for this specific problem' — no founder-market fit, unexplained part-time/advisor-heavy
+    team
+  why: Pre-seed is overwhelmingly a bet on the team. Prestige logos answer 'are they
+    smart' but not 'why are they the ones to win this market.' A team that's all advisors
+    and part-timers, or whose background has nothing to do with the problem, reads
+    as high execution risk. This is often the deciding factor at this stage.
+  fix: For each founder, state the specific insight/experience that makes them unfairly
+    suited to this problem (built the thing internally, lived the pain for years,
+    deep domain network). Make clear who is full-time. Founder-market fit in one sentence
+    beats five impressive but irrelevant logos.
+  source: https://review.firstround.com/
+- id: 12-point-font-text-wall-deck
+  stage:
+  - pre-seed
+  wedge: general
+  issue: 'Deck is a 25+ slide text wall: dense paragraphs, 12pt font, multiple ideas
+    per slide, no clear single-message-per-slide structure'
+  why: Decks are skimmed in 2-3 minutes, often forwarded cold. If the core narrative
+    (problem, solution, why now, traction, team, ask) can't be absorbed at a glance,
+    the reviewer bounces before reaching the good parts. Poor information design also
+    signals poor communication, which predicts poor selling/recruiting/fundraising.
+  fix: 'One message per slide, ~10-12 slides, headline states the takeaway (not a
+    category label). Move detail to an appendix. Aim for the standard pre-seed arc:
+    problem, solution, why now, market, product, traction, business model, team, ask.
+    Make it legible projected on a wall.'
+  source: https://www.sequoiacap.com/article/writing-a-business-plan/
+- id: no-why-now-inevitability
+  stage:
+  - pre-seed
+  wedge: general
+  issue: 'No ''why now'' slide: deck never explains what recently changed (tech, regulation,
+    behavior, cost curve) that makes this the right moment'
+  why: Investors fund timing as much as ideas. If a good idea has been viable for
+    10 years, the reviewer assumes it's either already been tried and failed, or there's
+    a non-obvious reason it doesn't work. Absence of a 'why now' makes the opportunity
+    feel either too late or unfounded, and removes the urgency that drives a yes.
+  fix: Add a 'why now' slide naming the specific recent shift that unlocks this (model
+    capability crossed a threshold, a regulation changed, a platform opened, unit
+    costs dropped). Tie your wedge directly to that change so the opportunity feels
+    time-bound and inevitable rather than evergreen.
+  source: https://a16z.com/
+- id: business-model-handwaved-or-missing
+  stage:
+  - pre-seed
+  wedge: general
+  issue: Business model is missing or hand-waved ('we'll monetize later' / 'ads +
+    premium + marketplace + API') with no primary revenue mechanism or pricing
+  why: Listing every possible revenue stream signals you've committed to none and
+    don't yet understand what the customer will actually pay for. 'Monetize later'
+    at pre-seed is acceptable only for genuine consumer-network plays; for almost
+    everything else it reads as avoidance. Reviewers can't size the opportunity without
+    a price.
+  fix: Name one primary revenue model and an actual price point, even a hypothesis
+    you're testing ('$X/seat/month, validated with 3 design partners'). Tie it to
+    the bottom-up market math. You can note expansion vectors, but commit to a v1
+    way you make money.
+  source: https://www.ycombinator.com/library

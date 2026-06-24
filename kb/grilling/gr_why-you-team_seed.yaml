@@ -1,0 +1,172 @@
+cell: gr:why-you-team:seed
+type: grilling
+wedge: general
+items:
+- id: why-now-you-founder-market-fit
+  theme: why-you-team
+  stage:
+  - seed
+  wedge: general
+  question: Of all the people on earth, why are YOU the right person to build this
+    — what do you know that almost nobody else does?
+  strong_answer: Founder articulates a specific, hard-won insight (a 'secret') derived
+    from years of lived operating experience inside the problem — e.g., 'I ran ops
+    at three of these companies and watched this exact workflow break the same way
+    every time.' The edge is non-obvious, not Googleable, and explains why incumbents
+    and other smart teams have NOT done this. Connects personal history directly to
+    the wedge.
+  weak_answer: Generic passion ('I've always cared about this space'), a credential-only
+    answer ('I went to a top school and worked at FAANG'), or a market-size answer
+    that never explains personal advantage. Says 'anyone could build this but we'll
+    execute better' — execution-only claims signal no real founder-market fit.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+  - https://a16z.com
+- id: cofounder-split-and-decision-rights
+  theme: why-you-team
+  stage:
+  - seed
+  wedge: general
+  question: Walk me through your equity split and who has the final say when you two
+    fundamentally disagree.
+  strong_answer: Roughly equal or deliberately-reasoned split with clear rationale,
+    all founders on standard 4-year vesting with a 1-year cliff (industry-typical),
+    and a named decision-maker per domain (one CEO with final tie-break). Shows they've
+    already had real disagreements and resolved them. Vesting is in place even among
+    friends/family co-founders.
+  weak_answer: Wildly lopsided split with no reasoning, no vesting ('we trust each
+    other'), or 'we decide everything together / 50-50 and we never disagree.' Inability
+    to name who breaks a tie signals a future founder blowup — the single most common
+    seed-stage company-killer.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+  - https://www.nvca.org
+- id: why-cofounders-chose-each-other
+  theme: why-you-team
+  stage:
+  - seed
+  wedge: general
+  question: How long have you known your co-founder, and what's the hardest thing
+    you've already been through together?
+  strong_answer: A multi-year relationship (worked or built together before, industry-typical
+    signal is having shipped something or survived a real conflict together) and a
+    concrete story of high-stress conflict that was resolved and made the relationship
+    stronger. Demonstrates complementary skills, not redundant ones.
+  weak_answer: Met recently (at a hackathon / accelerator / through a co-founder matching
+    service weeks ago) with no shared adversity yet, or two people with identical
+    backgrounds and skills. 'We just clicked' without evidence of conflict-tested
+    trust is a red flag investors discount heavily.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+  - https://www.crv.com
+- id: single-founder-gap
+  theme: why-you-team
+  stage:
+  - seed
+  wedge: general
+  question: You're a solo founder — what critical skill are you missing, and why hasn't
+    anyone good joined you yet?
+  strong_answer: 'Honest, specific gap (e.g., ''I''m the technical founder, I lack
+    enterprise sales'') with concrete evidence of de-risking it: a named candidate
+    in the pipeline, an advisor filling the gap now, or early hires already onboard.
+    Acknowledges solo-founder risk directly and shows recruiting traction.'
+  weak_answer: Claims to have no gaps ('I can do everything'), or has tried and failed
+    to recruit anyone and won't say why. The inability to attract a co-founder or
+    early team is itself read as a signal about the founder's ability to recruit talent
+    later.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://a16z.com
+  - https://review.firstround.com
+- id: full-time-commitment-burn-runway
+  theme: why-you-team
+  stage:
+  - seed
+  wedge: general
+  question: Is everyone full-time, and how long can each of you personally go without
+    a paycheck?
+  strong_answer: All core founders are full-time and have quit other jobs. Honest
+    about personal runway and modest founder salaries (seed founders typically pay
+    themselves only enough to survive). Shows commitment is total and there's no Plan
+    B competing for attention.
+  weak_answer: Key founders still have day jobs, consulting on the side, or 'will
+    go full-time once we raise.' Part-time commitment at seed signals the founder
+    isn't fully convinced themselves — investors read hedging as a deal-breaker.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+  - https://www.bvp.com
+- id: recruiting-first-ten
+  theme: why-you-team
+  stage:
+  - seed
+  wedge: general
+  question: Why would a great engineer leave a $400K job to join you for a fraction
+    of that?
+  strong_answer: 'A concrete, lived recruiting pitch: the mission, the specific learning/ownership
+    opportunity, and proof it works — names of strong people who already joined or
+    are leaning in because of the founders specifically. Founders treat recruiting
+    as their own top job, not something to delegate post-raise.'
+  weak_answer: '''We''ll use the raise to hire recruiters'' or ''people will join
+    once we have traction/funding.'' Hand-waving the talent magnet question reveals
+    the founder doesn''t yet inspire belief — at seed, the team''s ability to recruit
+    IS the moat.'
+  sources:
+  - https://review.firstround.com
+  - https://a16z.com
+  - https://www.ycombinator.com/library
+- id: unfair-advantage-vs-fast-followers
+  theme: why-you-team
+  stage:
+  - seed
+  wedge: general
+  question: If a YC-backed team of ex-Stripe engineers starts this tomorrow, why do
+    you still win?
+  strong_answer: 'A durable, team-specific unfair advantage: proprietary distribution,
+    deep domain relationships, a data or speed advantage rooted in who the founders
+    are — not just the idea. Shows clear-eyed awareness that ideas are cheap and execution
+    + founder-specific edge is the moat.'
+  weak_answer: '''We have first-mover advantage'' or ''we''ll just move faster.''
+    First-mover alone is not a moat, and ''move faster'' is what every team claims.
+    No answer to why a stronger team can''t copy them signals the wedge isn''t defensible
+    by this team.'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://a16z.com
+  - https://www.sequoiacap.com
+- id: prior-failures-and-learnings
+  theme: why-you-team
+  stage:
+  - seed
+  wedge: general
+  question: What have you failed at before, and what did it cost you?
+  strong_answer: A specific failure (a shut-down startup, a failed launch, a fired-from
+    role) with a precise, non-self-serving lesson that visibly changes how they operate
+    now. Shows self-awareness, resilience, and pattern-recognition earned the hard
+    way.
+  weak_answer: '''My biggest weakness is I work too hard'' style non-answers, or a
+    polished failure story with no real cost or scar tissue. Inability to name a genuine
+    failure reads as either inexperience or lack of self-awareness — both raise risk.'
+  sources:
+  - https://review.firstround.com
+  - https://www.ycombinator.com/library
+  - https://www.crv.com
+- id: founder-role-clarity-ceo
+  theme: why-you-team
+  stage:
+  - seed
+  wedge: general
+  question: Who's the CEO, and was that an obvious choice or a negotiated one?
+  strong_answer: One clear CEO, chosen for fit (usually strongest at vision/recruiting/fundraising),
+    with the other founder(s) genuinely bought in. Roles are differentiated and non-overlapping.
+    The decision was deliberate and there's no lingering ambiguity about it.
+  weak_answer: '''We''re co-CEOs'' or ''we rotate'' or visible discomfort/tension
+    when asked. Co-CEO structures and unresolved leadership ambiguity are widely treated
+    as a structural risk that surfaces under pressure later.'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+  - https://www.sequoiacap.com

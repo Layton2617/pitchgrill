@@ -1,0 +1,168 @@
+cell: bm:ai-infra
+type: benchmark
+wedge: general
+items:
+- sector: ai-infra
+  metric: YoY revenue growth rate
+  stage:
+  - series-a
+  healthy: 3x+ ARR YoY (T2D3 trajectory); top AI-infra companies hitting 4-5x off
+    a real base
+  red_flag: <2x YoY at Series A, or growth that is all from a single design-partner
+    contract
+  note: AI-infra rounds in 2024-2025 were priced on growth velocity more than absolute
+    ARR. Investors discount growth heavily if it is paid-pilot revenue rather than
+    committed, recurring usage. Industry-typical value, not an absolute rule.
+  wedge: general
+  sources:
+  - https://www.bvp.com/atlas/scaling-to-100-million
+- sector: ai-infra
+  metric: Net revenue retention (NRR / NDR)
+  stage:
+  - series-a
+  healthy: 120%+ for usage-based infra; best-in-class 130-150% as customer model/inference
+    volume scales
+  red_flag: <100% NRR, indicating customers churn or downgrade after initial deployment
+  note: Usage-based AI-infra has structurally high NRR because spend grows with token/compute
+    consumption. Investors expect a HIGHER bar here than for seat-based SaaS; 110%
+    that would be fine for SaaS reads as weak for infra. Industry-typical value, not
+    an absolute rule.
+  wedge: general
+  sources:
+  - https://a16z.com/ai-retention-benchmarks/
+- sector: ai-infra
+  metric: Gross margin
+  stage:
+  - seed
+  - series-a
+  healthy: 60-80% blended; investors accept lower (50-60%) at seed if there is a credible
+    path to 70%+ as GPU costs amortize and inference is optimized
+  red_flag: <50% with no margin-improvement plan, or margin declining as you scale
+    (negative operating leverage from cloud/GPU COGS)
+  note: AI-infra margins are dragged by GPU/inference COGS that classic SaaS doesn't
+    carry, so 80%+ SaaS-grade margin is rare and not expected. What investors actually
+    probe is the TRAJECTORY and unit economics per inference, not the snapshot. Industry-typical
+    value, not an absolute rule.
+  wedge: general
+  sources:
+  - https://a16z.com/revenue-benchmarks-ai-apps/
+- sector: ai-infra
+  metric: Burn multiple (net burn / net new ARR)
+  stage:
+  - series-a
+  healthy: <1.5x good, <1.0x excellent for an infra company at scale
+  red_flag: '>2.0x, especially if burn is driven by compute spend that doesn''t convert
+    to retained revenue'
+  note: 'Burn multiple is the cleanest efficiency lens for AI-infra because it captures
+    the heavy compute spend that CAC/payback miss. A team burning $3 to add $1 of
+    ARR while paying for training/inference is the canonical red flag. Sacks'' rule:
+    <2x good, >2x dangerous. Industry-typical value, not an absolute rule.'
+  wedge: general
+  sources:
+  - https://www.crv.com/content/series-a-metrics-vcs-expect
+- sector: ai-infra
+  metric: CAC payback period
+  stage:
+  - series-a
+  healthy: <12 months for bottom-up/PLG infra; <18 months acceptable for enterprise-sold
+    infra
+  red_flag: '>24 months, or payback that doesn''t account for ongoing GPU COGS in
+    the contribution margin'
+  note: 'Non-obvious for infra: payback must be computed on gross-margin-adjusted
+    revenue, since compute COGS eats into each dollar. PLG-driven AI-infra (developers
+    self-serve via API key) should show dramatically faster payback than enterprise-sold
+    platforms. Industry benchmarks: PLG 6-12mo, enterprise 18-24mo. Industry-typical
+    value, not an absolute rule.'
+  wedge: general
+  sources:
+  - https://a16z.com/revenue-benchmarks-ai-apps/
+- sector: ai-infra
+  metric: Magic number (net new ARR / prior-quarter S&M)
+  stage:
+  - series-a
+  healthy: 0.75-1.0+ signals efficient, scalable GTM worth funding
+  red_flag: <0.5, indicating you should not pour more into S&M yet
+  note: Often less informative for early bottom-up AI-infra where growth is product/community-led
+    rather than S&M-led; in that case investors weight PLG funnel metrics (signups
+    to paid conversion, time-to-first-API-call) over magic number. Industry-typical
+    value, not an absolute rule.
+  wedge: general
+  sources:
+  - https://www.bvp.com/atlas/scaling-to-100-million
+- sector: ai-infra
+  metric: Gross logo / revenue churn
+  stage:
+  - series-a
+  healthy: <10-15% annual logo churn; <5% gross revenue churn for sticky platform
+    infra
+  red_flag: '>20% annual logo churn, signaling the product is a swappable commodity
+    layer'
+  note: 'Churn is the truth-test for AI-infra defensibility: if customers can re-point
+    an API base URL to a competitor in an afternoon, churn exposes it. Low switching
+    cost is the existential risk for thin wrapper/gateway infra. Industry-typical
+    value, not an absolute rule.'
+  wedge: general
+  sources:
+  - https://a16z.com/ai-retention-benchmarks/
+- sector: ai-infra
+  metric: ARR at raise
+  stage:
+  - seed
+  - series-a
+  healthy: 'Seed: $0-250K ARR or strong design-partner pipeline acceptable. Series
+    A: ~$1-3M ARR typical, with hot AI-infra rounds closing pre-meaningful-revenue
+    on team + technical moat'
+  red_flag: Series A with flat or stalled ARR and no usage growth; seed pitching only
+    a demo with zero design partners
+  note: 'AI-infra is bimodal: elite-team/novel-systems-research rounds get funded
+    ahead of revenue, but for everyone else the ARR bar applies. a16z Series A datasets
+    center on $1M+ ARR. ''No traction'' is fatal unless you have a genuinely scarce
+    technical team. Industry-typical value, not an absolute rule.'
+  wedge: general
+  sources:
+  - https://www.crv.com/content/series-a-metrics-vcs-expect
+- sector: ai-infra
+  metric: Months of runway at raise
+  stage:
+  - seed
+  - series-a
+  healthy: Raise with 6+ months left; target 18-24 months of runway post-round given
+    compute-heavy burn
+  red_flag: <3 months runway (forced/down-round dynamics), or a plan that assumes
+    flat GPU prices
+  note: 'Infra-specific: runway models must stress-test compute cost, since a usage
+    spike or GPU price move can compress runway faster than headcount does. Investors
+    expect a runway model that flexes with compute, not a static headcount burn. The
+    18-24mo target is a planning convention, not a hard threshold.'
+  wedge: general
+  sources: []
+- sector: ai-infra
+  metric: Revenue concentration (top customer % of ARR)
+  stage:
+  - seed
+  - series-a
+  healthy: No single customer >20-25% of ARR by Series A; diversified across multiple
+    paying logos
+  red_flag: Top customer >40-50% of ARR, or ARR dependent on one AI-lab/hyperscaler
+    whose own roadmap could absorb your product
+  note: 'Acute in AI-infra: a large chunk of revenue from a single frontier lab is
+    a double risk because that customer is also a potential competitor who may build
+    the capability in-house. Concentration plus platform-risk compounds. The 20-25%
+    / 40-50% bands are a common diligence convention, not a hard rule.'
+  wedge: general
+  sources: []
+- sector: ai-infra
+  metric: Usage-based vs. committed revenue mix
+  stage:
+  - series-a
+  healthy: Growing share of committed/contracted spend (annual commits, minimums)
+    layered on top of consumption upside
+  red_flag: 100% pure pay-as-you-go with no commitments, making ARR volatile and forecasting
+    unreliable
+  note: Pure consumption revenue is high-quality only if it is durable; investors
+    increasingly want to see customers signing minimum commitments, which signals
+    the product is mission-critical rather than experimental spend that vanishes when
+    a budget tightens. Qualitative diligence point, no fixed threshold.
+  wedge: general
+  sources:
+  - https://a16z.com/revenue-benchmarks-ai-apps/

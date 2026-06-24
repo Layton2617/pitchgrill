@@ -1,0 +1,198 @@
+cell: gr:moat-defensibility:pre-seed
+type: grilling
+wedge: general
+items:
+- id: what-stops-a-funded-competitor-from-copying-you
+  theme: moat-defensibility
+  stage:
+  - pre-seed
+  wedge: general
+  question: If a well-funded incumbent or a YC team copied your product next quarter,
+    what specifically stops them from winning?
+  strong_answer: 'Founder names a concrete, compounding advantage that copying the
+    feature does NOT replicate: a proprietary data loop that improves with usage,
+    an integration/workflow that''s painful to rip out, a distribution channel competitors
+    can''t access, or accumulated trust in a regulated/high-switching-cost niche.
+    They distinguish ''the feature'' (copyable in weeks) from ''the system'' (takes
+    the copier the same 2-3 years you''ll have spent). They acknowledge the feature
+    is copyable and explain why that doesn''t matter.'
+  weak_answer: '''We move faster / we care more / we have first-mover advantage /
+    we''ll have a patent.'' First-mover advantage at pre-seed is not a moat, speed
+    is table stakes, and ''we execute better'' is what every team says. Treating the
+    feature itself as the moat signals the founder hasn''t thought past the demo.'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://a16z.com
+  - https://www.firstround.com
+- id: moat-today-vs-moat-later
+  theme: moat-defensibility
+  stage:
+  - pre-seed
+  wedge: general
+  question: You don't have a moat yet at pre-seed — so what's the specific mechanism
+    by which one accrues, and what milestone proves it's working?
+  strong_answer: 'Founder is honest that there''s no moat today and names the accrual
+    mechanism: e.g., each customer''s data trains a model that raises win-rate for
+    the next customer, or network effects where user N makes the product better for
+    user N+1, or switching costs that climb as the product embeds into workflows.
+    Crucially they state a measurable leading indicator (e.g., cohort retention improving
+    over time, declining CAC as referrals compound, usage-driven model accuracy gains)
+    that would show the flywheel is real before the next round.'
+  weak_answer: Claims to already have a moat at pre-seed, or describes the moat as
+    a vague future ('once we have scale, network effects will kick in') with no mechanism
+    and no metric to verify it. 'We'll figure out defensibility after PMF' shows no
+    theory of why the business compounds.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://a16z.com
+  - https://www.bvp.com
+- id: is-this-a-feature-or-a-company
+  theme: moat-defensibility
+  stage:
+  - pre-seed
+  wedge: general
+  question: Why is this a company and not a feature that OpenAI, Salesforce, or the
+    platform you're built on absorbs in a roadmap cycle?
+  strong_answer: 'Founder shows the wedge is a feature now but expands into a workflow/system
+    the platform won''t prioritize (too small for them, off their strategic core,
+    conflicts with their business model, or requires data/relationships they lack).
+    They explain platform risk explicitly and how owning the customer relationship
+    and proprietary data above the model layer makes them more than a thin wrapper.
+    For AI specifically: value is in proprietary data, workflow lock-in, and last-mile
+    integration, not the prompt.'
+  weak_answer: '''GPT wrapper'' with no layer of defensibility — the entire product
+    is a prompt plus a UI. Or dismisses the platform threat (''they won''t bother
+    with us'') without explaining why. Building squarely on a platform''s announced
+    roadmap is a freeze-worthy reveal.'
+  sources:
+  - https://a16z.com
+  - https://www.ycombinator.com/library
+  - https://www.sequoiacap.com
+- id: switching-cost-when-customer-leaves
+  theme: moat-defensibility
+  stage:
+  - pre-seed
+  wedge: general
+  question: Walk me through exactly what a customer loses if they switch to a competitor
+    — what's the rip-out cost?
+  strong_answer: 'Concrete switching costs: accumulated data/history that doesn''t
+    export cleanly, workflows and integrations rewired into the customer''s stack,
+    team training and habit, contractual or compliance entanglement, or being the
+    system of record. Founder can point to early signals — e.g., usage deepening over
+    months, expansion within accounts, or customers building on top of the product
+    — even at tiny scale.'
+  weak_answer: '''It''d be annoying for them to switch'' or ''our UX is better so
+    they''ll stay.'' Low/no switching cost means price competition and churn. If the
+    honest answer is ''they could leave tomorrow with no loss,'' that''s the trouble
+    signal.'
+  sources:
+  - https://www.bvp.com
+  - https://www.firstround.com
+  - https://a16z.com
+- id: data-moat-cold-start-and-defensibility
+  theme: moat-defensibility
+  stage:
+  - pre-seed
+  wedge: general
+  question: You claim a data advantage — where does the data come from, why can't
+    a competitor buy or scrape the equivalent, and at what volume does it actually
+    matter?
+  strong_answer: 'Data is proprietary and hard to replicate: generated as a byproduct
+    of usage (not buyable), exclusive via a partnership/relationship, or in a domain
+    where labeled data is scarce and expensive. Founder explains the cold-start path
+    (how they get enough data to be useful before they have scale) and is realistic
+    that small datasets rarely create a moat early — the moat is the compounding rate,
+    not today''s volume. They distinguish data that''s genuinely differentiating from
+    data anyone can scrape or license.'
+  weak_answer: '''We''ll have tons of data'' from a public/scrapeable source, or data
+    a competitor can simply purchase. Confusing ''we collect data'' with ''our data
+    is defensible.'' No answer for the cold-start problem (needing data to be good,
+    needing to be good to get data). Industry-typical reality: a data moat usually
+    needs a usage loop where accuracy/value measurably improves with volume — not
+    a static dump.'
+  sources:
+  - https://a16z.com
+  - https://www.ycombinator.com/library
+  - https://www.nfx.com
+- id: network-effects-real-or-claimed
+  theme: moat-defensibility
+  stage:
+  - pre-seed
+  wedge: general
+  question: 'You said ''network effects'' — describe the exact loop: which user makes
+    the product better for which other user, and is it same-side or cross-side?'
+  strong_answer: 'Founder names the precise mechanism (e.g., marketplace cross-side:
+    more supply attracts more demand; or data network effect: each user''s activity
+    improves recommendations for all; or social/embedding effects). They identify
+    whether effects are local vs global (local network effects can be defended city-by-city
+    or vertical-by-vertical even by a smaller player) and what the minimum viable
+    density is to make the effect noticeable. They''re candid that network effects
+    are usually weak until scale and what bridges the gap until then.'
+  weak_answer: Uses 'network effects' as a synonym for 'growth' or 'virality' or 'word
+    of mouth.' Can't name who benefits from whom. Claiming strong network effects
+    at pre-seed with a handful of users — the term is invoked as a buzzword to imply
+    a moat that doesn't exist yet.
+  sources:
+  - https://www.nfx.com
+  - https://a16z.com
+  - https://www.ycombinator.com/library
+- id: distribution-as-moat
+  theme: moat-defensibility
+  stage:
+  - pre-seed
+  wedge: general
+  question: If the product is copyable, is your distribution? What channel or relationship
+    do you have that a competitor can't buy their way into?
+  strong_answer: 'Founder treats distribution as a defensibility axis, not just GTM:
+    an owned audience/community built before launch, an exclusive channel partnership,
+    embedded distribution inside a workflow customers already use, founder-market
+    fit that opens doors competitors can''t (domain credibility, prior relationships),
+    or a viral/embed loop. They can articulate why this advantage compounds rather
+    than being a one-time launch boost.'
+  weak_answer: '''We''ll do content marketing / run ads / go on Product Hunt'' — channels
+    everyone can access and that confer no durable advantage. No proprietary distribution
+    and no founder-market-fit story. Assumes ''build it and they''ll come.'''
+  sources:
+  - https://www.firstround.com
+  - https://a16z.com
+  - https://www.ycombinator.com/library
+- id: why-now-and-why-you
+  theme: moat-defensibility
+  stage:
+  - pre-seed
+  wedge: general
+  question: Why hasn't this been built before, and why are you the team that builds
+    an enduring advantage here rather than someone with more resources?
+  strong_answer: 'Founder identifies a genuine ''why now'' (a recent enabling shift
+    — tech, regulation, behavior, cost curve) that opened a window, and why incumbents
+    are structurally disadvantaged (incentive conflict, legacy stack, distribution
+    that''s now a liability). They tie the moat to durable founder-market fit: unique
+    insight or access that took years to acquire and that capital alone can''t shortcut.'
+  weak_answer: '''No one''s thought of it'' (usually false, or means it''s been tried
+    and failed for a reason they can''t name), or ''the timing just feels right''
+    with no enabling shift. No answer for why a better-resourced player won''t simply
+    out-build them. Founder-market fit is asserted, not evidenced.'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://a16z.com
+  - https://www.sequoiacap.com
+- id: what-would-need-to-be-true
+  theme: moat-defensibility
+  stage:
+  - pre-seed
+  wedge: general
+  question: What would have to be true for you to end up with no moat at all — and
+    what's your single biggest defensibility risk?
+  strong_answer: 'Founder can name the real kill-shot honestly: e.g., ''if the underlying
+    model commoditizes our core value, our moat collapses unless we own the data layer''
+    or ''if incumbents bundle this for free.'' They show they''ve war-gamed it and
+    have a concrete bet for how they get ahead of it (own the data, the workflow,
+    the relationship, or the regulated niche). Self-aware, specific, falsifiable.'
+  weak_answer: Can't name a single threat, or deflects ('we just have to execute').
+    Inability to articulate the biggest defensibility risk signals the founder either
+    hasn't thought adversarially about the business or is hiding it — both freeze-worthy
+    under follow-up.
+  sources:
+  - https://www.firstround.com
+  - https://a16z.com
+  - https://www.sequoiacap.com

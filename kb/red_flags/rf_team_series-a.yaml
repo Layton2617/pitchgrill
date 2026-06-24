@@ -1,0 +1,170 @@
+cell: rf:team:series-a
+type: red_flag
+wedge: general
+items:
+- id: key-person-dependency-single-founder
+  domain: team
+  stage:
+  - series-a
+  wedge: general
+  title: Single founder with no co-founder or No.2
+  why: A lone founder concentrates all execution, fundraising, and key-relationship
+    risk in one person with no proven ability to attract a peer-level partner, which
+    historically correlates with higher failure rates and is a common pass reason.
+  threshold: 1 founder (vs the typical 2-3 person founding team); company headcount
+    >15-25 with still no VP-level hire reporting to the founder
+  severity: major
+  detect: Deck team slide shows one founder photo; cap table shows ~100% founder equity
+    pre-investor; org chart has founder as direct manager of every IC; ask 'who runs
+    the company for a month if you're out?' and there is no answer.
+  sources:
+  - ycombinator.com/library
+  - firstround.com
+- id: cofounder-equity-imbalance-or-vesting-gap
+  domain: team
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Broken cofounder equity split or missing vesting
+  why: Founder equity that is wildly lopsided, fully vested, or unvested with no cliff
+    signals either an unresolved power dispute or a future blow-up when a cofounder
+    leaves with a large unearned stake, both of which kill deals in diligence.
+  threshold: founders not on the standard 4-year vesting with 1-year cliff; or a founder
+    holding >20-30% who is no longer materially active
+  severity: major
+  detect: Request the cap table and stock purchase agreements; check vesting schedules
+    and acceleration terms; cross-check claimed roles against actual time commitment
+    and whether any founder has effectively departed.
+  sources:
+  - nvca.org
+  - ycombinator.com/library
+- id: departed-cofounder-dead-equity
+  domain: team
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Departed cofounder holding 'dead equity'
+  why: A cofounder who left early but kept a large vested stake creates dead equity
+    that demotivates the active team and complicates every future round, and investors
+    view an unresolved early departure as a credibility and governance red flag.
+  threshold: ex-founder retaining >5-10% with no ongoing contribution; departure within
+    the first 18-24 months
+  severity: major
+  detect: Compare current team slide to incorporation docs / early press; ask 'has
+    anyone left the founding team and what do they own?'; look for a name on old filings
+    absent from the deck.
+  sources:
+  - ycombinator.com/library
+  - firstround.com
+- id: no-technical-cofounder-for-tech-company
+  domain: team
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: No in-house technical founder/leader
+  why: A technology company whose entire engineering is outsourced or led by a non-equity
+    contractor cannot defensibly own its core IP or iterate fast, and investors read
+    this as the team being unable to recruit the talent the business depends on.
+  threshold: 0 technical cofounders and core product built primarily by an outsourced
+    agency; no senior eng leader with meaningful equity
+  severity: major
+  detect: Ask who wrote the core code and whether they are an employee with equity;
+    check whether IP assignment exists from contractors; a CEO who cannot describe
+    the architecture at a basic level is a tell.
+  sources:
+  - ycombinator.com/library
+  - a16z.com
+- id: founder-cannot-hire-or-no-key-hires-post-seed
+  domain: team
+  stage:
+  - series-a
+  wedge: general
+  title: Failure to make senior hires after seed
+  why: By Series A the core risk shifts from product to scaling the org, so a founder
+    who took seed money but still has no VP-level leaders or a thin senior bench signals
+    an inability to attract talent, the single biggest constraint on A-stage growth.
+  threshold: post-seed headcount grown but 0 director/VP-level hires; key leadership
+    roles (eng, sales, product) unfilled 12-18 months after seed
+  severity: major
+  detect: Org chart shows only founders plus junior ICs; ask about the last three
+    senior offers and acceptance rate; high early-employee churn or a string of declined
+    offers surfaces the problem.
+  sources:
+  - firstround.com
+  - a16z.com
+- id: founder-ceo-not-coachable-or-misrepresents
+  domain: team
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Founder dishonesty or un-coachability in diligence
+  why: Any discovered misrepresentation of metrics, customers, or background instantly
+    kills a deal because Series A is a multi-year trust relationship, and a founder
+    who deflects hard questions or relitigates feedback signals they will be impossible
+    to govern on a board.
+  threshold: ''
+  severity: kill
+  detect: Triangulate claimed metrics against raw data room exports and customer reference
+    calls; watch for inconsistencies between deck, conversations, and references;
+    note defensiveness or shifting numbers when pressed.
+  sources:
+  - ycombinator.com/library
+  - sequoiacap.com
+- id: founder-misalignment-on-vision-or-exit
+  domain: team
+  stage:
+  - series-a
+  wedge: general
+  title: Cofounders misaligned on direction or commitment
+  why: Cofounder conflict is one of the most cited causes of startup death, and visible
+    disagreement on strategy, roles, or willingness to go the distance tells an investor
+    the team may fracture exactly when post-A pressure peaks.
+  threshold: ''
+  severity: major
+  detect: Interview founders separately and compare their answers on vision, role
+    boundaries, and 7-10 year commitment; contradictory stories, talking over each
+    other, or one founder hedging on staying are the signals.
+  sources:
+  - ycombinator.com/library
+  - firstround.com
+- id: absent-or-part-time-founders
+  domain: team
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Founders not full-time / divided attention
+  why: Founders who are part-time, still at a day job, or simultaneously running another
+    venture cannot give a Series A company the focus it requires, and investors treat
+    split commitment as a direct predictor of underperformance.
+  threshold: any core founder <full-time; founder concurrently CEO/operator of a second
+    active company
+  severity: major
+  detect: Ask directly whether each founder is full-time and whether they hold any
+    other operating roles or board/advisory commitments; check LinkedIn for overlapping
+    current titles.
+  sources:
+  - ycombinator.com/library
+  - firstround.com
+- id: missing-go-to-market-leadership-for-a-stage
+  domain: team
+  stage:
+  - series-a
+  wedge: general
+  title: No revenue/GTM owner for a sales-driven A round
+  why: A Series A predicated on scaling revenue with no founder or hire who owns repeatable
+    go-to-market means the growth thesis rests on a function nobody on the team has
+    built, a frequent reason investors discount the plan or pass.
+  threshold: ARR-stage company (typ. ~$1-2M ARR at A) with founder-led sales only
+    and no plan/hire for a sales or growth leader
+  severity: minor
+  detect: Ask who owns the number and what the first GTM hire plan is; if every deal
+    is closed personally by the CEO with no documented sales motion or pipeline owner,
+    the gap is real.
+  sources:
+  - bvp.com
+  - a16z.com

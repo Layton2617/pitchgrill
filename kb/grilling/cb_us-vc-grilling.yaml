@@ -1,0 +1,190 @@
+cell: cb:us-vc-grilling
+type: grilling
+wedge: cross-border-cn
+items:
+- id: cn-gtm-01
+  theme: market-why-now
+  stage:
+  - seed
+  - series-a
+  wedge: cross-border-cn
+  question: 'Who owns US go-to-market, and do they physically live in a US time zone?
+    Walk me through the org chart by location: where do the CEO, the head of sales/GTM,
+    and the first 3 customer-facing hires sit today, and where will they sit 12 months
+    from now?'
+  strong_answer: 'Names a US-resident GTM leader (or a credible plan with a signed
+    offer / relocation date) who owns the US customer relationship, with eng/product
+    allowed to stay in China. Founder either lives in the US or commits to relocating
+    and shows a concrete visa path. Shows a deliberate split: revenue-facing functions
+    in-market, build functions wherever talent is cheapest.'
+  weak_answer: '''The whole team is in Shenzhen but we''ll hire US sales after the
+    round / we do everything over Zoom and it''s fine.'' No named owner, no relocation
+    plan, founder treats 12-hour time difference as a non-issue.'
+  sources:
+  - https://review.firstround.com/
+  - https://www.ycombinator.com/library
+- id: cn-geo-02
+  theme: fundraise-risk-exit
+  stage:
+  - seed
+  - series-a
+  - series-b
+  wedge: cross-border-cn
+  question: If US-China policy worsens — export controls expand, an Entity List action,
+    or a forced-divestiture mandate like the TikTok precedent — what specifically
+    breaks in your business, and what is your pre-committed response? Is there a 'flip'
+    to a US (Delaware) topco and a path to fully decoupling the China entity?
+  strong_answer: Has already done or scoped a Delaware flip / Cayman-Delaware structure,
+    can describe which assets and IP sit in which entity, and names the specific exposure
+    (e.g. depends on a US cloud provider, or sells to US gov-adjacent buyers). Treats
+    geopolitics as a scenario with a runbook, not a tail risk to wave away.
+  weak_answer: '''Politics won''t affect SaaS'' or ''we''re just a software company,
+    this doesn''t apply to us.'' Cannot describe the current legal structure or who
+    would have to approve a restructure.'
+  sources:
+  - https://nvca.org/research/
+  - https://a16z.com/
+- id: cn-data-03
+  theme: fundraise-risk-exit
+  stage:
+  - seed
+  - series-a
+  wedge: cross-border-cn
+  question: Where does US customer data physically reside, who has access from inside
+    China, and how do you comply with both US enterprise expectations (SOC 2, data
+    residency) and China's PIPL / data-export rules at the same time? Can a US Fortune-500
+    security review pass when your engineers are PRC-based?
+  strong_answer: US customer data stays in US-region cloud (AWS/GCP/Azure US); access
+    controls and audit logs prove China-side engineers don't touch raw customer data,
+    or access is gated/anonymized. Has a credible SOC 2 timeline (Type I often within
+    ~6-12 months of selling to enterprise is an industry-typical target, not a rule).
+    Understands PIPL cross-border transfer obligations.
+  weak_answer: '''Data is in the cloud'' with no region specificity; all engineers
+    have prod access; no awareness that enterprise security questionnaires explicitly
+    ask about foreign-national data access.'
+  sources:
+  - https://www.bvp.com/atlas
+  - https://a16z.com/
+- id: cn-ip-04
+  theme: fundraise-risk-exit
+  stage:
+  - seed
+  - series-a
+  wedge: cross-border-cn
+  question: Where does the IP legally live? If your core engineers are employed by
+    a China WFOE or use a VIE structure, does the US topco actually own the code and
+    patents via assignment agreements, and would that ownership survive a China-side
+    dispute or a forced separation?
+  strong_answer: IP is assigned to the Delaware/Cayman topco via IP-transfer and PIIA
+    agreements with each China-based employee; can point to executed assignments.
+    If a VIE exists, understands its fragility and has a plan. Counsel (a name-brand
+    cross-border firm) has reviewed the chain of title.
+  weak_answer: '''The founders own it'' or doesn''t know the difference between where
+    engineers are employed and where IP is assigned. No assignment agreements with
+    China-based staff. Assumes a GitHub repo equals ownership.'
+  sources:
+  - https://nvca.org/research/
+  - https://www.ycombinator.com/library
+- id: cn-fund-05
+  theme: fundraise-risk-exit
+  stage:
+  - seed
+  - series-a
+  wedge: cross-border-cn
+  question: Why are you raising from a US fund instead of a China/Asia fund or a sovereign
+    vehicle? Are you sure you want US investors on the cap table given that may itself
+    trigger CFIUS-style scrutiny or restrict you from certain China business — and
+    conversely, will any existing China LPs/investors on your cap table scare off
+    future US strategics or acquirers?
+  strong_answer: Articulates that US capital is a deliberate signal of US-market commitment
+    and buys US network/customer intros, and has checked that current cap table is
+    clean of investors that would trip CFIUS or block a US strategic exit. Knows who's
+    already on the cap table and the citizenship/domicile of major holders.
+  weak_answer: '''US money is just better / more prestigious'' with no awareness of
+    the two-way regulatory friction. Has Chinese state-linked or sanctioned-adjacent
+    investors on the cap table and hasn''t thought about how that reads to a US acquirer.'
+  sources:
+  - https://nvca.org/research/
+  - https://review.firstround.com/
+- id: cn-win-06
+  theme: market-why-now
+  stage:
+  - seed
+  - series-a
+  wedge: cross-border-cn
+  question: Show me a US customer you've actually won, not a logo on a pilot. Who
+    signed, what did they pay, and what was the real reason they bought from a China-origin
+    company over a US-native competitor? When procurement asked 'where's your team
+    based,' what happened?
+  strong_answer: Names paying US customers with real ACV and a champion, and is honest
+    that origin came up in procurement and how they handled it (e.g. US entity on
+    the contract, US-based support). Has a repeatable reason-to-buy (10x better/cheaper)
+    strong enough to overcome origin friction, not just one friendly design partner.
+  weak_answer: Only LOIs, free pilots, or customers who are themselves China-connected.
+    Claims origin 'never comes up.' Cannot explain why a US buyer takes the procurement
+    risk over an incumbent.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com/
+- id: cn-bank-07
+  theme: fundraise-risk-exit
+  stage:
+  - seed
+  - series-a
+  wedge: cross-border-cn
+  question: How do dollars actually flow? When my fund wires USD into the topco, how
+    does that money reach engineers being paid in RMB, and how do US revenues repatriate?
+    Have you stress-tested SAFE/cross-border remittance, transfer pricing, and what
+    happens to runway if China tightens capital outflow?
+  strong_answer: 'Has a working money-movement path: USD into topco, intercompany
+    service agreement funding the WFOE, documented transfer pricing, and a tax-aware
+    structure reviewed by counsel/accountants. Knows the lead time and friction on
+    each transfer and has buffer for capital-control delays.'
+  weak_answer: '''My accountant handles it'' with no understanding of the topco-WFOE
+    flow, no service agreement, or assumes USD can be freely moved in/out of China.
+    Surprised by transfer pricing as a concept.'
+  sources:
+  - https://nvca.org/research/
+  - https://www.bvp.com/atlas
+- id: cn-talent-08
+  theme: market-why-now
+  stage:
+  - seed
+  - series-a
+  wedge: cross-border-cn
+  question: Your edge is presumably cheaper/faster China engineering. As you scale
+    US GTM, that arbitrage shrinks and the org becomes split across a 12-hour gap.
+    What is the durable advantage once a US competitor copies the product, and how
+    do you keep one company culture rather than two teams that never overlap in working
+    hours?
+  strong_answer: Names a moat beyond cheap labor — data, distribution, a specific
+    market insight, or speed that compounds. Has concrete practices for the time-zone
+    split (overlap windows, written-first culture, decision ownership) and is honest
+    that the cost arbitrage erodes and isn't the long-term thesis.
+  weak_answer: Whole pitch is 'we build for 1/3 the cost.' No answer for when a funded
+    US team out-executes on the ground. Treats the two offices as interchangeable
+    and hasn't felt the coordination tax yet.
+  sources:
+  - https://a16z.com/
+  - https://review.firstround.com/
+- id: cn-exit-09
+  theme: fundraise-risk-exit
+  stage:
+  - series-a
+  - series-b
+  wedge: cross-border-cn
+  question: What's the realistic exit, and does your structure support it? A US IPO
+    and most US strategic acquisitions require clean US-domiciled IP and data and
+    may bar a China-connected ownership stake; meanwhile the HK/A-share route has
+    its own gating. Which exit are you structuring for now, before it's expensive
+    to change?
+  strong_answer: Picks a target exit and shows the structure already points that way
+    (e.g. Delaware topco, US IP, US data residency for a US strategic/IPO path). Understands
+    that the choice is roughly one-way and made cheaply only at the start, and that
+    the wrong investor mix can foreclose the US acquirer pool.
+  weak_answer: '''We''ll figure out exit later'' or assumes both US and China exits
+    stay open indefinitely at no cost. No awareness that cap-table composition and
+    entity domicile constrain who can buy them.'
+  sources:
+  - https://nvca.org/research/
+  - https://www.bvp.com/atlas

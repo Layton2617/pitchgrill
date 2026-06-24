@@ -1,0 +1,149 @@
+cell: sv:redflags
+type: red_flag
+wedge: general
+items:
+- id: process-slow-diligence-responsiveness
+  domain: process
+  stage:
+  - diligence
+  - term-sheet
+  wedge: general
+  title: Slow or inconsistent data-room responsiveness during diligence
+  why: 'Diligence is a live behavioral test of how a founder will operate post-investment.
+    When requested documents trickle in over days, numbers get re-sent with corrections,
+    or ''we''ll get that to you'' becomes a pattern, investors read it as either weak
+    internal systems (no clean cap table, no reconciled financials, no source-of-truth
+    metrics) or deliberate stalling to hide something. The signal is not the delay
+    itself but the inconsistency: a startup that closes weekly metrics can answer
+    most asks in hours. Responsiveness also predicts board hygiene and how fundraises,
+    audits, and crises will go later. Asymmetric latency (fast on growth questions,
+    slow on churn/cohorts/legal) is the sharper tell.'
+  severity: yellow
+  detect: Track median turnaround per diligence request and flag any single item >5
+    business days (industry-typical patience threshold) without a credible reason.
+    Compare latency on favorable vs unfavorable topics; a >3x gap is a flag. Re-ask
+    one metric two different ways across two meetings and check the two answers reconcile.
+  threshold: 'industry-typical: any core diligence item unanswered >5 business days,
+    or >3x latency gap between favorable and unfavorable topics'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://firstround.com
+- id: process-insiders-not-following-on
+  domain: process
+  stage:
+  - term-sheet
+  - diligence
+  wedge: general
+  title: Existing investors not following on (insider signaling)
+  why: 'Prior investors have the most information advantage of anyone at the table:
+    months of board decks, real-time metric access, and direct founder exposure. When
+    they have dry powder and pro-rata rights but decline to lead, bridge, or even
+    take their full pro-rata in the new round, it is the loudest negative information
+    signal in the process. The benign explanations (fund at end of life, ownership-cap
+    policy, reserves exhausted, conflicting portfolio bet) are real and common, so
+    the flag is conditional, not absolute. The dangerous version is an active, healthy
+    fund with reserves that chooses a token check or zero while a new outsider sets
+    the price. A weak or absent inside lead also forces the new investor to carry
+    price discovery and signaling risk alone.'
+  severity: red
+  detect: Ask each existing institutional investor directly whether they are taking
+    pro-rata and why/why not; get it from them, not the founder. Confirm fund vintage,
+    reserve policy, and remaining deployable capital. A fund <5 years into a 10-year
+    life with reserves that still passes is a strong flag; an end-of-life fund or
+    hard ownership cap is a mitigant.
+  threshold: 'industry-typical: an active fund (within first ~5 yrs of fund life)
+    with reserves taking <0.5x of its pro-rata is a meaningful negative signal'
+  sources:
+  - https://www.bvp.com
+  - https://a16z.com
+- id: process-shifting-founder-narrative
+  domain: process
+  stage:
+  - sourcing
+  - diligence
+  wedge: general
+  title: Founder story/metrics that change between meetings
+  why: 'Across a multi-meeting process the same questions get asked by different partners,
+    and the answers should converge, not drift. Material movement in the core narrative
+    - the ICP redefining itself, the revenue figure shifting depending on whether
+    it is ARR vs bookings vs pipeline, the founding story''s origin or co-founder
+    roles changing, TAM math that reframes each time - signals one of three things:
+    the founder is pattern-matching to what each investor wants to hear, the underlying
+    numbers are genuinely not understood internally, or there is something being actively
+    obscured. Honest inconsistency (a metric updated because a real correction was
+    found) is fine and should be volunteered proactively; the flag is uncorrected,
+    unacknowledged drift, especially on definitions that a competent operator would
+    have nailed down.'
+  severity: red
+  detect: Designate one partner to log the canonical answer to 5-6 core questions
+    (revenue definition and number, logo/net-dollar retention, CAC/payback, headcount,
+    runway, the one-line origin story) and re-ask them in a later meeting and in the
+    data room. Cross-check verbal claims against the deck and raw source files. Flag
+    any unexplained delta on a definitional metric or origin fact.
+  threshold: 'industry-typical: any unexplained change in a core metric definition
+    or the headline revenue number across meetings is a red flag; minor proactively-corrected
+    updates are not'
+  sources:
+  - https://www.firstround.com
+  - https://www.sequoiacap.com
+- id: process-valuation-vs-traction-gap
+  domain: process
+  stage:
+  - term-sheet
+  - diligence
+  wedge: general
+  title: Unrealistic valuation expectations vs traction
+  why: 'A founder''s ask relative to defensible traction reveals both market read
+    and coachability. Anchoring to a headline multiple from a hot comparable - while
+    sitting at a fraction of that company''s revenue, growth rate, or retention -
+    signals either weak grasp of how rounds are priced or a process being run on FOME
+    rather than fundamentals. The deeper risk is forward: an aggressive entry price
+    compresses every future markup, raises the next-round bar to a level current growth
+    cannot clear, and sets up a down round or a punishing dilution event. Refusal
+    to engage on the math, or treating a high price as a non-negotiable identity rather
+    than an outcome of comps and dilution, predicts a hard board partner. The flag
+    is not ''asking high'' - it is the inability to defend the number with cohort,
+    growth, and comparable logic.'
+  severity: yellow
+  detect: Compute implied forward revenue multiple at the ask and benchmark against
+    current private comps for the stage and growth band; flag if it sits well above
+    the median for similar growth/retention. Model the implied next-round revenue
+    needed to clear a standard markup at typical dilution and ask the founder if that
+    target is credible. Gauge reaction to the math, not just the number.
+  threshold: 'industry-typical: forward revenue multiple materially above stage/growth-band
+    median (e.g., >2x the comparable median) without offsetting growth or retention,
+    or a next-round bar requiring >2-3x revenue in ~18 months to justify a normal
+    markup'
+  sources:
+  - https://a16z.com
+  - https://www.crv.com
+  - https://www.bvp.com
+- id: process-no-clean-cap-table
+  domain: process
+  stage:
+  - diligence
+  - term-sheet
+  wedge: general
+  title: Cap table and corporate hygiene that cannot be produced cleanly
+  why: 'Cutting across the responsiveness and shifting-story flags is a concrete root
+    cause: the company often genuinely cannot produce a single source of truth. A
+    cap table that disagrees with the option ledger, missing 83(b) elections, undocumented
+    SAFEs with overlapping caps, side letters the founder forgot about, dead co-founders
+    still holding large unvested-then-accelerated stakes, or unassigned IP from contractors
+    - these surface late in diligence and explain why answers drift and arrive slowly.
+    This is both a deal-killer mechanic (uninvestable until cleaned, sometimes requiring
+    expensive cap-table surgery) and a forward signal about operational discipline.
+    It is non-obvious because early traction can mask it entirely; it only appears
+    when a lawyer actually reconciles the documents.'
+  severity: red
+  detect: Require a reconciled cap table that ties out to the option ledger and all
+    convertible instruments (SAFEs/notes with caps and dates), plus signed IP assignment
+    for every founder and key contributor and evidence of 83(b) filings. Flag any
+    gap between the summary cap table and the underlying signed docs, or any instrument
+    the founder cannot immediately locate.
+  threshold: 'industry-typical: any unreconciled delta between cap table and source
+    documents, or missing IP assignments / 83(b) evidence for founders, is a gating
+    flag before term sheet'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://nvca.org

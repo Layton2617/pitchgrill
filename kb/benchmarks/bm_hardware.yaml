@@ -1,0 +1,185 @@
+cell: bm:hardware
+type: benchmark
+wedge: general
+items:
+- sector: hardware
+  metric: gross margin (at scale / blended)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: Roughly 30-50%+ blended hardware gross margin at maturity, with a credible
+    BOM-based path to 50%+ at volume. Hardware with meaningful attached software/recurring
+    revenue can target 60%+ blended.
+  red_flag: Below ~30% with no credible cost-down path, or negative/near-zero margin
+    masked by 'we'll fix it at scale' with no BOM teardown to back it.
+  note: The most scrutinized hardware number. At seed, investors care more about a
+    credible path than today's number (hand-built units cost more); they want a BOM-based
+    bridge from current unit cost to target margin via volume pricing, DFM, and tooling
+    amortization. By Series A this shifts from 'we have a plan' to 'show me the data.'
+    Distinguish prototype margin from steady-state margin explicitly.
+  sources:
+  - seriesops.com/insights/gross-margin-hardware-startups
+- sector: hardware
+  metric: BOM cost vs. ASP ratio (unit economics)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: BOM roughly 40-60% of ASP at target volume, leaving room for assembly,
+    logistics, warranty/returns, and channel margin while preserving target gross
+    margin.
+  red_flag: BOM alone exceeds ~70% of ASP, or fully-loaded landed cost (BOM + assembly
+    + freight + duties + warranty reserve) exceeds ASP.
+  note: 'Founders often quote BOM only and ignore the ''cost stack'' between BOM and
+    gross margin: CM markup, freight/tariffs, yield loss, RMA/warranty reserve, and
+    retail/distributor margin (often 30-50% of ASP if sold through channel). DTC changes
+    this math materially. Note: the specific reserve and ratio bands are rules-of-thumb,
+    not hard standards.'
+  sources: []
+- sector: hardware
+  metric: cash conversion cycle / inventory days
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: 'Minimize the gap between paying suppliers and collecting from customers.
+    Strong signs: customer deposits/pre-orders funding production, supplier terms
+    (net 30-60), inventory turns of ~4-8x/year at scale.'
+  red_flag: Large cash tied up in inventory with slow turns (under ~2-3x), paying
+    suppliers upfront while extending customer terms, or aging/obsolete inventory
+    write-downs.
+  note: Hardware is a working-capital business as much as a margin business. A 'profitable'
+    hardware company can still die from cash trapped in inventory and AR. Investors
+    probe whether each unit shipped consumes or generates cash, and whether growth
+    requires ever-larger inventory pre-funding. Pre-orders/deposits that finance the
+    build are a strong positive signal. (Public EMS comparables run ~5-8x turns.)
+  sources: []
+- sector: hardware
+  metric: burn multiple
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: Net new revenue per dollar of net burn. Per Sacks' SaaS rule a burn multiple
+    under ~2x is reasonable; hardware investors often tolerate the higher end because
+    inventory/tooling inflate burn. Under 1x is excellent.
+  red_flag: Above ~3x (burning $3+ to generate $1 of net new revenue) with no improving
+    trend, especially past first production runs.
+  note: 'Adapted from David Sacks'' SaaS burn multiple (Net Burn / Net New ARR). Hardware
+    investors apply it more leniently because inventory build and tooling spend inflate
+    burn ahead of revenue. The key is trajectory: burn multiple should fall as volume
+    scales and unit costs come down.'
+  sources:
+  - sacks.substack.com/p/the-burn-multiple-51a7e43cb200
+- sector: hardware
+  metric: runway / months of cash
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: Raise to reach ~18-24 months of runway, sized to clear the next major de-risking
+    milestone (EVT/DVT, first production run, or proven unit economics) plus buffer
+    for hardware schedule slips.
+  red_flag: Under ~12 months runway, or a plan where the round only funds a single
+    production run with no margin for near-certain tooling/yield delays.
+  note: Hardware milestones slip more than software. Investors want runway that survives
+    a 3-6 month tooling or certification slip. Raising 'to the next prototype' rather
+    than 'to the next financeable milestone (proven cost + demand)' is a common fatal
+    error.
+  sources: []
+- sector: hardware
+  metric: growth rate (revenue / shipped units)
+  stage:
+  - series-a
+  wedge: general
+  healthy: At Series A, demonstrated demand and roughly 2-3x YoY revenue or unit growth,
+    ideally from real production units rather than prototypes/pre-orders alone.
+  red_flag: Growth driven entirely by un-fulfilled pre-orders, one-off pilot/POC deals,
+    or revenue that stalls because the company can't manufacture/ship at the rate
+    of demand.
+  note: Hardware growth is supply-constrained as often as demand-constrained. Investors
+    separate 'can't sell it' from 'can't make it.' A backlog you cannot fulfill is
+    a manufacturing risk, not demand validation. Prefer shipped-and-paid revenue over
+    bookings/pre-order GMV. The 2-3x figure is a rough Series-A expectation, not a
+    hard threshold.
+  sources: []
+- sector: hardware
+  metric: demand validation / pre-orders / LOIs
+  stage:
+  - seed
+  wedge: general
+  healthy: Real demand signal via paid pre-orders/deposits (not just waitlist sign-ups),
+    signed LOIs or POs from design partners, or a crowdfunding campaign with real
+    conversion.
+  red_flag: Demand evidence limited to free email waitlists, 'interest' surveys, or
+    social engagement with no commitment of money.
+  note: 'At seed, the question is rarely ''can it be built'' (engineering) but ''will
+    people pay enough'' (demand + willingness-to-pay at a price that yields target
+    margin). Paid deposits are the gold standard: they validate the price point and
+    partially fund the build. Waitlist size is a vanity metric.'
+  sources: []
+- sector: hardware
+  metric: manufacturing yield / defect rate (DPPM)
+  stage:
+  - series-a
+  wedge: general
+  healthy: First-pass yield trending toward ~95%+ as the line matures (95% FPY is
+    the world-class benchmark); consumer-electronics defect targets often tracked
+    in defects-per-million; warranty/RMA rates in the low single-digit percent.
+  red_flag: Persistently low first-pass yield (e.g., under ~80-85%) with no root-cause
+    path, or high field-failure/RMA rates that destroy unit margin via returns and
+    replacements.
+  note: Yield is a margin and reliability metric, not just an ops detail. Low yield
+    directly erodes gross margin (you pay BOM for scrapped units) and high field-failure
+    rates trigger warranty reserves and brand damage. At Series A investors expect
+    evidence the company can hold yield as runs scale.
+  sources: []
+- sector: hardware
+  metric: attach rate of recurring/software revenue
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: A meaningful and growing share of revenue from software/subscription/consumables
+    attached to the device, lifting blended margin toward SaaS-like levels and improving
+    LTV.
+  red_flag: A 'hardware + SaaS' story where SaaS attach is near zero, or recurring
+    revenue assumed in projections with no evidence customers will pay for it.
+  note: Pure one-time hardware sales get lower multiples than hardware-enabled recurring-revenue
+    businesses. Investors reward genuine recurring attach (subscriptions, consumables,
+    services) but penalize aspirational software revenue that hasn't been proven.
+    The razor-and-blades model only works if customers actually buy blades.
+  sources: []
+- sector: hardware
+  metric: CAC payback / LTV:CAC
+  stage:
+  - series-a
+  wedge: general
+  healthy: CAC recovered within the first sale plus early recurring revenue; LTV:CAC
+    of ~3:1 or better when including recurring/consumable revenue and repeat purchases.
+  red_flag: CAC exceeds first-unit gross profit with no recurring revenue to amortize
+    it, or LTV:CAC under ~1.5-2:1 — common when low-margin hardware is sold via paid
+    acquisition.
+  note: 'Borrowed from SaaS but applied to thin-margin units: if gross profit per
+    unit is small, even modest CAC makes payback impossible without repeat purchase
+    or attached recurring revenue. CAC payback and gross margin must be read together
+    for hardware. Channel-sold hardware shifts the CAC question to distributor/retail
+    economics.'
+  sources: []
+- sector: hardware
+  metric: capex / tooling intensity per unit of capacity
+  stage:
+  - series-a
+  wedge: general
+  healthy: Tooling and capex that amortize favorably across projected volume, with
+    a clear amortized-per-unit figure folded into the margin model and capacity sized
+    to validated demand.
+  red_flag: Heavy upfront tooling/line capex committed before demand or unit economics
+    are proven, or capacity dramatically over-built relative to actual orders.
+  note: Injection-mold tooling, assembly lines, and certification are large fixed
+    costs that only pencil out at volume. Investors check that capex is staged to
+    demand and that amortized tooling cost is included honestly in gross margin (not
+    hidden below the line). Over-tooling ahead of demand is a classic hardware cash
+    trap.
+  sources: []

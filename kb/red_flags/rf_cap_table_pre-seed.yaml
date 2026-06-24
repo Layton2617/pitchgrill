@@ -1,0 +1,161 @@
+cell: rf:cap_table:pre-seed
+type: red_flag
+wedge: general
+items:
+- id: dead-equity-absent-cofounder
+  domain: cap_table
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Large stake held by a departed or inactive co-founder
+  why: A big block of equity sitting with someone no longer building demotivates the
+    active team and signals that the next round's incentive math is already broken.
+  threshold: departed/inactive person holds a double-digit fully-diluted stake with
+    no vesting clawback (concern level, not a published bright line)
+  severity: kill
+  detect: Cap table lists a co-founder name absent from the team slide; ask 'is everyone
+    on the cap table still full-time?' and 'what happened to anyone who left and what
+    did they keep?'
+  sources:
+  - ycombinator.com/library
+- id: no-founder-vesting
+  domain: cap_table
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Founders have no vesting schedule
+  why: Without vesting, a founder can walk away the day after funding with their full
+    stake, so investors treat unvested-by-default equity as an un-fundable structural
+    risk.
+  threshold: standard expectation is 4-year vesting with a 1-year cliff
+  severity: kill
+  detect: Not on the deck; ask directly 'do founders have vesting, and how much time
+    has already vested?' — 'we own it outright' is the red-flag answer.
+  sources:
+  - ycombinator.com/library
+  - nvca.org
+- id: founders-overdiluted-early
+  domain: cap_table
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Founders already heavily diluted before institutional money
+  why: If founders own too little this early, there isn't enough equity left to motivate
+    them and absorb the dilution of a seed and Series A, so VCs see a cap table that
+    'can't get to the finish line.'
+  threshold: founding team collectively well under ~70-80% at pre-seed is a concern;
+    the worry compounds when modeled forward (rule of thumb, not a published threshold)
+  severity: major
+  detect: Sum the founder rows on the cap table; ask 'what % do founders own fully
+    diluted today?' and model it forward two rounds.
+  sources:
+  - ycombinator.com/library
+  - a16z.com
+- id: dumb-money-on-cap-table
+  domain: cap_table
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Small/unsophisticated angels or family-and-friends holding control rights
+  why: A long tail of tiny investors — or any small check with pro-rata/board/veto
+    rights — creates signaling and signature-collection problems that make the next
+    round operationally painful, so lead investors discount the deal.
+  threshold: ''
+  severity: major
+  detect: Count rows and check rights; ask 'how many investors are on the cap table
+    and does anyone small have a board seat, veto, or pro-rata?'
+  sources:
+  - ycombinator.com/library
+- id: stacked-uncapped-safes
+  domain: cap_table
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Stacked SAFEs at inconsistent or uncapped terms creating hidden dilution
+  why: Multiple SAFEs raised opportunistically (especially uncapped or with mixed
+    pre/post-money caps) hide true post-conversion ownership; when modeled out, founders
+    are often far more diluted than they think, spooking the lead.
+  threshold: uncapped SAFEs are the primary flag; total SAFE raise implying large
+    (e.g. >25%) dilution at conversion warrants a pro-forma model
+  severity: major
+  detect: Deck shows 'raised $X on SAFEs' with no cap table conversion view; ask for
+    a post-money pro-forma cap table including all SAFEs converting, and flag any
+    uncapped notes.
+  sources:
+  - ycombinator.com/library
+- id: advisor-grant-bloat
+  domain: cap_table
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Oversized advisor/consultant equity grants
+  why: Advisors granted founder-scale equity (vs. the fractional norm) signals weak
+    negotiating discipline and burns the option pool that should be reserved for early
+    employees.
+  threshold: any single advisor materially above ~1% is a flag; Founder Institute
+    FAST norm is 0.1-1% per advisor depending on stage and engagement
+  severity: minor
+  detect: Look for advisor names with whole-percent stakes; ask 'what equity have
+    advisors received and on what vesting?'
+  sources:
+  - ycombinator.com/library
+  - fi.co/fast
+- id: no-or-tiny-option-pool
+  domain: cap_table
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: No employee option pool (or one shoved entirely onto founders)
+  why: Investors require a pool to hire the first key employees; if none exists it
+    gets created pre-money — diluting only founders — so an absent pool is really
+    a hidden founder dilution event at term-sheet time.
+  threshold: leads typically require a 10-15% (fully-diluted) option pool, usually
+    carved out pre-money
+  severity: major
+  detect: Cap table has no 'option pool / unallocated' row; ask 'is there an existing
+    option pool and how big?' and pre-warn the founder it comes out of their stake.
+  sources:
+  - ycombinator.com/library
+  - nvca.org
+- id: lopsided-cofounder-split-unexplained
+  domain: cap_table
+  stage:
+  - pre-seed
+  wedge: general
+  title: Extremely lopsided co-founder split with no rationale
+  why: A near-zero co-founder stake (e.g., 95/5) signals an unstable partnership likely
+    to blow up under stress — one of the top reasons early companies die — so investors
+    probe it hard.
+  threshold: ''
+  severity: major
+  detect: Compare founder rows on the cap table to roles on the team slide; ask 'how
+    did you decide the split and is everyone happy with it?' — defensiveness is the
+    tell.
+  sources:
+  - ycombinator.com/library
+- id: broken-or-unclean-ownership-records
+  domain: cap_table
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: No clean, single-source cap table (spreadsheet drift, unsigned docs, missing
+    IP assignment)
+  why: If the founder can't produce one authoritative cap table with all SAFEs, grants,
+    and signed IP-assignment agreements, diligence stalls and the deal risk becomes
+    legal/structural rather than business.
+  threshold: ''
+  severity: major
+  detect: Ask 'send me your current cap table and confirm all founders have signed
+    IP assignment.' Multiple conflicting spreadsheets, verbal promises, or missing
+    assignments are the flags.
+  sources:
+  - ycombinator.com/library
+  - nvca.org

@@ -1,0 +1,201 @@
+cell: sv:norms
+type: data_room
+wedge: general
+items:
+- id: corp-delaware-cert-incorporation
+  category: corporate
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  document: Delaware Certificate of Incorporation (C-corp)
+  required: true
+  note: 'Default expectation. Non-DE entities (LLC, S-corp, foreign/CA Inc.) are a
+    near-automatic blocker: institutional VCs generally cannot hold LLC interests
+    (pass-through K-1s break LP tax structures) and require conversion to a DE C-corp
+    before wiring. If absent or formed elsewhere, expect a re-domestication/conversion
+    as a closing condition, which adds legal cost and tax friction.'
+- id: corp-bylaws
+  category: corporate
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  document: Corporate Bylaws
+  required: true
+  note: Standard boilerplate (Clerky/Stripe Atlas/Cooley GO output). Rarely scrutinized
+    at seed but absence signals the company was never properly formed. Concerning
+    if customized in ways that conflict with the COI.
+- id: corp-board-consents-minutes
+  category: corporate
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  document: Board & stockholder consents / minutes (formation, equity issuances, option
+    grants)
+  required: true
+  note: Every share and option issuance must have a corresponding board approval on
+    record. Gaps (grants made with no board consent, or 409A not formally adopted
+    by the board) are the most common diligence cleanup item and can require ratification.
+- id: captable-clean-ledger
+  category: cap_table
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  document: Clean, fully-diluted cap table on Carta or Pulley
+  required: true
+  note: Expectation is a software-maintained cap table (Carta/Pulley/AngelList), not
+    a spreadsheet. A spreadsheet cap table at Series A is a yellow flag for operational
+    sloppiness. Must reconcile to the stock ledger and all SAFEs. Untracked verbal
+    equity promises or 'handshake' founder splits are a serious concern.
+- id: captable-founder-stock-purchase-vesting
+  category: cap_table
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  document: Founder Restricted Stock Purchase Agreements with vesting
+  required: true
+  note: 'Industry-typical: 4-year vesting with 1-year cliff. Fully-vested or unvested
+    founder stock with NO vesting is a major concern — VCs often require imposing/resetting
+    vesting at financing. Watch for acceleration terms (single vs. double-trigger)
+    and whether stock was actually purchased (par-value payment) vs. merely promised.'
+- id: tax-83b-elections
+  category: tax_compliance
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  document: 83(b) election filings for all founders/early restricted-stock holders
+  required: true
+  note: Must be filed with the IRS within 30 days of stock purchase — this deadline
+    is statutory and unfixable if missed. A missing or late 83(b) is a real, uncurable
+    liability (ordinary income tax as stock vests) that lowers founder commitment
+    and can spook investors. Proof = USPS certified-mail receipt + filed copy. One
+    of the highest-signal diligence items relative to its size.
+- id: fin-safe-or-priced-docs
+  category: legal
+  stage:
+  - seed
+  wedge: general
+  document: Y Combinator post-money SAFE(s) or priced-round (NVCA-based) financing
+    documents
+  required: true
+  note: Post-money SAFE is the current seed default (post-money, not the older pre-money
+    form — dilution math differs materially). Mixing many SAFEs with different caps/discounts
+    and no MFN tracking creates a messy conversion at the priced round. Non-standard/heavily-negotiated
+    SAFE side letters (pro-rata, info rights, board seats) should be flagged.
+  note_sources:
+  - https://www.ycombinator.com/documents
+  - https://nvca.org/model-legal-documents/
+- id: legal-nvca-priced-round-set
+  category: legal
+  stage:
+  - series-a
+  wedge: general
+  document: NVCA model priced-round suite (Stock Purchase Agreement, Certificate of
+    Incorporation/COI amendment, Investors' Rights Agreement, Voting Agreement, ROFR
+    & Co-Sale Agreement)
+  required: true
+  note: 'Series A default is the NVCA template family. Deviations that warrant scrutiny:
+    participating preferred (vs. standard 1x non-participating), >1x liquidation preference,
+    full-ratchet anti-dilution (broad-based weighted-average is standard), cumulative
+    dividends, or unusual protective provisions. Investors'' Rights Agreement governs
+    info rights/pro-rata; Voting Agreement governs board composition.'
+  note_sources:
+  - https://nvca.org/model-legal-documents/
+- id: tax-409a-valuation
+  category: tax_compliance
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  document: 409A valuation (independent appraisal of common stock FMV)
+  required: true
+  note: Sets the strike price for options to be IRS-safe-harbor compliant. Typically
+    refreshed every 12 months or after a material event (e.g., a priced round). Granting
+    options below FMV without a defensible 409A exposes employees to 409A penalty
+    tax and the company to withholding liability. Carta/Pulley bundle this. Pre-revenue
+    seed companies sometimes skip it — defensible only if no options have been granted
+    yet.
+- id: captable-option-pool
+  category: cap_table
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  document: Equity Incentive Plan (option pool) with board-adopted reserve
+  required: true
+  note: 'Industry-typical pool size: ~10-15% fully-diluted. VCs typically require
+    the pool to be created/topped-up PRE-money at Series A (the ''option pool shuffle''),
+    so founders bear the dilution — worth modeling. Absence of any plan, or grants
+    made outside an adopted plan, is a concern. ISO vs. NSO designation and standard
+    4yr/1yr-cliff terms expected.'
+- id: legal-ip-assignment
+  category: legal
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  document: IP / invention assignment agreements (CIIAA) from every founder, employee,
+    and contractor
+  required: true
+  note: Highest-stakes legal item after entity/83(b). Any code or IP created before
+    incorporation, or by a contractor without a signed assignment, may not belong
+    to the company — a deal-killer. Founders who built the product while employed
+    elsewhere raise prior-employer IP ownership risk. VCs reps-and-warrant heavily
+    on this.
+- id: legal-piia-confidentiality
+  category: legal
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  document: Proprietary Information & Inventions Assignment + confidentiality agreements
+    for all hires
+  required: false
+  note: Distinct from founder CIIAA; covers ongoing employees/contractors. Not always
+    a hard gate at seed but expected by Series A. Missing PIIAs for engineers is a
+    clean-up item and an IP-ownership risk.
+- id: corp-ein-good-standing-foreign-qual
+  category: tax_compliance
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  document: EIN, DE franchise-tax good standing, and foreign qualification in operating
+    state (e.g., CA)
+  required: false
+  note: DE franchise tax is commonly mis-estimated — the default 'authorized shares
+    method' can produce alarming five-figure bills; use the assumed-par-value method.
+    Operating in CA/NY without foreign-qualifying creates back-tax/penalty exposure.
+    Lapsed good standing is an easy-to-miss diligence flag.
+- id: captable-stock-ledger-securities-compliance
+  category: cap_table
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  document: Securities-law compliance for all issuances (Reg D Form D filings, state
+    blue-sky notices)
+  required: false
+  note: Each equity/SAFE issuance should rely on a valid exemption (typically Reg
+    D 506(b)/506(c)) with a Form D filed within 15 days. Issuing to unaccredited investors
+    or via general solicitation without 506(c) compliance creates rescission risk.
+    Often overlooked when founders raise from friends/family; a quiet but real diligence
+    concern.
+- id: corp-cap-table-pro-forma
+  category: cap_table
+  stage:
+  - series-a
+  wedge: general
+  document: Pro-forma (post-money) cap table modeling SAFE conversion + new round
+    + pool top-up
+  required: true
+  note: 'Series A expectation: founders can produce a pro-forma showing ownership
+    after all SAFEs convert at their caps, the new preferred is issued, and the option
+    pool is expanded. Inability to model this — or surprise over-dilution from stacked
+    uncapped/low-cap SAFEs — signals the founders don''t understand their own cap
+    table.'

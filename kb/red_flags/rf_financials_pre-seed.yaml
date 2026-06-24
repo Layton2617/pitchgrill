@@ -1,0 +1,173 @@
+cell: rf:financials:pre-seed
+type: red_flag
+wedge: general
+items:
+- id: revenue-concentration-single-customer
+  domain: financials
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Single-customer revenue concentration
+  why: One customer carrying most of revenue means the company is one churn event
+    or one renewal negotiation away from collapse, which makes the revenue line uninsurable
+    in DD.
+  threshold: single customer >10-15% of revenue is a typical concern threshold; >25-30%
+    reads as existential
+  severity: major
+  detect: Deck shows a logo wall or 'ARR' chart but no per-customer breakdown; ask
+    founder for revenue by customer (top 5) and the % from the largest account, plus
+    contract length/termination terms.
+  sources:
+  - https://www.bvp.com
+  - https://www.firstround.com
+- id: vanity-metrics-gross-not-net
+  domain: financials
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Vanity / non-GAAP revenue framing (GMV or gross instead of net)
+  why: Reporting GMV, bookings, 'run-rate', or topline marketplace volume instead
+    of net revenue inflates apparent traction and signals the real numbers are unimpressive
+    or the founder doesn't understand unit economics.
+  threshold: ''
+  severity: major
+  detect: Deck uses 'GMV', 'total transaction volume', 'annualized run-rate' from
+    a single best month, or 'bookings' without recognized revenue; ask for actual
+    recognized net revenue last 3-6 months and take-rate/margin.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.sequoiacap.com
+- id: negative-or-implausible-gross-margin
+  domain: financials
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Negative or implausible gross margin for the category
+  why: If COGS eats most of revenue (or margin is presented but excludes hosting,
+    support, payment, or delivery costs), the business cannot scale to venture returns
+    no matter how much it grows.
+  threshold: true SaaS gross margin <60-70% is a flag (healthy SaaS is 70-80%+); selling
+    at/below cost (negative GM) is typically a kill
+  severity: kill
+  detect: Margin slide omits a cost line you'd expect (cloud/infra, payment processing,
+    fulfillment, human-in-the-loop labor, COGS of LLM/API calls); ask founder to walk
+    through fully-loaded gross margin per unit.
+  sources:
+  - https://a16z.com
+  - https://www.bvp.com
+- id: unsustainable-cac-payback
+  domain: financials
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Broken unit economics (LTV:CAC and CAC payback)
+  why: If it costs more to acquire a customer than they're worth, or payback takes
+    years, every new customer makes the company lose money faster and growth is just
+    burning cash.
+  threshold: LTV:CAC < 3:1 and CAC payback > 12-18 months are typical concern triggers,
+    not absolutes
+  severity: major
+  detect: At pre-seed real CAC data is thin, so probe how CAC was computed (does it
+    include sales salaries and free trials?) and whether early 'traction' came from
+    founder's network/free channels that won't scale.
+  sources:
+  - https://www.bvp.com
+  - https://a16z.com
+- id: high-net-revenue-churn-leaky-bucket
+  domain: financials
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: 'Leaky bucket: high churn / net revenue retention below 100%'
+  why: If existing customers shrink or leave faster than they expand, the company
+    has no compounding base and must run faster just to stay flat, which kills the
+    SaaS growth model.
+  threshold: monthly logo churn >3-5%, or net revenue retention <90-100%, is a typical
+    early-SaaS flag
+  severity: major
+  detect: Deck shows new-customer adds but never a cohort/retention curve; ask for
+    a monthly cohort retention chart and whether any early cohort is still active
+    and spending.
+  sources:
+  - https://www.firstround.com
+  - https://www.bvp.com
+- id: runway-too-short-no-burn-discipline
+  domain: financials
+  stage:
+  - pre-seed
+  wedge: general
+  title: Too-short runway or undisciplined burn
+  why: Raising with only a few months of cash signals either poor planning or a forced/desperate
+    raise, and gives the company no time to hit the milestones needed for the next
+    round.
+  threshold: <6 months runway at close is a flag; the round should typically fund
+    18-24 months to the next milestone
+  severity: major
+  detect: Deck states amount raising but not current cash, monthly burn, or implied
+    runway; ask for current bank balance, net monthly burn, and what specific milestone
+    this round buys.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.sequoiacap.com
+- id: messy-cap-table-founder-overdilution
+  domain: financials
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: 'Broken cap table: founder over-dilution or dead equity'
+  why: If founders are already heavily diluted or large chunks sit with inactive co-founders/advisors/early
+    angels, future investors fear founders lose motivation and there's no room for
+    option pool and Series A dilution.
+  threshold: founders collectively <50% after a pre-seed/seed is a flag; any single
+    inactive holder with a large block (e.g. >10%) is dead equity
+  severity: major
+  detect: Founder won't share a cap table, or it reveals a departed co-founder holding
+    a big stake, an over-generous advisor pool, or a previous accelerator/investor
+    with onerous terms; ask for the cap table and any side letters / SAFE stack and
+    aggregate uncapped SAFE overhang.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.nvca.org
+- id: hockey-stick-projections-no-basis
+  domain: financials
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Unsupported hockey-stick projections
+  why: A flat past followed by a steep future curve with no bridging assumptions signals
+    the founder is selling a fantasy rather than reasoning from real conversion, sales-cycle,
+    and capacity constraints.
+  threshold: ''
+  severity: minor
+  detect: Forecast slide jumps from ~$0 to large ARR in 12-24 months with no current
+    revenue or pipeline to anchor it; ask which inputs drive it (deals in pipeline,
+    conversion rate, sales hires, ramp time) and stress-test the single most aggressive
+    assumption.
+  sources:
+  - https://www.sequoiacap.com
+  - https://www.firstround.com
+- id: commingled-finances-no-records
+  domain: financials
+  stage:
+  - pre-seed
+  wedge: general
+  title: Commingled / undocumented finances and tax exposure
+  why: Personal and company funds mixed, no bookkeeping, unpaid payroll taxes, or
+    misclassified contractors create hidden liabilities that surface in DD and can
+    poison the deal or the next round.
+  threshold: ''
+  severity: major
+  detect: Founder can't produce a clean P&L, uses a personal bank account for the
+    business, or pays a 'team' as contractors who function as employees; ask for the
+    accounting setup, who does the books, and whether 83(b) elections and payroll
+    taxes are current.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.nvca.org

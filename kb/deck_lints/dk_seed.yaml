@@ -1,0 +1,143 @@
+cell: dk:seed
+type: deck_lint
+wedge: general
+items:
+- id: tam-top-down-percent-of-trillion
+  stage:
+  - seed
+  wedge: general
+  issue: TAM is computed top-down as a fraction of a giant aggregate ('the global
+    X market is $1.2T, we just need 1%').
+  why: Signals the founder hasn't thought about who actually pays, how much, or how
+    they'd be reached. The '1% of a huge number' framing is a known tell that the
+    market was never sized from real units, and it caps the conversation at skepticism
+    instead of opening it. Seed investors underwrite the path, not the ceiling.
+  fix: 'Replace with bottom-up: (# of reachable buyers) x (realistic ACV or price)
+    x (purchase frequency). Show the segment you''ll actually sell to first and the
+    wedge-to-expansion path. Cite the unit assumptions so they can be challenged.'
+  source: https://www.ycombinator.com/library
+- id: traction-vanity-metrics
+  stage:
+  - seed
+  wedge: general
+  issue: Traction slide leads with vanity metrics (signups, downloads, waitlist, page
+    views, 'impressions') instead of usage/revenue/retention.
+  why: Experienced investors instantly discount totals that don't imply value delivered.
+    A big signup number with no engagement reads as either naive or deliberately obscuring
+    weak retention, which actively lowers trust in every other number on the deck.
+  fix: 'Lead with the one metric closest to value: activated/weekly-active users,
+    paying customers, MRR/ARR, or cohort retention curves. If pre-revenue, show engagement
+    depth (e.g., DAU/MAU, repeat usage) and a clean retention curve. State the denominator
+    for every ratio.'
+  source: https://www.firstround.com/review
+- id: no-ask-no-use-of-funds
+  stage:
+  - seed
+  wedge: general
+  issue: 'No explicit ask and no use-of-funds: deck ends without saying how much is
+    being raised, against what milestones, and for how long.'
+  why: Forces the investor to guess round size and runway, which they won't do; it
+    reads as the founder not knowing what the money is for. A vague or absent ask
+    is a common auto-pass because it removes the basis for a yes.
+  fix: 'Add a closing slide: amount raising, the 2-3 concrete milestones it buys (e.g.,
+    ''to $1M ARR'' or ''to series-A traction bar''), implied runway (industry-typical
+    18-24 months), and rough allocation across hires/GTM/product. Tie milestones to
+    the next round''s bar.'
+  source: https://www.ycombinator.com/library
+- id: no-clear-problem-or-customer
+  stage:
+  - seed
+  wedge: general
+  issue: Deck opens with the solution/product tour before establishing a sharp problem
+    and a specific customer who has it.
+  why: If the reader can't articulate the pain and who feels it within the first two
+    slides, the rest of the deck has no frame and gets read as a feature in search
+    of a market. Solution-first decks are a classic sign of building before validating.
+  fix: 'Slide 1-2: name the specific customer, the painful job-to-be-done, and how
+    it''s solved today (the status quo you''re displacing). Quantify the pain (time/money
+    lost). Only then show the product as the answer to that exact problem.'
+  source: https://www.sequoiacap.com/article/writing-a-business-plan/
+- id: no-competition-slide
+  stage:
+  - seed
+  wedge: general
+  issue: Claims 'no competitors' or omits the competition slide entirely (or uses
+    only a self-flattering 2x2 with the company alone in the top-right).
+  why: '''No competition'' reads as either no market or no homework; both are fatal
+    at the seed read. The empty-quadrant 2x2 is so overused it signals the founder
+    picked axes to win rather than to inform, undermining credibility.'
+  fix: Acknowledge incumbents AND the real default alternative (spreadsheets, status
+    quo, in-house, doing nothing). State your honest, defensible differentiation and
+    why now. If using a 2x2, pick axes that map to actual buyer decision criteria,
+    not vanity.
+  source: https://a16z.com/
+- id: hockey-stick-no-basis
+  stage:
+  - seed
+  wedge: general
+  issue: Financial projections show a hockey-stick to $50-100M revenue in 5 years
+    with no stated assumptions linking spend to growth.
+  why: Unanchored hockey-sticks are noise; every deck has one, so they convey zero
+    information and can signal the founder doesn't understand their own growth drivers.
+    At seed the projection's job is to reveal how you think, not to be believed.
+  fix: 'Show the model''s engine, not just the curve: the 2-3 driver assumptions (CAC,
+    conversion, sales-rep productivity, expansion) and how the raise moves them. A
+    credible bottoms-up 18-24 month plan beats a 5-year top-line fantasy.'
+  source: https://www.firstround.com/review
+- id: team-slide-logos-no-fit
+  stage:
+  - seed
+  wedge: general
+  issue: Team slide is a wall of brand-name logos (ex-Google, ex-McKinsey) with no
+    story of why THIS team wins THIS market.
+  why: Pedigree without founder-market fit is decoration. At seed the team is often
+    the primary thing being underwritten, so a logo dump that doesn't connect to the
+    specific problem leaves the most important question unanswered and looks like
+    resume padding.
+  fix: For each founder, state the unfair insight or earned advantage for this exact
+    problem (domain experience, prior shipping, customer access, technical depth).
+    Make the 'why us, why now' explicit. Logos are supporting evidence, not the argument.
+  source: https://www.ycombinator.com/library
+- id: nda-or-secrecy-gating
+  stage:
+  - seed
+  wedge: general
+  issue: Deck (or cover email) asks the investor to sign an NDA, redacts the actual
+    product, or withholds key details 'until a call.'
+  why: Investors don't sign NDAs to read seed decks; the request marks a first-time
+    founder and creates friction that ends the conversation before it starts. Secrecy
+    also implies the moat is the idea rather than execution, which seed investors
+    don't believe.
+  fix: Drop the NDA entirely. Share a self-contained deck that explains the product,
+    problem, and traction clearly. Treat the moat as execution/distribution/data,
+    not the disclosure itself. Save genuinely sensitive specifics for diligence, not
+    the teaser.
+  source: https://www.ycombinator.com/library
+- id: metrics-without-denominators-or-dates
+  stage:
+  - seed
+  wedge: general
+  issue: Growth claims lack denominators, dates, or time windows ('300% growth', 'thousands
+    of users') so they can't be evaluated.
+  why: Unanchored percentages and round 'thousands' read as obfuscation; a sharp investor
+    assumes the absolute base is tiny or the window cherry-picked. Ambiguity here
+    poisons trust in the whole metrics narrative and is an easy pass.
+  fix: Always show absolute numbers, the time window, and the comparison base (e.g.,
+    'MRR $8k -> $34k over the last 6 months, +325%'). Use a labeled monthly chart
+    rather than a single headline multiple. Avoid 'up to' and round-number ranges.
+  source: https://www.firstround.com/review
+- id: buzzword-positioning-no-concrete-what
+  stage:
+  - seed
+  wedge: general
+  issue: Positioning is buzzword soup ('AI-powered platform leveraging blockchain
+    to revolutionize X') and the reader still can't say what the product does after
+    the deck.
+  why: If a sophisticated reader can't restate what you build in one plain sentence,
+    they can't champion it internally and they pass. Buzzword stacking signals the
+    founder is selling category heat rather than a working product, which is a strong
+    negative at seed.
+  fix: 'Open with a one-line, jargon-free description: what it is, who it''s for,
+    what it replaces. Lead with the concrete capability and a screenshot/demo before
+    any category framing. Cut every adjective that doesn''t change the meaning.'
+  source: https://www.sequoiacap.com/article/writing-a-business-plan/

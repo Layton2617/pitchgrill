@@ -1,0 +1,283 @@
+cell: dr:series-a
+type: data_room
+wedge: general
+items:
+- id: certificate-of-incorporation
+  category: corporate
+  stage:
+  - series-a
+  wedge: general
+  document: Current Certificate of Incorporation plus every amendment and any Certificate
+    of Designation, filed-stamped from the state of incorporation (Delaware C-corp
+    expected)
+  required: true
+  note: 'Deal-blocker if the entity is an LLC or non-Delaware corp; converting mid-deal
+    can add weeks. Investors check par value, authorized share counts, and that prior
+    preferred rights match the cap table. Source: NVCA model docs (nvca.org/model-legal-documents).'
+- id: bylaws-board-consents
+  category: corporate
+  stage:
+  - series-a
+  wedge: general
+  document: Bylaws plus complete set of board and stockholder meeting minutes and
+    written consents since incorporation
+  required: true
+  note: 'Gaps mean prior stock issuances and option grants may not have been validly
+    authorized — a common clean-up item. YC''s checklist flags missing consents as
+    the #1 closing delay. Source: ycombinator.com/library/3h-series-a-diligence-checklist.'
+- id: good-standing-foreign-qual
+  category: corporate
+  stage:
+  - series-a
+  wedge: general
+  document: Certificate of good standing from state of incorporation plus foreign
+    qualification certificates for every state where the company has employees or
+    an office
+  required: false
+  note: Rarely a blocker but routinely requested; un-qualified states can mean back
+    franchise taxes. Easy to pull last-minute.
+- id: prior-financing-docs
+  category: corporate
+  stage:
+  - series-a
+  wedge: general
+  document: 'All prior financing documents: SAFEs, convertible notes, and any seed/pre-seed
+    equity rounds (purchase agreements, side letters, MFN elections)'
+  required: true
+  note: 'Series-A pricing requires modeling how every SAFE/note converts. Hidden side
+    letters (pro-rata, information rights, board seats) surface here and can change
+    the term sheet. Source: nvca.org model SPA.'
+- id: fully-diluted-cap-table
+  category: cap_table
+  stage:
+  - series-a
+  wedge: general
+  document: Fully-diluted cap table (Carta/Pulley export or spreadsheet) showing every
+    holder, share class, options granted/available, warrants, and SAFE/note conversion
+    on an as-converted basis
+  required: true
+  note: 'The single most-requested document. Must reconcile exactly to stock ledger
+    and board consents; discrepancies stall the 409A and the round. Source: a16z.com/the-insiders-guide-to-data-rooms-what-to-know-before-you-raise.'
+- id: option-pool-summary
+  category: cap_table
+  stage:
+  - series-a
+  wedge: general
+  document: Equity incentive plan, board-approved pool size, and per-grant detail
+    (grant date, strike, vesting schedule, ISO vs NSO, early-exercise status)
+  required: true
+  note: Investors model a refreshed pool (industry-typical 10-15% post-money) into
+    the pre-money, which dilutes founders. Unapproved or backdated grants are a frequent
+    finding.
+- id: 83b-elections
+  category: cap_table
+  stage:
+  - series-a
+  wedge: general
+  document: Filed 83(b) election copies with IRS mailing proof for all founders and
+    early-exercised optionholders
+  required: false
+  note: Not a deal-blocker for the company but a major personal-tax liability for
+    founders if missing; investors flag it because it signals sloppy hygiene. 30-day
+    filing window means it cannot be fixed retroactively.
+- id: stock-ledger-vesting
+  category: cap_table
+  stage:
+  - series-a
+  wedge: general
+  document: Stock ledger and founder restricted-stock purchase agreements with current
+    vesting status and any acceleration provisions
+  required: true
+  note: Investors confirm founders are still subject to vesting (single/double-trigger
+    acceleration terms matter). Fully-vested founders with no re-vest is a negotiation
+    trigger.
+- id: historical-financials
+  category: financials
+  stage:
+  - series-a
+  wedge: general
+  document: Monthly historical P&L, balance sheet, and cash-flow statements since
+    inception (typically last 24-36 months) plus monthly burn and current cash balance
+  required: true
+  note: 'Series-A diligence is financial, not just narrative. Reconcile to bank statements.
+    Audited statements are not industry-typical at Series A; clean bookkeeping (e.g.,
+    QuickBooks export) is. Source: a16z data room guide.'
+- id: financial-model-projections
+  category: financials
+  stage:
+  - series-a
+  wedge: general
+  document: 'Forward financial model: 18-24 month plan tied to the round, showing
+    runway, hiring plan, and key assumptions'
+  required: true
+  note: Investors stress-test assumptions against actuals. a16z advises against unsolicited
+    5-year projections, but a credible plan to the next milestone is expected.
+- id: bank-statements-debt
+  category: financials
+  stage:
+  - series-a
+  wedge: general
+  document: Recent bank/brokerage statements and schedule of all outstanding debt,
+    loans, lines of credit, and venture-debt covenants
+  required: false
+  note: Provided on request to verify cash and surface liabilities. Undisclosed venture
+    debt with liens or covenants can subordinate new investors.
+- id: ip-assignment-founders-contractors
+  category: ip
+  stage:
+  - series-a
+  wedge: general
+  document: Signed IP / invention-assignment agreements (PIIA/CIIA) for every founder,
+    employee, and contractor who touched the product
+  required: true
+  note: 'Hard deal-blocker. A contractor or co-founder who left without assigning
+    IP can claim ownership of core code. Investors require full coverage with no gaps;
+    this is the most-litigated diligence item. Source: nvca.org model legal docs.'
+- id: ip-registrations
+  category: ip
+  stage:
+  - series-a
+  wedge: general
+  document: 'Schedule of registered and pending IP: trademarks, patents, domain names,
+    and any provisional filings, with assignment chain to the company'
+  required: false
+  note: Existence of registrations matters less than clean ownership; a patent assigned
+    to a founder personally rather than the company is a finding.
+- id: open-source-license-audit
+  category: ip
+  stage:
+  - series-a
+  wedge: general
+  document: Open-source and third-party software inventory with license types (flag
+    copyleft/GPL/AGPL usage in distributed code)
+  required: false
+  note: Increasingly requested as code-scanning is standard. AGPL in a SaaS codebase
+    can force source disclosure; investors want it identified before, not after, the
+    wire.
+- id: material-contracts
+  category: legal
+  stage:
+  - series-a
+  wedge: general
+  document: All material customer, partner, supplier, and reseller contracts, especially
+    any with change-of-control, exclusivity, MFN, or assignment-restriction clauses
+  required: true
+  note: Revenue concentration and change-of-control clauses directly affect valuation
+    and the acquisition exit thesis. A top customer with a 30-day termination right
+    undercuts ARR quality.
+- id: litigation-disclosure
+  category: legal
+  stage:
+  - series-a
+  wedge: general
+  document: Schedule of all current, threatened, or past litigation, disputes, demand
+    letters, and regulatory inquiries
+  required: true
+  note: 'Feeds the reps-and-warranties in the stock purchase agreement. Undisclosed
+    litigation discovered post-close is a fraud claim. Source: nvca.org model SPA
+    representations.'
+- id: customer-data-privacy
+  category: legal
+  stage:
+  - series-a
+  wedge: general
+  document: Privacy policy, terms of service, DPAs, and evidence of GDPR/CCPA compliance
+    if handling EU/CA personal data
+  required: false
+  note: Becomes required (not optional) for consumer, health, or fintech wedges. For
+    a B2B tool with no PII it is lighter touch, hence general-default false.
+- id: employment-agreements
+  category: team
+  stage:
+  - series-a
+  wedge: general
+  document: Employment / offer letters and consulting agreements for all current personnel,
+    including comp, equity, at-will status, and any non-competes or severance
+  required: true
+  note: Investors check key-person concentration and unusual guaranteed-severance
+    or accelerated-equity terms that could trigger on the financing or a future sale.
+- id: contractor-vs-employee
+  category: team
+  stage:
+  - series-a
+  wedge: general
+  document: Classification review of independent contractors vs. employees and confirmation
+    of proper payroll setup
+  required: false
+  note: Misclassification creates back-tax and benefits liability. Not usually a blocker
+    but a reps-and-warranties item; common in early teams that paid engineers as 1099.
+- id: org-chart-key-hires
+  category: team
+  stage:
+  - series-a
+  wedge: general
+  document: Current org chart, founder bios, and any pending key-hire offers tied
+    to the round's hiring plan
+  required: false
+  note: a16z explicitly says do not include an org chart unsolicited, but it is requested
+    in live diligence to assess execution capacity against the plan.
+- id: core-growth-metrics
+  category: product_metrics
+  stage:
+  - series-a
+  wedge: general
+  document: 'Usage/growth dashboard: monthly active users or accounts, growth rate,
+    acquisition channels, and retention cohorts (the canonical retention-curve chart)'
+  required: true
+  note: 'Series-A is the traction round; cohort retention is the single most scrutinized
+    metric. Flat or declining cohorts after the first month sink most rounds. Source:
+    a16z data room guide.'
+- id: revenue-metrics-arr
+  category: product_metrics
+  stage:
+  - series-a
+  wedge: general
+  document: 'Revenue metrics by model: MRR/ARR, net and gross revenue retention, logo
+    churn, ACV, and conversion funnel'
+  required: true
+  note: For SaaS, investors look for net revenue retention above ~100% (industry-typical)
+    and ARR in a Series-A-credible band; thresholds vary by sector and are signals,
+    not pass/fail lines.
+- id: unit-economics-ltv-cac
+  category: product_metrics
+  stage:
+  - series-a
+  wedge: general
+  document: 'Unit economics: LTV, CAC, CAC payback period, and gross margin by channel/cohort'
+  required: true
+  note: a16z lists LTV/CAC and payback among the five core data-room items. A CAC
+    payback under ~12-18 months is industry-typical for healthy SaaS; treat as benchmark
+    not rule.
+- id: federal-state-tax-returns
+  category: tax_compliance
+  stage:
+  - series-a
+  wedge: general
+  document: Filed federal and state corporate income tax returns and proof of Delaware
+    franchise tax payment for all prior years
+  required: false
+  note: a16z advises against volunteering tax returns, but unpaid Delaware franchise
+    tax (which can run high under the authorized-shares method) is a real finding
+    that must be cleared before close.
+- id: payroll-sales-tax
+  category: tax_compliance
+  stage:
+  - series-a
+  wedge: general
+  document: Payroll tax filings, state employment registrations, and sales-tax / economic-nexus
+    analysis for states where the company sells
+  required: false
+  note: Post-Wayfair sales-tax nexus is a sleeper liability for SaaS sold nationally;
+    investors increasingly request a nexus study. Not a typical blocker but feeds
+    tax reps.
+- id: qsbs-eligibility
+  category: tax_compliance
+  stage:
+  - series-a
+  wedge: general
+  document: 'Documentation supporting QSBS (Section 1202) eligibility: C-corp status,
+    gross-asset history, and qualified-trade confirmation'
+  required: false
+  note: Not a company deal-blocker but a value driver investors and founders both
+    care about; the financing itself can affect the $50M gross-asset test, so timing
+    is flagged during diligence.

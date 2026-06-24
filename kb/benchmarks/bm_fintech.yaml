@@ -1,0 +1,157 @@
+cell: bm:fintech
+type: benchmark
+wedge: general
+items:
+- sector: fintech
+  metric: Gross margin (true fintech-adjusted)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: 50-70%+ for SaaS-like fintech infra/B2B; 30-50% acceptable for transactional/lending/neobank
+    models where COGS includes payment rails, KYC/AML, fraud losses, and cost of funds.
+  red_flag: Margins reported as SaaS-level (80%+) by netting out interchange or hiding
+    loan-loss provisions, processing fees, and compliance cost in opex. Sub-20% true
+    gross margin signals a thin-spread payments reseller, not a defensible business.
+  note: 'The single most-scrutinized fintech number. Investors rebuild GM to include:
+    payment processing, sponsor-bank fees, fraud/chargebacks, cost of capital (for
+    lending/BNPL), and KYC. a16z''s ''fintech is not SaaS'' point: revenue multiples
+    should not be applied to gross transaction revenue.'
+  sources:
+  - a16z.com
+  - bvp.com
+- sector: fintech
+  metric: Net revenue retention (NRR)
+  stage:
+  - series-a
+  wedge: general
+  healthy: 110-130%+ for B2B fintech/infra (expansion via volume + cross-sell of additional
+    financial products). 100%+ acceptable for SMB. Consumer fintech is judged on cohort
+    revenue retention instead.
+  red_flag: NRR <100% for B2B, or for consumer fintech, monthly cohort revenue that
+    decays without a re-engagement / multi-product attach mechanism. Single-product
+    fintechs with no attach rarely clear 110%.
+  note: Multi-product attach (e.g. card -> lending -> deposits) is the fintech NRR
+    engine. Investors ask 'what's the second product and what % of users adopt it
+    within 12 months?' Logo retention alone is misleading because dollar churn hides
+    in shrinking transaction volume.
+  sources:
+  - bvp.com
+  - firstround.com
+- sector: fintech
+  metric: CAC payback period
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: <12 months for B2B fintech; <18 months tolerated if LTV is strong and multi-product.
+    Consumer fintech often needs <6-9 months on contribution-margin basis because
+    ARPU is low.
+  red_flag: Payback computed on gross revenue rather than gross-margin/contribution;
+    >24 months; or consumer CAC paid back only via projected lifetime cross-sell that
+    hasn't shipped yet. Paid-acquisition-dependent neobanks with payback >18mo are
+    a classic blowup pattern.
+  note: Must be computed on CONTRIBUTION margin (net of variable transaction + fraud
+    + servicing cost), not revenue. Fintech CAC also tends to rise fast as you exhaust
+    early-adopter channels, so trailing CAC understates true forward CAC.
+  sources:
+  - firstround.com
+  - ycombinator.com/library
+- sector: fintech
+  metric: Burn multiple (net burn / net new ARR)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: 'David Sacks (Craft Ventures) framework: <1.0 is great, 1-1.5 good, 1.5-2
+    ok at Series A. Fintech often runs slightly higher early due to compliance/licensing
+    fixed costs.'
+  red_flag: '>2-3x, or net new ARR measured before deducting loan losses / chargebacks.
+    Lending fintechs can show ''ARR'' that is really at-risk yield.'
+  note: Normalizes burn for growth. For balance-sheet-heavy fintech (lending, BNPL),
+    separate OPERATING burn from capital deployed into the loan book — investors fund
+    the latter via debt/warehouse facilities, not equity, and conflating them inflates
+    apparent burn.
+  sources: []
+- sector: fintech
+  metric: Customer churn (logo + revenue)
+  stage:
+  - series-a
+  wedge: general
+  healthy: B2B fintech annual logo churn <10-15% (mid-market) and <5% (enterprise);
+    consumer monthly churn <3-5% with a path to <2% in mature cohorts.
+  red_flag: Consumer monthly churn >5-7% (implies <12-month avg lifetime, breaking
+    LTV math), or B2B annual churn >20%. High churn in deposit/neobank products often
+    signals it's a secondary account, not primary banking relationship.
+  note: For consumer fintech the real metric is 'primary account / direct-deposit
+    attach' and engagement (DAU/MAU, transactions per active user) — dormant accounts
+    churn silently and inflate registered-user counts. Ask for % of accounts with
+    a deposit/transaction in last 30 days.
+  sources:
+  - a16z.com
+  - firstround.com
+- sector: fintech
+  metric: LTV/CAC ratio
+  stage:
+  - series-a
+  wedge: general
+  healthy: 3:1+ on contribution-margin LTV. Best-in-class fintech infra hits 4-5:1
+    via multi-product expansion.
+  red_flag: <3:1, or LTV built on optimistic multi-year retention assumptions in a
+    product with <18 months of cohort data. At seed there's rarely enough cohort history
+    to trust LTV at all — investors discount it heavily.
+  note: LTV must use contribution margin and realistic lifetime from actual cohort
+    decay, not assumed 5-year tenure. For lending, LTV must net cumulative expected
+    credit losses; pre-loss LTV/CAC is a red flag of immature underwriting.
+  sources:
+  - bvp.com
+  - ycombinator.com/library
+- sector: fintech
+  metric: Magic number (net new ARR / prior-quarter S&M)
+  stage:
+  - series-a
+  wedge: general
+  healthy: '>0.75 means efficient enough to lean into spend; >1.0 is strong for a
+    Series A fintech.'
+  red_flag: <0.5 suggests S&M isn't converting and scaling spend will torch cash.
+    A low magic number plus high burn multiple is a 'don't fund growth yet' signal.
+  note: Most useful for sales-led B2B fintech. Less meaningful for product-led consumer
+    fintech where growth is organic/referral — there, look at organic vs paid mix
+    instead.
+  sources:
+  - bvp.com
+- sector: fintech
+  metric: 'Unit economics: contribution margin per transaction / per active user'
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: Positive and growing contribution margin per active user; for payments,
+    a stable/expanding net take rate after all variable costs.
+  red_flag: Negative contribution margin per user 'fixed later by scale,' or net take
+    rate compressing as you move upmarket (large merchants negotiate rates down).
+    Subsidizing each transaction to buy GMV is a fintech death pattern.
+  note: The seed-stage proof when ARR is too small for cohort metrics. Investors want
+    to see one healthy unit before believing in scale. Separate take rate (gross)
+    from net take rate (after interchange, fraud, rewards) — the gap is where fintechs
+    hide losses.
+  sources:
+  - a16z.com
+  - ycombinator.com/library
+- sector: fintech
+  metric: Net dollar take rate (revenue / TPV or GMV)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: Stable or rising net take rate; payments infra ~0.3-1%+, vertical/embedded
+    fintech can sustain higher via value-add. The trend and durability of the spread
+    matter more than the absolute number.
+  red_flag: Take rate declining quarter over quarter (commoditization / pricing pressure),
+    or revenue reported gross of pass-through interchange to inflate apparent scale.
+  note: Headline TPV is the most gamed fintech vanity metric. Investors divide net
+    revenue by TPV to derive the real take rate and check whether the business actually
+    captures margin or is just routing volume.
+  sources:
+  - a16z.com
+  - bvp.com

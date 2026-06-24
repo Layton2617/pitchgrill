@@ -1,0 +1,229 @@
+cell: cb:exit
+type: grilling
+wedge: cross-border-cn
+items:
+- id: exit-cn-01
+  theme: fundraise-risk-exit
+  stage:
+  - seed
+  - series-a
+  - series-b
+  - growth
+  wedge: cross-border-cn
+  question: Given our Cayman/Delaware topco but a China-based founding team and R&D,
+    who is the realistic acquirer universe at exit, and how does the China nexus shrink
+    it?
+  strong_answer: 'Maps acquirers into tiers and is honest that the China nexus prunes
+    the top tier. Tier 1 US strategics (Google, Microsoft, Salesforce, Apple, big
+    defense-adjacent or infra players) become low-probability because their corp-dev/legal
+    will flag CFIUS exposure, export-control entanglement, and board/customer optics
+    of acquiring China-rooted IP and engineers. Tier 2 is the realistic core: US/EU
+    mid-cap strategics in non-sensitive verticals (martech, devtools, consumer, non-critical
+    SaaS), PE roll-ups, and non-US strategics (Japanese, SEA, Middle East, European
+    acquirers) who carry no CFIUS reflex. Tier 3 is intra-Asia consolidation. The
+    founder names a concrete shortlist of 5-10 plausible names, notes that ''building
+    to sell'' to a Tier-1 US strategic is the weakest plan, and has already de-risked
+    by isolating sensitive IP, keeping a clean US entity, and building exec relationships
+    early (per First Round''s M&A guidance that deals come from relationships, not
+    bankers). Treats ''critical technology'' classification as the variable that collapses
+    the acquirer set.'
+  weak_answer: Says 'a big US tech company will acquire us' with no acknowledgment
+    that the China nexus filters out exactly those buyers, or hand-waves 'we'll just
+    IPO' as the fallback. Names FAANG as targets without understanding their corp-dev
+    will not touch China-rooted IP/teams. No shortlist, no awareness that non-US strategics
+    are the more realistic pool.
+  sources:
+  - https://review.firstround.com/how-to-sell-your-startup-the-complete-guide-to-running-an-manda-process-as-a-founder/
+  - https://www.ycombinator.com/blog/advice-startup-acquisitions/
+- id: exit-cn-02
+  theme: fundraise-risk-exit
+  stage:
+  - series-b
+  - growth
+  - pre-ipo
+  wedge: cross-border-cn
+  question: If a US strategic wants to buy you, walk me through where CFIUS bites
+    — is it the buyer or you that triggers review, and what specifically gets you
+    blocked vs. mitigated?
+  strong_answer: 'Correctly inverts the usual CFIUS frame: in an acquisition exit,
+    CFIUS reviews the inbound investment/control, so the question is whether YOUR
+    China-rooted ownership, data, or technology makes a US acquirer''s purchase itself
+    a covered transaction problem — and separately, whether your prior China-linked
+    cap-table investors created a pre-existing CFIUS overhang the acquirer inherits.
+    Identifies the real trigger axes: (1) access to sensitive US personal data, (2)
+    ''critical technology'' (export-controlled / emerging-foundational tech), (3)
+    critical infrastructure, (4) US real estate near sensitive sites. Knows mandatory
+    declarations apply to certain critical-tech deals while most are voluntary-but-advisable,
+    and that CFIUS outcomes range from clearance, to mitigation agreements (data walls,
+    US-person-only access, board carve-outs, forced divestiture of China-linked shareholders),
+    to outright block/unwind. Mentions that NVCA model docs now include CFIUS covenant
+    and redemption language precisely so a foreign-shareholder divestiture can be
+    forced if CFIUS demands it — and that a clean exit means scrubbing this before
+    the buyer''s diligence, not during. Notes 45-day declaration vs. multi-month full
+    notice timelines as deal-timing risk. All thresholds framed as industry-typical,
+    not statutory absolutes.'
+  weak_answer: Thinks CFIUS only applies to inbound Chinese buyers and is irrelevant
+    when a US company acquires them — missing that their China-linked cap table and
+    data/tech profile can poison a US acquirer's deal. Confuses CFIUS (national security
+    investment review) with general antitrust. Assumes a clearance is automatic or
+    that mitigation = simple paperwork. No mention of mandatory vs. voluntary filings
+    or divestiture/unwind risk.
+  sources:
+  - https://nvca.org/model-legal-documents/
+- id: exit-cn-03
+  theme: fundraise-risk-exit
+  stage:
+  - growth
+  - pre-ipo
+  wedge: cross-border-cn
+  question: Your cap table already has RMB-fund or China-government-linked LPs upstream.
+    How does that contaminate a future US-strategic acquisition, and what do you do
+    about it now?
+  strong_answer: 'Recognizes that a US acquirer''s CFIUS analysis looks through to
+    the target''s existing foreign shareholders, so China-government-linked or RMB-fund
+    LPs sitting upstream can convert an otherwise clean acquisition into a covered
+    transaction with elevated scrutiny — even years after that money came in. Strong
+    founder distinguishes passive minority financial stakes from positions carrying
+    board seats, information rights, or governance influence (which CFIUS weighs far
+    more heavily). Concrete mitigations discussed proactively: capping China-linked
+    ownership below influence thresholds (industry-typical board/info-right triggers,
+    not a fixed %), structuring those investors with no board seats or sensitive-info
+    access, negotiating redemption/drag rights so they can be cleanly removed pre-deal
+    (NVCA CFIUS insert language), and segregating sensitive US data/tech into a structure
+    that can be carved out. Treats this as a fundraise-time decision: who you let
+    onto the cap table at Series B determines your exit optionality. Honest that some
+    LPs are simply disqualifying for a US-strategic outcome and the alternative is
+    a non-US acquirer or secondary-driven liquidity.'
+  weak_answer: Treats LP identity as irrelevant to exit ('money is money'), unaware
+    that upstream China-government-linked capital is precisely what triggers CFIUS
+    scrutiny of an acquirer. No concept of influence vs. passive stakes, no plan to
+    structure governance rights or enable clean removal. Assumes it can all be sorted
+    out at deal time.
+  sources:
+  - https://nvca.org/model-legal-documents/
+- id: exit-cn-04
+  theme: fundraise-risk-exit
+  stage:
+  - pre-ipo
+  - growth
+  wedge: cross-border-cn
+  question: 'On the IPO path: Nasdaq/NYSE vs. Hong Kong vs. dual — what are the venue
+    constraints specific to a China-nexus company, and why is a US listing not the
+    default it looks like?'
+  strong_answer: 'Lays out venue trade-offs with China-specific friction. US (Nasdaq/NYSE):
+    deepest capital and best multiples for tech, but post-HFCAA the PCAOB audit-inspection
+    regime, China-nexus disclosure scrutiny, VIE-structure risk disclosure, and PRC-side
+    outbound rules (CSRC overseas-listing filing regime) raise execution risk and
+    can stall or kill a deal; small-cap China IPOs on Nasdaq also carry heightened
+    scrutiny after past pump-and-dump cases. Hong Kong: friendlier to China-rooted
+    businesses, no CFIUS/PCAOB overhang, but typically thinner valuations and liquidity
+    for early-stage tech and a tougher profitability/track-record bar. Notes the founder
+    should weigh that a US listing requires satisfying BOTH US securities regulators
+    and PRC outbound-listing approval — a two-government gate. Mentions the broader
+    collapse in IPO throughput (a16z ''Where Have All the IPOs Gone?'') means IPO
+    is a low-probability base case for most, China-nexus or not, so it should not
+    anchor the exit plan. Frames any profitability/market-cap listing bars as exchange-typical,
+    not fixed rules.'
+  weak_answer: Assumes Nasdaq is the obvious venue and ignores PCAOB/HFCAA inspection
+    requirements, CSRC outbound-filing approval, and VIE disclosure risk. Doesn't
+    know a China-nexus US listing needs PRC-side sign-off too. Treats IPO as a likely
+    outcome rather than a rare one. No grasp of the HK valuation/liquidity trade-off.
+  sources:
+  - https://a16z.com/where-have-all-the-ipos-gone/
+- id: exit-cn-05
+  theme: fundraise-risk-exit
+  stage:
+  - seed
+  - series-a
+  - series-b
+  wedge: cross-border-cn
+  question: If both the big-US-acquirer and US-IPO doors are narrowed, what does a
+    realistic non-US exit actually look like, and how do you build toward it from
+    Series A?
+  strong_answer: 'Constructs an exit plan that does not depend on the two narrowed
+    doors. Realistic alternatives: (1) acquisition by non-US strategics — Japanese
+    (SoftBank-orbit, gaming, industrial), SEA (Grab/Sea-type), Middle Eastern sovereign-backed,
+    European acquirers who carry no CFIUS reflex; (2) PE buyout / roll-up once there''s
+    durable cash flow; (3) Hong Kong or other-Asia listing; (4) secondary-led liquidity
+    (next item) as a partial exit absent a full sale. Founder reorients the BUSINESS
+    toward this: serving a global or non-US customer base so the company is attractive
+    and unencumbered to non-US buyers, keeping the corporate/IP structure clean and
+    portable, and cultivating exec relationships with the specific non-US strategics
+    early (First Round: deals come from years of relationship, not a process). Honest
+    that the multiple may be lower than a hypothetical US-strategic deal and plans
+    capital efficiency accordingly so the company isn''t forced into a bad exit by
+    running out of runway. Treats ''build to dominate, not to flip'' as the safer
+    posture given how few buyers exist.'
+  weak_answer: Has no plan B beyond 'US acquirer or US IPO' and treats non-US exits
+    as failure rather than the realistic base case. Doesn't reorient the business
+    or cap table to be attractive to non-US buyers, hasn't built any acquirer relationships,
+    and is one missed round away from a distressed sale. Assumes a high US-strategic
+    multiple is achievable.
+  sources:
+  - https://review.firstround.com/podcast/what-founders-need-to-know-about-acquisitions-shopifys-daniel-debow-on-m-a-lessons-from-selling-three-startups/
+  - https://www.ycombinator.com/blog/advice-startup-acquisitions/
+- id: exit-cn-06
+  theme: fundraise-risk-exit
+  stage:
+  - growth
+  - pre-ipo
+  wedge: cross-border-cn
+  question: With IPO and M&A both uncertain and far off, how do you give early employees
+    and investors liquidity through secondaries — and what's different about secondaries
+    for a China-nexus company?
+  strong_answer: 'Treats secondary liquidity as a primary tool, not an afterthought,
+    given long/uncertain exit timelines. Mechanisms: company-sponsored tender offers
+    (let employees/early holders sell a capped slice into a new or existing investor
+    at a set price), structured secondaries in priced rounds, and ATS/secondary platforms
+    for late-stage names. China-nexus specifics the strong founder flags: (1) any
+    new buyer in a secondary faces the same diligence on China-rooted IP/data/team
+    — so the buyer pool for secondaries is also narrowed, and you may need to enable
+    buyers who are comfortable with the profile; (2) ROFR, transfer restrictions,
+    and board approval gate who can buy in — useful to keep out China-government-linked
+    buyers who''d create CFIUS overhang for a future US exit; (3) moving capital across
+    the China/US border for employee proceeds has FX and PRC capital-control friction
+    that must be planned. Knows secondaries set a 409A/price reference that can complicate
+    later rounds, and that over-using them signals exit pessimism. Frames any ''sell
+    up to X% of vested'' employee caps as company-typical policy, not a rule.'
+  weak_answer: Treats secondaries as something that just happens at IPO, with no plan
+    to create interim liquidity over a long hold. Unaware that secondary buyers run
+    the same China-nexus diligence, that transfer restrictions/ROFR can be used to
+    screen out cap-table-poisoning buyers, or that cross-border FX/capital controls
+    complicate getting employee proceeds out of China. No grasp of pricing/409A side
+    effects.
+  sources:
+  - https://future.a16z.com/liquidity-private-market-exchanges
+  - https://nvca.org/model-legal-documents/
+- id: exit-cn-07
+  theme: fundraise-risk-exit
+  stage:
+  - series-a
+  - series-b
+  - growth
+  wedge: cross-border-cn
+  question: How does the outbound-investment screening regime (US restrictions on
+    US capital into China-linked AI/semiconductors/quantum) affect not just your fundraising
+    but who can ever acquire or take you public?
+  strong_answer: 'Connects the newer US outbound-investment rules (the ''reverse CFIUS''
+    regime restricting US persons'' investment into certain China-linked advanced
+    tech — semiconductors, AI, quantum) to the whole exit chain, not just the next
+    round. Implications: US funds may be restricted or chilled from investing in your
+    priced rounds or your secondaries if you''re deemed in a covered sector with a
+    China nexus, which thins your funding base AND your future US secondary-buyer
+    base; a US strategic acquiring you, or US-investor participation in your IPO,
+    can face the same chilling effect; and being publicly associated with a covered
+    sector (especially AI/semis) amplifies the CFIUS reflex on any US-strategic acquisition.
+    Strong founder assesses honestly whether the company''s core tech falls in a covered
+    sector and, if so, deliberately orients toward non-US capital and non-US exits
+    from the start, or restructures to de-link the sensitive tech from the China nexus.
+    Treats sector coverage as the swing variable that can foreclose the US side of
+    the exit landscape entirely. All sector/threshold references framed as policy-dependent
+    and evolving, not fixed.'
+  weak_answer: Has only heard of inbound CFIUS and is unaware of the outbound-investment
+    / 'reverse CFIUS' regime, so doesn't realize US capital may be restricted from
+    funding or buying into the company at all if it's in a covered AI/semi/quantum
+    sector. Treats sector classification as cosmetic. No plan to reorient toward non-US
+    capital despite being in a covered area.
+  sources:
+  - https://nvca.org/model-legal-documents/
+  - https://a16z.com/where-have-all-the-ipos-gone/

@@ -1,0 +1,158 @@
+cell: bm:saas
+type: benchmark
+wedge: general
+items:
+- sector: saas
+  metric: YoY growth rate (ARR)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: 'Seed: ~3x YoY off a small base (sub-$1M ARR). Series-A: ~2.5-3x YoY ($1-3M
+    ARR scaling toward $3-10M). T2D3 (triple-triple-double-double-double) is the canonical
+    5-year path, typically applied post-PMF from ~$1-2M ARR.'
+  red_flag: Sub-2x YoY at Series-A scale, or decelerating growth not explained by
+    a deliberate efficiency pivot. Flat MoM for 2+ quarters going into a raise.
+  note: Growth is the most heavily weighted early-stage metric and partially offsets
+    weak efficiency (Rule of 40 tradeoff). At seed, investors index on the multiple,
+    not absolute ARR. T2D3 was coined by Neeraj Agrawal at Battery Ventures, not Bessemer.
+  sources:
+  - battery.com (Neeraj Agrawal, T2D3)
+  - a16z.com/16-startup-metrics
+- sector: saas
+  metric: Net Revenue Retention (NRR / NDR)
+  stage:
+  - series-a
+  wedge: general
+  healthy: '>100% is table stakes; 110-120% is strong; best-in-class enterprise reaches
+    120-130%+. SMB/low-ACV SaaS lives lower (~100-110%).'
+  red_flag: 'NRR below 100% (net contraction) = leaky bucket: losing more from existing
+    accounts than you expand. Under ~90% reads as a product/PMF problem, not a sales
+    problem.'
+  note: At seed there's rarely enough cohort history to compute NRR meaningfully —
+    it's a Series-A ask. High NRR lets a company grow without ever-rising new-logo
+    spend, so VCs treat it as a proxy for durable PMF and pricing power.
+  sources:
+  - a16z.com/16-startup-metrics
+  - openviewpartners.com (OpenView SaaS Benchmarks)
+- sector: saas
+  metric: Gross margin
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: 70-85% for true software; >80% is the norm investors price at software
+    multiples.
+  red_flag: Below ~60-65% suggests heavy services/hosting/COGS drag and risks re-rating
+    as a lower-multiple services business. Sub-50% is not SaaS economics.
+  note: 'Watch what''s in COGS: hosting, support, implementation, and third-party
+    API/inference costs. Model/token costs are a real GM killer for AI-native SaaS
+    (can push it to 50-60%); investors increasingly scrutinize whether inference cost
+    scales with usage.'
+  sources:
+  - a16z.com/16-startup-metrics
+- sector: saas
+  metric: CAC payback period
+  stage:
+  - series-a
+  wedge: general
+  healthy: <12 months strong; 12-18 months median/acceptable; best-in-class self-serve/SMB
+    <6 months. Measured gross-margin-adjusted.
+  red_flag: '>18-24 months ties up capital too long relative to retention risk; combined
+    with NRR<100% it''s a structural cash trap. Payback exceeding expected customer
+    lifetime is a fail.'
+  note: 'Definition: (S&M spend in period) / (new ARR added x gross margin), in months.
+    At seed the sample is usually too small to trust — investors discount it for growth.
+    PLG/self-serve and enterprise have very different payback profiles; don''t benchmark
+    across motions.'
+  sources:
+  - a16z.com/16-startup-metrics
+- sector: saas
+  metric: Logo & revenue churn (annual)
+  stage:
+  - series-a
+  wedge: general
+  healthy: Enterprise gross revenue churn <10%/yr (best-in-class <5%). SMB tolerates
+    higher logo churn (~10-20%) if offset by expansion.
+  red_flag: Monthly logo churn >3-5% for SMB (implies ~30-50% of customers/yr); gross
+    revenue churn >20%/yr in any segment signals weak PMF or wrong ICP. Rising churn
+    cohort-over-cohort is worse than a high flat number.
+  note: 'Separate gross revenue churn from logo churn — losing many small logos can
+    be fine; losing revenue-weighted accounts is fatal. Ask for cohort retention curves:
+    healthy ones flatten to a retained core, bad ones decay toward zero.'
+  sources:
+  - a16z.com/16-startup-metrics
+  - openviewpartners.com (OpenView SaaS Benchmarks)
+- sector: saas
+  metric: Burn multiple
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: 'Sacks scale: <1x great, 1-1.5x good, 1.5-2x suspect, >2x bad. Net burn
+    per dollar of net new ARR. Post-2022 investors expect tighter than the ZIRP era.'
+  red_flag: '>2x (burning >$2 to add $1 net new ARR) is a hard flag at Series-A. At
+    seed more burn is tolerated, but >3x reads as inefficient or pre-PMF.'
+  note: Burn multiple = net burn / net new ARR. One number capturing growth AND efficiency
+    together, which is why it overtook standalone 'months of runway' post-2022. Cleaner
+    than Magic Number because it uses total cash burn, not just S&M.
+  sources:
+  - sacks.substack.com/p/the-burn-multiple (David Sacks, original)
+- sector: saas
+  metric: Magic Number (sales efficiency)
+  stage:
+  - series-a
+  wedge: general
+  healthy: '>0.75 means scale up S&M; >1.0 is excellent (each $1 of S&M returns $1+
+    of annualized new ARR within a year). 0.5-0.75 = proceed with caution.'
+  red_flag: <0.5 means adding sales spend destroys value rather than compounding it.
+  note: Magic Number = (current-Q new revenue x 4) / prior-Q S&M spend. Quarterly
+    cousin of CAC payback; unreliable at seed (too few quarters, lumpy enterprise
+    deals). Popularized by Lars Leckie (Hummer Winblad), not Bessemer. Best read alongside
+    burn multiple, which also counts R&D/G&A.
+  sources:
+  - a16z.com/16-startup-metrics
+- sector: saas
+  metric: Rule of 40
+  stage:
+  - series-a
+  wedge: general
+  healthy: Growth rate (%) + profit margin (%, FCF or EBITDA) >= 40. Early Series-A
+    companies usually clear it on growth alone (e.g. 100% growth, -60% margin = 40).
+  red_flag: 'Well below 40 with no path to accelerate growth or improve margins. Danger
+    zone: moderate growth (~40-50%) AND deep losses — neither lever working.'
+  note: 'More a growth-stage screen than a seed one, but a softened version is increasingly
+    applied at Series-A to check the growth-vs-burn tradeoff is deliberate. Composition
+    matters: 40 via growth is fine early; 40 via margin (low growth, profitable) reads
+    as a slowing business that should still be growth-first.'
+  sources:
+  - a16z.com/16-startup-metrics
+- sector: saas
+  metric: LTV/CAC ratio
+  stage:
+  - series-a
+  wedge: general
+  healthy: '>3x is the canonical target; 3-5x is healthy. Gross-margin-adjusted LTV.'
+  red_flag: '<3x suggests unit economics don''t justify acquisition spend. Caveat:
+    >5-6x can signal under-investment in growth, not virtue.'
+  note: 'Heavily caveated early: LTV needs a churn assumption you lack reliable data
+    for, so naive LTV is often fiction at seed. Investors prefer CAC payback + NRR
+    at Series-A over a hand-waved ratio. Treat as directional. a16z explicitly warns
+    on LTV pitfalls.'
+  sources:
+  - a16z.com/16-startup-metrics (warns on LTV pitfalls)
+- sector: saas
+  metric: ARR per FTE (capital/headcount efficiency)
+  stage:
+  - series-a
+  wedge: general
+  healthy: ~$100-150K ARR/FTE at Series-A scale, trending toward $200K+ as the company
+    matures; AI-native lean teams push materially higher.
+  red_flag: <$75-80K ARR/FTE at Series-A signals an over-hired org relative to revenue
+    — a common driver of a >2x burn multiple.
+  note: Increasingly a headline metric post-2022, especially for 'small team, big
+    ARR' AI-era stories. Noisy at seed (tiny denominator). Best used as a cross-check
+    on burn multiple — high ARR/FTE plus low burn multiple is the efficient-growth
+    signature investors now reward.
+  sources:
+  - openviewpartners.com (OpenView SaaS Benchmarks)

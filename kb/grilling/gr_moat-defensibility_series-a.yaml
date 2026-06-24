@@ -1,0 +1,170 @@
+cell: gr:moat-defensibility:series-a
+type: grilling
+wedge: general
+items:
+- id: what-stops-incumbent-from-building-this
+  theme: moat-defensibility
+  stage:
+  - series-a
+  wedge: general
+  question: If this is so valuable, what stops Google/Salesforce/Stripe from shipping
+    it as a feature next quarter and bundling it for free?
+  strong_answer: 'Names a specific structural reason the incumbent won''t or can''t:
+    the feature cannibalizes their core revenue line, conflicts with their channel/partner
+    economics, requires data they don''t have and can''t easily acquire, or sits in
+    a segment they''ve repeatedly tried and abandoned. Ideally cites evidence the
+    incumbent already looked and passed (a deprecated product, a public roadmap, partnership
+    talks). Frames the moat as accumulating (data network effects, integrations, switching
+    cost) so that even a fast-follow arrives behind. Distinguishes ''feature'' from
+    ''workflow/system of record'' — they own a feature, the startup owns the job-to-be-done.'
+  weak_answer: '''We''ll move faster than them'' or ''big companies can''t innovate''
+    or ''we''ll have first-mover advantage.'' Speed and incumbency-bashing are not
+    moats; they describe a head start, not a defensible position. Equally weak: ''they
+    could acquire us'' as the only answer, which reveals the plan is an exit, not
+    a business.'
+  sources:
+  - https://www.ycombinator.com/library
+- id: is-the-moat-the-product-or-the-company
+  theme: moat-defensibility
+  stage:
+  - series-a
+  wedge: general
+  question: Strip away your current feature set — if a competitor copied today's product
+    pixel-for-pixel, why do you still win in 18 months?
+  strong_answer: 'Points to assets that compound and are external to the current UI:
+    proprietary data that improves the product with usage, a distribution channel
+    competitors can''t replicate, regulatory/compliance certifications that take years,
+    embedded integrations or workflow lock-in, or a brand/community in a trust-sensitive
+    category. The answer reframes the moat as a flywheel rather than a list of features,
+    and explains why each turn of the flywheel widens the gap.'
+  weak_answer: Lists product features ('our UX is better', 'we have more integrations
+    today') as if features were durable. Features are copyable; the question is specifically
+    testing whether the founder confuses a current lead with a structural advantage.
+    Saying 'execution' without naming what execution accrues into is a tell.
+  sources:
+  - https://www.sequoiacap.com/article/pricing-your-product/
+  - https://a16z.com/16-startup-metrics/
+- id: network-effect-direction-and-strength
+  theme: moat-defensibility
+  stage:
+  - series-a
+  wedge: general
+  question: You claim network effects — show me the data. Does the Nth user actually
+    make the product better for user N+1, and at what point does the effect saturate?
+  strong_answer: 'Quantifies the effect: cohorts acquired later show higher retention/engagement
+    than earlier ones, or marginal CAC drops as the network grows, or matching/liquidity
+    metrics improve with density. Specifies the type (direct, two-sided, data, social)
+    and acknowledges saturation and local-vs-global dynamics (e.g. a marketplace is
+    won market-by-market, so density in a metro matters more than national totals).
+    Honest about where the network effect does NOT yet exist.'
+  weak_answer: Asserts network effects as a label with no measurement, or describes
+    mere scale economies ('more users = more revenue = more we can spend') as a network
+    effect. Confusing virality or word-of-mouth with a defensibility-creating network
+    effect is a common trap. 'It's a platform' with no demonstrated multi-side value
+    is hand-waving.
+  sources:
+  - https://www.nfx.com/post/network-effects-manual
+- id: switching-cost-quantified
+  theme: moat-defensibility
+  stage:
+  - series-a
+  wedge: general
+  question: Concretely, what does it cost a customer in money, time, and risk to rip
+    you out and switch to a competitor — and have any actually done it?
+  strong_answer: 'Names tangible lock-in: data/history that lives in the product and
+    would be lost or expensive to migrate, deep integrations into the customer''s
+    stack, retrained workflows across many seats, contractual or compliance dependencies,
+    or being the system of record. Backs it with churn evidence — low logo churn,
+    high net revenue retention (industry-typical strong NRR for B2B SaaS is around
+    120%+, treat as a benchmark not a rule) — and can describe a real attempted-switch
+    that failed or was painful.'
+  weak_answer: '''Customers love us so they won''t leave'' (love is not a switching
+    cost), or claims of stickiness contradicted by high churn. If NRR is below ~100%
+    (industry-typical danger line) while claiming a moat, that''s an immediate red
+    flag — the product leaks. Saying switching is hard but unable to name a single
+    mechanism is weak.'
+  sources:
+  - https://a16z.com/16-startup-metrics/
+  - https://review.firstround.com/
+- id: data-moat-actually-proprietary
+  theme: moat-defensibility
+  stage:
+  - series-a
+  wedge: general
+  question: Your 'data moat' — is that data actually proprietary and hard to recreate,
+    or could a funded competitor buy or generate equivalent data in six months?
+  strong_answer: 'Explains why the data is unique and self-reinforcing: it''s generated
+    as a byproduct of usage (so a competitor needs the usage first), it''s exclusive
+    via contracts or a hard-won source, or it accumulates a feedback loop where outcomes
+    label the data and improve the model in a way scraped/purchased data can''t. Acknowledges
+    that most data is NOT a moat and is precise about which slice is. Shows the data
+    measurably improves a metric customers pay for.'
+  weak_answer: '''We have a lot of data'' or ''we''ll train better models'' without
+    explaining defensibility. Public/scrapable data, or data any competitor could
+    license from the same vendor, is not a moat. In the foundation-model era, ''our
+    AI is better'' decays fast — claiming an AI/data moat without a proprietary, compounding
+    data loop is the classic 2024-2026 weak answer.'
+  sources:
+  - https://a16z.com/the-economic-case-for-generative-ai-and-foundation-models/
+- id: competitive-density-and-differentiation
+  theme: moat-defensibility
+  stage:
+  - series-a
+  wedge: general
+  question: Name your three most dangerous competitors and tell me, in one sentence
+    each, why you win against them — without saying 'we're better' or 'we're cheaper.'
+  strong_answer: 'Demonstrates real situational awareness: names well-funded and adjacent
+    threats (not just easy strawmen), and articulates a differentiated wedge per competitor
+    — a segment they neglect, a workflow they can''t serve due to architecture/business-model
+    conflict, or a go-to-market the startup owns. Shows win/loss data from actual
+    deals. Acknowledges where competitors are genuinely strong rather than dismissing
+    them.'
+  weak_answer: '''We have no real competitors'' (almost always false and signals naivety
+    or a non-existent market), only naming dead/tiny players, or differentiating solely
+    on price or ''better product.'' Price is the weakest moat — it invites a race
+    to the bottom that a better-funded player wins. Inability to articulate a real
+    win/loss pattern shows they aren''t in enough competitive deals to know.'
+  sources:
+  - https://review.firstround.com/
+  - https://www.ycombinator.com/library
+- id: moat-versus-time-and-capital
+  theme: moat-defensibility
+  stage:
+  - series-a
+  wedge: general
+  question: How much time and capital would it take a well-funded team to replicate
+    your defensibility — and is your lead growing or shrinking?
+  strong_answer: 'Identifies the rate-limiting asset that money can''t compress: time-series
+    data that only accrues with calendar time, regulatory approvals, enterprise reference
+    customers and certifications, or a brand in a trust category. Argues the gap widens
+    because the compounding asset grows faster than a fast-follower can close it.
+    Honest if the current lead is mostly a head start and lays out the concrete plan
+    to convert that head start into a structural moat before it erodes.'
+  weak_answer: '''It would be really hard to build'' with no specifics, or a moat
+    that is purely engineering effort — anything a competent team can build in a quarter
+    with capital is a feature gap, not a moat. Claiming a widening lead while metrics
+    (CAC rising, growth decelerating, churn flat-to-up) suggest the opposite is a
+    serious credibility problem.'
+  sources: []
+- id: defensibility-of-distribution
+  theme: moat-defensibility
+  stage:
+  - series-a
+  wedge: general
+  question: Is your distribution channel defensible, or is it a rented one that a
+    competitor with a bigger ad budget can outbid you on tomorrow?
+  strong_answer: 'Shows owned distribution that compounds: organic/word-of-mouth driving
+    a meaningful share of new logos, product-led growth where the product itself acquires
+    users, an exclusive partner/embed channel, or a community/content engine competitors
+    can''t buy. Cites blended CAC stability or improvement over time and a healthy
+    share of acquisition that isn''t paid. Recognizes distribution as a real moat,
+    often more durable than the product itself.'
+  weak_answer: Growth driven almost entirely by paid acquisition with CAC creeping
+    up, treating distribution as purely a spend problem. 'We'll just spend more on
+    ads/sales' is rented distribution — the moment a deeper-pocketed competitor enters
+    the auction, unit economics break. No organic/viral component and no channel ownership
+    is a defensibility gap many founders overlook.
+  sources:
+  - https://a16z.com/16-startup-metrics/
+  - https://review.firstround.com/
+  - https://www.nfx.com/post/network-effects-manual

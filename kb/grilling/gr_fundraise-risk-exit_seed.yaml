@@ -1,0 +1,191 @@
+cell: gr:fundraise-risk-exit:seed
+type: grilling
+wedge: general
+items:
+- id: round-size-and-runway-math
+  theme: fundraise-risk-exit
+  stage:
+  - seed
+  wedge: general
+  question: How much are you raising, and what milestone does that money buy you before
+    you have to raise again?
+  strong_answer: Founder names a specific amount tied to a concrete next-round-unlocking
+    milestone (e.g. enough ARR/users/proof to clear the Series A bar), shows a runway
+    of ~18-24 months (industry-typical), and explains the headline metric a Series
+    A investor will underwrite. Raise size is reverse-engineered from milestone +
+    burn, not picked to hit a round number. They know what happens if the milestone
+    slips by a quarter.
+  weak_answer: A round number ('we're raising $2M') with no link to a milestone, or
+    runway under ~12 months (industry-typical danger zone) that forces re-raising
+    before any proof point. 'It'll get us to profitability' at seed with no path shown,
+    or padding the raise 'to be safe' without knowing what it buys.
+  sources:
+  - https://www.ycombinator.com/library/4A-a-guide-to-seed-fundraising
+  - https://www.firstround.com/review/
+- id: default-alive-burn-rate
+  theme: fundraise-risk-exit
+  stage:
+  - seed
+  wedge: general
+  question: What's your monthly burn right now, and are you default alive or default
+    dead?
+  strong_answer: 'Founder knows net monthly burn to the dollar, can state runway in
+    months off the top of their head, and frames it in Graham''s default-alive terms:
+    at current growth and burn, do they reach profitability on the money in the bank?
+    If default dead, they name exactly which lever (growth, cost, raise) closes the
+    gap and by when.'
+  weak_answer: Vague burn ('around 80-100k-ish'), can't compute runway live, conflates
+    gross and net burn, or has never run the default-alive calculation. Treats fundraising
+    as the plan for survival rather than a calculated bet on acceleration.
+  sources:
+  - https://www.paulgraham.com/aord.html
+  - https://www.ycombinator.com/library/4A-a-guide-to-seed-fundraising
+- id: cap-table-founder-ownership
+  theme: fundraise-risk-exit
+  stage:
+  - seed
+  wedge: general
+  question: Walk me through your cap table — how much do the founders still own, and
+    is there any dead equity?
+  strong_answer: 'Clean cap table: founders collectively still hold a large majority
+    (industry-typical >50-60% post-seed), no departed co-founder sitting on a large
+    unvested-but-uncleaned chunk, all founders on standard 4-year vesting with a 1-year
+    cliff, option pool sized deliberately. Founder explains the math and shows they
+    understand dilution stacking across future rounds.'
+  weak_answer: A departed co-founder holding 20-40% dead equity, founders already
+    diluted below ~50% at seed, no vesting (or vesting that's already fully cliffed
+    for someone who left), an angel/accelerator with outsized ownership or heavy control
+    terms, or a SAFE stack the founder can't translate into post-money ownership.
+  sources:
+  - https://www.ycombinator.com/library/8h-how-to-build-the-perfect-cap-table
+  - https://carta.com/learn/
+  - https://www.nvca.org/model-legal-documents/
+- id: previous-safe-overhang
+  theme: fundraise-risk-exit
+  stage:
+  - seed
+  wedge: general
+  question: How much have you raised on SAFEs already, and what do those convert into
+    at this priced round?
+  strong_answer: Founder knows the total raised on SAFEs, the caps/discounts on each,
+    and has modeled the fully-diluted conversion — they can tell you their real post-money
+    ownership and the effective pre-money once SAFEs convert. No surprise dilution;
+    they've avoided stacking uncapped or wildly inconsistent caps. They understand
+    post-money SAFE math compounds dilution.
+  weak_answer: '''We''ve done a few SAFEs'' with no running total, doesn''t know the
+    aggregate cap exposure, hasn''t modeled conversion, or discovers in the room that
+    the SAFE overhang means founders own far less than they thought. Mixing pre- and
+    post-money SAFEs without understanding the difference.'
+  sources:
+  - https://www.ycombinator.com/documents
+  - https://www.ycombinator.com/library/4A-a-guide-to-seed-fundraising
+- id: what-do-you-believe-that-others-dont
+  theme: fundraise-risk-exit
+  stage:
+  - seed
+  wedge: general
+  question: What do you know about this market that everyone else is wrong about?
+  strong_answer: A specific, contrarian, earned insight — something learned from building
+    or living in the problem that smart people would dispute and the founder can defend.
+    It explains why now (a recent shift making this newly possible) and why this team.
+    The insight directly implies the product and the wedge.
+  weak_answer: A consensus observation dressed as insight ('AI is going to be huge',
+    'the market is growing'), TAM-by-top-down ('1% of a $50B market'), or a 'secret'
+    that's actually well known. No why-now, or a why-now that's just hype. Can't say
+    what a smart skeptic would push back on.
+  sources:
+  - https://review.firstround.com/
+  - https://a16z.com/
+- id: founder-market-fit-and-commitment
+  theme: fundraise-risk-exit
+  stage:
+  - seed
+  wedge: general
+  question: Why you, why this, and what happens if it's still a grind in three years?
+  strong_answer: Clear founder-market fit (relevant scar tissue, unfair access, or
+    obsession), full-time and all-in, co-founders with complementary skills and a
+    real working history. Founder shows this is a multi-year mission they'd pursue
+    regardless, and addresses what keeps the team together through the trough. Equity
+    split reflects genuine partnership.
+  weak_answer: Part-time or 'will go full-time once we close', a co-founder who is
+    hedging with another job, no real reason this team wins beyond enthusiasm, a 50/50
+    split that papers over an unresolved leadership question, or framing the startup
+    as a 2-year flip. Single founder with no plan to fill obvious gaps.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com/
+- id: exit-paths-and-acquirer-logic
+  theme: fundraise-risk-exit
+  stage:
+  - seed
+  wedge: general
+  question: If this works, how does it become a venture-scale outcome — and who would
+    ever buy you?
+  strong_answer: 'Founder shows a credible path to a large independent outcome (the
+    math on why this can be a $1B+ company at the relevant scale) AND names realistic
+    acquirers with the strategic logic for why they''d pay. They understand the fund-returner
+    expectation: a seed VC needs this single bet to be able to return the whole fund.
+    They don''t lead with the acquisition — they treat it as a floor, not the plan.'
+  weak_answer: '''We''ll get acquired by Google/Salesforce'' as the primary plan (signals
+    a small thinker and an unfundable risk profile for VC), a lifestyle-business trajectory,
+    a market too small to ever return a fund, or no articulated path to scale beyond
+    the first product. Conversely, refusing to engage with exit reality at all.'
+  sources:
+  - https://www.bvp.com/atlas
+  - https://www.crv.com/
+- id: biggest-risk-and-kill-criteria
+  theme: fundraise-risk-exit
+  stage:
+  - seed
+  wedge: general
+  question: What's the single thing most likely to kill this company, and how will
+    the money you're raising de-risk it?
+  strong_answer: Founder names the real existential risk (often a specific demand,
+    distribution, or technical-feasibility unknown — not a generic 'competition')
+    and shows the experiment this round funds to test it cheaply and fast. They've
+    thought in terms of the riskiest assumption first and have a kill/pivot threshold.
+    Honest self-awareness reads as strength.
+  weak_answer: '''Execution'' or ''competition'' as the only risk, claiming there''s
+    no real risk, or naming a risk with no plan to test it. Spending the round on
+    scaling something unvalidated rather than retiring the core unknown. Defensiveness
+    or a rehearsed non-answer signals they haven''t actually stress-tested the business.'
+  sources:
+  - https://review.firstround.com/
+  - https://www.ycombinator.com/library/4A-a-guide-to-seed-fundraising
+- id: traction-honest-read
+  theme: fundraise-risk-exit
+  stage:
+  - seed
+  wedge: general
+  question: Strip out the friendly logos — what's your real organic traction and retention?
+  strong_answer: Founder distinguishes genuine pull (paying users acquired without
+    founder hand-holding, strong retention/engagement cohorts, organic growth rate)
+    from pilots, LOIs, and friends-and-family deals. They show retention curves that
+    flatten rather than decay to zero, and are candid about what's not working yet.
+    For pre-revenue, they show a sharp leading indicator of demand.
+  weak_answer: Headline numbers padded with non-binding LOIs, free pilots counted
+    as 'customers', a handful of design partners who are friends, or vanity signups
+    with no retention behind them. Cohorts that bleed out, or a refusal to share retention
+    because 'it's early'. Conflating press/waitlist with demand.
+  sources:
+  - https://www.bvp.com/atlas
+  - https://review.firstround.com/
+  - https://www.ycombinator.com/library/4A-a-guide-to-seed-fundraising
+- id: competition-and-incumbent-response
+  theme: fundraise-risk-exit
+  stage:
+  - seed
+  wedge: general
+  question: When the obvious incumbent ships your feature, why don't you die?
+  strong_answer: 'Founder maps the real competitive landscape (including the build-it-themselves
+    and status-quo options), and articulates a durable wedge: a structural reason
+    incumbents won''t or can''t do this well (channel conflict, focus, business-model
+    cannibalization, or a compounding advantage that accrues over time). They show
+    how the wedge expands into a larger position.'
+  weak_answer: '''We have no competitors'' (signals naivety), dismissing incumbents
+    entirely, or a moat that''s just ''we''re faster/cheaper'' with nothing structural.
+    No answer for the incumbent fast-follow, or a feature-list comparison rather than
+    a defensibility argument. Believing a first-mover head start alone is a moat.'
+  sources:
+  - https://a16z.com/
+  - https://www.bvp.com/atlas

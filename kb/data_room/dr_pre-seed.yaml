@@ -1,0 +1,252 @@
+cell: dr:pre-seed
+type: data_room
+wedge: general
+items:
+- id: certificate-of-incorporation
+  category: corporate
+  stage:
+  - pre-seed
+  wedge: general
+  document: Certificate of Incorporation (filed/stamped) + any amendments, ideally
+    a Delaware C-corp
+  required: true
+  note: 'Deal-blocker for priced rounds. Most institutional investors will not fund
+    an LLC or a foreign/non-DE entity without a planned flip. Source: ycombinator.com/library
+    (YC''s standard incorporation guidance).'
+- id: bylaws-board-consents
+  category: corporate
+  stage:
+  - pre-seed
+  wedge: general
+  document: Bylaws + all board and stockholder consents/minutes (option grants, equity
+    issuances, officer appointments)
+  required: false
+  note: Gaps here (e.g. options granted without board approval) are the most common
+    cleanup item flagged in diligence; fixable but signals sloppiness.
+- id: ein-good-standing
+  category: corporate
+  stage:
+  - pre-seed
+  wedge: general
+  document: EIN confirmation letter + current Certificate of Good Standing from state
+    of incorporation
+  required: false
+  note: Cheap to obtain on request; rarely blocks but expected to exist.
+- id: fully-diluted-cap-table
+  category: cap_table
+  stage:
+  - pre-seed
+  wedge: general
+  document: Fully-diluted cap table (founders, option pool authorized vs. granted,
+    SAFEs/notes with caps & discounts, pro-forma post-round)
+  required: true
+  note: Single most-requested artifact. Must reconcile to issued stock and outstanding
+    SAFEs. 'Phantom' over-promised equity is a hard blocker. Carta/Pulley export is
+    fine.
+- id: safe-note-ledger
+  category: cap_table
+  stage:
+  - pre-seed
+  wedge: general
+  document: All executed SAFEs / convertible notes with valuation caps, discounts,
+    MFN provisions, and total raised on each instrument
+  required: true
+  note: Investors model dilution from the aggregate SAFE overhang; uncapped or stacked-cap
+    SAFEs frequently surprise founders on conversion. Use YC's post-money SAFE templates
+    (ycombinator.com/library).
+- id: founder-vesting-schedules
+  category: cap_table
+  stage:
+  - pre-seed
+  wedge: general
+  document: 'Founder restricted stock purchase agreements with vesting schedules (industry-typical:
+    4-year vest, 1-year cliff) and 83(b) election proof'
+  required: true
+  note: Missing 83(b) (must be filed within 30 days of grant, an absolute IRS deadline
+    not a norm) creates a tax liability investors flag. No founder vesting is a governance
+    red flag at this stage.
+- id: option-plan-409a
+  category: cap_table
+  stage:
+  - pre-seed
+  wedge: general
+  document: Equity incentive plan document + most recent 409A valuation report (if
+    any options granted)
+  required: false
+  note: Only required once you've granted options; many pre-seed teams haven't. 409A
+    typically refreshed annually or after a material event (industry norm, not statute).
+- id: ip-assignment-founders-contractors
+  category: ip
+  stage:
+  - pre-seed
+  wedge: general
+  document: Signed IP/invention assignment agreements (PIIA/CIIA) for ALL founders,
+    employees, and contractors — covering code written before incorporation
+  required: true
+  note: Hardest blocker to fix retroactively. If a former contractor or a co-founder's
+    prior employer owns core code, the deal dies. Confirm no work was done on an employer's
+    time/equipment.
+- id: open-source-license-inventory
+  category: ip
+  stage:
+  - pre-seed
+  wedge: general
+  document: Open-source dependency inventory flagging copyleft licenses (GPL/AGPL)
+    embedded in the product
+  required: false
+  note: Rarely blocks pre-seed but AGPL in a proprietary SaaS core is a recurring
+    surprise. A simple license-scan output suffices.
+- id: trademark-domain-ownership
+  category: ip
+  stage:
+  - pre-seed
+  wedge: general
+  document: Domain registrations and any trademark filings owned by the company entity
+    (not a founder's personal account)
+  required: false
+  note: Domains/handles registered under a personal Gmail are a common ownership gap;
+    move them to the corporate account.
+- id: founder-bios-references
+  category: team
+  stage:
+  - pre-seed
+  wedge: general
+  document: Founder bios/LinkedIns, founder breakup/equity-split rationale, and 2-3
+    backchannel reference contacts
+  required: true
+  note: 'At pre-seed the team IS the diligence. Founder references and the equity-split
+    story carry more weight than metrics. Source: firstround.com (founder reference-check
+    writing).'
+- id: founder-noncompete-prior-obligations
+  category: team
+  stage:
+  - pre-seed
+  wedge: general
+  document: Disclosure of any non-compete, non-solicit, or prior-employer IP obligations
+    binding the founders
+  required: true
+  note: A founder under an enforceable non-compete in the same space is a material
+    legal risk; deal-blocker if unresolved. Disclosure beats discovery.
+- id: org-chart-headcount-plan
+  category: team
+  stage:
+  - pre-seed
+  wedge: general
+  document: Current headcount, contractor vs. employee classification, and 12-18 month
+    hiring plan tied to the raise
+  required: false
+  note: Misclassifying full-time engineers as 1099 contractors is a common compliance
+    and IP-assignment risk worth surfacing.
+- id: financial-model-projections
+  category: financials
+  stage:
+  - pre-seed
+  wedge: general
+  document: 'Financial model: 18-24 month projection, monthly burn, current runway,
+    and use-of-funds for the round'
+  required: true
+  note: Pre-seed investors don't expect audited statements but do expect a defensible
+    burn/runway number. Runway under ~6 months at close is a red flag (industry-typical,
+    not absolute).
+- id: bank-statements-burn
+  category: financials
+  stage:
+  - pre-seed
+  wedge: general
+  document: Recent bank statements / cash balance and a simple expense breakdown reconciling
+    to stated burn
+  required: false
+  note: Light at pre-seed; a current balance screenshot plus the model usually suffices.
+    Asked for when the burn number looks off.
+- id: prior-funding-grants
+  category: financials
+  stage:
+  - pre-seed
+  wedge: general
+  document: 'List of all prior capital in: angel checks, accelerator terms (e.g. YC
+    SAFE), grants, and any founder loans to the company'
+  required: false
+  note: Founder loans and convertible grant terms (e.g. revenue-share riders) can
+    sit senior to new investors; disclose them.
+- id: cap-of-table-tax-83b
+  category: tax_compliance
+  stage:
+  - pre-seed
+  wedge: general
+  document: Proof of federal/state tax registrations, payroll tax setup, and franchise
+    tax filings (e.g. Delaware franchise tax)
+  required: false
+  note: Unpaid DE franchise tax is a frequent cause of a lapsed Good Standing certificate;
+    small dollars, easy to miss.
+- id: sales-tax-nexus
+  category: tax_compliance
+  stage:
+  - pre-seed
+  wedge: general
+  document: Sales-tax / SaaS-tax nexus assessment if charging customers across states
+    or selling internationally
+  required: false
+  note: Rarely material at pre-seed revenue levels but a growing accrued sales-tax
+    liability is a known later-stage surprise; note it early.
+- id: customer-contracts-tos
+  category: legal
+  stage:
+  - pre-seed
+  wedge: general
+  document: Standard customer agreements / Terms of Service + Privacy Policy, and
+    any signed enterprise contracts with unusual terms (exclusivity, IP grants, uncapped
+    liability)
+  required: false
+  note: Deal-blocker only if an early customer contract assigns IP or grants exclusivity.
+    Otherwise informational.
+- id: litigation-disclosure
+  category: legal
+  stage:
+  - pre-seed
+  wedge: general
+  document: Written disclosure of any pending/threatened litigation, disputes, or
+    regulatory inquiries (or a clean rep)
+  required: true
+  note: Standard rep in financing docs; an undisclosed dispute discovered post-term-sheet
+    kills trust and the deal. Reference NVCA model legal docs (nvca.org).
+- id: data-privacy-compliance
+  category: legal
+  stage:
+  - pre-seed
+  wedge: general
+  document: 'Data-handling overview: what PII is collected, where stored, GDPR/CCPA
+    posture, and any sub-processors'
+  required: false
+  note: Depth scales with the product; a consumer or health/fintech wedge raises this
+    from informational to material.
+- id: key-metrics-snapshot
+  category: product_metrics
+  stage:
+  - pre-seed
+  wedge: general
+  document: 'Core metrics snapshot: active users/customers, MoM growth, retention/cohort
+    curve, and (if any) MRR/ARR and pipeline'
+  required: false
+  note: 'Not all pre-seed companies have traction; when they do, retention/cohort
+    curves matter more than top-line growth. Source: a16z.com (consumer & SaaS metrics
+    primers), bvp.com (efficiency/retention benchmarks).'
+- id: product-demo-access
+  category: product_metrics
+  stage:
+  - pre-seed
+  wedge: general
+  document: Working demo or sandbox access + a short product walkthrough/Loom and
+    current roadmap
+  required: true
+  note: At pre-seed, evidence the thing exists and works is part of diligence. A live
+    demo or sandbox is effectively required even when metrics are thin.
+- id: customer-references-pipeline
+  category: product_metrics
+  stage:
+  - pre-seed
+  wedge: general
+  document: 2-3 customer/design-partner reference contacts and a list of signed LOIs
+    or design-partner agreements
+  required: false
+  note: B2B investors backchannel customers directly; for a B2B wedge this often becomes
+    the deciding diligence step even pre-revenue.

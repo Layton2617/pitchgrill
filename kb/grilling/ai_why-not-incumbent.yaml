@@ -1,0 +1,181 @@
+cell: ai:why-not-incumbent
+type: grilling
+wedge: ai-dev-tools
+items:
+- id: moat-incumbent-1
+  theme: moat-defensibility
+  stage:
+  - seed
+  - series-a
+  wedge: ai-dev-tools
+  question: GitHub ships Copilot to ~150M developers for free or near-free inside
+    the editor and CI they already own. What stops them from cloning your core feature
+    in a quarter and bundling it into the IDE that's already open on every dev's screen?
+  strong_answer: 'Names the specific thing GitHub structurally can''t or won''t copy:
+    (a) we''re cross-platform/cross-model where Copilot is locked to GitHub+OpenAI,
+    so we win the ~30-50% (industry-typical) of teams on GitLab/Bitbucket/self-hosted
+    or those who refuse single-vendor lock-in; (b) our wedge sits in a workflow GitHub''s
+    seat-based, repo-centric model can''t price for without cannibalizing — e.g. we''re
+    paid on outcomes/runtime, not seats; (c) we have a usage flywheel on accept/reject
+    and runtime-failure data in a vertical GitHub doesn''t see. Founder distinguishes
+    ''a feature'' (copyable in a quarter) from ''a position'' (integration depth +
+    data + business-model conflict that takes them years and a P&L fight).'
+  weak_answer: Claims 'we're faster/better UX' or 'they're too big and slow' with
+    no structural reason. Asserts a generic data moat without saying what data, why
+    it compounds, or why GitHub can't get equivalent data from 150M users. Treats
+    incumbent inaction as a given.
+  sources:
+  - https://a16z.com/the-empty-promise-of-data-moats/
+  - https://a16z.com/the-new-business-of-ai-and-how-its-different-from-traditional-software/
+- id: moat-incumbent-2
+  theme: moat-defensibility
+  stage:
+  - seed
+  - series-a
+  wedge: ai-dev-tools
+  question: You build on the OpenAI/Anthropic API. They see aggregate usage patterns
+    across every app on their platform, including which prompts and workflows drive
+    heavy token spend. If your category lights up their dashboards, why won't the
+    lab itself ship a first-party version and undercut you on price since they own
+    the cost basis?
+  strong_answer: 'Acknowledges the panopticon risk honestly, then explains why the
+    lab''s view is blunt, not surgical: they see token volume by category, not the
+    proprietary context (the customer''s repos, runtime telemetry, internal tooling,
+    eval sets) that makes the product work. Founder cites the model-provider conflict
+    explicitly — labs are now app-layer competitors, so enterprise buyers actively
+    want a neutral layer that isn''t owned by their model vendor and can route across
+    models. States margin structure assuming model cost is commoditized to ~0, with
+    value living in workflow/data, not inference markup.'
+  weak_answer: Says 'OpenAI won't bother with our niche' or 'we have a partnership.'
+    Ignores that labs already compete at the app layer. Has a business model that
+    is pure inference markup, which evaporates the moment the lab cuts API prices.
+    No answer for what they own that the lab can't see.
+  sources:
+  - https://foundationcapital.com/ideas/when-model-providers-eat-everything-a-survival-guide-for-service-as-software-startups
+  - https://news.ycombinator.com/item?id=40267875
+- id: moat-incumbent-3
+  theme: moat-defensibility
+  stage:
+  - seed
+  - series-a
+  wedge: ai-dev-tools
+  question: Walk me through your platform-dependency stack. If your model provider
+    triples API prices, slashes your rate limit, changes ToS to ban your use case,
+    or deprecates the model version you tuned against — which of those is a paper
+    cut and which is an extinction event? What have you actually done about it?
+  strong_answer: 'Maps each dependency to a concrete mitigation: model-agnostic abstraction
+    layer with at least one tested fallback provider/open-weight model, eval harness
+    that lets them swap models in days not months, and contracts/committed-use deals
+    that cap pricing exposure. Quantifies blast radius — e.g. inference is ~X% of
+    COGS (industry-typical, varies widely), and a 3x price hike moves gross margin
+    from A% to B% but doesn''t go negative. Names the one dependency that IS existential
+    and says so plainly rather than pretending all risks are hedged.'
+  weak_answer: '''We''d just switch models'' with no eval infra or evidence they''ve
+    ever run on a second provider. Hasn''t modeled margin impact of a price change.
+    Single-model lock-in with prompts hand-tuned to one provider and no abstraction.
+    Treats ToS/policy risk as unthinkable.'
+  sources:
+  - https://foundationcapital.com/ideas/when-model-providers-eat-everything-a-survival-guide-for-service-as-software-startups
+  - https://a16z.com/api-battleground-platform-wars/
+- id: moat-incumbent-4
+  theme: moat-defensibility
+  stage:
+  - seed
+  - series-a
+  wedge: ai-dev-tools
+  question: Datadog already has the agents, the data pipeline, and the enterprise
+    contracts across most of your target market. For an observability/devops-adjacent
+    wedge, what do you have that a well-funded incumbent with existing distribution
+    genuinely cannot replicate in a quarter — and is it the product, or something
+    else?
+  strong_answer: 'Separates copyable (the feature/UI — near-zero cost to clone now
+    that AI can rebuild a frontend in an afternoon) from non-copyable: deep integration
+    into cross-functional workflow logic and operational habits, switching cost from
+    accumulated per-customer configuration, and a data flywheel on a signal Datadog''s
+    product surface doesn''t capture. Crucially names the incumbent''s business-model
+    conflict — Datadog''s value-based/usage pricing on hosts/ingestion means a feature
+    that reduces data volume is anti-incentive for them. Honest that the product itself
+    is not the moat; the embedded position is.'
+  weak_answer: Points to the product feature as the moat. Believes 'enterprise sales
+    is hard for them too' despite the incumbent owning the buyer relationship. No
+    articulation of switching cost or workflow lock-in. Assumes a fast-follow is technically
+    infeasible when it plainly isn't.
+  sources:
+  - https://a16z.com/the-new-business-of-ai-and-how-its-different-from-traditional-software/
+  - https://a16z.com/the-empty-promise-of-data-moats/
+- id: moat-incumbent-5
+  theme: moat-defensibility
+  stage:
+  - seed
+  - series-a
+  wedge: ai-dev-tools
+  question: The classic incumbent objection is the innovator's dilemma — but be specific.
+    Which incumbent's existing revenue line would your product cannibalize if they
+    built it, and roughly how big is that conflict relative to your TAM? If there's
+    no cannibalization conflict, then the dilemma doesn't protect you and you need
+    a different answer.
+  strong_answer: 'Identifies a concrete revenue conflict — e.g. the incumbent''s seat-based
+    or ingestion-based pricing is structurally undermined by the founder''s outcome-based
+    model, and that protected line is large enough (industry-typical: a meaningful
+    fraction of the incumbent''s revenue) that a public company won''t knife it for
+    an initially small market. If no such conflict exists, the founder doesn''t hide
+    behind the dilemma — pivots to a different defense (data flywheel, distribution,
+    neutrality). Cites that cannibalization is the dominant empirical reason incumbents
+    under-invest, not mere slowness.'
+  weak_answer: Invokes 'innovator's dilemma' as a magic phrase with no specific revenue
+    line or sizing. Assumes incumbents are just lazy/bureaucratic. Can't say which
+    of the incumbent's P&L lines the product threatens, so the dilemma argument is
+    decorative rather than load-bearing.
+  sources:
+  - https://en.wikipedia.org/wiki/The_Innovator's_Dilemma
+  - https://news.yale.edu/2017/06/05/estimating-innovator-s-dilemma-qa-yale-economist-mitsuru-igami
+- id: moat-incumbent-6
+  theme: moat-defensibility
+  stage:
+  - seed
+  - series-a
+  wedge: ai-dev-tools
+  question: You keep saying 'data moat.' a16z has argued data moats are mostly an
+    empty promise for AI apps because data is often the customer's, in the public
+    domain, or hits diminishing returns fast. Why is YOUR data flywheel real — what's
+    the specific proprietary signal, who legally owns it, and does model quality keep
+    improving with more of it or plateau?
+  strong_answer: Names the exact signal (e.g. accept/reject on suggestions, post-merge
+    runtime failures tied back to generated code, human-graded eval traces in a niche
+    domain), confirms contractual/structural ownership so it doesn't walk out with
+    the customer, and is honest about the returns curve — concedes diminishing returns
+    exist but shows the flywheel feeds a workflow advantage (faster, more relevant)
+    that compounds even where raw model gains plateau. Distinguishes data that improves
+    the model from data that increases switching cost — both can be moats, for different
+    reasons.
+  weak_answer: '''We collect a lot of data'' with no specificity, no ownership story,
+    and an implicit assumption that more data linearly equals a better model. Hasn''t
+    grappled with a16z''s diminishing-returns critique. Data the customer owns and
+    can take to a competitor is presented as if it were proprietary.'
+  sources:
+  - https://a16z.com/the-empty-promise-of-data-moats/
+  - https://frontierai.substack.com/p/data-is-your-only-moat
+- id: moat-incumbent-7
+  theme: moat-defensibility
+  stage:
+  - series-a
+  wedge: ai-dev-tools
+  question: Your product depends on permissioned access to a platform you don't control
+    — indexing a code host, reading from Slack/Jira, or hooking the IDE's extension
+    API. We've seen platforms hoard their own data (e.g. tightening third-party indexing)
+    the moment a category gets valuable. What's your plan for when the platform closes
+    the door you walked through?
+  strong_answer: Treats integration access as a borrowed, revocable asset, not a moat.
+    Shows diversification across multiple integration surfaces so no single platform's
+    clampdown is fatal, plus a path to first-party data the customer grants directly
+    (so the relationship survives even if the platform cuts API access). Cites the
+    real pattern of platforms restricting third-party bulk indexing once copilots
+    threaten them, and has at least one fallback ingestion route. Honest that any
+    single-platform integration is structurally fragile.
+  weak_answer: Assumes the platform will always keep the door open because 'it's an
+    open ecosystem.' Single integration surface, no fallback. Confuses 'we have an
+    integration' with 'we have a moat.' No awareness that platforms weaponize API
+    access once a third party gets big.
+  sources:
+  - https://a16z.com/api-battleground-platform-wars/
+  - https://a16z.com/the-new-business-of-ai-and-how-its-different-from-traditional-software/

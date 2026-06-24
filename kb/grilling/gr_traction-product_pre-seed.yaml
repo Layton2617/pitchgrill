@@ -1,0 +1,176 @@
+cell: gr:traction-product:pre-seed
+type: grilling
+wedge: general
+items:
+- id: what-have-you-actually-shipped
+  theme: traction-product
+  stage:
+  - pre-seed
+  wedge: general
+  question: Show me the product right now. What can a real user do with it today,
+    end to end?
+  strong_answer: Founder pulls up a live, working product (not Figma) and walks a
+    real user flow without hedging. They can name specific things users do unaided,
+    distinguish what's shipped from what's roadmap, and show a non-trivial core loop
+    that already delivers the promised value. Confidence comes from having watched
+    real people use it.
+  weak_answer: A deck of mockups, a 'we're 90% done', or a demo that only works on
+    a happy path the founder controls. Repeated 'this part is coming soon' on the
+    exact feature that constitutes the value prop. Conflating a landing page or waitlist
+    with a product.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.paulgraham.com/ds.html
+- id: who-are-your-users-and-how-many-real-ones
+  theme: traction-product
+  stage:
+  - pre-seed
+  wedge: general
+  question: How many people use this every week, and are any of them strangers — people
+    you've never met?
+  strong_answer: 'A specific weekly-active number with a clear distinction between
+    friends/network and organic strangers. Even small numbers (industry-typical: a
+    handful to low tens of genuinely engaged weekly users at pre-seed) are credible
+    when the founder shows the curve is going up and can name where strangers came
+    from. They separate signups from actual usage.'
+  weak_answer: Cumulative signup totals presented as 'users', vanity numbers with
+    no weekly-active behind them, or an admission that every user is a friend, classmate,
+    or someone the founder personally onboarded. 'Thousands on the waitlist' with
+    zero active usage.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+  - https://www.sequoiacap.com
+- id: do-users-come-back-retention
+  theme: traction-product
+  stage:
+  - pre-seed
+  wedge: general
+  question: Of the people who tried it last month, how many came back this month —
+    and can you show me the cohort curve?
+  strong_answer: An actual retention/cohort chart that flattens rather than decaying
+    to zero, showing a stable core that keeps returning. Founder knows their retention
+    shape cold and can explain why the curve flattens where it does (the value moment).
+    For habitual products, industry-typical healthy signals are a retention curve
+    that plateaus instead of trending to zero.
+  weak_answer: No retention data at all, or only 'growth' in cumulative signups masking
+    the fact that nobody returns. A curve that decays toward zero with hand-waving
+    that 'we just need more top-of-funnel'. Confusing one-time spikes (a launch, a
+    press hit) with sustained engagement.
+  sources:
+  - https://review.firstround.com
+  - https://www.sequoiacap.com
+  - https://a16z.com
+- id: would-users-be-upset-if-it-disappeared
+  theme: traction-product
+  stage:
+  - pre-seed
+  wedge: general
+  question: If you shut this down tomorrow, who would be genuinely upset — and how
+    do you know?
+  strong_answer: 'Founder cites concrete evidence of need: users who chase them for
+    fixes, who built workflows around it, who pay or repeatedly ask to pay, or survey/behavioral
+    data showing a meaningful share would be ''very disappointed'' to lose it (the
+    Sean Ellis PMF signal, industry-typical bar ~40%). They name specific upset users
+    by role/use-case.'
+  weak_answer: '''Everyone loves it'' with no specifics, or polite feedback (''cool
+    idea'', ''I''d use this'') that never converted to behavior. The honest version:
+    nobody would actually notice if it vanished, and the founder can''t point to a
+    single user who would fight to keep it.'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+- id: what-is-the-one-metric
+  theme: traction-product
+  stage:
+  - pre-seed
+  wedge: general
+  question: What's the single number you check every morning, and what is it today
+    versus eight weeks ago?
+  strong_answer: Founder names one core engagement/value metric instantly, gives both
+    numbers, and knows the weekly growth rate. Industry-typical pre-seed expectation
+    is a consistent meaningful week-over-week growth rate on a real usage metric (single-digit
+    to low-double-digit percent weekly), and they can explain the inputs driving it.
+  weak_answer: Long pause, then a menu of metrics with none owned, or picking a vanity
+    metric (impressions, page views, signups) instead of usage/value. No memory of
+    where the number was two months ago, signaling they aren't actually running the
+    business on data.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://a16z.com
+- id: how-did-you-get-your-last-ten-users
+  theme: traction-product
+  stage:
+  - pre-seed
+  wedge: general
+  question: Walk me through exactly how you got your last ten users. What did the
+    eleventh cost you?
+  strong_answer: A concrete, repeatable acquisition story — specific channels, messages,
+    communities, or outbound that worked, with an honest read on whether it scales.
+    Doing things that don't scale is fine and expected at pre-seed; the strength is
+    that the founder learned what converts and why.
+  weak_answer: '''Word of mouth'' or ''organic'' as a catch-all with no mechanics
+    behind it, inability to name where users actually came from, or a one-off spike
+    (Product Hunt, a viral post) treated as a strategy. No idea what acquiring the
+    next user takes.'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+- id: what-did-users-tell-you-that-changed-the-product
+  theme: traction-product
+  stage:
+  - pre-seed
+  wedge: general
+  question: What did you build that users rejected, and what did you change because
+    of it?
+  strong_answer: Specific stories of talking to users, a feature or assumption that
+    died on contact with reality, and a concrete pivot/change that followed. Shows
+    a tight build-measure-learn loop and that the founder treats users as the source
+    of truth, not their own intuition.
+  weak_answer: '''Users love everything we build'' or no examples of being wrong —
+    a sign they aren''t really talking to users or aren''t listening. Defensiveness
+    about feedback, or describing user research as a survey they sent once rather
+    than ongoing conversations.'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+- id: why-do-they-use-you-over-the-incumbent
+  theme: traction-product
+  stage:
+  - pre-seed
+  wedge: general
+  question: Your users already have a way to solve this — spreadsheet, a competitor,
+    or nothing. Why did they switch to you specifically?
+  strong_answer: Founder names the real status quo (often a spreadsheet, email, or
+    'doing nothing') and articulates the specific, concrete wedge that made switching
+    worth the friction. They can quote users on what made them move and why they stay,
+    showing the product is meaningfully better on a dimension users actually care
+    about.
+  weak_answer: Feature-list comparisons ('we're like X but with more features'), claiming
+    no competition exists, or a vague 'better UX' with no evidence users felt the
+    switching cost was worth it. Doesn't understand the incumbent is inertia, not
+    just a named competitor.
+  sources:
+  - https://a16z.com
+  - https://www.sequoiacap.com
+  - https://www.ycombinator.com/library
+- id: is-this-a-vitamin-or-painkiller
+  theme: traction-product
+  stage:
+  - pre-seed
+  wedge: general
+  question: Is this solving a hair-on-fire problem, or a nice-to-have? Convince me
+    it's the former with behavior, not opinion.
+  strong_answer: 'Behavioral proof of urgency: users adopt despite a rough product,
+    hack workarounds before you build the feature, pay early, or onboard their team
+    unprompted. Founder frames the problem as something users are already spending
+    time/money trying to solve, and the product is a sharper tool for an existing
+    fire.'
+  weak_answer: Justifying the problem with market-size logic ('it's a $50B market')
+    instead of user behavior, or describing a problem users agree exists but won't
+    change their workflow to fix. Slow, polite adoption that requires heavy convincing
+    is the tell of a vitamin.
+  sources:
+  - https://www.sequoiacap.com
+  - https://a16z.com
+  - https://www.ycombinator.com/library

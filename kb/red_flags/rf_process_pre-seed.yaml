@@ -1,0 +1,178 @@
+cell: rf:process:pre-seed
+type: red_flag
+wedge: general
+items:
+- id: messy-cap-table
+  domain: process
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Messy or top-heavy cap table
+  why: A cap table where founders are already badly diluted or large equity sits with
+    absent parties signals the company cannot survive several future rounds without
+    destroying remaining founder incentives.
+  threshold: 'industry-typical: founders collectively own ~70-80%+ heading into the
+    priced round; large stake held by a non-active party; meaningful dead equity from
+    a departed founder or one-off advisor'
+  severity: kill
+  detect: Request the cap table and vesting schedule; red flag if a departed co-founder
+    still holds a large uncancelled stake, an incubator/early advisor took 5%+, or
+    stacked SAFEs imply a large share already sold before a priced round.
+  sources:
+  - ycombinator.com/library
+- id: no-founder-vesting-or-ip
+  domain: process
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: No founder vesting or incomplete IP assignment
+  why: Without standard vesting and full IP assignment a co-founder can walk with
+    a chunk of the company or a third party can claim the core technology, making
+    the asset un-investable.
+  threshold: 'industry-standard: 4-year vesting with a 1-year cliff; all IP assigned
+    via signed PIIA, including from any prior employer or contractor'
+  severity: kill
+  detect: Founder self-report like 'we split 50/50 on a handshake, no vesting'; no
+    signed IP/PIIA agreements; core tech built while a founder was employed elsewhere
+    or by a contractor without an assignment clause.
+  sources:
+  - ycombinator.com/library
+  - nvca.org
+- id: cofounder-instability
+  domain: process
+  stage:
+  - pre-seed
+  wedge: general
+  title: Co-founder conflict or part-time founders
+  why: Pre-seed bets are almost entirely on the team, so an unresolved equity dispute,
+    a founder still holding a day job, or a recently departed co-founder are among
+    the most common quiet-pass reasons.
+  threshold: 'industry-typical: any core founder not full-time at close; a recent
+    co-founder departure left unexplained'
+  severity: kill
+  detect: Deck lists a founder as 'advisor' or 'part-time'; team slide changed between
+    versions; founder admits another founder is 'transitioning out' or 'we are still
+    figuring out splits'.
+  sources:
+  - ycombinator.com/library
+  - firstround.com
+- id: non-standard-deal-terms
+  domain: process
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Non-standard or stacked early-stage instruments
+  why: Uncapped notes, conflicting SAFE caps, side-letter MFN clauses, or a previous
+    priced round with aggressive investor terms create conversion math and control
+    problems that scare off the next lead.
+  threshold: 'industry-typical: multiple SAFEs with inconsistent caps; any uncapped
+    note; prior round with full-ratchet anti-dilution, participating preferred above
+    1x, or investor board control'
+  severity: major
+  detect: Ask to see every prior instrument and side letter; red flag if the founder
+    cannot produce a clean conversion summary or does not know their fully-diluted
+    post-conversion ownership.
+  sources:
+  - ycombinator.com/library
+  - nvca.org
+- id: inflated-or-unjustified-valuation
+  domain: process
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Valuation untethered from stage and traction
+  why: An ask far above stage norms with no traction to justify it sets up a guaranteed
+    down round at Series A, which sophisticated investors avoid even when they like
+    the team.
+  threshold: 'industry-typical: pre-seed post-money pushed well above typical stage
+    ranges with no revenue; price requires a large step-up at Series A to avoid a
+    down round'
+  severity: major
+  detect: Compare the ask and post-money to current stage benchmarks; red flag if
+    the valuation is backed only by a comparable-company multiple or a TAM slide rather
+    than traction or a prior competitive term sheet.
+  sources:
+  - a16z.com
+  - firstround.com
+- id: data-room-and-metric-inconsistency
+  domain: process
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Inconsistent numbers across deck, data room, and verbal claims
+  why: When revenue, user counts, or burn differ between the deck, the data room,
+    and what the founder says on a call, investors stop trusting every other number
+    and kill the deal on integrity grounds.
+  threshold: ''
+  severity: kill
+  detect: Cross-check the same metric in three places (deck, financial model, founder
+    verbal answer); red flag if MRR, active users, or cash balance materially disagrees
+    between sources or the founder cannot reconcile the difference on the spot.
+  sources:
+  - firstround.com
+  - ycombinator.com/library
+- id: vanity-metrics-no-retention
+  domain: process
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Vanity metrics with no retention or engagement proof
+  why: Leading with cumulative signups, downloads, or LOIs while hiding retention
+    and active-usage curves signals the founder is masking a leaky product, which
+    DD will expose anyway.
+  threshold: 'industry-typical: presenting total/cumulative numbers instead of monthly
+    actives; absent or undisclosed cohort retention curve; retention that flattens
+    near zero'
+  severity: major
+  detect: Look for 'total users/downloads/signups' on the traction slide with no cohort
+    retention chart; ask directly for the retention curve and DAU/MAU, and treat reluctance
+    or 'we do not track that yet' as the flag.
+  sources:
+  - a16z.com
+  - ycombinator.com/library
+- id: no-clean-records-or-corp-hygiene
+  domain: process
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Missing corporate hygiene and clean records
+  why: Absent board consents, unissued stock, missed 83(b) elections, unpaid payroll
+    taxes, or contractor-vs-employee misclassification create real liabilities that
+    turn a quick close into a costly legal cleanup.
+  threshold: 'industry-typical: any founder who missed the 83(b) filing deadline (30
+    days from grant); equity ''promised'' but never formally issued; workers misclassified
+    as contractors'
+  severity: major
+  detect: 'Founder self-report: no formal board minutes, ''we will paper it later'',
+    verbal equity promises to early hires, or no entity/tax filings; ask for the legal
+    section of the data room and gauge how much is missing.'
+  sources:
+  - ycombinator.com/library
+  - nvca.org
+- id: single-channel-or-fake-traction
+  domain: process
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Traction that is non-repeatable or paid-for
+  why: Growth driven entirely by founder hustle, one-off press, friends-and-family,
+    or unsustainable paid spend is not evidence of a scalable channel, so investors
+    discount it to near zero.
+  threshold: 'industry-typical: a single acquisition channel; revenue concentrated
+    in friends/personal network; CAC payback unknown or far longer than the product
+    can fund'
+  severity: minor
+  detect: Ask where each customer came from and whether the founder could repeat it
+    without their personal network; red flag if every logo traces to a warm intro
+    or a single viral moment with no organic channel forming.
+  sources:
+  - firstround.com
+  - a16z.com

@@ -1,0 +1,150 @@
+cell: rf:market_claims:seed
+type: red_flag
+wedge: general
+items:
+- id: tam-top-down-only
+  domain: market_claims
+  stage:
+  - seed
+  - series_a
+  wedge: general
+  title: Top-down TAM with no bottom-up build
+  why: A '$X billion market, we just need 1%' claim signals the founder hasn't done
+    the unit-level math that predicts actual revenue, which is the only TAM an investor
+    trusts.
+  threshold: large headline TAM (e.g. >$10B) sourced entirely from an analyst report
+    with no bottom-up (#reachable customers x ACV) cross-check
+  severity: major
+  detect: Deck cites a Gartner/Statista/IDC figure with a '1% of this = huge' line;
+    ask the founder to derive TAM bottom-up (reachable accounts x realistic ACV) —
+    if they can't reproduce it in the meeting, it's borrowed not built.
+  sources:
+  - ycombinator.com/library
+  - a16z.com
+- id: tam-conflates-with-sam-som
+  domain: market_claims
+  stage:
+  - seed
+  wedge: general
+  title: TAM presented as the serviceable/obtainable market
+  why: Counting the entire category as addressable when the product only serves one
+    segment, geography, or price tier inflates the opportunity and shows the founder
+    doesn't understand who they can actually sell to today.
+  threshold: SAM stated as roughly equal to TAM, with no segmentation excluding customers
+    unreachable by current pricing/geo/feature set
+  severity: major
+  detect: No TAM/SAM/SOM breakdown, or SAM equals TAM; probe which customers are excluded
+    by current pricing, regulation, language, or feature gaps — a credible founder
+    names large slices that are NOT yet reachable.
+  sources:
+  - firstround.com
+  - ycombinator.com/library
+- id: market-not-growing-or-shrinking
+  domain: market_claims
+  stage:
+  - seed
+  - series_a
+  wedge: general
+  title: Flat or declining market dressed as a growth market
+  why: Venture math needs a tailwind; entering a stagnant or shrinking category means
+    growth must be stolen share-by-share, which is slow and capital-intensive and
+    rarely returns a fund.
+  threshold: underlying market growth is low/flat (well below the ~15%+ CAGR VCs typically
+    want) while pitched as 'fast-growing'
+  severity: major
+  detect: Deck asserts 'rapidly growing' without a cited growth rate; check whether
+    the cited growth is the market's or merely the company's own; declining incumbents
+    and consolidation are tells of a mature/shrinking space.
+  sources:
+  - a16z.com
+  - bvp.com
+- id: no-real-competition-claimed
+  domain: market_claims
+  stage:
+  - seed
+  wedge: general
+  title: '''We have no competitors'' / blank competitive landscape'
+  why: Claiming no competition almost always means either the market doesn't exist
+    or the founder hasn't looked, both of which kill conviction faster than naming
+    strong rivals would.
+  threshold: ''
+  severity: kill
+  detect: Empty or strawman competitor slide, or only obviously-weak players listed;
+    ask 'what do customers use today instead?' — if the honest answer is spreadsheets/status-quo/nothing,
+    the real question becomes whether the problem is urgent enough to fund.
+  sources:
+  - ycombinator.com/library
+  - sequoiacap.com
+- id: status-quo-is-the-real-competitor
+  domain: market_claims
+  stage:
+  - seed
+  wedge: general
+  title: Ignoring 'do nothing / Excel' as the default alternative
+  why: The hardest competitor is inertia, and a founder who only benchmarks against
+    other startups underestimates how hard it is to make a buyer change behavior,
+    which shows up later as brutal sales cycles.
+  threshold: ''
+  severity: major
+  detect: Competitive framing is all vendor-vs-vendor; in self-report, ask what the
+    last 5 prospects were doing before and why they'd switch — vague 'they're frustrated'
+    answers without a switching trigger or budget line are the flag.
+  sources:
+  - firstround.com
+  - ycombinator.com/library
+- id: wrong-or-stale-market-sources
+  domain: market_claims
+  stage:
+  - seed
+  wedge: general
+  title: Market sizing built on stale, off-topic, or unciteable data
+  why: Sizing pinned to a pre-2020 report, an adjacent category, or an unnamed 'industry
+    estimate' tells diligence the entire opportunity slide can't be verified, so they
+    discount it to zero.
+  threshold: primary market source more than a few years old or citing a category
+    that doesn't match the actual product
+  severity: minor
+  detect: Footnotes missing, dated, or citing a different segment than the product
+    serves; ask for the source links and check that the report's category actually
+    matches what's being sold.
+  sources:
+  - nvca.org
+  - a16z.com
+- id: category-too-niche-for-venture
+  domain: market_claims
+  stage:
+  - seed
+  - series_a
+  wedge: general
+  title: Real market but too small to return a venture fund
+  why: A genuine, defensible niche that tops out below the revenue an investor needs
+    at exit is a great business and a bad venture bet, and seed investors price for
+    the next round's appetite, not just yours.
+  threshold: realistic obtainable revenue ceiling can't support a credible venture-scale
+    (~>$1B) exit even at optimistic share
+  severity: major
+  detect: Bottom-up build (reachable accounts x ACV) caps out low even at optimistic
+    share; ask the founder what 100% market share would generate in revenue — if the
+    answer is double-digit millions, it's likely sub-venture scale unless expansion
+    vectors are credible.
+  sources:
+  - a16z.com
+  - bvp.com
+  - sequoiacap.com
+- id: timing-why-now-missing
+  domain: market_claims
+  stage:
+  - seed
+  wedge: general
+  title: No 'why now' — market has been addressable for years
+  why: If nothing changed (tech, regulation, behavior, cost curve) to unlock the market
+    recently, investors assume smarter/better-funded teams already tried and the absence
+    of incumbents is a warning, not an opening.
+  threshold: ''
+  severity: major
+  detect: No inflection-point narrative in the deck; ask 'why was this impossible/uneconomical
+    3 years ago and possible now?' — a hand-wave ('AI' with no specific capability
+    change) or 'we're just executing better' is the flag.
+  sources:
+  - sequoiacap.com
+  - ycombinator.com/library

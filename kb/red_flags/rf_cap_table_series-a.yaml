@@ -1,0 +1,169 @@
+cell: rf:cap_table:series-a
+type: red_flag
+wedge: general
+items:
+- id: dead-equity-departed-founder
+  domain: cap_table
+  stage:
+  - series-a
+  wedge: general
+  title: Large unvested-but-issued stake held by a departed founder
+  why: A non-operating ex-founder sitting on a big chunk of equity is dead equity
+    that demotivates the active team and signals unresolved governance, making the
+    round hard to clear.
+  threshold: departed/inactive founder holding >10% fully-diluted
+  severity: kill
+  detect: Cap table lists a co-founder no longer in operating roles; ask 'is every
+    founder on the cap table still full-time?' and check for a founder whose title/role
+    is absent from the deck team slide.
+  sources:
+  - ycombinator.com/library
+  - firstround.com
+- id: founders-over-diluted-pre-a
+  domain: cap_table
+  stage:
+  - series-a
+  wedge: general
+  title: Founders already diluted too low before the A
+  why: If founders own too little going into the A, post-round ownership leaves too
+    little upside to keep them motivated for the 7-10 year journey, which investors
+    treat as a long-term risk to returns.
+  threshold: founding team collectively <50% fully-diluted pre-A (typical seed exit
+    is ~50-56%); heavy dilution from many small/expensive raises is the tell
+  severity: major
+  detect: Sum founder rows on the cap table as a fraction of fully-diluted; cross-check
+    against number of prior rounds.
+  sources:
+  - ycombinator.com/library
+- id: missing-founder-vesting
+  domain: cap_table
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  wedge: general
+  title: Founder shares have no vesting / vesting fully elapsed with no re-up
+  why: Without founder vesting, a co-founder can walk with fully-vested equity and
+    zero retention hook, so investors see uncontrolled key-person risk on their newly
+    invested capital.
+  threshold: founder shares not subject to forward vesting at close; standard ask
+    is 4-yr vest with 1-yr cliff, often re-set or topped up at the A (VCs commonly
+    resist >~40% vested going in)
+  severity: major
+  detect: Ask 'are founder shares on a vesting schedule, and how much is vested today?';
+    absence of any vesting language in the cap table or founder agreements is the
+    flag.
+  sources:
+  - ycombinator.com/library
+  - nvca.org
+- id: messy-prior-instruments
+  domain: cap_table
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Uncapped/stacked SAFEs and convertible notes with no clean conversion math
+  why: A pile of overlapping SAFEs and notes with different caps/discounts creates
+    large, often-underestimated hidden dilution that surfaces in the pro-forma and
+    erodes investor and founder ownership at conversion.
+  threshold: multiple SAFE/note vintages, any uncapped, or post-conversion ownership
+    that materially differs from the founder's stated cap table
+  severity: major
+  detect: Ask for a fully-diluted pro-forma showing SAFE/note conversion; if the founder
+    only has a 'shares issued' table and can't produce conversion math, the instruments
+    are unmodeled.
+  sources:
+  - ycombinator.com/library
+  - nvca.org
+- id: depleted-option-pool
+  domain: cap_table
+  stage:
+  - series-a
+  wedge: general
+  title: Option pool too small to hire the team the plan requires
+  why: An empty or tiny pool forces a pre-money 'pool shuffle' that silently dilutes
+    founders, and signals the hiring plan in the deck isn't backed by available equity.
+  threshold: unallocated pool too small for the plan's key hires; A rounds typically
+    refresh the pool to ~10-15% post-money
+  severity: major
+  detect: Compare unallocated option pool % against the org/hiring chart in the deck;
+    a 20-person hiring plan with a 2% remaining pool is the mismatch.
+  sources:
+  - a16z.com
+  - firstround.com
+- id: non-standard-prior-terms
+  domain: cap_table
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: 'Non-standard prior terms: multiple liquidation prefs, participating prefs,
+    or board control given away early'
+  why: Aggressive legacy terms (>1x or participating prefs, guaranteed seed-investor
+    board seats, broad veto rights) poison the structure and force a costly cleanup
+    that can stall or kill the A.
+  threshold: any liquidation preference above standard 1x non-participating; or a
+    seed investor holding a board seat or blocking rights disproportionate to a small
+    (<~15%) stake
+  severity: kill
+  detect: Ask 'what are the liquidation preferences and who sits on / controls the
+    board today?'; participating prefs or an investor-controlled board pre-A is the
+    red flag.
+  sources:
+  - nvca.org
+  - ycombinator.com/library
+- id: advisor-friend-equity-bloat
+  domain: cap_table
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Outsized equity to advisors, friends, or early non-builders
+  why: Large grants to advisors or passive early helpers who add little ongoing value
+    are dead equity that crowds out the pool for real builders and signals weak founder
+    discipline.
+  threshold: advisors/non-employee individuals collectively >5% fully-diluted (standard
+    FAST advisor grants are ~0.1-1% each, lower at later stages)
+  severity: minor
+  detect: Scan the cap table for individual non-employee names with material stakes;
+    ask 'who are these holders and what do they do for the company now?'
+  sources:
+  - ycombinator.com/library
+  - firstround.com
+- id: uneven-cofounder-split-with-friction
+  domain: cap_table
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Lopsided co-founder split paired with team friction
+  why: A very unequal founder split (especially when contributions look comparable)
+    often predicts resentment and co-founder breakups, a leading cause of early startup
+    death investors screen for.
+  threshold: co-founder ownership skewed far from parity (e.g. beyond ~70/30) without
+    a clear role/timing justification
+  severity: minor
+  detect: Compare founder ownership percentages against join dates and roles; a near-equal-contribution
+    team with a 90/10 split, or vague answers about 'why this split,' is the tell.
+  sources:
+  - firstround.com
+  - ycombinator.com/library
+- id: cap-table-cannot-be-produced
+  domain: cap_table
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: No clean, current fully-diluted cap table on demand
+  why: If founders can't produce an accurate up-to-date fully-diluted cap table quickly,
+    it signals either disorganization or hidden surprises, both of which kill investor
+    confidence in diligence.
+  threshold: no fully-diluted cap table reconciled to legal docs available within
+    days of request
+  severity: major
+  detect: Ask for the current fully-diluted cap table (Carta/Pulley export or spreadsheet);
+    delays, 'my lawyer has it,' or numbers that don't tie to issued shares are the
+    flag.
+  sources:
+  - nvca.org
+  - ycombinator.com/library

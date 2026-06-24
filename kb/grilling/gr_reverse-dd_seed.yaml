@@ -1,0 +1,194 @@
+cell: gr:reverse-dd:seed
+type: grilling
+wedge: general
+items:
+- id: founder-quit-stay-conviction
+  theme: reverse-dd
+  stage:
+  - seed
+  wedge: general
+  question: If I gave you $2M right now with no strings and told you that you could
+    keep the money and walk away tomorrow, would you still build this?
+  strong_answer: An immediate, specific yes grounded in why this problem is the founder's
+    life — a personal scar, a domain they've lived in for years, or an obsession predating
+    the company. They reframe the question as obvious and pivot to evidence of long-term
+    commitment (quit a job, moved cities, years of unpaid nights). The conviction
+    is concrete, not performative.
+  weak_answer: Hesitation, a laugh, or a financially-framed answer ('well, $2M isn't
+    enough to retire on'). Talking about the market opportunity instead of personal
+    drive. Any phrasing that reveals the company is a vehicle for an exit rather than
+    a mission — investors read seed bets as bets on the founder, and a founder who'd
+    take the money signals they'll quit when it gets hard.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+- id: why-now-timing
+  theme: reverse-dd
+  stage:
+  - seed
+  wedge: general
+  question: This idea isn't new — why is now the moment it works when everyone before
+    you failed?
+  strong_answer: 'A specific inflection the founder can name: a regulatory change,
+    a cost curve that just crossed a threshold (e.g., inference cost, sensor price),
+    a behavior shift, or an enabling technology that didn''t exist 24-36 months ago.
+    They name 1-2 prior attempts, why those died (industry-typical: too early, wrong
+    cost structure), and what is structurally different today. The ''why now'' is
+    exogenous, not just ''we''ll execute better.'''
+  weak_answer: '''No one has done it well'' or ''the incumbents are slow.'' Claiming
+    the idea is brand new (it almost never is, and this signals weak market knowledge).
+    Attributing the opening purely to their own team''s competence. No identifiable
+    external catalyst — meaning the same window has been open for years and may stay
+    closed.'
+  sources:
+  - https://a16z.com
+  - https://www.sequoiacap.com
+- id: weakest-part-of-business
+  theme: reverse-dd
+  stage:
+  - seed
+  wedge: general
+  question: What's the single thing most likely to kill this company, and what would
+    I see in your data if it were already happening?
+  strong_answer: The founder names the real existential risk without flinching — usually
+    a demand/retention risk, a CAC-to-LTV problem, a key-dependency, or a regulatory
+    cliff — and ties it to a leading indicator they actively watch (e.g., week-4 retention
+    dropping, sales cycle lengthening). They show they're already instrumenting for
+    it. Self-awareness plus a tripwire signals an operator, not a salesperson.
+  weak_answer: '''Execution risk'' or ''just need to hire faster'' — non-specific
+    deflections. Naming a competitor as the top risk (usually wrong at seed; you mostly
+    die from no demand, not competition). Claiming there''s no real risk. Inability
+    to connect the risk to anything observable means they aren''t measuring their
+    own survival.'
+  sources:
+  - https://review.firstround.com
+  - https://www.bvp.com
+- id: retention-vs-growth
+  theme: reverse-dd
+  stage:
+  - seed
+  wedge: general
+  question: Strip out everyone you acquired in the last 90 days — what does retention
+    and usage look like on the cohort before that?
+  strong_answer: Clean cohort numbers segmented by signup month, showing a retention
+    curve that flattens (the 'smile') rather than decaying to zero. For consumer,
+    industry-typical strong week-N retention curves flatten above ~25-40%; for B2B
+    SaaS, net revenue retention trending toward or above ~100% is a typical strong
+    signal. They volunteer the worst cohort and explain it. They distinguish active
+    power users from registered accounts.
+  weak_answer: Quoting total signups, downloads, or 'users' without a denominator
+    or time window. Only showing cumulative graphs (which always go up and to the
+    right). No cohort segmentation, or retention curves that decay toward zero with
+    the founder framing it as 'early.' Conflating vanity metrics with engagement —
+    investors probe here precisely because top-line growth can mask a leaky bucket.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+  - https://a16z.com
+- id: founder-market-fit-unfair-advantage
+  theme: reverse-dd
+  stage:
+  - seed
+  wedge: general
+  question: What do you know about this market that the smartest person who hasn't
+    lived in it would get wrong?
+  strong_answer: A non-obvious, earned insight — a counterintuitive truth about how
+    the customer actually behaves, buys, or breaks that only comes from deep exposure.
+    It should make the investor go 'huh, I didn't know that.' Ideally it directly
+    informs a product or go-to-market decision competitors would botch. This is the
+    test for founder-market fit and proprietary insight.
+  weak_answer: Generic market facts available in any analyst report ('the market is
+    $X billion and growing Y%'). Restating the pitch. An 'insight' that is really
+    just the company's feature list. No secret at all — signaling the founder is a
+    tourist in the space and any well-funded competitor can replicate their understanding
+    in a quarter.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.crv.com
+  - https://review.firstround.com
+- id: talked-to-customers-recently
+  theme: reverse-dd
+  stage:
+  - seed
+  wedge: general
+  question: Tell me about the last customer you personally lost or who churned — what
+    exactly did they say?
+  strong_answer: A specific, recent, named example with the customer's actual words
+    and the founder's diagnosis. They show they do this routinely (founder still in
+    the sales/support loop), extracted a concrete product or positioning change from
+    it, and can quantify the pattern. Demonstrates the founder is close to the ground
+    and treats losses as the most valuable data.
+  weak_answer: No recent example, or a vague 'they weren't the right fit.' Blaming
+    the customer ('they didn't get it') rather than learning from them. Delegating
+    all customer contact away already at seed. Inability to recall a real churn conversation
+    suggests the founder is operating on assumptions, not contact with reality.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+- id: cofounder-conflict-equity
+  theme: reverse-dd
+  stage:
+  - seed
+  wedge: general
+  question: What's the worst fight you've had with your cofounder, and how is your
+    equity split — including vesting and what happens if one of you leaves in year
+    one?
+  strong_answer: Candor about a real disagreement and how they resolved it (shows
+    the relationship can take stress). Equity is split in a way both consider fair,
+    with standard 4-year vesting and a 1-year cliff (industry-typical), plus founder
+    vesting that protects the company if someone leaves early. They've discussed the
+    'what if one of us quits' scenario explicitly. Clear decision-making ownership
+    on deadlocks.
+  weak_answer: '''We never fight'' (implausible, or means conflict is suppressed).
+    No vesting, or a frozen 50/50 split with no deadlock mechanism. Equity already
+    given to inactive or departed cofounders (''dead equity''). Visible tension or
+    one founder dominating the answer. Cofounder breakups and equity disputes are
+    a leading killer of seed companies, so investors probe the relationship as hard
+    as the product.'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.nvca.org
+  - https://review.firstround.com
+- id: runway-and-milestone-to-next-round
+  theme: reverse-dd
+  stage:
+  - seed
+  wedge: general
+  question: What specific milestone does this round buy you that makes the next round
+    obvious, and what's your monthly burn and exact runway?
+  strong_answer: An exact burn number and runway (industry-typical seed planning targets
+    ~18-24 months of runway), tied to a concrete, fundable milestone for the next
+    raise — usually a revenue or retention threshold, not just 'build the product.'
+    They know the metrics the next-stage investors will demand and have a plan to
+    hit them with margin. Numbers are internally consistent with the ask and the use
+    of funds.
+  weak_answer: Vague burn ('around X-ish'), runway that's too short (<12 months) or
+    implausibly long. A use-of-funds that's just 'hire engineers and grow.' No defined
+    milestone for Series A, or milestones disconnected from what A investors actually
+    fund. Asking for a round size that doesn't reach any meaningful checkpoint — signaling
+    they'll be back fundraising before proving anything.
+  sources:
+  - https://www.bvp.com
+  - https://a16z.com
+  - https://www.nvca.org
+- id: why-this-not-feature
+  theme: reverse-dd
+  stage:
+  - seed
+  wedge: general
+  question: Why is this a company and not a feature that an incumbent ships in a sprint
+    once it matters?
+  strong_answer: 'A credible wedge plus a path to durability: a hard-to-copy data
+    loop, a workflow or distribution that incumbents are structurally disincentivized
+    to build (channel conflict, cannibalization), or a beachhead that expands. They
+    explain why the incumbent won''t or can''t move, not just that they''re slow.
+    There''s a believable second and third act beyond the entry feature.'
+  weak_answer: '''We''ll move faster'' or ''big companies are bad at this'' as the
+    whole moat. No expansion story beyond the single feature. Defensibility resting
+    entirely on a temporary head start. If the honest answer is that a platform owner
+    could bundle this away, investors see a feature waiting to be commoditized, not
+    a venture-scale company.'
+  sources:
+  - https://a16z.com
+  - https://www.sequoiacap.com
+  - https://www.crv.com

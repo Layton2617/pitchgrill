@@ -1,0 +1,193 @@
+cell: gr:traction-product:series-a
+type: grilling
+wedge: general
+items:
+- id: growth-decomposition-net-vs-gross
+  theme: traction-product
+  stage:
+  - series-a
+  wedge: general
+  question: Show me your net new revenue split between new logos, expansion, and churn
+    for the last 8 quarters. How much of your growth is just the same cohorts paying
+    you more versus actually acquiring new customers?
+  strong_answer: 'Founder breaks growth into its components without hesitation: new-logo
+    ARR, expansion ARR (seats/usage/upsell), contraction, and gross churn, quarter
+    by quarter. They know which engine is doing the work and why. For a healthy SaaS
+    Series A, net revenue retention is typically 100-120%+ (industry-typical, varies
+    by ACV and segment) and they can explain the mechanism behind expansion (more
+    seats, usage-based pricing, tier upgrades), not just the number. They flag honestly
+    if a single large customer or one-time deal distorts a quarter, and show the trend
+    is durable across multiple cohorts rather than carried by one whale.'
+  weak_answer: 'Quotes a single blended growth rate (''we tripled last year'') and
+    cannot decompose it live. Conflates expansion from existing accounts with new-customer
+    acquisition, or reveals that most ''growth'' is upsell into a tiny base while
+    new-logo acquisition has stalled. Doesn''t know NRR, or quotes a gross-retention
+    figure when asked for net. Worst tell: the growth was front-loaded by one or two
+    large deals and the founder gets defensive when pressed on the underlying cohort
+    trend.'
+  sources:
+  - https://a16z.com/16-startup-metrics/
+- id: retention-cohort-curve-flattening
+  theme: traction-product
+  stage:
+  - series-a
+  wedge: general
+  question: Pull up your raw user/revenue retention curves by signup cohort. Do they
+    flatten, and at what level? Show me the oldest cohort.
+  strong_answer: Founder shows cohort retention curves that flatten to a stable plateau
+    rather than decaying to zero, and can name the plateau level (e.g., for strong
+    consumer/PLG the curve flattens well above zero; for B2B, logo and dollar retention
+    by cohort hold or expand). They show the OLDEST cohort, not just recent ones,
+    proving the flattening is real over time and not an artifact of short observation
+    windows. They distinguish logo retention from dollar retention and tie the shape
+    to a specific habit loop or workflow lock-in. They volunteer where the curve is
+    weakest and what they're doing about it.
+  weak_answer: Shows only recent cohorts (which always look good because little time
+    has elapsed), or shows a monotonically declining curve with no flattening and
+    calls it 'normal early churn.' Presents survivorship-biased aggregate retention
+    instead of true cohorts. Cannot produce the oldest cohort, or admits the oldest
+    cohorts have largely churned out. Confuses retention with cumulative signups.
+    Says 'retention is something we'll focus on after the raise.'
+  sources:
+  - https://review.firstround.com/how-superhuman-built-an-engine-to-find-product-market-fit/
+- id: pmf-evidence-beyond-revenue
+  theme: traction-product
+  stage:
+  - series-a
+  wedge: general
+  question: Prove to me you have product-market fit with something other than the
+    revenue chart. What's your hardest evidence that customers would be upset if your
+    product disappeared tomorrow?
+  strong_answer: 'Founder cites multiple independent signals: organic/inbound pull
+    and word-of-mouth, the Sean Ellis ''how disappointed'' survey (industry benchmark
+    ~40%+ ''very disappointed'' as a PMF threshold, not an absolute rule), declining
+    or low CAC payback driven by referrals, usage frequency consistent with the problem''s
+    natural cadence, and qualitative evidence of users hacking the product into adjacent
+    workflows. They can name specific customers who would churn-with-pain and explain
+    the switching cost. They distinguish demand pull from sales push and admit which
+    segment has the strongest fit versus where they''re still forcing it.'
+  weak_answer: Equates revenue or fundraising interest with PMF. Points only to logos
+    on a slide. Describes growth that is entirely sales-led/discount-led with no organic
+    pull. Cannot name a single retention or engagement signal independent of bookings.
+    Says 'our customers love us' with no instrument behind it. Claims PMF across all
+    segments uniformly, which usually means they haven't measured it in any.
+  sources:
+  - https://review.firstround.com/how-superhuman-built-an-engine-to-find-product-market-fit/
+  - https://www.ycombinator.com/library/5z-the-real-product-market-fit
+- id: engagement-depth-dau-wau-mau
+  theme: traction-product
+  stage:
+  - series-a
+  wedge: general
+  question: What does an engaged customer actually do in your product, how often,
+    and what fraction of your accounts hit that bar? Don't give me MAU — give me the
+    activity ratio that predicts retention.
+  strong_answer: Founder has identified the specific 'aha'/core action and its natural
+    frequency, and reports a meaningful engagement ratio (e.g., DAU/MAU or weekly-active
+    for collaboration tools; for B2B, the % of seats actually active and the % of
+    accounts past their activation milestone). They can show that hitting this bar
+    correlates with retention and expansion, and what % of the base is below it (their
+    growth headroom or their risk). They distinguish power users from dormant logos
+    and know the time-to-value. They don't hide behind a vanity 'registered users'
+    number.
+  weak_answer: Reports total signups, downloads, or MAU as the headline. Has no defined
+    core action or activation milestone. Cannot say what fraction of paying accounts
+    are actually using the product weekly. Reveals a large gap between contracted
+    seats and active seats without acknowledging the churn risk it implies. Treats
+    'logged in once' as engaged.
+  sources:
+  - https://a16z.com/16-more-startup-metrics/
+- id: cac-payback-and-unit-economics-honesty
+  theme: traction-product
+  stage:
+  - series-a
+  wedge: general
+  question: Walk me through your fully-loaded CAC and your CAC payback period. Include
+    sales, marketing salaries, and the deals that didn't close. What's your gross
+    margin and is it real?
+  strong_answer: Founder gives a fully-loaded CAC (all S&M spend including salaries
+    and overhead, divided by new customers, not just ad spend) and a payback period;
+    industry-typical healthy B2B SaaS payback is roughly under 12-18 months (varies
+    by ACV and segment, not absolute). They quote gross margin on a true cost-of-revenue
+    basis (hosting, support, third-party/COGS, including any heavy services or LLM/inference
+    costs) and don't disguise low-margin services revenue as software. They show payback
+    improving as they scale and can explain the channel mix driving CAC. They're honest
+    about which channels are saturating.
+  weak_answer: Quotes CAC as paid-ad spend only, excluding sales/marketing headcount,
+    making it look artificially cheap. Quotes a sky-high LTV/CAC ratio built on an
+    optimistic lifetime assumption that the retention data doesn't support. Reports
+    'gross margin' that secretly includes large services or hides infrastructure/inference
+    costs. Cannot state payback in months. Says CAC will 'come down with scale' with
+    no channel-level evidence.
+  sources:
+  - https://a16z.com/16-startup-metrics/
+  - https://www.bvp.com/atlas/scaling-to-100-million
+- id: growth-channel-durability-saturation
+  theme: traction-product
+  stage:
+  - series-a
+  wedge: general
+  question: Which single channel drives most of your growth today, and what happens
+    to your numbers if it saturates or its cost doubles? Show me the channel-level
+    CAC trend over time.
+  strong_answer: Founder knows their channel concentration and the CAC trend per channel
+    over time. They acknowledge dependence honestly (most Series A companies have
+    one dominant channel) but show either a second channel beginning to work or a
+    credible, tested plan to diversify, with early data. They can explain why their
+    primary channel has runway left (audience size, current penetration) and have
+    a number for how rising CAC would hit payback. They distinguish channels that
+    scale linearly from ones with compounding/viral or content/SEO dynamics.
+  weak_answer: Doesn't know what share each channel contributes, or is 100% dependent
+    on one paid channel whose CAC is already rising and has no plan B. Claims 'we'll
+    just turn on more channels' with zero tested evidence any other channel converts.
+    Confuses being on many channels with any of them working. Gets visibly uncomfortable
+    when asked what happens if that channel breaks — the freeze tell.
+  sources:
+  - https://a16z.com/16-more-startup-metrics/
+- id: concentration-risk-revenue-and-logo
+  theme: traction-product
+  stage:
+  - series-a
+  wedge: general
+  question: What percentage of your ARR comes from your top 3 customers? If your biggest
+    one churned next quarter, what does the chart look like? How many of your logos
+    are on multi-year versus monthly contracts?
+  strong_answer: Founder knows top-customer concentration cold and it's diversified
+    enough that no single customer is existential (industry-typical comfort is no
+    single customer above ~10-20% of ARR, varies by ACV/segment). They distinguish
+    design-partner/pilot revenue from durable commercial contracts, know contract
+    lengths and renewal dates, and can name which large accounts are truly committed
+    (multi-year, in-production, expanding) versus at-risk. They model the downside
+    of losing a top account and have early renewal signals. They're candid about any
+    whale dependency and how they're de-risking it.
+  weak_answer: Doesn't know the top-3 concentration, or one customer is a huge share
+    of ARR and the founder downplays it. Counts pilots, POCs, or discounted design-partner
+    deals as if they were durable ARR. Doesn't know renewal dates or which contracts
+    are month-to-month and could evaporate. Has never modeled losing the biggest account.
+    Reveals that 'traction' is essentially one anchor customer wearing a trench coat.
+  sources:
+  - https://a16z.com/16-startup-metrics/
+- id: sales-efficiency-repeatability
+  theme: traction-product
+  stage:
+  - series-a
+  wedge: general
+  question: Is your sales motion repeatable, or is it just you closing deals? What's
+    a ramped rep's quota attainment, how long is your sales cycle, and what's your
+    win rate by stage?
+  strong_answer: 'Founder shows the motion works without the founder in every deal:
+    at least a couple of non-founder reps have ramped and are hitting a meaningful
+    share of quota, with a documented cycle length, win rate by stage, and a defined
+    ICP that predicts who closes. They know the magic number / sales efficiency and
+    can show the playbook is teachable. They''re honest if they''re still founder-led
+    but then show the early evidence (one rep closing, a defined pipeline-to-close
+    conversion) that it will transfer. They distinguish self-serve from sales-assisted
+    economics.'
+  weak_answer: 'Every meaningful deal was closed by the founder personally and no
+    rep has proven they can replicate it; the founder calls this ''founder-led sales''
+    as if it were a strategy rather than a risk. No defined ICP, so the pipeline is
+    a grab-bag. Doesn''t know win rate, cycle length, or rep ramp. Hired reps who
+    are missing quota and the founder blames the reps rather than the unrepeatable
+    motion. The freeze tell: ''we haven''t really tracked conversion by stage.'''
+  sources:
+  - https://www.bvp.com/atlas/scaling-to-100-million

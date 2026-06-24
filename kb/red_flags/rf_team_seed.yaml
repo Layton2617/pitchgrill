@@ -1,0 +1,149 @@
+cell: rf:team:seed
+type: red_flag
+wedge: general
+items:
+- id: solo-founder-no-team
+  domain: team
+  stage:
+  - seed
+  wedge: general
+  title: Solo founder with no co-founder or early team
+  why: A solo founder signals unvalidated ability to recruit and carries concentrated
+    execution and burnout risk that many seed funds screen out by policy.
+  threshold: 1 founder, 0 technical co-founders for a tech product; many investors
+    prefer 2-3 co-founders
+  severity: major
+  detect: Team slide lists one person or one person plus contractors/agencies; founder
+    self-report admits 'still looking for a co-founder' or attributes all functions
+    to themselves.
+  sources:
+  - ycombinator.com/library
+  - firstround.com
+- id: no-technical-founder
+  domain: team
+  stage:
+  - seed
+  wedge: general
+  title: No technical co-founder for a software/deep-tech product
+  why: Outsourcing the core product to an agency means the company owns no defensible
+    engineering capability and cannot iterate fast post-funding.
+  threshold: core IP built by external dev shop; 0 in-house engineers owning the codebase
+  severity: kill
+  detect: Tech built by named outsourcing firm, no CTO/eng lead on team slide, founder
+    cannot answer architecture/roadmap questions in self-report.
+  sources:
+  - ycombinator.com/library
+- id: founder-not-full-time
+  domain: team
+  stage:
+  - seed
+  wedge: general
+  title: Founder(s) not full-time / still employed elsewhere
+  why: Part-time commitment at seed signals the founder hasn't truly bet on the company
+    and creates IP-assignment and focus risks investors won't underwrite.
+  threshold: any core founder <100% time; another W-2 job still held
+  severity: kill
+  detect: Bios mention 'currently at [BigCo]', LinkedIn shows overlapping employment,
+    founder self-report says they'll go full-time 'after the round closes'.
+  sources:
+  - ycombinator.com/library
+  - firstround.com
+- id: no-founder-market-fit
+  domain: team
+  stage:
+  - seed
+  wedge: general
+  title: No founder-market fit / no earned insight
+  why: Without lived domain experience or a non-obvious 'why us, why now' insight,
+    the team is just one of many and has no unfair advantage in a crowded space.
+  threshold: ''
+  severity: major
+  detect: Bios show no relevant industry, customer, or technical background for the
+    problem; self-report origin story is generic ('we saw a big market') rather than
+    a specific personal pain or insider observation.
+  sources:
+  - a16z.com
+  - sequoiacap.com
+- id: cofounder-equity-imbalance
+  domain: team
+  stage:
+  - seed
+  - pre-seed
+  wedge: general
+  title: Highly unequal co-founder equity split or unvested founder equity
+  why: A lopsided split or absence of vesting predicts co-founder conflict and the
+    catastrophic 'dead equity' scenario where a departing founder keeps a large unvested
+    stake.
+  threshold: split more lopsided than ~80/20 among active co-founders; founder shares
+    with no 4-year vesting / 1-year cliff (industry-standard)
+  severity: major
+  detect: Cap table shows extreme split or 100% vested founder shares; self-report
+    reveals no founder vesting agreement or one founder 'less involved' but holding
+    large equity.
+  sources:
+  - ycombinator.com/library
+  - firstround.com
+  - nvca.org
+- id: dead-equity-absent-founder
+  domain: team
+  stage:
+  - seed
+  wedge: general
+  title: Departed/inactive founder holding large equity (dead equity)
+  why: A former co-founder sitting on a big static stake demoralizes the active team
+    and signals an unresolved breakup that scares off future investors.
+  threshold: inactive/departed founder holding a meaningful static stake with no buyback
+    or clawback
+  severity: kill
+  detect: Cap table lists a name absent from the team slide; founder self-report mentions
+    a co-founder who 'left' but 'still has shares', no separation agreement.
+  sources:
+  - ycombinator.com/library
+  - firstround.com
+- id: messy-cap-table
+  domain: team
+  stage:
+  - seed
+  wedge: general
+  title: Over-diluted founders or messy/crowded cap table pre-A
+  why: Founders already heavily diluted before Series A have weak incentive to grind
+    through years more, and downstream investors model that misalignment as a pass.
+  threshold: founders collectively <50% post-seed (common investor concern); large
+    scattered angel/advisor SAFEs or uncapped notes
+  severity: major
+  detect: Cap table shows large angel/advisor/accelerator stakes, multiple uncapped
+    or high-cap SAFEs, or founders already under 50%; self-report glosses over prior
+    raises.
+  sources:
+  - ycombinator.com/library
+  - nvca.org
+- id: key-person-single-point
+  domain: team
+  stage:
+  - seed
+  wedge: general
+  title: Single point of failure — one person owns all critical knowledge
+  why: If product, sales, and vision all live in one head with no documentation or
+    backup, the company is uninsurable against that person's departure.
+  threshold: ''
+  severity: minor
+  detect: 'Org structure shows everything reporting to/through the CEO; self-report
+    cannot name a #2 who could run a function if the founder were unavailable.'
+  sources:
+  - firstround.com
+- id: uncoachable-or-undisclosed-history
+  domain: team
+  stage:
+  - seed
+  wedge: general
+  title: Uncoachable founder or undisclosed integrity/background issue
+  why: Defensiveness under questioning or a concealed past failure, lawsuit, or non-compete
+    surfaces in reference checks and is the most common silent deal-killer in diligence.
+  threshold: ''
+  severity: kill
+  detect: Founder dismisses pushback, gives evasive answers to risk questions, or
+    self-report omits prior shutdowns/litigation/IP-encumbrance that back-channel
+    references contradict.
+  sources:
+  - firstround.com
+  - a16z.com

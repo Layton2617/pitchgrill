@@ -1,0 +1,188 @@
+cell: sv:grilling-nuance
+type: grilling
+wedge: general
+items:
+- id: pmd-01
+  theme: fundraise-risk-exit
+  stage:
+  - partner-meeting
+  - term-sheet
+  wedge: general
+  question: '"Who else are you talking to?" (asked mid-process, often by the partner
+    who already likes you)'
+  strong_answer: 'Treat it as two questions at once: a competitive-intel probe and
+    a momentum/social-proof check. Name the *category* of firms and your *stage* of
+    process honestly without over-disclosing names: ''We''re in partner-meeting or
+    diligence stages with a couple of funds that fit a [thesis] lead, and earlier
+    conversations with [type] funds.'' Give a real timeline (''we''re aiming to close
+    in ~3-4 weeks'') so the partner can calibrate urgency without feeling you''re
+    bluffing. If you genuinely have parallel interest, signaling a *real* close date
+    is the single biggest lever on a VC''s behavior, since they fear losing a deal
+    more than making a bad one. Never invent a fake competing term sheet — VCs share
+    notes and a discovered bluff kills the deal and your reputation. If you''re early
+    with few conversations, reframe to your process design: ''We''re being deliberate
+    about who we bring in as a lead and running a tight process so we can pick the
+    right partner, not the first check.'''
+  weak_answer: 'Either dumping the full list of every fund you''ve emailed (signals
+    desperation and lets them check whether better-known names already passed), or
+    bluffing a fake bidding war you can''t substantiate. Both backfire: the dump invites
+    ''why hasn''t anyone committed yet?'' and the bluff gets caught because VCs talk
+    to each other.'
+  sources:
+  - https://www.nfx.com/post/40-questions-to-ask-vcs
+  - https://www.nfx.com/post/8-top-skills-founders-startup-fundraising
+- id: pmd-02
+  theme: fundraise-risk-exit
+  stage:
+  - partner-meeting
+  - pitch
+  wedge: general
+  question: '"What would make you NOT raise / what would make you walk away from this?"
+    or "What''s the case for why this doesn''t work?"'
+  strong_answer: 'This is a self-awareness and intellectual-honesty test, not a trap
+    to get you to talk yourself out of the deal. Pre-empt it: name the 2-3 real risks
+    (the ones a sharp partner already wrote in their memo) and pair each with the
+    evidence or experiment that would resolve it. Example: ''The biggest risk is whether
+    [channel] CAC stays under [industry-typical target] as we scale past early adopters
+    — that''s why we''re running [test], and here''s the leading-indicator data so
+    far.'' The goal is to show you think like an investor and aren''t selling a fantasy.
+    A frequently used internal version of this is the partner asking ''what are the
+    negatives my partners will think of first?'' — answering it well effectively writes
+    the rebuttal for your champion to use in the closed-door discussion.'
+  weak_answer: Claiming there are no real risks, or giving a fake 'weakness' that's
+    secretly a strength ('we just grow too fast to keep up'). Sophisticated partners
+    read this as either naivety or evasiveness, and it tells them you'll be hard to
+    coach and may hide problems on the board.
+  sources:
+  - https://www.nfx.com/post/the-non-obvious-guide-to-fundraising
+  - https://review.firstround.com/heres-what-you-can-really-expect-when-pitching-your-seed-stage-startup-at-a-vc-partner-meeting/
+- id: pmd-03
+  theme: fundraise-risk-exit
+  stage:
+  - diligence
+  - partner-meeting
+  wedge: general
+  question: '"Why didn''t your existing/last investor lead this round (or follow on)?"
+    — the cap-table signaling question'
+  strong_answer: 'Answer before they have to ask, because the absence of an inside
+    lead is read as a signal during diligence and they will investigate it. Have a
+    clean, non-defensive explanation tied to fund mechanics, not to doubt about you:
+    e.g., the seed fund doesn''t write at this stage/check size, has no reserves allocated,
+    is stage-constrained, or you and they mutually agreed an outside-led priced round
+    sets a cleaner mark. If a prior investor genuinely cooled, get ahead of the reference:
+    tell the new VC what they''ll hear and frame it, because a prior investor who
+    passes ''without clear communication creates a negative signal for every future
+    investor examining your cap table.'' The worst outcome is the new partner learning
+    the real story from a backchannel call you didn''t prime.'
+  weak_answer: Vague reassurance ('they're super supportive, just busy') with no structural
+    reason, or pretending the round is hot inside when it isn't. The new VC will call
+    your existing investors in diligence; any gap between your story and theirs reads
+    as you hiding something, which is often more fatal than the original concern.
+  sources:
+  - https://openviewpartners.com/blog/reasons-investor-might-pass/
+- id: pmd-04
+  theme: fundraise-risk-exit
+  stage:
+  - diligence
+  - partner-meeting
+  wedge: general
+  question: '"What did the investors who passed on you say? Why did they pass?" (you''ve
+    taken meetings; some said no)'
+  strong_answer: 'Frame passes as data you''ve already metabolized. Group them: ''Two
+    passed on stage fit — they wanted more revenue traction than we have today; one
+    passed because the partner didn''t have category conviction.'' Then show what,
+    if anything, you changed in response. This demonstrates you treat the process
+    as iterative and that you''re not in denial. Passes are normal and expected (firms
+    reaching partner meeting still have an industry-typical offer rate of only ~25-60%,
+    and most cold-pitched companies never get there), so a few thoughtful passes don''t
+    alarm a good investor — unwillingness to discuss them does. Distinguish ''thesis/stage''
+    passes (neutral) from ''they found something concerning in diligence'' passes
+    (which you must address head-on).'
+  weak_answer: Saying 'nobody has really passed' when you've clearly been raising
+    for months (implausible and easily disproven), trashing the VCs who passed as
+    'they just didn't get it,' or being unable to articulate any reason — which suggests
+    you never asked for or absorbed the feedback.
+  sources:
+  - https://review.firstround.com/heres-what-you-can-really-expect-when-pitching-your-seed-stage-startup-at-a-vc-partner-meeting/
+  - https://openviewpartners.com/blog/reasons-investor-might-pass/
+- id: pmd-05
+  theme: fundraise-risk-exit
+  stage:
+  - sourcing
+  - pitch
+  - partner-meeting
+  wedge: general
+  question: 'The associate-vs-partner funnel: how do you handle that the person you''re
+    talking to can''t write a check?'
+  strong_answer: 'Understand the funnel structurally. An associate''s job is to get
+    you in front of a check-writer and to report back whether you came across as ''impressive''
+    vs ''forgettable'' — partners rely on that read. So take associate conversations
+    seriously (they''re a real gate), but your true objective is to convert one partner
+    into a *champion* who will sponsor you to the investment committee, since typically
+    only a partner can champion a deal and join your board. Politely push for partner
+    exposure: ''I''d love to make sure the partner who''d sponsor this gets the full
+    picture — could we get 20 minutes before the partner meeting?'' Crucially, don''t
+    outsource your whole fate to one sponsor: try to meet several partners *before*
+    the Monday partner meeting so the room isn''t full of strangers — ''the more people
+    in that meeting who already understand what you do, the higher the probability
+    of getting to yes.'''
+  weak_answer: Either dismissing the associate as a gatekeeper not worth your energy
+    (they shape the partner's first impression and can quietly kill you), or pitching
+    only the associate and assuming they'll carry the deal to a yes — they structurally
+    can't, and a champion-less deal dies at committee when partners who've never met
+    you vote.
+  sources:
+  - https://www.inc.com/mark-suster/what-really-happens-behind-scenes-at-vc-firms-and-how-to-increase-your-chances-of-landing-a-deal
+  - https://techcrunch.com/2019/06/12/fundraising-101-do-vc-associates-matter/
+- id: pmd-06
+  theme: fundraise-risk-exit
+  stage:
+  - partner-meeting
+  wedge: general
+  question: 'Reading the room: the partner meeting where your sponsor''s partners
+    pile on / interrupt / probe hardest'
+  strong_answer: 'Recalibrate what the signals mean. Your sponsor brought you in,
+    which is them vouching — that alone makes your odds materially better than a first
+    meeting. But they want you to ''stand on your own feet,'' so don''t look to them
+    to rescue you mid-grilling. Treat interruptions and a partner with category experience
+    probing ''much deeper'' as engagement, not hostility — getting interrupted is
+    generally a *good* sign. Know which decision model the firm runs: rubber-stamp
+    (your sponsor effectively decides), live consensus vote, or veto/''does anyone
+    object.'' In a veto firm your job is to give no partner a reason to object; in
+    a vote firm you need to actively win marginal partners. Bring concrete diligence-backed
+    answers (customer references, specific metrics) because the room has read a memo
+    and made 5-15 diligence calls — they''re testing your numbers against what they
+    already heard, not learning your story for the first time.'
+  weak_answer: Low energy 'because I'm tired from the process,' burying the key message
+    under excessive detail, over-indexing time on one slide, or visibly looking to
+    your sponsoring partner to answer for you. The room is calibrating conviction
+    and coachability in real time, often deciding within 24 hours — a flat or evasive
+    performance gives the skeptics their veto.
+  sources:
+  - https://review.firstround.com/heres-what-you-can-really-expect-when-pitching-your-seed-stage-startup-at-a-vc-partner-meeting/
+- id: pmd-07
+  theme: fundraise-risk-exit
+  stage:
+  - pitch
+  - partner-meeting
+  wedge: general
+  question: '"Why now? Why hasn''t this been built/won already, and why are you the
+    team to do it?"'
+  strong_answer: 'Answer it as three linked claims, not platitudes. (1) Why now: a
+    specific, recent change — regulation, a cost curve crossing a threshold, a platform
+    shift, a behavior change — that makes this newly possible where it wasn''t 2-3
+    years ago. (2) Why hasn''t it been won: an honest account of why incumbents or
+    prior attempts structurally can''t or won''t do this (channel conflict, margin
+    cannibalization, wrong DNA). (3) Why you: founder-market fit and an unfair insight
+    or advantage you have that''s hard to copy. VCs increasingly underwrite the bet
+    on *founder skills* as much as current product or customers, so the ''why you''
+    leg carries real weight — make it concrete (what you''ve shipped, who you''ve
+    recruited, what you uniquely know), not a confidence claim.'
+  weak_answer: A generic market-size answer ('it's a huge TAM and timing is great')
+    with no specific catalyst, hand-waving on why incumbents haven't moved ('they're
+    slow'), and a 'why us' that's just passion. This reads as a thesis you haven't
+    pressure-tested, and it's the fastest way for a partner to file the deal as 'interesting
+    but not urgent.'
+  sources:
+  - https://techcrunch.com/2021/09/20/vc-mark-suster-the-bet-were-making-now-is-on-founder-skills-not-customers-or-products/
+  - https://medium.com/@msuster/raising-venture-capital-c0e011c448b9

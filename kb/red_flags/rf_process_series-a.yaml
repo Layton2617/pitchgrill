@@ -1,0 +1,157 @@
+cell: rf:process:series-a
+type: red_flag
+wedge: general
+items:
+- id: customer-concentration
+  domain: process
+  stage:
+  - series-a
+  - series-b
+  wedge: general
+  title: Revenue concentrated in one or few customers
+  why: A single logo churning can erase a quarter of ARR overnight, so concentration
+    signals the business is one renewal conversation away from a death spiral.
+  threshold: single customer >10-15% of revenue, or top 3 >30-40% (diligence rule-of-thumb,
+    not a hard standard)
+  severity: major
+  detect: Ask for an ARR-by-customer breakdown; a deck showing only logos and total
+    ARR but refusing a customer-level table, or a top-line ARR chart whose growth
+    maps to one or two deals, is the tell.
+  sources: []
+- id: cap-table-founder-dilution
+  domain: process
+  stage:
+  - series-a
+  wedge: general
+  title: Founders over-diluted or messy cap table pre-A
+  why: If founders hold too little equity going into the A, they lack the multi-year
+    incentive to grind through the hard part, and dead equity (departed cofounders,
+    advisor over-grants) poisons the round math.
+  threshold: founders collectively diluted to <50% pre-A; departed founder/advisor
+    holding meaningful dead equity (diligence rule-of-thumb, not a hard standard)
+  severity: major
+  detect: Request the cap table and option pool; red flags are large angel/advisor
+    stakes, a prior seed that took an outsized chunk, a departed cofounder still on
+    the table, or founders dodging the question of their combined ownership.
+  sources:
+  - https://www.ycombinator.com/library/5x-how-to-split-equity-among-co-founders
+- id: unit-economics-ltv-cac
+  domain: process
+  stage:
+  - series-a
+  wedge: general
+  title: Unhealthy unit economics (LTV:CAC and payback)
+  why: Growth funded by acquisition that never pays back means every new customer
+    destroys value, so scaling the spend just accelerates the burn toward zero.
+  threshold: LTV:CAC < 3:1, or CAC payback > 12-18 months for SaaS (industry-accepted;
+    payback target tightens for SMB, loosens to ~24mo for enterprise)
+  severity: kill
+  detect: Look for CAC and payback defined precisely (fully-loaded S&M, not just ad
+    spend); decks that show LTV but hide CAC, use 'LTV' computed on lifetime with
+    no churn input, or quote payback in 'gross margin months' to flatter it are masking
+    bad economics.
+  sources:
+  - https://a16z.com/16-startup-metrics/
+  - https://www.bvp.com/atlas/scaling-to-100-million
+- id: net-revenue-retention
+  domain: process
+  stage:
+  - series-a
+  - series-b
+  wedge: general
+  title: Weak net revenue retention / high logo churn
+  why: Low NRR means the bucket leaks faster than expansion can refill it, so the
+    company must spend ever more on new logos just to stand still, which kills capital
+    efficiency.
+  threshold: NRR < 100% (net leak); Bessemer scale is 100% good / 110% better / 120%
+    best for enterprise SaaS (SMB medians run lower)
+  severity: major
+  detect: Ask for a cohort retention curve and NRR definition; replacing NRR with
+    gross retention, showing only blended retention, or presenting a flattening-but-not-disclosed
+    cohort chart signals the leak is being hidden.
+  sources:
+  - https://www.bvp.com/atlas/scaling-to-100-million
+  - https://a16z.com/16-startup-metrics/
+- id: burn-multiple
+  domain: process
+  stage:
+  - series-a
+  - series-b
+  wedge: general
+  title: Inefficient burn relative to net new ARR
+  why: A high burn multiple means the company is buying its growth with cash rather
+    than earning it, which makes the next round contingent on perfect markets and
+    signals no path to efficiency at scale.
+  threshold: 'burn multiple (net burn / net new ARR): <2x is good, >3x is alarming
+    (David Sacks framing)'
+  severity: major
+  detect: Compute net burn divided by net new ARR from the financials; founders who
+    present total ARR growth without disclosing monthly burn, or who quote 'gross'
+    burn to hide cash consumption, are the signal.
+  sources:
+  - https://sacks.substack.com/p/the-burn-multiple-51a7e43cb200
+- id: vanity-revenue-quality
+  domain: process
+  stage:
+  - series-a
+  wedge: general
+  title: Low-quality or non-recurring revenue dressed as ARR
+  why: Counting pilots, one-time services, LOIs, or annualized single-month spikes
+    as ARR overstates the durable business and means the real recurring base is far
+    smaller than the headline.
+  threshold: services/one-time revenue a large share of reported 'ARR', or pilots/LOIs
+    counted as committed (definitional red flag, no fixed cutoff)
+  severity: kill
+  detect: 'Probe the ARR definition: are pilots paid and contracted, is ''ARR'' annualized
+    from a single good month, what share is professional services; vague ''bookings''
+    or ''run-rate'' language instead of signed recurring contracts is the tell.'
+  sources: []
+- id: founder-misalignment-departures
+  domain: process
+  stage:
+  - series-a
+  wedge: general
+  title: Founder conflict, key departures, or no vesting
+  why: Series A is a multi-year bet on the team, so unresolved cofounder disputes,
+    an early key departure, or unvested founder shares introduce a single point of
+    failure that no traction can offset.
+  threshold: founder shares not on standard 4-year vesting with 1-year cliff (industry-standard);
+    any unexplained cofounder departure before A
+  severity: kill
+  detect: Check the cap table for a missing original cofounder, ask directly about
+    founder roles/equity splits and vesting; evasive answers about 'someone who left
+    early', uneven splits with no rationale, or no vesting schedule are major signals.
+  sources:
+  - https://www.ycombinator.com/library/5x-how-to-split-equity-among-co-founders
+- id: data-room-readiness
+  domain: process
+  stage:
+  - series-a
+  wedge: general
+  title: Unreliable metrics or absent data room
+  why: If the company cannot quickly produce clean financials, a source-of-truth metrics
+    definition, and contracts, diligence stalls and investors infer the underlying
+    numbers are either disorganized or being managed.
+  threshold: ''
+  severity: major
+  detect: Request a data room and a single metrics doc; the flag is numbers that shift
+    between the deck, the model, and verbal answers, no system-of-record for ARR,
+    or weeks of delay assembling basic contracts and a cap table.
+  sources: []
+- id: tam-and-growth-stall
+  domain: process
+  stage:
+  - series-a
+  wedge: general
+  title: Decelerating growth or implausible TAM
+  why: A growth rate that is slowing while ARR is still small suggests the early market
+    is already saturating, while a top-down TAM with no bottoms-up basis signals the
+    founders haven't validated who actually pays.
+  threshold: YoY ARR growth well below ~2-3x at sub-$5M ARR, or MoM growth decelerating
+    (heuristic, not a hard standard)
+  severity: major
+  detect: Plot the monthly/quarterly ARR series rather than trusting the YoY headline;
+    charts that start the x-axis to hide a recent plateau, or a huge TAM derived only
+    from 'X% of a giant market', expose the deceleration and the hand-wave.
+  sources:
+  - https://a16z.com/16-startup-metrics/

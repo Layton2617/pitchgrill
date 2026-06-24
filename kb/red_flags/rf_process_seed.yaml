@@ -1,0 +1,166 @@
+cell: rf:process:seed
+type: red_flag
+wedge: general
+items:
+- id: cap-table-dead-equity
+  domain: process
+  stage:
+  - seed
+  wedge: general
+  title: Dead equity / absent co-founder on cap table
+  why: A departed or inactive founder holding a large fully-vested stake signals a
+    future blowup and makes the company hard to finance, because no one wants to fund
+    a person who isn't working while the active team is diluted.
+  threshold: No hard industry-accepted percentage exists. Flag any non-operating person
+    holding a material common stake (especially a departed co-founder) with no repurchase
+    or clawback.
+  severity: kill
+  detect: Cap table lists a co-founder with a large stake who isn't in the team slide
+    or on payroll; ask 'is everyone on the cap table still full-time?' and watch for
+    a vague answer about someone who 'helped early.'
+  sources:
+  - ycombinator.com/library
+  - firstround.com
+- id: no-vesting-acceleration-cliff
+  domain: process
+  stage:
+  - seed
+  wedge: general
+  title: Founders have no vesting (or already fully vested)
+  why: Without standard founder vesting, a co-founder can walk the day after the round
+    closes with their full stake, leaving investors funding a hollow company and the
+    remaining founders demoralized.
+  threshold: Industry-standard founder vesting is 4-year vest with a 1-year cliff;
+    flag if there is no vesting agreement, or full vesting on a company too young
+    to justify it.
+  severity: major
+  detect: Ask each founder 'what's your vesting schedule and how much have you vested?';
+    red flag if they say 'we didn't set one up' or 'we're fully vested' on a young
+    company.
+  sources:
+  - ycombinator.com/library
+  - a16z.com
+- id: ip-not-assigned
+  domain: process
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: IP not assigned to the company
+  why: If founders or early contractors built the core product without signed IP assignment
+    (or while employed elsewhere), the company may not actually own its own technology,
+    which is a clean reason for an investor to walk.
+  threshold: ''
+  severity: kill
+  detect: Look for missing PIIA/CIIA agreements and code written before incorporation
+    or by unpaid friends; ask 'does the company own all the code, and did anyone build
+    it while at a previous employer?'
+  sources:
+  - ycombinator.com/library
+  - nvca.org
+- id: incorporation-structure-wrong
+  domain: process
+  stage:
+  - seed
+  wedge: general
+  title: Wrong entity structure for institutional money
+  why: An LLC, a foreign holding company, or a structure that can't issue preferred
+    stock and clean stock options forces a costly restructuring (the 'Delaware flip')
+    that delays or kills a US institutional round.
+  threshold: ''
+  severity: major
+  detect: Deck or data room shows an LLC, an S-corp, or a parent entity domiciled
+    abroad without a US C-corp top-co; ask 'is the company a Delaware C-corp, and
+    where is the parent entity?'
+  sources:
+  - ycombinator.com/library
+  - nvca.org
+- id: prior-round-bad-terms
+  domain: process
+  stage:
+  - seed
+  wedge: general
+  title: Toxic prior-round terms or SAFE overhang
+  why: A stack of uncapped or high-cap SAFEs, prior investors with pro-rata/board/veto
+    rights disproportionate to their checks, or a messy convertible overhang means
+    new money is diluted or blocked before it even arrives.
+  threshold: No accepted dilution cutoff exists. Flag when modeling the SAFE stack
+    against the priced round produces dilution that surprises the founders or leaves
+    little room for the new lead.
+  severity: major
+  detect: Model the SAFE stack against the new cap; ask 'how much have you raised
+    on SAFEs, at what caps, and do any early investors have board seats or veto rights?'
+  sources:
+  - ycombinator.com/library
+  - a16z.com
+- id: founder-misrepresentation
+  domain: process
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Metrics or claims that don't survive scrutiny
+  why: Any provable gap between what the deck claims (revenue, users, signed customers,
+    partnerships) and what diligence finds destroys trust irreparably and is among
+    the most common deal-killers in process diligence.
+  threshold: ''
+  severity: kill
+  detect: Cross-check deck 'ARR' against bookings vs. recognized revenue, 'partnerships'
+    against signed contracts, and 'customers' against paying logos; ask for the raw
+    data behind every headline number and watch for reframing.
+  sources:
+  - firstround.com
+  - sequoiacap.com
+- id: no-data-room-disorganized
+  domain: process
+  stage:
+  - seed
+  wedge: general
+  title: No data room / slow, disorganized diligence response
+  why: Inability to quickly produce a clean cap table, incorporation docs, financials,
+    and key contracts signals operational immaturity and makes investors fear what
+    else is broken, often stalling momentum until the deal dies.
+  threshold: 'Heuristic, not a standard: core docs that can''t be produced within
+    roughly a week, or that come back as conflicting versions, is a warning sign.'
+  severity: minor
+  detect: Founder takes weeks to send basics, sends conflicting versions of the cap
+    table, or lacks board consents for past option grants; gauge response speed and
+    document consistency during early diligence.
+  sources:
+  - firstround.com
+  - ycombinator.com/library
+- id: founder-conflict-unresolved
+  domain: process
+  stage:
+  - seed
+  wedge: general
+  title: Unresolved co-founder conflict or equal-split deadlock
+  why: Investors underwrite the team, and an unresolved founder dispute or a deadlocked
+    equal split with no tiebreaker is a leading cause of early-stage failure, so it
+    reads as an existential risk to the investment.
+  threshold: An equal split (e.g. 50/50) with no designated CEO or tiebreaker mechanism
+    is a commonly cited red flag, though not disqualifying on its own.
+  severity: major
+  detect: Probe roles and decision rights separately with each founder; flag inconsistent
+    stories, an unclear CEO, or visible tension; equal equity with 'we decide everything
+    together' is a tell.
+  sources:
+  - firstround.com
+  - ycombinator.com/library
+- id: outsourced-core-engineering
+  domain: process
+  stage:
+  - seed
+  wedge: general
+  title: Core product built by an outsourced agency
+  why: When the defensible technology was built by an external dev shop rather than
+    in-house, the team can't iterate fast, may not own the IP cleanly, and lacks the
+    technical depth investors are funding.
+  threshold: ''
+  severity: major
+  detect: No technical co-founder on the team slide despite a software product; ask
+    'who wrote the code and do they work here?'; flag if the answer is a named agency
+    or 'contractors overseas.'
+  sources:
+  - ycombinator.com/library
+  - a16z.com

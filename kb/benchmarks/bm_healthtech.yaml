@@ -1,0 +1,177 @@
+cell: bm:healthtech
+type: benchmark
+wedge: general
+items:
+- sector: healthtech
+  metric: YoY revenue growth rate
+  stage:
+  - seed
+  - series-a
+  healthy: At Series A, ~$1-3M ARR growing 150-250% YoY is a typical target for early
+    digital-health SaaS (BVP's $1-10M ARR cohort runs ~165% median ARR growth). Provider/payer-facing
+    models get a pass on slightly lower velocity if contracts are large and sticky.
+  red_flag: Flat ARR while burn rises, or 'growth' that is actually one-off pilots
+    rather than renewable ARR. Below the ~100% YoY range at Series A is a concern
+    unless contract size/stickiness compensates.
+  note: Healthtech growth is structurally slower than horizontal SaaS because of 12-18
+    month enterprise/health-system sales cycles and procurement/security review. Investors
+    care more about logo quality (named health systems, payers) and pilot-to-paid
+    conversion than raw % when sales cycles are long. Distinguish recurring ARR from
+    services/implementation revenue. (BVP cohort growth rates are horizontal-SaaS
+    medians, not healthtech-specific.)
+  sources:
+  - https://www.bvp.com/atlas/scaling-to-100-million
+- sector: healthtech
+  metric: Net revenue retention (NRR)
+  stage:
+  - series-a
+  healthy: 110-130%+ for B2B provider/payer/employer SaaS (BVP early-stage cohorts
+    show ~117-125% median NRR). Seat- or member-based expansion (more clinics, more
+    covered lives, more modules) should drive this.
+  red_flag: Below ~100% NRR, or NRR propped up by a single anchor account. For PMPM/member-based
+    models, churn of one large payer/health-system contract can swing NRR violently.
+  note: 'Because healthtech CAC is high (long sales cycle), expansion economics are
+    what make the model work; investors lean heavily on NRR. Be specific about expansion
+    mechanism: covered-lives growth vs. cross-sell vs. price escalators. Gross retention
+    matters as much as net in regulated buyers.'
+  sources:
+  - https://www.bvp.com/atlas/scaling-to-100-million
+- sector: healthtech
+  metric: Gross retention / logo churn
+  stage:
+  - seed
+  - series-a
+  healthy: Gross dollar retention 85-90%+; annual logo churn in the low-teens or below
+    for multi-year enterprise contracts. Health-system and payer contracts are multi-year,
+    so churn should be low once live and embedded in clinical workflow/EHR.
+  red_flag: Contracts that 'churn' by silently failing to renew after a pilot, or
+    high churn in a deeply-integrated EHR product (signals the integration isn't sticky
+    or ROI wasn't proven).
+  note: 'Sector-specific trap: pilot churn vs. production churn. Many healthtech startups
+    show low churn only because customers haven''t hit the first renewal yet. Investors
+    ask for cohort retention past the 12-24 month mark. Consumer/D2C digital health
+    (telehealth, wellness apps) has the opposite problem - month-1 retention is often
+    very low.'
+  sources:
+  - https://www.bvp.com/atlas/scaling-to-100-million
+- sector: healthtech
+  metric: Gross margin
+  stage:
+  - seed
+  - series-a
+  healthy: 'Pure software 70-80%+ (BVP cloud benchmark ~70%). Healthtech is bimodal:
+    tech-enabled services / virtual care / care-delivery models run 40-60% (clinician
+    labor in COGS), acceptable IF the model is explicitly services-heavy. Pharmacy/DME
+    pass-through can be 20-30%.'
+  red_flag: A company pitching as 'SaaS' / software multiples while running <50% gross
+    margin because of hidden clinical labor, implementation, or device/drug COGS.
+    The mismatch between narrative and margin is the real flag.
+  note: 'Most important sector nuance: investors first classify the business (software
+    vs. tech-enabled services vs. care delivery vs. diagnostics) because each has
+    a different margin expectation and valuation multiple. Care-delivery models must
+    show margin improving with clinician utilization/automation, not staying flat.'
+  sources:
+  - https://www.bvp.com/atlas/scaling-to-100-million
+- sector: healthtech
+  metric: CAC payback period
+  stage:
+  - series-a
+  healthy: Under ~18 months for B2B healthtech is reasonable (longer-tolerated than
+    the ~12-month horizontal-SaaS rule of thumb because of long sales cycles and multi-year
+    contracts). Large multi-year enterprise contracts can justify 18-24 months if
+    NRR is strong.
+  red_flag: CAC payback persistently >24 months, or CAC measured only on marketing
+    spend while ignoring fully-loaded enterprise sales + implementation + clinical-integration
+    cost. D2C digital health with paid-acquisition payback exceeding retention is
+    a death spiral.
+  note: 'Fully-loaded CAC is the discriminator: the true cost includes long sales
+    cycles, security/compliance (HIPAA/SOC2) review support, pilots, and EHR integration.
+    Founders who quote blended or marketing-only CAC are hiding the real number. (BVP
+    shows ~21-month payback even for healthy cloud cos at $50-100M scale, so long
+    paybacks are not inherently fatal.)'
+  sources:
+  - https://www.bvp.com/atlas/scaling-to-100-million
+- sector: healthtech
+  metric: Burn multiple (net burn / net new ARR)
+  stage:
+  - seed
+  - series-a
+  healthy: 'Sacks framework: under 1x is excellent, 1-1.5x good, 1.5-2x acceptable.
+    For early healthtech given long sales cycles, the upper end is tolerated; seed-stage
+    is often allowed near ~2x given pre-revenue regulatory and integration costs.'
+  red_flag: Burn multiple >2x post-Series A (and certainly >3x) signals the GTM motion
+    doesn't work - especially damning in healthtech where investors expect efficient
+    capital use given the long road to scale.
+  note: Burn multiple (David Sacks) is a primary efficiency metric investors anchor
+    on post-2022. For healthtech, give it slightly more rope at seed because of compliance/integration
+    build-out, but it must trend down sharply by Series A. Net new ARR must be real
+    recurring revenue, not pilots or grants.
+  sources:
+  - https://sacks.substack.com/p/the-burn-multiple-51a7e43cb200
+- sector: healthtech
+  metric: Magic number (net new ARR / prior-quarter S&M)
+  stage:
+  - series-a
+  healthy: '>0.75 is good and >1.0 means efficient enough to step on the gas. For
+    long-sales-cycle healthtech, 0.5-0.75 is tolerated earlier because S&M is spent
+    quarters before revenue lands.'
+  red_flag: Magic number persistently below ~0.5, indicating S&M isn't converting.
+    In healthtech the lag is real, so judge on a trailing 2-3 quarter basis, not a
+    single quarter.
+  note: 'Sector caveat: the standard quarter-over-quarter magic number is noisy for
+    healthtech because S&M for a 12-18 month sales cycle precedes the booking by a
+    year. Investors who know the sector smooth it over multiple quarters or pair it
+    with pipeline coverage. (>0.75 threshold is the widely-used industry convention,
+    not a documented a16z figure.)'
+  sources: []
+- sector: healthtech
+  metric: Pilot-to-paid conversion rate
+  stage:
+  - seed
+  - series-a
+  healthy: Strong signal is a clear majority of paid pilots/POCs converting to multi-year
+    contracts, with conversion within roughly 6-9 months of pilot start. Free-pilot
+    conversion is naturally lower.
+  red_flag: A graveyard of stalled pilots with low conversion, or many 'live' deployments
+    that are unpaid pilots indefinitely. 'Pilotitis' - lots of logos, no recurring
+    revenue - is the classic healthtech failure mode investors screen for.
+  note: 'The most sector-specific and non-obvious diligence point: healthtech is uniquely
+    prone to pilot purgatory because hospitals/payers love to pilot and rarely buy.
+    Investors specifically ask for the pilot funnel and conversion cohort. Not a standard
+    SaaS metric. (Specific conversion percentages vary widely and are not from a single
+    citable benchmark, so treat the funnel qualitatively.)'
+  sources: []
+- sector: healthtech
+  metric: Months of runway / net burn rate
+  stage:
+  - seed
+  - series-a
+  healthy: 18-24+ months runway post-raise. Healthtech needs the longer end (24+)
+    because the next milestone (clinical validation, payer contract, regulatory clearance,
+    or 18-month sales cycle) takes longer to reach than in horizontal software.
+  red_flag: Under ~12 months runway, or a burn plan that assumes a regulatory clearance
+    / large payer contract closing on schedule (these slip routinely). Runway that
+    depends on an FDA timeline or a single enterprise deal is fragile.
+  note: Healthtech milestones are exogenous and slip (FDA, CMS coverage decisions,
+    health-system budget cycles, security reviews), so investors want extra runway
+    buffer relative to other sectors. Tie runway explicitly to a derisking milestone,
+    not just to a revenue number. (Standard VC runway convention; no specific external
+    citation.)
+  sources: []
+- sector: healthtech
+  metric: ARR at fundraise milestone
+  stage:
+  - seed
+  - series-a
+  healthy: 'Seed often pre-revenue to ~$0.5M ARR (with strong founder/clinical credibility,
+    design partners, or regulatory progress). Series A: roughly $1-3M ARR with efficient
+    growth and 2-3 marquee named customers (health systems/payers/employers).'
+  red_flag: Series A pitch at well under $500K ARR with no compensating regulatory/clinical/contract
+    milestone, or ARR composed mostly of grants, one-time services, or non-recurring
+    pilot fees dressed up as ARR.
+  note: 'Healthtech allows lower ARR-at-stage than horizontal SaaS when there''s a
+    non-revenue moat: FDA clearance/De Novo, CPT reimbursement code, exclusive health-system
+    data, or a published clinical outcome. Investors substitute milestone-derisking
+    for revenue traction at seed. Quality and recurring-ness of revenue > absolute
+    ARR. (Stage ARR bands are common VC heuristics, not from a single citable source.)'
+  sources: []

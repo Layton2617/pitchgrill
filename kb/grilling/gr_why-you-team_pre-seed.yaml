@@ -1,0 +1,166 @@
+cell: gr:why-you-team:pre-seed
+type: grilling
+wedge: general
+items:
+- id: why-this-you-unfair-advantage
+  theme: why-you-team
+  stage:
+  - pre-seed
+  wedge: general
+  question: Why are you the person to build this, and not the 50 other smart people
+    who could see the same opportunity?
+  strong_answer: 'Names a specific, hard-to-copy edge that compounds: years lived
+    inside the problem, a proprietary distribution channel or relationship, deep technical
+    work others can''t replicate quickly, or a contrarian insight earned from direct
+    experience. Ties the edge causally to why THIS team wins THIS market, not a generic
+    ''we''re passionate and hard-working.'''
+  weak_answer: Generic strengths — 'we're a strong technical team,' 'we move fast,'
+    'we're really passionate about this space' — or market-size talk that answers
+    'why this opportunity' instead of 'why you.' Any answer that any competent team
+    could give verbatim.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+- id: founder-market-fit-origin
+  theme: why-you-team
+  stage:
+  - pre-seed
+  wedge: general
+  question: Walk me through how you discovered this problem — what's your personal
+    scar from it?
+  strong_answer: A concrete origin story where the founder personally felt the pain
+    (built the workaround, lost money/time, was the underserved user, or sat next
+    to the customer for years). Demonstrates founder-market fit through specific lived
+    detail and shows insight competitors lack because they haven't lived it.
+  weak_answer: 'Top-down framing: ''we read that this is a $X billion market and saw
+    a gap,'' or a problem discovered via a brainstorm/trend report rather than lived
+    experience. No personal stake, no specific moment, no evidence they understand
+    the customer better than an outsider would.'
+  sources:
+  - https://review.firstround.com
+  - https://www.sequoiacap.com
+- id: cofounder-relationship-history
+  theme: why-you-team
+  stage:
+  - pre-seed
+  wedge: general
+  question: How long have you and your cofounder known each other, and what's the
+    worst conflict you've had together?
+  strong_answer: 'Shows a relationship with real history (worked or built together
+    before, ideally years), a concrete past conflict and how they resolved it, and
+    honest acknowledgment of where they disagree. Demonstrates the partnership has
+    been stress-tested. Industry-typical: investors treat cofounders who met recently
+    (e.g., within ~6 months, or at a hackathon/cofounder-matching event) as a higher
+    risk to monitor.'
+  weak_answer: '''We just clicked'' / ''we never fight'' / met very recently with
+    no shared work under pressure. Inability to name a single real disagreement signals
+    either avoidance or a relationship that hasn''t been tested — cofounder breakup
+    is one of the most common early-stage failure modes.'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+- id: equity-split-and-roles
+  theme: why-you-team
+  stage:
+  - pre-seed
+  wedge: general
+  question: What's your equity split between founders, and how did you decide it?
+  strong_answer: 'A roughly equal or clearly-reasoned split with vesting in place
+    (industry-typical: 4-year vest, 1-year cliff), and a candid explanation of the
+    reasoning. Confidence discussing it openly signals a healthy partnership and that
+    they''ve thought about long-term alignment and dilution.'
+  weak_answer: A very lopsided split (e.g., 90/10) for two full-time cofounders with
+    no clear justification, no vesting, visible discomfort or disagreement when asked,
+    or 'we haven't figured that out yet.' Signals future resentment or that one 'cofounder'
+    is really an early employee.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.nvca.org
+- id: team-completeness-missing-skill
+  theme: why-you-team
+  stage:
+  - pre-seed
+  wedge: general
+  question: What critical skill is missing from your founding team, and how are you
+    covering it until you can hire?
+  strong_answer: Honest self-assessment naming a real gap (e.g., a non-technical pair
+    lacking an engineering founder, or a technical pair with no one who can sell),
+    plus a credible interim plan and a pipeline of specific people they're recruiting.
+    Shows self-awareness and realistic hiring judgment.
+  weak_answer: '''We''ve got everything covered'' / ''we can learn anything'' — or,
+    for a product needing deep engineering, no technical cofounder and a plan to fully
+    outsource the core product to an agency. Denial of any gap reads as low self-awareness.'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://a16z.com
+- id: full-time-commitment
+  theme: why-you-team
+  stage:
+  - pre-seed
+  wedge: general
+  question: Is everyone full-time on this? If not, when does that happen, and what
+    would make you quit?
+  strong_answer: All core founders are full-time, or there's a specific, near-dated
+    trigger (funding close, revenue milestone) for going full-time. Founders can articulate
+    the personal/financial runway that lets them commit and show they've already burned
+    the boats.
+  weak_answer: Founders still at day jobs 'until we raise,' vague timelines, or a
+    key technical founder treating it as a side project. Investors read part-time
+    core founders as a sign of low conviction and a major risk for a pre-seed bet.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+- id: why-now-team-timing
+  theme: why-you-team
+  stage:
+  - pre-seed
+  wedge: general
+  question: Why are you starting this now instead of three years ago or three years
+    from now?
+  strong_answer: Connects the team's readiness to a specific enabling shift — a technology
+    that just matured, a regulatory change, a behavior shift, or the founder reaching
+    a point where they have the credibility/network/skills to execute. Shows the timing
+    is earned, not arbitrary.
+  weak_answer: '''It just felt like the right time'' / ''the market is hot'' / ''AI
+    is big right now.'' No specific catalyst tying the team''s unique position to
+    this moment — suggests the founder is chasing a trend rather than acting on hard-won
+    insight.'
+  sources:
+  - https://www.sequoiacap.com
+  - https://a16z.com
+- id: what-investors-get-wrong
+  theme: why-you-team
+  stage:
+  - pre-seed
+  wedge: general
+  question: What does almost everyone — including investors — get wrong about this
+    space that you know is true?
+  strong_answer: A genuine contrarian, specific belief that comes from direct experience
+    and that the founder can defend with evidence. Reveals proprietary insight and
+    the kind of conviction that survives setbacks. The best answers make the investor
+    pause and reconsider.
+  weak_answer: A consensus take dressed as contrarian ('people underestimate how big
+    this market is'), or no real answer at all. Inability to name a single non-obvious
+    belief signals shallow understanding and a 'me-too' company.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+  - https://www.sequoiacap.com
+- id: founder-resilience-evidence
+  theme: why-you-team
+  stage:
+  - pre-seed
+  wedge: general
+  question: Tell me about the hardest thing you've done in your life — paid or not
+    — and how you pushed through it.
+  strong_answer: A concrete, costly example of perseverance, resourcefulness, or doing
+    something exceptionally hard (shipped under brutal constraints, recovered from
+    a real failure, achieved something rare). Lets the investor underwrite the founder's
+    ability to grind through years of startup adversity.
+  weak_answer: A low-stakes or rehearsed story ('a hard class,' 'a tight deadline
+    at work'), or a humblebrag with no real adversity. Signals the founder may not
+    have the durability that pre-seed bets — which ride almost entirely on the people
+    — require.
+  sources:
+  - https://review.firstround.com
+  - https://www.ycombinator.com/library

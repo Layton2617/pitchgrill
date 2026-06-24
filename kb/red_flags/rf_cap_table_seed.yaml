@@ -1,0 +1,151 @@
+cell: rf:cap_table:seed
+type: red_flag
+wedge: general
+items:
+- id: founders-already-too-diluted
+  domain: cap_table
+  stage:
+  - seed
+  wedge: general
+  title: Founders already diluted below healthy ownership at seed
+  why: If founders own too little this early, investors fear they'll lose motivation
+    or be unfinanceable through the dilution of future rounds.
+  threshold: Founders collectively well below ~50% after seed; a Series A lead generally
+    wants founders meaningfully above 50% pre-A
+  severity: major
+  detect: Cap table sums founder equity; deck/SAFE stack implies large prior raises;
+    founder self-report of multiple priced rounds or heavy angel sell-down before
+    seed
+  sources:
+  - https://www.ycombinator.com/library
+- id: dead-equity-absent-cofounder
+  domain: cap_table
+  stage:
+  - seed
+  wedge: general
+  title: Dead equity on the cap table
+  why: A departed founder or inactive early holder sitting on a large vested stake
+    signals governance dysfunction and demotivates the active team.
+  threshold: Any non-contributing individual holding a meaningful stake (commonly
+    flagged above ~5-10%) with no remaining role
+  severity: major
+  detect: Cap table lists a co-founder not in the team slide; founder self-report
+    of a co-founder who 'left early'; check whether their shares accelerated or were
+    not repurchased
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com/
+- id: no-founder-vesting
+  domain: cap_table
+  stage:
+  - seed
+  wedge: general
+  title: Founders have no vesting / reverse-vesting schedule
+  why: Without founder vesting, any co-founder can walk away with fully owned equity,
+    leaving the company and remaining team holding catastrophic dead equity risk.
+  threshold: 'Standard expectation: 4-year vest with 1-year cliff; absence is the
+    flag'
+  severity: major
+  detect: Founder self-report 'we each just own our shares outright'; no vesting language
+    in incorporation docs; ask directly whether founder shares are subject to reverse
+    vesting
+  sources:
+  - https://www.ycombinator.com/library
+- id: thin-or-missing-option-pool
+  domain: cap_table
+  stage:
+  - seed
+  wedge: general
+  title: No option pool to hire the team the round funds
+  why: Without a pool, every key hire forces a board scramble or further founder dilution,
+    and Series A leads will demand a top-up that comes out of founders pre-money.
+  threshold: Typical seed option pool ~10-15% of fully-diluted shares
+  severity: minor
+  detect: Cap table has 0% or tiny unallocated pool; hiring plan in deck implies senior
+    hires with no equity budget; founder self-report of equity offers made ad hoc
+  sources:
+  - https://www.ycombinator.com/library
+- id: convertible-overhang-uncapped-stacked
+  domain: cap_table
+  stage:
+  - seed
+  wedge: general
+  title: Stacked or uncapped SAFEs/notes creating hidden dilution overhang
+  why: A pile of SAFEs with varying caps (or no caps) means the real post-conversion
+    cap table is unknown and can silently push founders far below the ownership the
+    headline implies.
+  threshold: Multiple SAFEs totaling a meaningful raise where post-conversion fully-diluted
+    founder ownership isn't modeled, or any uncapped notes
+  severity: kill
+  detect: Founder shows only a 'current' cap table without SAFE conversion modeled;
+    self-report of raising 'on SAFEs' over time at different caps; ask for a fully-diluted,
+    post-money-converted cap table
+  sources:
+  - https://www.ycombinator.com/library
+- id: unbalanced-cofounder-split
+  domain: cap_table
+  stage:
+  - seed
+  wedge: general
+  title: Extremely lopsided co-founder equity split
+  why: A near-total split (e.g. 95/5) among active co-founders signals a likely future
+    falling-out and that the minority founder is undermotivated.
+  threshold: Active co-founders split far more unevenly than ~2:1 without a clear
+    time/role justification
+  severity: minor
+  detect: Cap table shows one active co-founder with a tiny stake; team slide shows
+    multiple full-time founders; founder self-report of who 'really started it'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com/
+- id: messy-equity-promises-and-handshakes
+  domain: cap_table
+  stage:
+  - seed
+  wedge: general
+  title: Undocumented equity promises and handshake grants
+  why: Verbal or side-letter equity commitments to advisors, contractors, or early
+    employees create unquantified dilution and legal liability that surfaces and kills
+    deals in DD.
+  threshold: Any promised-but-unissued equity not reflected on the cap table
+  severity: major
+  detect: Founder self-report 'we told our first advisor we'd give him some equity';
+    gap between people thanked publicly and people on the cap table; ask if any equity
+    is promised but not granted
+  sources:
+  - https://www.ycombinator.com/library
+- id: non-standard-investor-terms-early
+  domain: cap_table
+  stage:
+  - seed
+  wedge: general
+  title: Toxic terms granted to early/angel investors
+  why: Multiple liquidation preferences, board control, or super pro-rata rights handed
+    to an angel at pre-seed scare off institutional leads who won't inherit a broken
+    governance structure.
+  threshold: Any liquidation preference above 1x non-participating, super pro-rata
+    rights, or a board seat held by a small early check
+  severity: kill
+  detect: Founder self-report of an early investor with a board seat or 'special rights';
+    ask to see prior round term sheets; check for non-standard SAFE/note side letters
+  sources:
+  - https://www.nvca.org/
+  - https://www.ycombinator.com/library
+- id: misallocated-or-absent-ip-assignment
+  domain: cap_table
+  stage:
+  - seed
+  wedge: general
+  title: IP not assigned to the company by all equity holders
+  why: If a founder or early contractor holds equity but never assigned their IP to
+    the company, the company may not own its core product, which is a direct deal-killer
+    in DD.
+  threshold: Any founder/contractor with equity lacking a signed IP/invention assignment
+    (PIIA/CIIA)
+  severity: kill
+  detect: Founder self-report that a technical co-founder or early dev 'built it before
+    we incorporated'; absence of PIIA/CIIA agreements; ask whether all equity holders
+    signed IP assignment
+  sources:
+  - https://www.nvca.org/
+  - https://www.ycombinator.com/library

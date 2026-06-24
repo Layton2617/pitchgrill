@@ -1,0 +1,218 @@
+cell: gr:fundraise-risk-exit:pre-seed
+type: grilling
+wedge: general
+items:
+- id: what-happens-if-you-dont-raise
+  theme: fundraise-risk-exit
+  stage:
+  - pre-seed
+  wedge: general
+  question: What happens to this business if you never raise another dollar after
+    this round?
+  strong_answer: 'Founder shows a concrete default-alive path: the round gives roughly
+    18-24 months of runway (industry-typical), and within that window the business
+    either reaches profitability at a survivable scale or hits a milestone that makes
+    the next raise a choice, not a necessity. They name the specific cost cuts they''d
+    make (e.g., founders go back to unpaid, drop paid acquisition) and the revenue
+    level that covers burn. The framing is ''we''d be smaller and slower but alive,''
+    with numbers.'
+  weak_answer: '''We''d have to raise — that''s the whole plan.'' Treats the next
+    round as guaranteed, has no profitability scenario, and reacts as if the question
+    is hypothetical rather than the base case. Often pivots to how confident they
+    are the next round will close, which is exactly the dependency the investor is
+    probing.'
+  sources:
+  - https://www.firstround.com/review
+- id: how-much-runway-and-milestone
+  theme: fundraise-risk-exit
+  stage:
+  - pre-seed
+  wedge: general
+  question: Exactly how many months of runway does this round buy, and what specific
+    milestone does it need to hit to make the seed round raisable?
+  strong_answer: Founder states runway in months (typically 18-24 at pre-seed) tied
+    to a specific monthly burn, and names the one or two metrics the next investor
+    will underwrite — e.g., a revenue run-rate, retention/engagement threshold, or
+    a working product with named design partners. They've reverse-engineered the milestone
+    from what seed investors actually fund, and have buffer for the raise process
+    itself (the next round takes 3-6 months, industry-typical).
+  weak_answer: Gives runway as a vague range, conflates 'spend the money' with 'hit
+    a milestone,' or lists generic goals ('grow the team, build features') that don't
+    map to anything a seed investor scores. Budgets to zero with no cushion for the
+    raise itself, so they'll be fundraising from a position of desperation.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.bvp.com
+  - https://www.firstround.com/review
+- id: burn-rate-and-spend-priority
+  theme: fundraise-risk-exit
+  stage:
+  - pre-seed
+  wedge: general
+  question: Walk me through your monthly burn line by line — where does the money
+    actually go, and what's the first thing you cut if growth is slower than planned?
+  strong_answer: 'Founder knows burn to the category (payroll, infra, acquisition)
+    without checking notes, and the spend is concentrated on the one thing that de-risks
+    the company (usually building/shipping or finding product-market fit), not on
+    premium salaries or office. They have a pre-committed trigger: ''if we''re not
+    at X by month N, we kill paid acquisition and extend runway.'' Shows founders
+    are paying themselves modestly (pre-seed-typical).'
+  weak_answer: Doesn't know the numbers cold, or the burn is spread across things
+    that don't move the needle (big salaries, a sales hire before PMF, expensive tooling).
+    No cut plan — assumes the plan just works. Founder salaries are high relative
+    to the round size, which signals the round funds lifestyle, not progress.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.firstround.com/review
+- id: valuation-justification
+  theme: fundraise-risk-exit
+  stage:
+  - pre-seed
+  wedge: general
+  question: How did you arrive at this valuation, and what does it imply about the
+    dilution you'll take across the next two rounds?
+  strong_answer: 'Founder anchors the price to market comparables and to how much
+    capital they need divided by a healthy dilution band (pre-seed rounds typically
+    sell 10-20%), not to a number that makes the math feel good. They''ve modeled
+    the cap table forward: founders retaining a meaningful majority through seed/Series
+    A, with room for an option pool, so future investors aren''t scared off by a founder
+    team that''s already over-diluted.'
+  weak_answer: Justifies the valuation by 'what other startups raised' anecdotally,
+    or sets it high to minimize dilution now — not realizing an inflated pre-seed
+    price creates a down-round risk and a flat/punishing seed. Hasn't modeled forward
+    dilution, can't say what ownership they'll have at Series A, or has already given
+    away too much (>25% at pre-seed) to angels/advisors.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://carta.com
+  - https://www.bvp.com
+- id: cap-table-dead-equity
+  theme: fundraise-risk-exit
+  stage:
+  - pre-seed
+  wedge: general
+  question: Who's on your cap table today, and is there anyone holding meaningful
+    equity who isn't working in the business full-time?
+  strong_answer: 'Clean cap table: active founders hold the large majority, vesting
+    on a standard 4-year/1-year-cliff schedule, and any advisor/angel/ex-cofounder
+    stakes are small and explainable. Founder proactively flags any dead equity and
+    has a story for it (or has already cleaned it up with repurchase/vesting). Understands
+    that investors won''t fund a company where a departed founder owns a large idle
+    chunk.'
+  weak_answer: A non-operating early cofounder or 'idea guy' owns a large slice (e.g.,
+    20-40%) with no vesting, or the cap table is cluttered with too many small angels
+    and advisor grants. Founder is dismissive ('we'll figure it out later') — but
+    dead equity is a classic deal-killer because it caps future founder motivation
+    and dilutes everyone who comes after.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.firstround.com/review
+  - https://carta.com
+- id: what-does-an-exit-look-like
+  theme: fundraise-risk-exit
+  stage:
+  - pre-seed
+  wedge: general
+  question: Be honest — what does a realistic exit look like for this company, and
+    who actually buys you?
+  strong_answer: Founder can name plausible acquirers by category and explain why
+    those buyers care (a capability, distribution, or customer base the company would
+    give them), and separately makes the case for the venture-scale outcome if it
+    works. They understand investors need a path to a large outcome (the fund-returner
+    math), and they're candid that an early acqui-hire would be a disappointing-but-survivable
+    downside, not the goal.
+  weak_answer: Either 'we're not thinking about exit, we're building a generational
+    company' with no acquirer logic at all, or the only exit story is a quick acqui-hire
+    — which signals the founder isn't aiming for venture scale. Naming IPO as the
+    plan with no comparable public company in the space, or being unable to name a
+    single realistic buyer.
+  sources:
+  - https://a16z.com
+  - https://www.nvca.org
+  - https://www.sequoiacap.com
+- id: tam-fund-returner
+  theme: fundraise-risk-exit
+  stage:
+  - pre-seed
+  wedge: general
+  question: If everything goes right, how does this return my whole fund — what's
+    the believable path to a venture-scale outcome?
+  strong_answer: 'Founder does the math from the bottom up: a credible unit (customers
+    x ACV, or users x revenue-per-user) that compounds to a revenue level supporting
+    a large valuation, and shows why this market can be that big even if it looks
+    niche today. They connect the wedge to a much larger adjacent market over time.
+    Acknowledges the power-law reality of venture and frames why THIS is a potential
+    outlier.'
+  weak_answer: Quotes a giant top-down TAM ('it's a $50B market, we just need 1%')
+    with no path from here to there, or describes a business that is real but structurally
+    capped — a good lifestyle/SMB outcome that can't return a fund. Can't articulate
+    why a venture investor specifically (vs. a bank loan or bootstrapping) should
+    be on the cap table.
+  sources:
+  - https://a16z.com
+  - https://www.sequoiacap.com
+  - https://www.ycombinator.com/library
+- id: next-round-investor-underwrite
+  theme: fundraise-risk-exit
+  stage:
+  - pre-seed
+  wedge: general
+  question: When you go raise your seed, what's the single thing a seed investor will
+    need to see, and are you actually on track to have it?
+  strong_answer: 'Founder names the one proof point seed investors in their category
+    fund (e.g., early retention, a repeatable acquisition channel, or revenue traction),
+    shows their current trajectory against it, and is honest about the gap. They understand
+    the next round is sold on evidence, not narrative, and have built the pre-seed
+    plan backwards from that evidence. Bonus: they know which specific seed funds
+    invest in their space.'
+  weak_answer: Assumes the next round is raised on 'more of the same story' or on
+    hype, can't name the metric seed investors will demand, or believes traction will
+    'speak for itself.' Treats fundraising as a function of effort/network rather
+    than provable progress — the founders who freeze here usually haven't separated
+    'what we want to build' from 'what the next check requires.'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.firstround.com/review
+  - https://www.bvp.com
+- id: founder-commitment-walkaway
+  theme: fundraise-risk-exit
+  stage:
+  - pre-seed
+  wedge: general
+  question: What would have to happen for you to walk away from this — and have you
+    ever come close to quitting?
+  strong_answer: 'Founder gives an honest answer that reveals real commitment without
+    sounding rehearsed: a high, specific bar for giving up (running out of money AND
+    a clear signal the thesis is wrong), and a candid story about a low moment they
+    pushed through. Signals they''ll keep going when the round is hard to raise —
+    the thing the investor is actually testing — without pretending the journey has
+    been smooth.'
+  weak_answer: Either 'nothing, I'll never quit' said reflexively (reads as untested
+    bravado), or a low walk-away bar that reveals the founder is hedging — has a job
+    offer in their back pocket, treats this as one option among several, or frames
+    quitting as a reasonable response to the first serious setback. Investors fund
+    obsession; ambivalence at pre-seed is fatal.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.firstround.com/review
+  - https://www.sequoiacap.com
+- id: this-round-not-fully-committed
+  theme: fundraise-risk-exit
+  stage:
+  - pre-seed
+  wedge: general
+  question: How much of this round is actually committed right now, and what happens
+    if your lead falls through next week?
+  strong_answer: 'Founder is precise about the state of the round: how much is hard-circled
+    vs. soft interest, who the committed parties are, and a realistic close date.
+    They have a contingency — other interested investors, the ability to do a smaller
+    first close and keep the SAFE open, or a runway plan that survives a partial raise.
+    Honesty about the round''s fragility, paired with a plan, builds trust.'
+  weak_answer: Inflates commitment ('the round's basically full') in a way that unravels
+    under one follow-up, or has zero plan B and visibly tenses up at the idea of the
+    lead walking. Vague on who's actually in, conflates 'took a meeting' with 'committed,'
+    or reveals the whole round depends on a single uncommitted investor — making this
+    check the thing holding it all together.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.firstround.com/review

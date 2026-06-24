@@ -1,0 +1,167 @@
+cell: dk:series-a
+type: deck_lint
+wedge: general
+items:
+- id: tam-top-down-fantasy
+  stage:
+  - series-a
+  wedge: general
+  issue: TAM computed top-down as a percentage of a giant market (e.g. '1% of a $1T
+    market = $10B')
+  why: Series-A partners read top-down sizing as a tell that you don't understand
+    your actual buyer or unit economics. The '1% of a huge number' move signals you
+    reverse-engineered the slide to hit a fundable number rather than building it
+    from who pays you, how much, and how many of them exist. It anchors the conversation
+    on credibility instead of opportunity, and any sharp partner will pull the thread
+    in 30 seconds.
+  fix: 'Build TAM bottom-up: (# of addressable accounts/users) x (realistic annual
+    contract value or ARPU) = SAM, then show how today''s wedge expands into adjacent
+    segments/products over time. Cite the account count source (e.g. Census/industry
+    registry, or your own pipeline density). Show TAM, SAM, and SOM as three distinct
+    numbers, not one.'
+- id: vanity-traction-slide
+  stage:
+  - series-a
+  wedge: general
+  issue: Traction slide is all vanity metrics (cumulative signups, total downloads,
+    registered users, 'GMV processed') with no retention or revenue cohorts
+  why: Cumulative and gross metrics only go up and hide churn, so at Series-A they
+    read as deliberate obfuscation. The partner's question is always 'do customers
+    stay and pay,' and a slide that can't answer it implies the answer is no. Series-A
+    is the round where the business model must be proven, not just demand — vanity
+    metrics signal you're still selling a Seed story.
+  fix: Lead with net dollar retention (industry-typical strong SaaS benchmark ~110-130%,
+    not an absolute rule), logo retention, and a cohort/triangle chart showing whether
+    older cohorts hold revenue. Replace 'total signups' with monthly active or paying
+    accounts and the activation rate between them. Show MRR/ARR with month-over-month
+    growth, not a cumulative curve.
+- id: no-ask-no-use-of-funds
+  stage:
+  - series-a
+  wedge: general
+  issue: No explicit ask and no use-of-funds breakdown — deck ends on 'team' or a
+    vision slide with no number and no milestone plan
+  why: 'Without an ask the partner can''t pattern-match you to a round size, ownership
+    target, or process, so the deck feels like a browse rather than a raise. More
+    damaging: no use-of-funds means you haven''t connected dollars to the specific
+    milestones that de-risk the NEXT round, which is the single thing a Series-A buys.
+    It signals you don''t know what 18-24 months of runway is supposed to produce.'
+  fix: 'Add a clear slide: amount raising, rough allocation (e.g. ~60% engineering/product,
+    ~25% GTM, ~15% G&A — illustrative, not a rule), runway in months (industry-typical
+    target ~18-24mo), and the 2-3 concrete milestones that capital unlocks (e.g. ''reach
+    $X ARR and Y net retention to support a Series-B''). Tie each milestone to the
+    metrics a B investor will demand.'
+- id: growth-rate-not-shown
+  stage:
+  - series-a
+  wedge: general
+  issue: Revenue shown as a single absolute number or annualized run-rate without
+    month-over-month or year-over-year growth rate
+  why: At Series-A, rate of growth matters more than absolute scale, and hiding the
+    rate implies it's mediocre or decelerating. A static '$2M ARR' with no slope lets
+    the partner assume the worst trajectory. 'Annualized run-rate' from a single good
+    month is a known sleight-of-hand and erodes trust the moment the underlying monthly
+    series is requested.
+  fix: Show the actual monthly revenue series for the last 12-18 months with the growth
+    rate labeled. Series-A SaaS investors often anchor on the 'triple-triple-double-double'
+    trajectory or roughly 2-3x YoY at this stage (industry-typical, not a hard cutoff).
+    If growth recently accelerated, show the inflection and explain the cause (new
+    channel, product, pricing).
+- id: unit-economics-missing-or-implausible
+  stage:
+  - series-a
+  wedge: general
+  issue: No CAC, LTV, payback, or gross margin — or an implausible LTV:CAC like 50:1
+    built on a multi-year LTV against a single-month CAC
+  why: Series-A is where the engine must be shown to be efficient, not just functional.
+    Missing unit economics reads as 'we haven't measured because the numbers are bad.'
+    An absurdly good ratio is worse — it tells the partner you fully-loaded LTV but
+    cherry-picked CAC, and now everything else on the deck is suspect too. Software
+    gross margin below SaaS norms without explanation flags a services business dressed
+    as software.
+  fix: Show fully-loaded CAC (all S&M / new customers), CAC payback in months (industry-typical
+    healthy range ~12-18mo), gross margin (software target ~70-80%+), and LTV:CAC
+    computed honestly (a defensible ~3:1+ beats a fantasy 50:1). State your churn
+    assumption explicitly since it drives LTV. If margins are low, explain the path
+    to software margins.
+- id: competition-slide-blank-quadrant
+  stage:
+  - series-a
+  wedge: general
+  issue: Competition slide is a 2x2 with you alone in the top-right, or 'we have no
+    competitors'
+  why: '''No competitors'' almost always means no market or no understanding of the
+    market — partners hear ''customers currently solve this with nothing / spreadsheets
+    / a person,'' which IS your competition. The self-flattering 2x2 with conveniently
+    chosen axes is a recognized cliche that signals you optimized for looking good
+    rather than mapping reality. It wastes the chance to show you understand the real
+    buying alternatives.'
+  fix: 'Map real alternatives including the status quo (spreadsheets, incumbents,
+    in-house builds) and articulate why you win on the dimensions customers actually
+    buy on. If you must use a 2x2, pick axes a customer would recognize, not axes
+    engineered to isolate you. Better: a feature/wedge comparison plus a clear statement
+    of your durable moat (data, distribution, switching cost).'
+- id: team-slide-no-why-us
+  stage:
+  - series-a
+  wedge: general
+  issue: Team slide is logos of past employers and headcount with no founder-market-fit
+    narrative or key-hire plan
+  why: By Series-A, partners underwrite the team's specific edge on THIS problem,
+    not generic pedigree. A wall of FAANG logos without 'why this team uniquely wins
+    here' is forgettable and interchangeable. Equally, no plan for the critical leadership
+    hires the round funds signals you don't know what capability gaps will block the
+    next 18 months.
+  fix: 'State founder-market fit in one or two lines per founder: the specific, hard-won
+    insight or unfair access that makes you the right team (built this at scale, lived
+    the customer''s pain, proprietary distribution). Then show the 2-3 key hires the
+    raise enables (e.g. VP Sales, Head of Eng) and why now. Keep logos secondary to
+    the insight.'
+- id: no-clear-problem-or-wedge
+  stage:
+  - series-a
+  wedge: general
+  issue: Deck opens on the solution/product tour instead of a sharp, specific problem
+    and an initial wedge
+  why: Leading with features forces the partner to reverse-engineer who hurts and
+    how much, and most won't bother. A fuzzy 'we're a platform for everyone' problem
+    statement reads as no real beachhead, which is fatal at Series-A where the question
+    is 'have you found a wedge that compounds.' Without a crisp problem, every later
+    slide (TAM, traction, GTM) floats unanchored.
+  fix: 'Open with one painful, specific problem for one specific customer, ideally
+    quantified (time/money lost today). State your wedge — the narrow entry point
+    you''ve won — and how it expands. The arc should be: sharp problem -> why now
+    -> your wedge -> proof it''s working (traction) -> how it becomes a big company.'
+- id: no-why-now
+  stage:
+  - series-a
+  wedge: general
+  issue: No 'why now' — nothing explains what structural change makes this newly possible
+    or urgent (tech shift, regulation, cost curve, behavior change)
+  why: Series-A partners are pattern-matching for timing; a great team and market
+    with no inflection invites 'why hasn't this been built, and why won't an incumbent
+    do it next quarter.' Absence of a why-now makes the company feel like a vitamin
+    you could fund anytime, which means never. It also fails to explain why your window
+    won't close.
+  fix: 'Add a why-now slide tied to a concrete inflection: a new technology becoming
+    viable (e.g. model capability/cost), a regulatory change, a cost curve crossing
+    a threshold, a platform shift, or a durable behavior change. Show the enabling
+    trend as a dated line, and connect it to why incumbents are structurally slow
+    to respond.'
+- id: gtm-hand-wave
+  stage:
+  - series-a
+  wedge: general
+  issue: Go-to-market is a hand-wave ('we'll do content + sales + partnerships') with
+    no proven, repeatable channel or sales-efficiency evidence
+  why: Series-A largely funds scaling a channel that already works — listing every
+    possible channel signals none of them works yet. Partners want evidence the acquisition
+    motion is repeatable and getting more efficient with scale, not a wishlist. A
+    vague GTM undercuts even strong traction because it implies the growth so far
+    was unrepeatable (founder-led, one lucky launch).
+  fix: Show the one or two channels that actually drive your pipeline today with their
+    economics (CAC, conversion, cycle length) and evidence of repeatability beyond
+    the founders. Specify the GTM motion (PLG, inside sales, enterprise) and the leading
+    indicators that it scales. Be explicit about what the round's GTM spend buys and
+    the expected magic-number/efficiency (industry-typical sales efficiency benchmark
+    ~0.75-1.0+, not a hard rule).

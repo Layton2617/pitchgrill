@@ -1,0 +1,170 @@
+cell: rf:traction:series-a
+type: red_flag
+wedge: general
+items:
+- id: revenue-customer-concentration
+  domain: traction
+  stage:
+  - series-a
+  - series-b
+  wedge: general
+  title: Single-customer revenue concentration
+  why: One whale leaving can wipe out the growth story overnight, so diligence treats
+    concentrated revenue as borrowed, not earned.
+  threshold: 'industry-typical: single customer >10-15% of revenue, or top 3 >30-40%'
+  severity: major
+  detect: Ask for revenue broken out by customer/logo; a deck showing only aggregate
+    ARR or a 'marquee logos' slide without per-account contribution is a tell. Check
+    if the named flagship customer's contract is annual and up for renewal soon.
+  sources:
+  - bvp.com
+  - ycombinator.com/library
+- id: unit-economics-ltv-cac
+  domain: traction
+  stage:
+  - series-a
+  - series-b
+  wedge: general
+  title: Broken LTV:CAC or unrecoverable CAC payback
+  why: If acquiring a customer costs more than they return within a sane horizon,
+    growth burns cash faster as it scales rather than compounding.
+  threshold: 'industry-typical: LTV:CAC < 3:1, or CAC payback > 12 months (SMB) /
+    > 18 months (enterprise)'
+  severity: kill
+  detect: Recompute CAC yourself = fully-loaded S&M spend / new customers in the same
+    period; founders often quote 'blended' or marketing-only CAC that excludes sales
+    salaries. Cross-check payback against churn — a 24-month payback with 30% annual
+    churn never recovers.
+  sources:
+  - a16z.com
+  - bvp.com
+  - ycombinator.com/library
+- id: net-revenue-retention-low
+  domain: traction
+  stage:
+  - series-a
+  - series-b
+  wedge: general
+  title: Low net revenue retention / negative expansion
+  why: Sub-100% NRR means the existing base is leaking, so every new sale just refills
+    the bucket instead of growing it — the opposite of a venture-scale curve.
+  threshold: 'industry-typical: NRR < 100% (any), < 110-120% weak for SaaS at A; gross
+    logo churn > 2-3%/month for SMB'
+  severity: major
+  detect: Ask for a cohort retention table (revenue by signup cohort over time), not
+    a single retention number. A deck that shows logo growth but hides revenue cohorts
+    is hiding churn. Sub-100% NRR shows up as flat/declining cohort lines after month
+    3-6.
+  sources:
+  - bvp.com
+  - a16z.com
+  - firstround.com
+- id: growth-decelerating
+  domain: traction
+  stage:
+  - series-a
+  - series-b
+  wedge: general
+  title: Decelerating growth rate (the curve is bending down)
+  why: Investors price the second derivative; a company growing 100%->60%->40% reads
+    as a market topping out, even if absolute ARR looks fine.
+  threshold: 'reference path: T2D3 (triple, triple, double, double, double); flag
+    if month-over-month growth rate falls for 2+ consecutive quarters'
+  severity: major
+  detect: Plot monthly net-new ARR (not cumulative ARR) from the data room — cumulative
+    charts always go up and mask deceleration. If the founder only presents YoY or
+    cumulative numbers, ask for net-new-ARR by month.
+  sources:
+  - bvp.com
+  - a16z.com
+- id: vanity-metrics-no-revenue
+  domain: traction
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Vanity metrics standing in for monetizable engagement
+  why: Signups, downloads, GMV, or 'pipeline' that don't convert to retained paid
+    usage signal a top-of-funnel illusion with no proven willingness to pay.
+  threshold: no fixed number; for self-serve freemium, free->paid conversion < 2-3%
+    is weak; watch for 'pipeline' quoted as revenue
+  severity: major
+  detect: 'Map every headline number to a paying, retained user. Red flags in the
+    deck: total registered users vs. MAU undisclosed, GMV without take-rate, ''LOIs/pipeline''
+    on the traction slide, cumulative downloads. Ask ''how many paid you last month
+    and used it last week?'''
+  sources:
+  - ycombinator.com/library
+  - firstround.com
+- id: founder-led-sales-only
+  domain: traction
+  stage:
+  - series-a
+  wedge: general
+  title: Revenue is 100% founder-sold (no repeatable motion)
+  why: If only the founder can close, the go-to-market isn't a system you can fund
+    — Series A capital buys a sales machine, not a charismatic CEO.
+  threshold: no fixed number; tell is zero deals closed by a non-founder rep and unmeasured
+    sales cycle/conversion
+  severity: major
+  detect: Ask who closed the last 10 deals by name. Look for absence of a defined
+    sales process, ramped quota-carrying reps with attainment data, or documented
+    win rates. A 'we'll hire sales with this round' plan with zero proof a hired rep
+    can close is the tell.
+  sources:
+  - firstround.com
+  - ycombinator.com/library
+- id: pilot-to-paid-gap
+  domain: traction
+  stage:
+  - series-a
+  wedge: general
+  title: Pilots/POCs dressed up as committed revenue
+  why: Free or heavily discounted pilots prove curiosity, not commitment, and rarely
+    convert at the rate founders project, so ARR built on them is fiction.
+  threshold: no firm benchmark; treat ARR built on pilots open >6-9 months with no
+    expansion as suspect
+  severity: major
+  detect: Separate 'committed/contracted ARR' from pilots in the revenue waterfall.
+    Check contract terms for opt-outs, month-to-month, or $0 pilot pricing counted
+    at projected list price. Ask how many pilots from 12 months ago became paying
+    annual contracts.
+  sources:
+  - bvp.com
+  - ycombinator.com/library
+- id: tam-too-small
+  domain: traction
+  stage:
+  - series-a
+  wedge: general
+  title: Market too small to support venture-scale outcome
+  why: Even perfect execution can't return a fund if the realistic obtainable market
+    caps the company well below a venture-scale exit.
+  threshold: 'industry-typical: SAM that can''t plausibly support a $100M+ ARR / $1B+
+    outcome at reasonable share'
+  severity: kill
+  detect: Rebuild TAM bottom-up (# of real buyers x realistic ACV), ignore the top-down
+    '$X billion industry' slide. If current ACV x plausible customer count tops out
+    at tens of millions, it's a small-business story funded as a venture one.
+  sources:
+  - a16z.com
+  - sequoiacap.com
+- id: magic-number-burn-multiple
+  domain: traction
+  stage:
+  - series-a
+  - series-b
+  wedge: general
+  title: Poor capital efficiency (burn multiple / magic number)
+  why: Spending many dollars of net burn to add one dollar of new ARR shows growth
+    isn't being bought efficiently, which compounds dilution and risk every round.
+  threshold: 'industry-typical: burn multiple > 1.5-2x (net burn / net new ARR); sales
+    magic number < 0.5-0.75'
+  severity: major
+  detect: Compute burn multiple = net cash burned / net new ARR over the same period
+    from financials + ARR data. A deck that emphasizes ARR growth but omits burn,
+    runway, or net-new-ARR is avoiding this. Cross-check against headcount growth
+    outpacing revenue.
+  sources:
+  - bvp.com
+  - a16z.com

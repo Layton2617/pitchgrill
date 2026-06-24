@@ -1,0 +1,223 @@
+cell: cb:captable
+type: red_flag
+wedge: cross-border-cn
+items:
+- id: cb-cn-001
+  domain: cap_table
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  wedge: cross-border-cn
+  title: Offshore flip (Cayman/BVI/WFOE/VIE) not completed before priced round
+  why: US VCs invest into a Delaware or Cayman topco holding clean equity, not into
+    a PRC onshore company. If the flip is still 'in progress' at termsheet, investors
+    are buying into a structure that does not yet legally exist. A late flip means
+    founder shares, IP, and the operating company are still onshore, and the restructuring
+    itself triggers PRC tax (capital gains on share transfer), SAFE registration,
+    and potential ODI approval that can take months. Deals routinely die or get heavily
+    re-priced when the flip surfaces gaps after termsheet. The standard endpoint US
+    VCs require is a Cayman topco -> HK intermediary -> PRC WFOE, with VIE contracts
+    only if the business is in a foreign-ownership-restricted sector.
+  severity: critical
+  detect: Ask for the current org chart AND the target post-flip org chart with dates.
+    Confirm topco jurisdiction (Cayman/Delaware), existence of HK intermediate holdco,
+    and a signed WFOE/VIE document set. Red flag if 'flip planned post-closing' or
+    no executed restructuring agreements exist.
+  threshold: 'Industry-typical: full flip should be executed pre-closing; if started
+    at termsheet, expect roughly 3-6 months added timeline. Directional guidance,
+    not an absolute rule.'
+  sources:
+  - https://www.ycombinator.com/library/7R-startup-legal-mechanics
+- id: cb-cn-002
+  domain: cap_table
+  stage:
+  - seed
+  - series-a
+  - series-b
+  wedge: cross-border-cn
+  title: SAFE Circular 37 (37号文) registration missing or done after asset injection
+  why: Circular 37 (Hui Fa [2014] No.37) requires every PRC-resident individual who
+    holds equity in the offshore SPV to register with SAFE BEFORE contributing onshore
+    assets/interests into the SPV. Without registration, the WFOE legally cannot remit
+    dividends or capital out of China to the offshore topco, and founders cannot lawfully
+    repatriate exit proceeds. Many founders register late, register only some co-founders,
+    or never amend after option-pool and new-investor changes. An unregistered or
+    stale Circular 37 means the entire offshore cash-flow path is broken, which directly
+    impairs the value of the preferred shares a US VC is buying. This is the single
+    most commonly botched item in CN cross-border cap tables.
+  severity: critical
+  detect: Request the SAFE Circular 37 registration certificate(s) for EACH PRC-resident
+    founder/key employee, plus amendment filings covering every subsequent equity
+    change. Confirm registration predates asset injection into the SPV. Red flag if
+    any resident shareholder is unregistered or filings are not amended after rounds.
+  threshold: 'Binary on the core rule: registration must precede onshore asset contribution.
+    Amendments are expected promptly after material equity changes; the exact filing
+    window is set by the handling SAFE branch, so treat any specific day-count as
+    practice guidance, not a hard statutory deadline.'
+  sources:
+  - https://www.safe.gov.cn/en/2014/1128/749.html
+  - https://www.jonesday.com/en/insights/2014/09/safes-new-circular-37-enhances-and-facilitates-roundtrip-investment-registration-in-prc
+- id: cb-cn-003
+  domain: cap_table
+  stage:
+  - seed
+  - series-a
+  wedge: cross-border-cn
+  title: ODI approval missing for founder/onshore-entity outbound investment into
+    the SPV
+  why: When a PRC onshore company (not just an individual) invests into or capitalizes
+    the offshore structure, that outbound flow needs ODI approval/filing (NDRC + MOFCOM
+    + SAFE banking registration). Founders frequently conflate Circular 37 (covers
+    individuals) with ODI (covers onshore entities) and skip ODI entirely. Missing
+    ODI means any RMB that went offshore to fund the topco/WFOE may be an unauthorized
+    cross-border capital movement, exposing the structure to clawback and the founders
+    to penalties. US VCs care because it taints the topco's capitalization and can
+    block future legitimate cross-border flows.
+  severity: high
+  detect: 'Map every cross-border money flow on the cap table: who funded the topco
+    and WFOE, from where. For any onshore PRC entity that sent funds offshore, request
+    NDRC/MOFCOM filing receipts and SAFE outbound registration. Red flag if onshore-entity
+    capital reached the SPV with only Circular 37 (individual) filings cited.'
+  threshold: Under NDRC Order No. 11 (eff. 2018), non-sensitive outbound projects
+    below USD 300m need record-filing only, while projects of USD 300m or more additionally
+    require a large-amount reporting submission to NDRC before implementation; sensitive
+    sectors/destinations require approval regardless of size. Approval/filing must
+    be in place before assets or financing are contributed offshore.
+  sources:
+  - https://www.kingandwood.com/global/en/insights/latest-thinking/analysis-on-no-11-circular-on-crossing-border-investment.html
+  - https://www.nortonrosefulbright.com/en/knowledge/publications/636220cc/administrative-measures-for-outbound-investment-by-enterprises
+- id: cb-cn-004
+  domain: cap_table
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  wedge: cross-border-cn
+  title: Core IP owned by the onshore WFOE/VIE, not assigned up to the topco the VC
+    buys
+  why: 'US VCs buy equity in the Cayman/Delaware topco, but in CN structures the engineers,
+    patents, software copyrights, and domain/ICP licenses usually sit with the onshore
+    operating entity (WFOE or VIE). If there is no IP license or assignment funneling
+    economic and (where lawful) legal IP rights up the chain, the topco is an empty
+    holding shell and the asset the VC paid for lives in an entity it does not own.
+    This is acute in VIE setups where foreign ownership of the IP-holding entity is
+    restricted: the contractual control package (exclusive tech-service/licensing
+    agreement, equity pledge, call option, POA) must actually capture the IP, or it
+    does not.'
+  severity: critical
+  detect: Ask 'which entity legally owns each core patent, software copyright registration,
+    trademark, and the product codebase?' Cross-check against the org chart. Confirm
+    executed IP assignment (to WFOE-owned cases) or exclusive-license + control agreements
+    (VIE cases) routing value to topco. Red flag if IP sits onshore with no upward
+    agreement.
+  threshold: 'No numeric threshold. Binary: core IP must be captured by the entity
+    the VC''s shares ultimately economically control.'
+  sources:
+  - https://www.ycombinator.com/library/7R-startup-legal-mechanics
+- id: cb-cn-005
+  domain: cap_table
+  stage:
+  - seed
+  - series-a
+  wedge: cross-border-cn
+  title: Founder still holds shares onshore instead of through the offshore topco
+  why: 'After a flip, every founder should hold equity at the Cayman/Delaware topco
+    level, mirrored down through the structure. A red flag is a founder who retains
+    direct registered equity in the onshore WFOE/operating company (often because
+    they never transferred it, or kept it to preserve an onshore qualification/license).
+    This creates a leak: that founder''s economics and control are not captured by
+    the offshore cap table the VC relies on, the onshore minority can block WFOE/VIE
+    actions, and on exit that stake sits outside the share-purchase the acquirer/IPO
+    vehicle buys. It also frequently signals an incomplete Circular 37 registration
+    for that person.'
+  severity: high
+  detect: Reconcile the onshore AIC/GSXT registered shareholder list of the WFOE and
+    any VIE/OpCo against the offshore topco register. Every founder should appear
+    offshore and the onshore entities should be wholly held up the chain (or fully
+    captured by VIE contracts). Red flag on any founder with stranded onshore registered
+    equity.
+  threshold: No numeric threshold; aim for 100% of founder economics held via the
+    offshore topco (directly or through fully-captured VIE contracts).
+  sources: []
+- id: cb-cn-006
+  domain: cap_table
+  stage:
+  - series-a
+  - series-b
+  wedge: cross-border-cn
+  title: Parallel RMB-fund and USD-fund cap tables with conflicting / unreconciled
+    rights
+  why: 'Companies that previously raised from RMB funds (investing into the onshore
+    entity) and now raise USD (into the offshore topco) end up with two cap tables.
+    Conflicts arise when: RMB investors were promised onshore equity or redemption/repurchase
+    rights that the offshore structure cannot honor; RMB investors were not flipped
+    up and sit stranded onshore; or both sets of investors claim overlapping preferences,
+    liquidation waterfalls, or anti-dilution on the ''same'' economics. US VCs underwriting
+    the offshore preferred need certainty the onshore RMB holders are either fully
+    flipped into the topco on consistent terms or contractually subordinated/walled
+    off. Unreconciled dual cap tables are a frequent deal-killer because the true
+    fully-diluted ownership is ambiguous.'
+  severity: critical
+  detect: Request BOTH the onshore cap table (RMB-round investors at OpCo/WFOE level)
+    and the offshore topco cap table, plus all side letters. Confirm whether RMB investors
+    were flipped up and on what terms. Look for redemption/repurchase or guaranteed-return
+    rights granted onshore that the offshore SHA does not reflect. Red flag if fully-diluted
+    ownership cannot be stated as one reconciled number.
+  threshold: 'No numeric threshold. Binary: there must be exactly one reconciled fully-diluted
+    cap table; any unflipped RMB tranche must be explicitly accounted for.'
+  sources:
+  - https://www.nvca.org/model-legal-documents/
+- id: cb-cn-007
+  domain: cap_table
+  stage:
+  - seed
+  - series-a
+  wedge: cross-border-cn
+  title: VIE contract package incomplete or unenforceable where structure is required
+  why: 'When the business is in a foreign-ownership-restricted sector (value-added
+    telecom/ICP, media, education, etc.), the offshore WFOE must control the onshore
+    licensed OpCo via a VIE contract set, since direct foreign equity ownership is
+    barred. A complete package is: exclusive technical-service/consulting agreement
+    (economic transfer), exclusive equity-purchase option, equity pledge (registered
+    with AIC), powers of attorney, and spousal consents. Missing any piece, unregistered
+    equity pledges, or no spousal consent means the ''control'' is illusory and PRC
+    courts/enforcement may not back it. US VCs buying topco equity over a leaky VIE
+    are buying contractual exposure, not ownership, and an incomplete package magnifies
+    that risk to the point of un-investability.'
+  severity: high
+  detect: If the sector is restricted, demand the full executed VIE document set,
+    proof the equity pledge is AIC-registered, and spousal consents from married founders.
+    Confirm the OpCo actually holds the required licenses (e.g., ICP/EDI). Red flag
+    on any missing agreement, unregistered pledge, or absent spousal consent.
+  threshold: No numeric threshold; completeness of the contract set is binary. Note
+    VIE legitimacy itself carries ongoing PRC regulatory uncertainty.
+  sources: []
+- id: cb-cn-008
+  domain: cap_table
+  stage:
+  - pre-seed
+  - seed
+  - series-a
+  wedge: cross-border-cn
+  title: ESOP/option pool sits onshore or is not mirrored at the topco granting shares
+    the VC dilutes
+  why: 'US VCs assume the option pool lives at the offshore topco and dilutes the
+    pre-money fully-diluted base. In CN structures, founders sometimes run an onshore
+    incentive scheme (held by a PRC holding partnership / 持股平台) that is never mirrored
+    to the topco, or grant ''promises'' to PRC employees who cannot easily hold offshore
+    options. The result: a hidden dilution overhang the offshore cap table does not
+    show, employees with claims against onshore value, and Circular 37 / individual
+    SAFE registration problems for option-holding residents. The VC''s true post-money
+    ownership is then overstated.'
+  severity: high
+  detect: Ask where the ESOP is legally established (topco vs onshore partnership),
+    the pool size on a fully-diluted basis, and whether onshore grantees have any
+    onshore equity/partnership interest. Reconcile against the topco's authorized
+    pool. Red flag if an onshore incentive vehicle exists in parallel or grant promises
+    aren't reflected at topco.
+  threshold: Industry-typical post-Series-A option pool is roughly 10-20% fully-diluted,
+    sized at the topco. Treat the range as typical, not a rule; the structural issue
+    (onshore vs offshore) matters more than the number.
+  sources:
+  - https://www.ycombinator.com/library/7R-startup-legal-mechanics

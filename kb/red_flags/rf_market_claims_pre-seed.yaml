@@ -1,0 +1,151 @@
+cell: rf:market_claims:pre-seed
+type: red_flag
+wedge: general
+items:
+- id: tam-bottom-up-missing
+  domain: market_claims
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: TAM asserted top-down only, no bottom-up build
+  why: A TAM derived only from a 'X% of a $B industry' slice signals the founder has
+    not modeled actual price x reachable units, which is the number an investor underwrites
+    the round against.
+  threshold: TAM presented as a single 'capture 1% of $X B' figure with no (# target
+    accounts) x ACV build to support it
+  severity: major
+  detect: Market slide shows one giant number (often Gartner/Statista-sourced) and
+    a '1% = $XXM' line; ask the founder to reconstruct it as (# of target accounts)
+    x (annual contract value) and watch whether they can.
+  sources:
+  - ycombinator.com/library
+  - firstround.com
+- id: inflated-tam-wrong-denominator
+  domain: market_claims
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: TAM uses the whole category, not the served/payer segment
+  why: Counting entire industry revenue rather than the dollars the specific buyer
+    can actually spend on this product overstates the market and erodes credibility
+    on everything else.
+  threshold: SAM/SOM absent or not meaningfully distinguished from the headline TAM
+  severity: major
+  detect: Deck cites global category spend (e.g. 'the $4T healthcare market') as TAM;
+    check whether SAM = (buyers with budget + authority) and SOM are broken out at
+    all, or whether all three numbers are essentially the same.
+  sources:
+  - a16z.com
+  - bvp.com
+- id: no-budget-line-zero-sum
+  domain: market_claims
+  stage:
+  - pre-seed
+  wedge: general
+  title: No existing budget line / 'creating a new category'
+  why: If buyers have no allocated budget for the problem today, the startup must
+    fund both demand creation and product, which lengthens sales cycles and is a common
+    pre-seed kill reason absent strong evidence.
+  threshold: No design partners with allocated budget, while the plan assumes short
+    sales cycles for what is in fact a net-new, no-budget-line category
+  severity: major
+  detect: Ask 'what line item / vendor does this replace, and what do they spend on
+    it now?' — if the answer is 'nothing, we're creating the category,' probe for
+    paid pilots vs. free interest.
+  sources:
+  - firstround.com
+  - ycombinator.com/library
+- id: growth-rate-unsourced
+  domain: market_claims
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Market 'growing at XX% CAGR' with no real source or tailwind
+  why: A CAGR pasted without a credible source or a specific structural driver reads
+    as decoration and makes investors discount the entire market section.
+  threshold: CAGR cited with no named primary source and no named structural tailwind;
+    suspiciously round figures (e.g. exactly 25% / 40%) with broken or generic citations
+  severity: minor
+  detect: Look for a CAGR whose citation is a paywalled report title with no link
+    or a blog quoting a report; ask what specific regulatory/tech/behavioral shift
+    drives the growth.
+  sources:
+  - a16z.com
+- id: incumbent-blindspot
+  domain: market_claims
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: '''No competitors'' or empty competitive landscape'
+  why: Claiming no competition almost always means either the market doesn't exist
+    or the founder hasn't found the incumbents/status-quo (Excel, in-house tools),
+    and investors treat it as a research-depth red flag.
+  threshold: Competition slide lists 0 direct competitors, or the status-quo alternative
+    (manual process / spreadsheet) is not named
+  severity: major
+  detect: Competitive slide is blank, a 2x2 where the startup sits alone top-right,
+    or only names dead/irrelevant players; ask 'what do customers use today instead?'
+    to surface the real incumbent.
+  sources:
+  - ycombinator.com/library
+  - firstround.com
+- id: wedge-too-narrow-no-expansion
+  domain: market_claims
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Beachhead is a feature, not a market with an expansion path
+  why: A wedge too small to ever reach venture scale, with no articulated path to
+    an adjacent larger market, fails the 'can this be a venture-scale company' test.
+  threshold: Initial obtainable segment has no credible path to an adjacent larger
+    market that could support a >$100M revenue outcome
+  severity: major
+  detect: 'Ask ''after you win the first segment, what''s market #2 and why do you
+    have the right to it?'' — a vague or absent answer signals a feature, not a company.'
+  sources:
+  - a16z.com
+  - sequoiacap.com
+- id: willingness-to-pay-unproven
+  domain: market_claims
+  stage:
+  - pre-seed
+  wedge: general
+  title: Market size claimed but zero evidence of willingness to pay
+  why: Demand evidence built on signups, waitlists, or 'interest' rather than paid
+    commitments tells investors the market may be real in theory but unproven in revenue
+    terms.
+  threshold: TAM presented as proven while all demand evidence is non-monetary (signups
+    / waitlist / MAU) with no paid customers or signed LOIs
+  severity: major
+  detect: Traction slide shows waitlist/signup/MAU counts but no revenue or signed
+    LOIs; ask 'how many have paid real money and how much?' and watch for a pivot
+    to engagement metrics.
+  sources:
+  - firstround.com
+  - sequoiacap.com
+- id: regulatory-or-timing-handwave
+  domain: market_claims
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Market unlock hinges on an unproven regulatory/behavior change ('why now'
+    is a hope)
+  why: When the thesis depends on a law passing, a behavior shifting, or adoption
+    crossing a threshold that hasn't happened, the market claim is a bet on timing
+    the founder can't control.
+  threshold: Core 'why now' is a future event with no committed catalyst (e.g. pending
+    legislation, expected mandate) and no current adopters already operating under
+    it
+  severity: major
+  detect: '''Why now'' slide cites a forthcoming regulation or ''the market is shifting
+    to X''; ask what has already concretely changed and who is acting on it today
+    vs. expected to.'
+  sources:
+  - sequoiacap.com
+  - ycombinator.com/library

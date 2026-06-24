@@ -1,0 +1,158 @@
+cell: gr:market-why-now:seed
+type: grilling
+wedge: general
+items:
+- id: why-now-inflection
+  theme: market-why-now
+  stage:
+  - seed
+  wedge: general
+  question: Why is now the right time for this? What changed in the last 12-24 months
+    that makes this possible or necessary when it wasn't before?
+  strong_answer: 'Names a specific, recent, exogenous inflection the founder did not
+    cause and cannot reverse: a technology cost curve crossing a threshold (e.g. inference
+    cost dropping ~10x), a regulatory change with a date, a platform shift (new API,
+    new hardware shipping), or a behavior change with measurable adoption. The change
+    is dated and quantified, and the founder explains why incumbents structurally
+    can''t ride it. The timing argument is causal, not decorative.'
+  weak_answer: Generic macro tailwinds ('AI is huge right now', 'everyone's going
+    remote', 'Gen Z wants X') with no dated inflection. Or 'the market is growing
+    fast' — growth is not a why-now. Or the real answer is 'we just decided to start
+    now,' which signals the window is not actually opening, it was always open and
+    nobody built it because it's a bad market.
+  sources:
+  - https://www.ycombinator.com/library
+- id: why-now-failed-before
+  theme: market-why-now
+  stage:
+  - seed
+  wedge: general
+  question: Who tried this before and why did they fail — and what is different now
+    that isn't just 'we'll execute better'?
+  strong_answer: 'Founder knows the graveyard cold: names 2-3 prior attempts (startups
+    or incumbent features), diagnoses the specific reason each died (too early, wrong
+    distribution, missing enabling tech, unit economics underwater), and ties their
+    advantage to the same exogenous change from the why-now — not to being smarter.
+    Distinguishes ''the market said no'' from ''the market wasn''t ready.'''
+  weak_answer: '''No one has really done this'' (almost always false and signals weak
+    research), or ''they failed because they executed poorly / had a bad team / ran
+    out of money'' — which implies the founder will simply repeat the attempt with
+    more grit. If the only difference is effort, the timing thesis is empty.'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com/
+- id: why-now-tam-construction
+  theme: market-why-now
+  stage:
+  - seed
+  wedge: general
+  question: How big is this market and how did you build that number — bottom-up from
+    customers and price, or top-down from a research report?
+  strong_answer: 'Bottom-up: (number of reachable customers) x (realistic ACV) x (plausible
+    penetration), with each input defensible. Distinguishes total market from the
+    serviceable, reachable slice the founder can actually sell to at seed. Often argues
+    the relevant TAM is being created or re-priced by the why-now shift, not the static
+    category size. Comfortable saying the wedge is small now and explaining the expansion
+    path.'
+  weak_answer: '''It''s a $X billion market'' lifted from Gartner/Statista, top-down,
+    with a ''1% of the market = huge business'' slide. Top-down TAM signals the founder
+    hasn''t done customer math. Investors discount these reports heavily; the 1%-capture
+    framing is a known red flag because it has no mechanism behind it.'
+  sources:
+  - https://review.firstround.com/
+  - https://www.bvp.com/atlas
+  - https://a16z.com/
+- id: why-now-tailwind-vs-fad
+  theme: market-why-now
+  stage:
+  - seed
+  wedge: general
+  question: Is the demand you're seeing a durable secular shift or a temporary spike
+    you happened to catch?
+  strong_answer: Shows the underlying driver is structural and compounding (a permanent
+    cost decline, a regulatory mandate that ratchets, a generational behavior that
+    doesn't revert), and presents leading indicators that the trend continues — not
+    a single moment. Acknowledges what would have to be true for it to be a fad and
+    shows that's not what the data says.
+  weak_answer: Cites a recent hype spike (a viral moment, a single news cycle, ZIRP-era
+    spending patterns, a one-off COVID behavior) as if it were permanent. Can't separate
+    'people tried it once' from 'people came back.' No view on whether the curiosity
+    converts to a habit.
+  sources:
+  - https://a16z.com/
+- id: why-now-incumbent-response
+  theme: market-why-now
+  stage:
+  - seed
+  wedge: general
+  question: If this why-now is real, why aren't the incumbents already doing it —
+    and what stops them the day after you prove it works?
+  strong_answer: 'Identifies a structural reason incumbents can''t or won''t move:
+    channel conflict, business-model cannibalization, technical debt, regulatory capture
+    they depend on, or the change disrupting their core economics. Has a credible
+    answer for the post-traction window — distribution lock-in, data flywheel, switching
+    costs, or speed — not just ''we''ll be ahead.'''
+  weak_answer: '''They''re too slow / too big / too dumb to see it.'' Big companies
+    are slow but not blind, and a seed-stage why-now that a $50B incumbent could copy
+    in a quarter once it''s de-risked is not a defensible timing thesis. ''We''ll
+    have first-mover advantage'' with no mechanism is a non-answer.'
+  sources:
+  - https://a16z.com/
+  - https://www.bvp.com/atlas
+- id: why-now-too-early
+  theme: market-why-now
+  stage:
+  - seed
+  wedge: general
+  question: How do you know you're not too early? What's the evidence the market is
+    ready to pay now, not in three years?
+  strong_answer: 'Points to real demand signals despite an immature product: customers
+    paying or pre-paying, inbound pull, painful workarounds people already build and
+    pay for, a budget line that already exists. Honest that ''too early'' is the primary
+    risk in a why-now bet and names the specific milestone that would confirm the
+    window is open vs. the cash runway needed to survive being a year early.'
+  weak_answer: '''The timing is perfect'' asserted without evidence, or conflating
+    their own excitement with market readiness. No paying customers and no existing
+    budget category, but confident the market will arrive on schedule. Being early
+    is indistinguishable from being wrong if you run out of money first, and the weak
+    answer ignores that.'
+  sources:
+  - https://review.firstround.com/
+  - https://www.ycombinator.com/library
+- id: why-now-enabling-tech
+  theme: market-why-now
+  stage:
+  - seed
+  wedge: general
+  question: What specific enabling technology or platform shift does this depend on,
+    and what happens to you if that platform changes its terms, pricing, or access?
+  strong_answer: 'Names the precise dependency (a model API, a hardware availability,
+    a new regulation, an open protocol) and the date/threshold it crossed. Has thought
+    through platform risk: what the business looks like if the underlying provider
+    raises prices, restricts access, or builds the feature themselves — and where
+    the durable value sits above that layer.'
+  weak_answer: The entire why-now is 'a big platform just launched a thing and we
+    wrap it,' with no view on platform risk. If the enabling shift is one vendor's
+    product decision, the startup is a feature on someone's roadmap. Weak answers
+    treat the platform as permanent and free.
+  sources:
+  - https://a16z.com/
+  - https://www.ycombinator.com/library
+- id: why-now-window-duration
+  theme: market-why-now
+  stage:
+  - seed
+  wedge: general
+  question: How long is this window open, and what's the cost of being a year too
+    late versus a year too early?
+  strong_answer: 'Has a concrete view of the window: what closes it (incumbents wake
+    up, the cost curve commoditizes the wedge, a standard gets set, the behavior calcifies
+    around a winner) and why the next 18-24 months specifically matter. Translates
+    that into why this raise and this speed make sense now, with the milestones that
+    must be hit before the window narrows.'
+  weak_answer: Treats timing as binary ('now is the time') with no sense of duration
+    or urgency mechanism. Can't say what changes if they start a year later, which
+    means the why-now isn't load-bearing — and if delay is costless, there's no reason
+    to fund it today.
+  sources:
+  - https://www.bvp.com/atlas

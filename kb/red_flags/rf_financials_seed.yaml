@@ -1,0 +1,166 @@
+cell: rf:financials:seed
+type: red_flag
+wedge: general
+items:
+- id: customer-concentration
+  domain: financials
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Customer concentration risk
+  why: If one or two logos drive most revenue, churn or a renewal renegotiation can
+    wipe out the company's top line overnight, making the revenue uninvestable as
+    a growth base.
+  threshold: single customer >10-15% of revenue, or top 3 >40%
+  severity: major
+  detect: Look for a 'logos' slide that's all enterprise with a tiny customer count;
+    in self-report ask for revenue-by-customer and the % from the largest account,
+    plus whether any single contract is up for renewal in the next 12 months.
+  sources:
+  - https://www.bvp.com
+  - https://www.firstround.com
+- id: unit-economics-underwater
+  domain: financials
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Unit economics that don't recover acquisition cost
+  why: A negative or sub-3:1 LTV:CAC means the company loses money on every customer
+    at scale, so more funding just accelerates the burn rather than building a business.
+  threshold: LTV:CAC < 3:1 or CAC payback > 12-18 months (industry-accepted SaaS)
+  severity: kill
+  detect: Deck shows GMV/top-line growth but no cohort or CAC slide; in self-report
+    ask for blended and paid CAC, gross margin, monthly logo/revenue retention, and
+    derive payback — vagueness or 'we don't track CAC yet' is itself the flag.
+  sources:
+  - https://a16z.com
+  - https://www.bvp.com
+  - https://www.ycombinator.com/library
+- id: vanity-gross-margin
+  domain: financials
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Software multiples on services/hardware margins
+  why: Pitching SaaS-style growth while gross margin reflects heavy COGS (support,
+    hosting, hardware, human-in-the-loop) means the business will never command software
+    economics and the model is mislabeled.
+  threshold: gross margin <60-70% for a self-described SaaS company
+  severity: major
+  detect: Check whether the deck states gross margin at all and what's inside COGS;
+    in self-report ask for true gross margin net of hosting/support/COGS and whether
+    'revenue' includes pass-through or resold third-party spend.
+  sources:
+  - https://www.bvp.com
+  - https://a16z.com
+- id: runway-default-dead
+  domain: financials
+  stage:
+  - seed
+  wedge: general
+  title: Insufficient runway to reach the next milestone
+  why: Raising an amount that buys less than ~18 months means the company is default-dead
+    and will be back fundraising from weakness before hitting metrics that justify
+    a higher round.
+  threshold: post-raise runway < 18-24 months, or net burn implies <12 months at close
+  severity: major
+  detect: Divide ask by current monthly net burn; if the deck has no burn/runway slide,
+    ask cash-in-bank, monthly net burn, and what specific A-round metrics the raise
+    is sized to reach.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.firstround.com
+- id: revenue-quality-misstated
+  domain: financials
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Inflated or non-recurring revenue presented as ARR
+  why: Counting LOIs, pilots, one-time fees, or annualized single months as 'ARR'
+    overstates the real recurring base and signals either misunderstanding or intent
+    to mislead, both of which kill trust in diligence.
+  threshold: ''
+  severity: kill
+  detect: Watch for 'ARR' on a company months old, 'committed/pipeline ARR', or a
+    suspiciously round annualized figure; in self-report ask for signed recurring
+    contracts vs pilots/LOIs, and reconcile stated ARR to bank deposits or Stripe.
+  sources:
+  - https://www.bvp.com
+  - https://www.firstround.com
+  - https://a16z.com
+- id: broken-cap-table
+  domain: financials
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Broken cap table / over-dilution before A
+  why: Founders already diluted below ~50% at seed, dead-equity from departed co-founders,
+    or a stack of uncapped SAFEs creates misaligned incentives and makes the company
+    hard to finance through later rounds.
+  threshold: founders collectively <50% pre-A, any inactive holder >10%, or large
+    unconverted SAFE overhang (rule-of-thumb, not a fixed standard)
+  severity: major
+  detect: 'Cap table rarely in the deck, so request it directly: look for departed
+    founders/advisors holding large stakes, total SAFE/note overhang on a fully-diluted
+    basis, and option pool size.'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://a16z.com
+  - https://www.firstround.com
+- id: burn-multiple-inefficient
+  domain: financials
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: High burn multiple (cash burned per dollar of net new ARR)
+  why: Burning several dollars to add one dollar of net new ARR shows growth is bought
+    rather than earned, predicting that the next round's capital will be inefficiently
+    consumed.
+  threshold: burn multiple > 1.5-2x net new ARR (industry-accepted; <1x is strong)
+  severity: minor
+  detect: Compute net burn over a period divided by net new ARR added in the same
+    period; if the founder can't produce both numbers, treat the inability to self-measure
+    efficiency as the flag.
+  sources:
+  - https://www.bvp.com
+- id: no-financial-hygiene
+  domain: financials
+  stage:
+  - seed
+  wedge: general
+  title: Missing financial hygiene and commingled funds
+  why: No bookkeeping, personal and company funds mixed, untracked spending, or unpaid
+    taxes signals an operator who can't be trusted with a larger check and creates
+    real legal/tax liability discovered in diligence.
+  threshold: ''
+  severity: minor
+  detect: Ask whether they have a bookkeeper/accounting tool, a separate business
+    bank account, a clean P&L, and current payroll-tax/sales-tax filings; hesitation
+    or 'my co-founder handles that, roughly' is the tell.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.firstround.com
+- id: founder-numbers-mismatch
+  domain: financials
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Founder can't reconcile their own numbers
+  why: When deck metrics don't tie to the founder's verbal answers or to source data,
+    it implies either weak financial command or selective framing, and inconsistency
+    in numbers is the single fastest way to lose a term sheet in diligence.
+  threshold: ''
+  severity: kill
+  detect: Cross-check the same metric (MRR, customer count, churn) across the deck,
+    the data room, and live conversation; any unexplained delta, or a founder who
+    quotes different figures than the slide, fails the check.
+  sources:
+  - https://www.firstround.com
+  - https://www.ycombinator.com/library

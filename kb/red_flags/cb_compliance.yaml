@@ -1,0 +1,223 @@
+cell: cb:compliance
+type: red_flag
+wedge: cross-border-cn
+items:
+- id: legal_ip-cnxb-pipl-export-no-mechanism
+  domain: legal_ip
+  stage:
+  - seed
+  - series-a
+  - series-b
+  wedge: cross-border-cn
+  title: Personal/important data flows CN->US with no PIPL cross-border legal mechanism
+    in place
+  why: 'PIPL (Art. 38) requires one of three legal bases to export personal info out
+    of China: a CAC security assessment, CAC-accredited certification, or CAC standard
+    contractual clauses (SCCs) filed with the regulator. A CN->USD startup that pipes
+    user data, telemetry, or even employee HR records to a US-hosted backend/analytics
+    stack almost always skips this. The failure is silent until a deal, audit, or
+    breach surfaces it, then the US entity inherits liability for an unremediable
+    past-data-export problem and a possible forced re-architecture (data localization)
+    that breaks the product''s unit economics.'
+  severity: high
+  detect: 'Ask: which legal mechanism (CAC assessment / certification / SCC filing)
+    covers your CN->US data flow, and show the filing receipt or executed SCC. Map
+    every data flow on a diagram and ask where each data store physically sits. Check
+    whether prod DB / analytics (e.g. US-region Snowflake, Mixpanel, Datadog) receives
+    any China-origin personal data. Red flag if the answer is ''we anonymize it''
+    with no documented de-identification standard, or ''our DPA covers it'' (a vendor
+    DPA is not a PIPL export mechanism).'
+  threshold: 'Industry-typical trigger: CAC security assessment is mandatory above
+    ~1,000,000 individuals'' personal info exported, or ~10,000 individuals'' sensitive
+    personal info, cumulatively from Jan 1 of the year (2024 CAC relaxation). Treat
+    these counts as industry-typical thresholds subject to change, not absolute rules.'
+  sources: []
+- id: legal_ip-cnxb-icp-license-dependence
+  domain: legal_ip
+  stage:
+  - seed
+  - series-a
+  wedge: cross-border-cn
+  title: Revenue depends on a China ICP/value-added telecom license the startup cannot
+    legally hold
+  why: Operating an internet business in China requires an ICP filing (ICP备案), and
+    commercial/transactional services require an ICP license (ICP证 / value-added telecom
+    license, e.g. EDI or ICP-VATS). Foreign-invested entities are largely barred or
+    capped from holding these, so a CN->USD startup with a Delaware/Cayman top often
+    parks the license inside a domestic Chinese company controlled by a founder or
+    proxy. That means the licensed asset the whole China revenue stream rides on is
+    not owned by the entity investors are funding, and is revocable by a single regulator
+    or a single individual's defection.
+  severity: high
+  detect: Ask who is the registered holder of every ICP filing and ICP/EDI/ICP-VATS
+    license, and whether that holder is the funded entity or a separate domestic co.
+    If a separate co exists, this is likely a VIE/proxy structure (next item). Verify
+    license status on MIIT/工信部 lookup. Red flag if licenses sit under a personal name,
+    the holder's equity isn't in the cap table, or the business runs commercial transactions
+    on only an ICP filing without the required license.
+  threshold: 'N/A — binary: either the required license exists and is controlled by
+    the funded structure, or it doesn''t. No numeric threshold.'
+  sources: []
+- id: legal_ip-cnxb-vie-proxy-control
+  domain: legal_ip
+  stage:
+  - seed
+  - series-a
+  - series-b
+  wedge: cross-border-cn
+  title: VIE/contractual-control structure where 'ownership' is contracts over a founder-held
+    domestic co, not equity
+  why: 'To get foreign USD capital into a sector China restricts (telecom, content,
+    data), CN->USD startups use a VIE: the offshore entity investors buy doesn''t
+    own the China operating company; it has a stack of contracts (exclusive service,
+    loan, equity pledge, power-of-attorney, call option) against equity held personally
+    by founders. Control rests on contract enforceability and founder loyalty, not
+    title. The non-obvious risks: the equity pledges may be unregistered (unperfected,
+    so worthless in a dispute), the contracts may be void as evasion of foreign-investment
+    rules, and a founder divorce/death/defection can freeze the licensed entity. Many
+    investors don''t re-check perfection after the initial papering.'
+  severity: high
+  detect: 'Ask for the full VIE contract stack and, critically, proof the equity pledge
+    is REGISTERED with SAMR/工商 (registration receipt), not just signed. Confirm whose
+    personal equity is pledged and their marital status (spousal consent obtained?).
+    Check for a call option exercisable by the offshore entity. Red flag: ''we have
+    the agreements'' but no pledge registration, no spousal consent, or founders refusing
+    to show the executed POAs.'
+  threshold: N/A — structural. Enforceability is qualitative, not numeric.
+  sources: []
+- id: legal_ip-cnxb-entity-list-export-control
+  domain: legal_ip
+  stage:
+  - seed
+  - series-a
+  - series-b
+  wedge: cross-border-cn
+  title: 'US export-control / entity-list exposure: customers, suppliers, or chips
+    touch restricted parties'
+  why: 'A US (USD) entity is subject to EAR and OFAC. A China-rooted startup can unknowingly
+    breach by: selling software/services to a customer on the BIS Entity List or SDN
+    list; relying on a supplier that is listed; or building on compute that triggers
+    the Advanced Computing / FDP (Foreign Direct Product) rules. Because the team
+    is operationally Chinese, the default customer/supplier base over-indexes toward
+    exactly the universe most likely to contain listed parties, and nobody screened
+    because screening isn''t a habit in the China market. A single shipment to a listed
+    party can mean denied US market access and personal liability.'
+  severity: high
+  detect: 'Ask: do you run OFAC SDN + BIS Entity List + Unverified List screening
+    on every customer and supplier, and show the screening tool/logs. Cross-check
+    top 10 customers and top 5 suppliers by name against consolidated screening list.
+    For deeptech/AI: ask whether any product, model weights, or compute usage falls
+    under Advanced Computing ECCNs or the FDP rule. Red flag: no screening process,
+    China-defense/SOE-adjacent customers, or ''we''re just SaaS so EAR doesn''t apply''
+    (it can, via EAR99 + end-use/end-user rules).'
+  threshold: N/A — binary prohibited-party exposure. Even a single listed counterparty
+    is disqualifying; no de-minimis comfort.
+  sources: []
+- id: legal_ip-cnxb-undisclosed-soe-gov-ties
+  domain: legal_ip
+  stage:
+  - seed
+  - series-a
+  - series-b
+  wedge: cross-border-cn
+  title: 'Undisclosed government/SOE ties: state-fund cap-table entries, gov grants
+    with strings, or SOE anchor customer'
+  why: 'China SOE/government linkage that''s invisible in the offshore cap table creates
+    three downstream problems for a USD raise: (1) CFIUS/national-security review
+    risk on the inbound US investment if a state-linked party sits behind the structure;
+    (2) government ''guidance funds'' (政府引导基金) and grants often carry redemption rights,
+    local-employment/relocation covenants, or data-handover obligations that conflict
+    with US investor terms; (3) an SOE anchor customer can mask non-market revenue
+    that evaporates or becomes a compliance liability. The tie is usually buried one
+    layer down in a domestic-fund LP or a subsidy agreement, not on the headline cap
+    table.'
+  severity: medium
+  detect: 'Trace every China-side investor/LP up to ultimate beneficial owner; flag
+    any 国资 / 引导基金 / SOE LP. Read all government grant/subsidy agreements for redemption,
+    clawback, relocation, or data clauses. Ask what % of revenue comes from SOE/government
+    customers and on what procurement basis. Red flag: founders describe state money
+    as ''just a local fund,'' grant agreements not provided, or concentration in a
+    single SOE customer with no written contract.'
+  threshold: 'Industry-typical concern: single-customer revenue concentration above
+    ~25-30% is a generic red flag; treat as industry-typical, not a rule. State-linkage
+    materiality for CFIUS has no clean numeric line.'
+  sources: []
+- id: legal_ip-cnxb-dispatch-no-ip-assignment
+  domain: legal_ip
+  stage:
+  - seed
+  - series-a
+  wedge: cross-border-cn
+  title: Core engineers employed via labor dispatch / individual contractors with
+    no enforceable IP assignment
+  why: 'To stay lean in China, founders staff engineering through 劳务派遣 (labor dispatch
+    agencies) or as individual contractors paid personally, rather than as direct
+    employees of an entity in the funded structure. Two compounding failures: (1)
+    under China law, IP created by a dispatched worker or external contractor does
+    NOT auto-vest in the principal absent a specific written assignment — and ''work
+    for hire'' is not a clean China concept — so the company may not own its own codebase;
+    (2) dispatch arrangements have statutory caps and are illegal for core/permanent
+    roles, exposing the company to reclassification, back-pay, and social-insurance
+    liability. The startup''s crown-jewel IP can legally belong to individuals or
+    a staffing agency.'
+  severity: high
+  detect: 'Ask the headcount split: direct employees vs. dispatch vs. individual contractors,
+    and which bucket the core engineers fall in. For every contributor to core IP,
+    ask for the signed PIIA/IP-assignment governed by the right law. Check whether
+    dispatch is used for core (not temporary/auxiliary) roles. Red flag: core devs
+    are ''contractors'' invoicing personally, no per-person IP assignment, or a GitHub
+    history dominated by accounts not tied to assigned employees.'
+  threshold: 'Industry-typical: China labor-dispatch law caps dispatched workers at
+    ~10% of headcount and restricts dispatch to temporary/auxiliary/substitute roles;
+    treat the 10% figure as an industry-typical statutory ceiling, not investment
+    advice.'
+  sources: []
+- id: legal_ip-cnxb-data-localization-product-dependency
+  domain: legal_ip
+  stage:
+  - series-a
+  - series-b
+  wedge: cross-border-cn
+  title: Product architecture assumes China data can be centralized in the US, ignoring
+    CSL/DSL localization mandates
+  why: 'Beyond PIPL''s export mechanism, the Cybersecurity Law and Data Security Law
+    impose localization: critical information infrastructure operators must store
+    personal info and important data in China, and ''important data'' (定义 by sector
+    catalogs) generally cannot leave. A CN->USD startup that designed a single global
+    US-hosted data plane is making a bet that may be legally impossible to keep, forcing
+    a costly split-stack (China data plane in-country) that wasn''t in the model.
+    The diligence trap: the architecture looks clean and unified precisely because
+    the localization requirement was never engineered for.'
+  severity: medium
+  detect: 'Ask whether any data the product handles could be classified as ''important
+    data'' under the relevant industry catalog (auto, healthcare, mapping/geo, finance
+    are high-risk). Confirm whether the company could be deemed a CIIO. Check if a
+    China-resident data plane exists or is even planned. Red flag: a single global
+    US data center serving China users with no in-country store, and no legal opinion
+    on important-data classification.'
+  threshold: N/A — classification-driven, not numeric. 'Important data' is defined
+    by sector catalogs, not volume.
+  sources: []
+- id: legal_ip-cnxb-cross-border-data-blocking-statute
+  domain: legal_ip
+  stage:
+  - series-a
+  - series-b
+  wedge: cross-border-cn
+  title: 'No process for China''s data-blocking statute: handing data to US authorities/courts
+    without CN approval'
+  why: China's DSL (Art. 36) and PIPL (Art. 41) prohibit providing data stored in
+    China to any foreign judicial or law-enforcement authority without prior approval
+    from the competent Chinese authority. A USD-structured company will eventually
+    face US discovery, an SEC/DOJ request, or a subpoena — and complying naively (producing
+    China-stored data) is itself a China-law violation, while refusing is a US-law
+    violation. This Catch-22 is almost never papered for at the startup stage, and
+    surfaces at the worst time (litigation/acquisition diligence) when there's no
+    playbook.
+  severity: medium
+  detect: 'Ask whether there''s any written protocol for responding to foreign government/court
+    data requests touching China-stored data, and whether counsel has scoped the DSL
+    Art. 36 / PIPL Art. 41 conflict. Red flag: blank stare, or ''our US counsel handles
+    subpoenas'' with no China-side approval step contemplated.'
+  threshold: N/A — binary compliance conflict; no threshold.
+  sources: []

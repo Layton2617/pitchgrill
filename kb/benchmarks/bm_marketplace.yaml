@@ -1,0 +1,192 @@
+cell: bm:marketplace
+type: benchmark
+wedge: general
+items:
+- sector: marketplace
+  metric: GMV growth rate (YoY)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: At seed, fast-growing marketplaces commonly target roughly tripling GMV
+    YoY; the bar moderates at Series A. Treat multiples as directional, not hard cutoffs.
+  red_flag: GMV growth that is not matched by net-revenue growth (signals discounting/subsidy
+    inflating GMV), or growth carried by a few outsized transactions.
+  note: GMV is a vanity metric on its own. Investors discount GMV growth that is not
+    tracked by net revenue growth. Watch for one-time 'whale' transactions distorting
+    the curve.
+  sources:
+  - a16z.com
+- sector: marketplace
+  metric: Take rate (net revenue / GMV)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: Commonly ~10-20% for many horizontal/services marketplaces; higher (25-30%+)
+    when layering payments/SaaS/logistics. Stable-or-rising take rate matters more
+    than the absolute number.
+  red_flag: Take rate declining as the marketplace scales (pricing power eroding to
+    competitors or disintermediation), or very low take rate with no path to layered
+    monetization.
+  note: 'Low take rate is fine if frequency is high (payments-style volume). The non-obvious
+    failure mode is take-rate compression: incumbents and disintermediation force
+    you down over time.'
+  sources:
+  - a16z.com
+- sector: marketplace
+  metric: Liquidity / fill rate (% of listings or requests that transact)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: Strong and rising request-to-match / search-to-fill rate in at least one
+    dense core geo or category. The bar is proof of liquidity in one dense market,
+    not across the whole TAM.
+  red_flag: Chronically low fill rate, long time-to-match, or liquidity that only
+    exists because of heavy manual/ops matching that won't scale.
+  note: The single most marketplace-specific metric and the one generalist founders
+    most often omit. a16z's marketplace framework treats liquidity as the core proof
+    point. Define it precisely (the denominator matters) or investors assume the worst.
+  sources:
+  - a16z.com
+- sector: marketplace
+  metric: Supply/demand concentration (% of GMV from top suppliers and top buyers)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: Healthy fragmentation on both sides so neither side can disintermediate
+    or hold the marketplace hostage; no single counterparty dominating GMV.
+  red_flag: A small number of suppliers (or buyers) drive the majority of GMV. High
+    concentration means the 'marketplace' is really a few managed accounts and is
+    one defection away from collapse.
+  note: 'Heavily scrutinized in Series A diligence. Power-side concentration also
+    predicts take-rate pressure: large suppliers negotiate you down.'
+  sources:
+  - a16z.com
+- sector: marketplace
+  metric: Repeat / cohort retention (GMV retention by cohort)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: 'Net GMV retention curves that flatten or ''smile'' (later-month GMV >=
+    early-month) driven by repeat usage. Frequency-appropriate: weekly-use marketplaces
+    should retain far better than annual-purchase ones.'
+  red_flag: Cohort GMV decaying monotonically toward zero with no flattening, especially
+    in paid-acquisition cohorts. Indicates a leaky bucket where growth = ad spend.
+  note: Cohort retention curves are the most predictive marketplace metric for durability.
+    Investors want the curve to flatten, ideally smile. Segment by acquisition channel.
+  sources:
+  - a16z.com
+- sector: marketplace
+  metric: '% organic / word-of-mouth demand acquisition'
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: A meaningful and holding-or-rising share of demand from organic/direct/referral,
+    signaling a real network effect rather than bought GMV.
+  red_flag: Nearly all demand is paid (SEM/social) with rising CAC, and organic share
+    falling as you scale. A marketplace that can't generate organic demand has weak
+    or no network effects.
+  note: 'Organic mix is the proxy for whether network effects are real. The non-obvious
+    tell: organic % should rise (or hold) as you scale; if it falls, you''re buying
+    your way into a market, not building one. The specific 40-60% figure is not a
+    reliable universal benchmark and was dropped.'
+  sources:
+  - a16z.com
+- sector: marketplace
+  metric: CAC payback (blended, on contribution margin)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: Payback on contribution margin (not GMV/revenue) within roughly a year
+    is a common bar; faster is strong for high-frequency marketplaces. Must account
+    for BOTH supply and demand acquisition cost.
+  red_flag: Materially long payback, or CAC quoted on GMV/revenue instead of contribution
+    margin (hides the real cost given thin take rates).
+  note: 'Marketplace-specific trap: you pay to acquire two sides. Single-side CAC
+    understates true blended payback. Investors reconstruct fully-loaded CAC including
+    both sides.'
+  sources:
+  - a16z.com
+- sector: marketplace
+  metric: Contribution margin per order (after payments, support, fraud, refunds,
+    incentives)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: Positive and improving CM per transaction. By Series A investors want a
+    clear path to (or already at) positive unit contribution after all variable costs
+    and subsidies.
+  red_flag: Negative contribution margin masked by GMV growth; per-order economics
+    that only work if subsidies/promo are removed at some hypothetical future scale.
+  note: 'Distinct from gross margin: marketplace CM must net out refunds, chargebacks,
+    support, and buyer/seller incentives. Many marketplaces look gross-margin healthy
+    but are CM-negative once subsidies are counted.'
+  sources:
+  - a16z.com
+- sector: marketplace
+  metric: Net revenue (take) growth YoY
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: Benchmark growth on NET revenue (take), not GMV. Strong net-revenue growth
+    heading into Series A is the signal; the gap between GMV and net-revenue growth
+    is itself diagnostic.
+  red_flag: Net revenue growing far slower than GMV (declining take rate), or no plan
+    to layer monetization. Specific ARR thresholds vary widely and were dropped.
+  note: Always benchmark a marketplace on net revenue, not GMV.
+  sources:
+  - bvp.com
+- sector: marketplace
+  metric: Burn multiple (net burn / net new net-revenue)
+  stage:
+  - series-a
+  wedge: general
+  healthy: 'Per Bessemer''s framing: under ~1x is amazing, 1-1.5x great, 1.5-2x good.
+    Measured on net new NET revenue, not GMV.'
+  red_flag: Burn multiple above ~2-3x (Bessemer flags >3x as suspect), or any burn
+    multiple computed against GMV growth to look efficient.
+  note: Burn multiple (introduced by Bessemer's David Sacks framing / popularized
+    as a SaaS-marketplace efficiency check) neutralizes GMV vanity. Computing it on
+    GMV is a common founder sleight-of-hand investors catch.
+  sources:
+  - bvp.com
+- sector: marketplace
+  metric: Supply-side churn / retention
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: Active-supplier retention strong enough that liquidity compounds; engaged
+    suppliers stay and grow their on-platform volume over time.
+  red_flag: High supplier churn or stagnant earnings-per-supplier, meaning the best
+    suppliers leave (often disintermediating once a buyer relationship forms).
+  note: Disintermediation (parties transacting off-platform after meeting) is the
+    existential marketplace risk and shows up first as supply churn + take-rate leakage.
+    Investors probe how you make staying on-platform worth it (payments, trust, repeat
+    demand).
+  sources:
+  - a16z.com
+- sector: marketplace
+  metric: GMV per active buyer & frequency (orders/buyer/period)
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  healthy: 'Rising GMV-per-buyer and frequency over cohort age. Frequency category
+    matters: high-frequency (food, rides) needs many orders/month; low-frequency (homes,
+    cars) compensates with high AOV.'
+  red_flag: Declining frequency or GMV-per-buyer, or a low-frequency category with
+    low AOV (structurally hard to build retention and CAC payback).
+  note: Frequency dictates which other benchmarks apply. A low-frequency category
+    isn't disqualifying if AOV and take rate are high, but investors expect you to
+    acknowledge which game you're playing.
+  sources:
+  - a16z.com

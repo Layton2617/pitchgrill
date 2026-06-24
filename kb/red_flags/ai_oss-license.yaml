@@ -1,0 +1,180 @@
+cell: ai:oss-license
+type: red_flag
+wedge: ai-dev-tools
+items:
+- id: OSS-001
+  domain: legal_ip
+  stage:
+  - seed
+  - series_a
+  - diligence
+  wedge: ai-dev-tools
+  title: Copyleft contamination in the commercial codebase (GPL/AGPL linked into proprietary
+    product)
+  why: Dev-tools teams frequently vendor or statically link snippets, CLI helpers,
+    or model-serving code under GPL/AGPL. AGPL is especially dangerous for a SaaS/hosted
+    dev-tool because the network-use clause triggers source-disclosure obligations
+    even without distribution — the entire commercial moat can become compelled-open.
+    This is a binary deal-killer that is cheap to detect and expensive to unwind post-close.
+  severity: high
+  detect: 'Run an SCA/SBOM scan (e.g. license inventory) across all repos and container
+    images; grep dependency manifests for GPL-2.0/GPL-3.0/AGPL-3.0/SSPL/CC-BY-SA.
+    Flag any AGPL/SSPL transitive dep linked into the hosted service. Ask for the
+    company''s own license policy and CLA. Threshold: any copyleft dep in the core
+    revenue path is industry-typical grounds to block until remediated.'
+  threshold: 'industry-typical: zero AGPL/SSPL/GPL deps in the commercial path; <5%
+    of total deps requiring legal review'
+  sources:
+  - https://nvca.org
+  - https://a16z.com
+- id: OSS-002
+  domain: legal_ip
+  stage:
+  - seed
+  - series_a
+  - diligence
+  wedge: ai-dev-tools
+  title: Permissive license relicensed/rug-pull risk on a foundational OSS dependency
+  why: The dev-tools sector has seen multiple foundational projects relicense from
+    permissive (Apache/MIT) or open-core to source-available (BSL/SSPL/Elastic License)
+    — HashiCorp, Elastic, Redis, MongoDB. If the startup's product is built on, forks,
+    or competes with such a project, a future relicense by the upstream owner can
+    retroactively poison the build path or invite litigation. Non-obvious because
+    the dep looks 'open' at diligence time.
+  severity: high
+  detect: 'Map every dep where a single commercial entity controls the trademark/copyright
+    (CLA-aggregated projects are higher risk). Check governance: is it foundation-held
+    (CNCF/Apache/Linux Foundation) or single-vendor? Single-vendor + recent funding
+    pressure = relicense risk. Threshold: any single-vendor-governed dep in the core
+    stack warrants a contingency plan.'
+  threshold: 'industry-typical: foundation-governed deps preferred; flag if >1 critical
+    dep is single-vendor-controlled without a fork escape hatch'
+  sources:
+  - https://a16z.com
+  - https://www.crv.com
+  - https://nvca.org
+- id: GTM-001
+  domain: market_claims
+  stage:
+  - seed
+  - series_a
+  - diligence
+  wedge: ai-dev-tools
+  title: Open-core with no clear monetization wedge (the 'free product is the whole
+    product' trap)
+  why: 'Classic open-core failure: the OSS core already solves 90%+ of the user''s
+    job, so the paid tier (SSO, audit logs, support) is a thin add-on that buyers
+    route around. For AI dev-tools this is acute because the valuable part (model,
+    agent loop, CLI) is what''s open-sourced, and there''s nothing scarce left to
+    charge for. Strong GitHub stars mask a missing value-capture mechanism.'
+  severity: high
+  detect: 'Ask: what specifically is paywalled, and would a competent team rebuild
+    it in a weekend? Look for the paid tier living at the ''team/governance/scale''
+    boundary (durable) vs. ''features the IC wants'' (leaky). Check that the open
+    core is intentionally incomplete for production use. Threshold: paid tier should
+    capture value tied to data, scale, or org-level needs — not features.'
+  threshold: 'industry-typical: OSS-to-paid conversion 1-5% of active users; if the
+    wedge is only support/SSO, expect the low end'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://a16z.com
+  - https://www.bvp.com
+- id: GTM-002
+  domain: market_claims
+  stage:
+  - seed
+  - series_a
+  - diligence
+  wedge: ai-dev-tools
+  title: Community traction (stars/downloads) with zero or negligible revenue conversion
+  why: Vanity OSS metrics (GitHub stars, npm/PyPI downloads, Discord size) are weakly
+    correlated with revenue for dev-tools. Stars measure curiosity and bot/CI traffic,
+    not willingness to pay. A repo can have 20k stars and a flat ARR curve if there
+    is no funnel from the OSS user to a buyer with budget. Especially deceptive in
+    AI dev-tools where launches spike on hype.
+  severity: high
+  detect: 'Decompose downloads: strip CI/mirror/bot traffic; look at unique deploying
+    orgs not raw counts. Demand a star-to-signup-to-paid funnel with cohort retention.
+    Check whether the OSS user (an IC) is the same person as the buyer (eng leader)
+    — a persona gap kills conversion. Threshold: want evidence of a working funnel,
+    not just top-of-funnel volume.'
+  threshold: 'industry-typical: free-to-paid 1-5%; healthy OSS dev-tool shows >40%
+    week-4 retention of active installs before monetization'
+  sources:
+  - https://www.bvp.com
+  - https://www.ycombinator.com/library
+  - https://firstround.com
+- id: GTM-003
+  domain: market_claims
+  stage:
+  - seed
+  - series_a
+  - diligence
+  wedge: ai-dev-tools
+  title: Single model-provider API dependency (platform/margin risk)
+  why: 'Many AI dev-tools are a thin wrapper over one foundation-model API. This creates
+    three compounding risks: (1) the provider can ship the feature natively and disintermediate
+    the startup; (2) pricing/rate-limit/ToS changes hit COGS and gross margin directly;
+    (3) a single point of availability failure. Gross margins are often quietly low
+    because inference cost is passed through with little markup headroom.'
+  severity: high
+  detect: 'Ask for gross margin net of inference COGS, and the % of COGS attributable
+    to one provider. Check for a model-abstraction layer / multi-provider routing
+    and whether switching is real or theoretical (prompt-coupling, eval debt). Review
+    the provider''s ToS for compete clauses and usage-data rights. Threshold: heavy
+    single-provider concentration with thin margin is a structural flag.'
+  threshold: 'industry-typical: software gross margin 70%+, but AI-wrapper tools often
+    40-60%; flag if >70% of inference spend is one provider with no abstraction layer'
+  sources:
+  - https://a16z.com
+  - https://www.sequoiacap.com
+  - https://www.bvp.com
+- id: OSS-003
+  domain: legal_ip
+  stage:
+  - seed
+  - series_a
+  - diligence
+  wedge: ai-dev-tools
+  title: No CLA/DCO — external contributor IP not assigned, clouding ownership and
+    future relicensing
+  why: If the OSS project accepted outside contributions without a Contributor License
+    Agreement or DCO, the company does not cleanly own its own codebase. This blocks
+    a future relicense (e.g. open-core to commercial), creates copyright-provenance
+    gaps that surface in acquisition diligence, and exposes the company to a contributor
+    reasserting rights. Non-obvious because the code 'works' and looks owned.
+  severity: medium
+  detect: 'Check repo for CLA bot / DCO sign-off enforcement in CI. Audit contributor
+    list vs. employment/contractor agreements — count external commits to core paths.
+    Ask whether the company could unilaterally relicense tomorrow; if the answer requires
+    chasing down past contributors, the IP chain is broken. Threshold: core-path contributions
+    from non-employees without CLA/DCO are a flag.'
+  threshold: 'industry-typical: 100% of core-path external contributions covered by
+    CLA or DCO; any uncovered material contribution warrants legal review'
+  sources:
+  - https://nvca.org
+  - https://www.ycombinator.com/library
+- id: GTM-004
+  domain: market_claims
+  stage:
+  - series_a
+  - diligence
+  wedge: ai-dev-tools
+  title: Self-cannibalizing OSS — the free tier structurally caps expansion revenue
+  why: 'Beyond ''no wedge'', a subtler trap: the OSS edition is so capable that existing
+    paid customers can downgrade or self-host to escape price increases, capping net
+    revenue retention. For AI dev-tools, a customer who hits an inference bill can
+    fork the open core and run their own models, turning your best (highest-usage)
+    accounts into your biggest churn risk exactly when they scale.'
+  severity: medium
+  detect: 'Look at NRR/NDR and whether churn correlates with account scale (a red
+    signal — big users leaving for self-host). Ask if any logo migrated from paid
+    to OSS. Check whether the paid value compounds with scale (data gravity, managed
+    ops) or is a flat license that self-hosting nullifies. Threshold: NRR below the
+    SaaS norm in an OSS-core model often signals self-host leakage.'
+  threshold: 'industry-typical: best-in-class dev-tool NRR 120%+; flag if NRR <100%
+    combined with growing self-host adoption'
+  sources:
+  - https://www.bvp.com
+  - https://www.crv.com
+  - https://a16z.com

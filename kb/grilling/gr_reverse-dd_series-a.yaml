@@ -1,0 +1,170 @@
+cell: gr:reverse-dd:series-a
+type: grilling
+wedge: general
+items:
+- id: magic-number-defensibility
+  theme: reverse-dd
+  stage:
+  - series-a
+  wedge: general
+  question: Strip out your top customer and your top channel. What does the growth
+    curve look like — and why is that not the real business?
+  strong_answer: 'Founder has already run this analysis and shares it unprompted:
+    concentration figures (e.g. top customer as % of revenue, top channel as % of
+    new logos — industry-typical comfort is no single customer >10-15% of ARR at Series
+    A, though earlier is forgivable if disclosed). They show the residual curve still
+    grows, name the second and third channels with their own CAC/payback, and explain
+    the structural reason demand is broad-based (problem category, not one whale or
+    one arbitrage). They distinguish a channel that is scaling from one that is saturating.'
+  weak_answer: 'Reassurance instead of numbers: ''that customer loves us and is expanding,''
+    or ''the channel is still working great.'' Cannot produce the concentration percentages
+    on the spot, treats one lighthouse logo as proof of a market, or reveals that
+    60-80% of growth traces to a single founder-led sales motion or one paid channel
+    whose CAC is quietly rising.'
+  sources:
+  - https://www.bvp.com/atlas
+  - https://www.sequoiacap.com/article/pmf-framework/
+  - https://review.firstround.com
+- id: net-retention-cohort-decay
+  theme: reverse-dd
+  stage:
+  - series-a
+  wedge: general
+  question: Show me your oldest cohort. Is net revenue retention above 100% because
+    customers expand, or because you haven't lost them yet?
+  strong_answer: Founder pulls up cohort retention by signup month, separating gross
+    retention, logo retention, and expansion. They show NRR with the expansion and
+    churn components broken out (industry-typical Series-A SaaS benchmark is GRR ~85-90%+
+    and NRR ~110%+, lower for SMB, higher for enterprise). The oldest cohorts are
+    old enough to be informative, and the founder names the specific product/usage
+    trigger that drives expansion rather than attributing it to discounts or annual
+    price bumps.
+  weak_answer: Quotes a single blended NRR number with no cohort view, or the oldest
+    cohort is only 6-9 months old so 'no churn yet' is mistaken for retention. Expansion
+    turns out to be seat true-ups and price increases rather than deepening usage;
+    gross churn is buried inside a healthy-looking net number.
+  sources:
+  - https://www.bvp.com/atlas
+  - https://review.firstround.com
+  - https://a16z.com/16-startup-metrics/
+- id: cac-payback-reality
+  theme: reverse-dd
+  stage:
+  - series-a
+  wedge: general
+  question: What does it actually cost to acquire a customer today — fully loaded,
+    including the sales and marketing salaries you don't put in the CAC slide?
+  strong_answer: Founder gives a fully-loaded CAC (all S&M headcount, tooling, and
+    content, not just ad spend), states CAC payback in months on a gross-margin basis
+    (industry-typical healthy range is roughly 12-18 months at Series A), and shows
+    the trend over the last few quarters. They explain why payback is stable or improving
+    as they scale, and are candid about where it gets worse (e.g. moving upmarket)
+    and the plan for it.
+  weak_answer: CAC excludes salaries and counts only paid media, making it look artificially
+    cheap. Uses LTV:CAC ratios with an LTV built on optimistic lifetime assumptions
+    and no churn input. Payback period is unknown or quoted on a revenue rather than
+    gross-margin basis, and the number is getting worse but presented as flat.
+  sources:
+  - https://a16z.com/16-startup-metrics/
+  - https://www.bvp.com/atlas
+  - https://review.firstround.com
+- id: why-now-why-not-incumbent
+  theme: reverse-dd
+  stage:
+  - series-a
+  wedge: general
+  question: The obvious incumbent could ship your feature in a quarter. Why haven't
+    they, and what stops them the day after we fund you?
+  strong_answer: 'Founder names the specific structural reason the incumbent won''t
+    or can''t move: channel conflict, a business-model contradiction (cannibalizing
+    their core line), org incentives, a data/integration moat, or a regulatory/contractual
+    position the founder holds. They distinguish ''a feature'' from ''a product the
+    incumbent''s customers would switch for,'' and show evidence the incumbent has
+    already declined to act despite knowing about the space.'
+  weak_answer: Falls back on speed and focus ('we move faster,' 'they're too big to
+    care'), which describes every startup and is not a moat. Treats the product as
+    a feature without acknowledging it, or claims the incumbent 'doesn't get it' with
+    no evidence — when in fact a fast-follow would erase the wedge.
+  sources:
+  - https://a16z.com
+  - https://www.sequoiacap.com
+  - https://www.ycombinator.com/library
+- id: founder-led-sales-handoff
+  theme: reverse-dd
+  stage:
+  - series-a
+  wedge: general
+  question: How many deals have closed without you in the room — and what's the win
+    rate when it's a rep, not you?
+  strong_answer: Founder can cite the count and percentage of revenue closed by non-founder
+    reps, compares rep win rate and sales cycle to their own, and shows it's converging.
+    They have a written, repeatable sales motion (qualification criteria, ICP, playbook)
+    that a hired rep has actually executed to quota, proving the motion — not the
+    founder's charisma — is what closes.
+  weak_answer: Almost everything closed with the founder personally involved, and
+    the answer is 'we're hiring a VP Sales to figure that out.' No rep has hit quota,
+    win rate cracks badly without the founder, or the founder cannot separate 'sales
+    is hard to delegate' from 'we have no idea if this is repeatable.'
+  sources:
+  - https://review.firstround.com
+  - https://www.ycombinator.com/library
+  - https://www.bvp.com/atlas
+- id: tam-bottoms-up
+  theme: reverse-dd
+  stage:
+  - series-a
+  wedge: general
+  question: 'Build your TAM from the bottom up right now: number of buyers times what
+    they''ll actually pay. Does it still support a venture outcome?'
+  strong_answer: 'Founder does a bottom-up count: realistic number of target accounts
+    × realistic ACV, grounded in their own pricing and win rates, and arrives at a
+    number large enough for a venture return without leaning on a ''percent of a trillion-dollar
+    market'' top-down figure. They acknowledge where the math is tight and name the
+    adjacent expansion (new segment, product line, geography) that credibly widens
+    it.'
+  weak_answer: Cites a giant analyst top-down TAM ('1% of a $50B market'), can't do
+    the bottom-up math live, or the bottom-up number quietly reveals the realistic
+    ceiling is too small for venture scale — which they haven't internalized.
+  sources:
+  - https://a16z.com
+  - https://www.bvp.com/atlas
+- id: burn-to-milestone
+  theme: reverse-dd
+  stage:
+  - series-a
+  wedge: general
+  question: This round buys you how many months — and what specifically must be true
+    at the end of it for the next round to exist?
+  strong_answer: Founder states runway in months at planned burn (industry-typical
+    target is 18-24+ months post-Series-A), names the concrete metrics the Series
+    B will require (ARR level, growth rate, NRR, efficiency) and shows the plan reaches
+    them with margin to spare. They've stress-tested a downside case where growth
+    misses and know the cut points that preserve runway.
+  weak_answer: Knows the raise amount but not the milestone it buys, plans to ~18
+    months of runway that only works if every hire pays off immediately, or defines
+    success as 'keep growing' without naming the specific Series-B bar — meaning the
+    round funds activity, not a fundable next step.
+  sources:
+  - https://www.bvp.com/atlas
+  - https://review.firstround.com
+  - https://www.ycombinator.com/library
+- id: metric-you-fear
+  theme: reverse-dd
+  stage:
+  - series-a
+  wedge: general
+  question: What's the one number in this business that you check first thing every
+    morning because it scares you — and what is it doing?
+  strong_answer: Founder answers instantly with a real leading indicator (activation
+    rate, weekly active accounts, paid-to-organic mix, sales cycle length, a specific
+    cohort's engagement) that genuinely constrains the business, says honestly which
+    direction it's trending, and explains the current bet to move it. The answer reveals
+    they know where the body is buried and are actively managing it.
+  weak_answer: Names a vanity metric (signups, total registered users, ARR alone)
+    or claims nothing scares them. A long pause, then a polished metric — signaling
+    they either don't look at the business at this granularity or aren't willing to
+    be honest about the weak spot.
+  sources:
+  - https://a16z.com/16-startup-metrics/
+  - https://review.firstround.com
+  - https://www.sequoiacap.com

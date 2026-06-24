@@ -1,0 +1,224 @@
+cell: ai:moat-grilling
+type: grilling
+wedge: ai-dev-tools
+items:
+- id: moat-01
+  theme: moat-defensibility
+  stage:
+  - seed
+  - series-a
+  wedge: ai-dev-tools
+  question: Your product is a prompt and some orchestration on top of Claude/GPT.
+    What stops a competitor from cloning it in a weekend, and what is the actual moat?
+  strong_answer: 'Concede the prompt is not the moat and name the accumulating asset
+    instead. For a dev tool that is the eval/feedback loop: every accepted/rejected
+    suggestion, every code-review correction, every CI failure tied back to a generated
+    diff becomes labeled training and routing data the cloner does not have on day
+    one. Point to the system of record you sit in (the repo, the PR, the CI graph)
+    and the switching cost of being wired into a team''s commit/review/deploy pipeline.
+    Show the compounding curve: acceptance rate or task-completion rate climbing month
+    over month as the data set grows, which a weekend clone starts at zero on. This
+    matches the a16z ''process power''/system-of-work framing and Bessemer''s ''data
+    quality compounds'' principle.'
+  weak_answer: Say 'we have a better prompt / better UX / we were first.' Prompts
+    improve for free as the base model improves and copy in days; UX is replicable;
+    first-mover with zero switching cost is not a moat. Claiming 'our prompts are
+    proprietary IP' signals you do not understand that the durable layer is the data
+    and workflow, not the prompt.
+  sources:
+  - https://a16z.com/the-new-business-of-ai-and-how-its-different-from-traditional-software/
+  - https://review.firstround.com/positioning-playbook-for-ai-products/
+  - https://www.bvp.com/atlas/the-state-of-ai-2025
+- id: moat-02
+  theme: moat-defensibility
+  stage:
+  - seed
+  - series-a
+  wedge: ai-dev-tools
+  question: Why won't Anthropic or OpenAI just ship this as a native feature inside
+    their own coding agent / IDE and crush you?
+  strong_answer: 'Frame it as the model lab''s incentive and surface-area constraints,
+    not wishful thinking. Labs optimize for the horizontal 80% case and for token
+    consumption; they will not build the long tail of integrations (your customer''s
+    internal monorepo conventions, their bespoke CI, their compliance gates, their
+    on-prem/air-gapped deployment) because each is low-ROI for a company chasing AGI-scale
+    TAM. Show where you are model-agnostic: if you route across multiple providers
+    and a lab ships a competing feature, you can adopt their better model and still
+    win on the workflow layer. Cite concrete cases where labs deprecated or narrowed
+    first-party tools rather than chase verticals. The honest version also names a
+    kill-zone you are NOT in (e.g., generic chat-to-code) and explains why your wedge
+    is too specific or too integration-heavy for a lab to prioritize.'
+  weak_answer: '''They''re focused on models, not apps'' as a flat assertion, or ''they''d
+    never compete with their own customers.'' Both are demonstrably false (labs ship
+    apps and compete with API customers regularly). Equally weak: ''we move faster''
+    with no structural reason the speed advantage persists once a lab decides your
+    category matters.'
+  sources:
+  - https://a16z.com/the-new-business-of-ai-and-how-its-different-from-traditional-software/
+  - https://www.bvp.com/atlas/the-state-of-ai-2025
+- id: moat-03
+  theme: moat-defensibility
+  stage:
+  - seed
+  - series-a
+  - series-b
+  wedge: ai-dev-tools
+  question: What happens to your business when the foundation model gets 10x better
+    and 10x cheaper?
+  strong_answer: 'Argue your value goes UP, not down, and show why. Cheaper tokens
+    mean you can run more eval passes, multi-agent verification, and broader context
+    retrieval per task at the same price, so product quality rises with no roadmap
+    work. Better models eliminate the brittle scaffolding you currently spend engineering
+    on, freeing you to push up-stack into workflow and outcomes. The risk you must
+    address head-on: if the model alone gets good enough that the workflow becomes
+    trivial, your wedge collapses. Defend by pointing to the parts that do NOT improve
+    when the model does: proprietary data, the integration/distribution surface, switching
+    costs, and accountability/trust (someone has to own the SLA, the security review,
+    the rollback). Bessemer and Hatchworks both note prompts improve for free but
+    integration and data moats do not.'
+  weak_answer: '''A better model just makes our product better'' with no acknowledgment
+    that a sufficiently good model can absorb your whole feature. Or panic-claiming
+    you''ll train your own model to stay ahead of the labs (you won''t out-spend them).
+    Treating cheaper inference purely as a margin win while ignoring that it also
+    lowers the barrier for every competitor is naive.'
+  sources:
+  - https://www.bvp.com/atlas/the-state-of-ai-2025
+  - https://hatchworks.com/blog/gen-ai/ai-wrapper-product-strategy/
+- id: moat-04
+  theme: moat-defensibility
+  stage:
+  - seed
+  - series-a
+  wedge: ai-dev-tools
+  question: Everyone says 'proprietary data is the moat.' What proprietary data do
+    YOU actually have, and is it defensible?
+  strong_answer: 'Distinguish data you HAVE from data that COMPOUNDS and is EXCLUSIVE.
+    Strong answer names a data flywheel that (a) is generated by usage, (b) is hard
+    to buy or scrape, and (c) directly improves the product. For dev tools the credible
+    ones: outcome-labeled data (did the generated code pass review/CI/prod, not just
+    look plausible), trajectory data (the full multi-step agent path that worked vs
+    failed in a real codebase), and org-specific context (a customer''s private code
+    conventions, ADRs, incident history) which is exclusive by contract. State the
+    contractual/privacy posture explicitly: who owns it, can you train on aggregate,
+    what is the data-residency story. Acknowledge what is NOT a moat: publicly scraped
+    code, generic chat logs, anything a competitor can replicate by buying API access.'
+  weak_answer: '''We collect all user interactions'' without showing the loop from
+    data back to measurable product improvement. Counting volume (''millions of queries'')
+    instead of exclusivity and feedback signal. Claiming a data moat while your data
+    is just GitHub-public code anyone can train on, or while your contracts forbid
+    you from using customer data at all.'
+  sources:
+  - https://a16z.com/the-new-business-of-ai-and-how-its-different-from-traditional-software/
+  - https://review.firstround.com/positioning-playbook-for-ai-products/
+  - https://www.bvp.com/atlas/building-vertical-ai-an-early-stage-playbook-for-founders
+- id: moat-05
+  theme: moat-defensibility
+  stage:
+  - series-a
+  - series-b
+  wedge: ai-dev-tools
+  question: Your gross margins are crushed by inference costs. Isn't that a structurally
+    worse business than SaaS, and doesn't it cap your defensibility?
+  strong_answer: 'Address the new-business-of-AI cost structure directly: AI companies
+    carry COGS that classic SaaS did not, so 80%+ gross margins are not the right
+    benchmark early on. Show the trajectory, not the snapshot: margins improving as
+    you (a) route cheaper models for easy tasks and reserve expensive models for hard
+    ones, (b) cache and reuse computation, (c) capture data that lets you fine-tune
+    smaller models for the 80% case. Tie cost discipline to moat: a16z''s ''trading
+    margin for moat'' argument is that early heavy spend (even forward-deployed engineering)
+    buys workflow lock-in and reference logos that compound. Give industry-typical
+    figures as targets, not laws: many AI app companies run 50-70% gross margin early
+    and plan a path toward 70%+ as model mix and caching mature.'
+  weak_answer: Hand-waving margins as 'it'll get cheaper over time' with no concrete
+    model-routing, caching, or fine-tuning plan. Or quoting a SaaS-grade 80%+ margin
+    you cannot actually support, which signals you do not understand your own COGS.
+    Treating low margin as irrelevant to defensibility ignores that thin margins limit
+    your ability to outspend on the very things (data, integrations) that build the
+    moat.
+  sources:
+  - https://a16z.com/the-new-business-of-ai-and-how-its-different-from-traditional-software/
+  - https://a16z.com/services-led-growth/
+- id: moat-06
+  theme: moat-defensibility
+  stage:
+  - seed
+  - series-a
+  - series-b
+  wedge: ai-dev-tools
+  question: Switching costs in AI tools look near-zero. What actually locks a developer
+    team in, given they can swap to a competitor's API tomorrow?
+  strong_answer: 'Reframe lock-in from the model (zero switching cost, by design you''re
+    model-agnostic) to the workflow and accumulated state. Concrete sources of stickiness
+    for dev tools: deep integration into the team''s repo/CI/review pipeline so ripping
+    you out breaks their daily loop; accumulated org-specific configuration and learned
+    context that a competitor restarts from zero; collaboration/network effects across
+    a team (shared rules, shared review history); and being the system of record for
+    an outcome (e.g., the audit trail of what AI changed and why, needed for compliance).
+    First Round''s framing: defensibility must be designed in from day one and rests
+    on materially different workflow + customer relationship, not features. Name your
+    specific lock-in mechanism rather than asserting ''stickiness.'''
+  weak_answer: '''Our product is so good they won''t want to leave'' (preference is
+    not a switching cost). Pointing to a long-term contract as the moat (that''s a
+    sales tactic, not defensibility). Ignoring that being a thin layer over an API
+    means a customer who likes the underlying model can route to it directly or to
+    any other wrapper.'
+  sources:
+  - https://review.firstround.com/positioning-playbook-for-ai-products/
+  - https://review.firstround.com/glossary/economic-moat/
+  - https://a16z.com/the-new-business-of-ai-and-how-its-different-from-traditional-software/
+- id: moat-07
+  theme: moat-defensibility
+  stage:
+  - seed
+  - series-a
+  wedge: ai-dev-tools
+  question: The incumbent IDEs and code hosts (GitHub, JetBrains, the cloud platforms)
+    already own the developer's environment and distribution. Why do you win against
+    bundled, default-on AI features?
+  strong_answer: 'Acknowledge incumbents'' real advantages (data sets, distribution,
+    ability to bundle for free) and explain why default-on still loses in your specific
+    wedge. Credible reasons: incumbents must serve the lowest-common-denominator workflow
+    and cannot make opinionated, vertical-specific choices without alienating their
+    broad base; their AI features are often shipped as checkbox add-ons, not the core
+    product, so quality lags for the hard cases. Your edge is depth in one painful
+    workflow plus being model/IDE-agnostic so you ride wherever the developer already
+    is rather than fighting for the IDE itself. Tie to distribution: show a wedge
+    channel incumbents under-serve (bottom-up dev adoption, a specific language/framework
+    community, regulated/on-prem buyers). Bessemer explicitly notes incumbents now
+    hold data + distribution advantages, so you must name why the vertical depth beats
+    the bundle.'
+  weak_answer: '''We''re better than Copilot'' as the whole answer, ignoring distribution
+    and free bundling. Assuming developers will seek out and pay for a standalone
+    tool when a good-enough version is already on by default. No articulated distribution
+    wedge of your own, which means even a superior product never reaches users.'
+  sources:
+  - https://www.bvp.com/atlas/the-state-of-ai-2025
+  - https://www.bvp.com/atlas/building-vertical-ai-an-early-stage-playbook-for-founders
+  - https://a16z.com/services-led-growth/
+- id: moat-08
+  theme: moat-defensibility
+  stage:
+  - series-a
+  - series-b
+  wedge: ai-dev-tools
+  question: If your defensibility depends on a data/eval flywheel, prove it's actually
+    compounding and not just a story. What metric shows the moat is real?
+  strong_answer: 'Bring the flywheel evidence, not the narrative. The strong proof
+    is a cohort metric improving with data accumulation that a new entrant cannot
+    shortcut: e.g., suggestion acceptance rate or autonomous task-completion rate
+    rising over successive months for the same cohort, lower human-correction rate
+    per task over time, or eval pass-rate on a held-out internal benchmark climbing
+    as labeled outcomes accumulate. Pair it with a retention/expansion signal (net
+    revenue retention; industry-typical strong SaaS/AI benchmark is roughly 120%+
+    for best-in-class, treat as a target not a rule) to show the workflow lock-in
+    is real. Crucially, show the counterfactual: when you A/B a fresh model with no
+    accumulated data versus your data-enriched system, the gap is the moat. Bessemer''s
+    playbook stresses data quality compounding; quantify the compounding.'
+  weak_answer: Asserting 'our flywheel gets stronger every day' with no cohort curve,
+    no held-out eval, and no counterfactual. Showing only top-line usage growth (which
+    can come from spend, not from a compounding moat). Quoting NRR or acceptance rate
+    as a single static number rather than a trend tied to data accumulation.
+  sources:
+  - https://www.bvp.com/atlas/the-state-of-ai-2025
+  - https://www.bvp.com/atlas/building-vertical-ai-an-early-stage-playbook-for-founders
+  - https://review.firstround.com/glossary/economic-moat/

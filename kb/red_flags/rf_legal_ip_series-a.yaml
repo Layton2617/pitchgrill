@@ -1,0 +1,146 @@
+cell: rf:legal_ip:series-a
+type: red_flag
+wedge: general
+items:
+- id: ip-assigned-to-prior-employer
+  domain: legal_ip
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Core IP may belong to a founder's former employer
+  why: If a founder built the seed of the product while employed elsewhere, an invention-assignment
+    or moonlighting clause can hand ownership of your core technology to a third party,
+    which is uninvestable until cleared.
+  threshold: ''
+  severity: kill
+  detect: Ask each technical founder where/when the first prototype was written and
+    whether they had a job at the time; check the deck's origin story against employment
+    dates, and request copies of prior employer PIIA/non-compete agreements.
+  sources: []
+- id: missing-founder-ip-assignment
+  domain: legal_ip
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: No signed IP assignment from founders or early contractors to the company
+  why: Investors fund a company that owns its IP; if founders, freelancers, or pre-incorporation
+    contributors never assigned their work to the entity, the company doesn't actually
+    own what it's selling.
+  threshold: ''
+  severity: kill
+  detect: Request signed CIIAAs/PIIAs and contractor work-for-hire assignments for
+    every founder and early dev; a red flag is any contributor with no executed assignment,
+    or a self-report of 'we used a few freelancers early on' with no paperwork.
+  sources:
+  - https://nvca.org/model-legal-documents/
+- id: oss-license-contamination
+  domain: legal_ip
+  stage:
+  - series-a
+  wedge: general
+  title: Copyleft / GPL open-source in the proprietary codebase
+  why: Linking AGPL/GPL code into a proprietary product can legally obligate you to
+    release source under the same license, destroying the defensibility a buyer or
+    investor is paying for.
+  threshold: ''
+  severity: major
+  detect: Ask for an SBOM or license-scan output (e.g., FOSSA/Black Duck); founder
+    self-report 'we don't track licenses' or any AGPL/GPL/SSPL dependency in a shipped
+    binary is the trigger.
+  sources: []
+- id: no-trademark-and-domain-exposure
+  domain: legal_ip
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Brand name unprotected or already conflicts with an existing mark
+  why: An unregistered brand that collides with a senior trademark can force a costly
+    rebrand right when you're scaling go-to-market, and signals weak operational diligence.
+  threshold: ''
+  severity: minor
+  detect: Check for a filed trademark application in core jurisdictions and ownership
+    of the matching .com; red flag if the company name returns existing registered
+    marks in the same Nice class or the domain is held by a squatter.
+  sources: []
+- id: pending-ip-litigation-or-troll-threat
+  domain: legal_ip
+  stage:
+  - series-a
+  wedge: general
+  title: Active or threatened IP litigation / patent-troll demand letters
+  why: Pending infringement claims or cease-and-desist letters create uncapped legal
+    liability and can be used by a competitor to stall your raise.
+  threshold: ''
+  severity: major
+  detect: Direct disclosure question 'list all threatened or pending litigation and
+    demand letters'; cross-check the deck's competitive claims for anything that reads
+    as poking a litigious incumbent.
+  sources: []
+- id: customer-data-ip-grant-in-contracts
+  domain: legal_ip
+  stage:
+  - series-a
+  wedge: general
+  title: Customer contracts give away IP, exclusivity, or model-training rights
+  why: Early enterprise deals signed under pressure often contain IP-ownership transfers,
+    exclusivity, MFN, or 'customer owns the derived model' clauses that cap the company's
+    ability to resell its core asset.
+  threshold: ''
+  severity: major
+  detect: Read the top 5 customer MSAs for IP-assignment, exclusivity, MFN, and source-code-escrow
+    clauses; founder self-report 'we agreed to whatever the first big logo wanted'
+    is the trigger.
+  sources: []
+- id: ai-training-data-provenance
+  domain: legal_ip
+  stage:
+  - series-a
+  wedge: general
+  title: AI model trained on scraped or unlicensed data with no provenance
+  why: A model built on scraped, copyrighted, or improperly licensed data carries
+    infringement and regulatory risk that transfers to acquirers and can poison the
+    core asset.
+  threshold: ''
+  severity: major
+  detect: 'Ask for a data-provenance map: source, license, and consent for each training/RAG
+    dataset; red flag if the answer is ''public internet'' or ''we scraped it'' with
+    no licenses or opt-out handling.'
+  sources: []
+- id: departed-founder-holds-ip-or-equity
+  domain: legal_ip
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Departed co-founder still owns IP or unrepurchased equity
+  why: A founder who left without assigning their IP or whose equity wasn't properly
+    repurchased can hold a veto over the company's most important asset and frighten
+    new investors.
+  threshold: ''
+  severity: kill
+  detect: Compare the founding team in the origin story to the current cap table;
+    ask 'has anyone left, and did they sign assignment + a separation/repurchase agreement?'—missing
+    paperwork is the trigger.
+  sources:
+  - https://nvca.org/model-legal-documents/
+- id: patent-claims-without-filings
+  domain: legal_ip
+  stage:
+  - series-a
+  wedge: general
+  title: Deck claims 'patent-protected' or 'patent-pending' with nothing filed
+  why: Overstating IP protection is both a defensibility gap and an integrity flag,
+    and public disclosure before filing may have already barred patentability under
+    the US one-year grace period.
+  threshold: In the US, an inventor-originated public disclosure starts a 12-month
+    grace period to file (AIA 35 U.S.C. 102(b)(1)); a public disclosure more than
+    12 months before any US filing bars patentability.
+  severity: minor
+  detect: Ask for application/serial numbers for every 'patent-pending' claim; if
+    none exist, or if the invention was publicly disclosed/demoed more than 12 months
+    before any US filing, flag it.
+  sources:
+  - https://www.uspto.gov/web/offices/pac/mpep/s2153.html

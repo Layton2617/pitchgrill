@@ -1,0 +1,135 @@
+cell: rf:traction:seed
+type: red_flag
+wedge: general
+items:
+- id: vanity-metrics-no-retention
+  domain: traction
+  stage:
+  - seed
+  wedge: general
+  title: Cumulative/vanity metrics masking flat engagement
+  why: Reporting total signups, downloads, or registered users instead of active-usage
+    and retention curves usually means the underlying engagement is flat or declining.
+  threshold: ''
+  severity: major
+  detect: Deck shows cumulative 'total users/downloads/GMV' charts that only go up-and-to-the-right
+    but no DAU/WAU/MAU, no cohort retention curve, and no 'active' definition; ask
+    the founder for a retention chart by signup cohort and watch if they can't produce
+    one.
+  sources: []
+- id: no-retention-curve-flattening
+  domain: traction
+  stage:
+  - seed
+  wedge: general
+  title: Retention curve never flattens (no product-market fit)
+  why: A cohort retention curve that decays toward zero rather than flattening to
+    a stable plateau means there is no sticky core of users and therefore no real
+    product-market fit. The flattening of the curve, not its absolute level, is the
+    PMF signal.
+  threshold: ''
+  severity: kill
+  detect: Request the month-over-month cohort retention table; if every cohort trends
+    to near-zero with no flattening, or the founder only shows aggregate retention
+    (which hides the decay), treat the curve as not flattened.
+  sources:
+  - a16z.com
+- id: growth-driven-by-paid-spend
+  domain: traction
+  stage:
+  - seed
+  wedge: general
+  title: Growth bought entirely with paid acquisition
+  why: Top-line growth that disappears the moment ad spend is cut indicates the company
+    has no organic/word-of-mouth pull and is renting demand rather than building it.
+  threshold: ''
+  severity: major
+  detect: Deck attributes growth to 'performance marketing'; ask for the organic vs
+    paid split of new users and what happened to signups in any month spend was paused
+    — a sharp drop confirms paid-dependence.
+  sources: []
+- id: single-customer-concentration
+  domain: traction
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Revenue concentrated in one or few customers
+  why: Heavy dependence on a single account means the loss of one relationship can
+    erase the company's revenue, so investors discount the traction sharply or pass.
+  threshold: common flag when a single customer is >10% of revenue (the SEC S-1 disclosure
+    threshold investors anchor to), or top customers dominate the base
+  severity: major
+  detect: Revenue chart that is large but lumpy; ask for revenue broken down by customer
+    and the % from the largest account — founders often volunteer 'we just landed
+    a huge logo' which hides concentration.
+  sources: []
+- id: pilots-counted-as-revenue
+  domain: traction
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: LOIs / pilots / free trials presented as committed revenue
+  why: Conflating non-binding interest with booked revenue inflates traction and unravels
+    in diligence when investors find the 'contracts' are unpaid pilots or letters
+    of intent.
+  threshold: ''
+  severity: kill
+  detect: Deck shows 'pipeline', 'LOIs', 'design partners', or 'committed ARR' alongside
+    ARR; ask which logos are paying cash today and at what monthly amount, and reconcile
+    against the bank/Stripe statement.
+  sources: []
+- id: churn-exceeds-or-masks-growth
+  domain: traction
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: High churn hidden behind net-new growth
+  why: Strong gross adds with high churn means the company is filling a leaky bucket,
+    and once acquisition slows the base erodes, signaling the product isn't retaining
+    value.
+  threshold: net revenue retention <100% means the existing base is shrinking before
+    new sales; for SMB SaaS, monthly logo churn materially above ~2-3% compounds to
+    heavy annual loss (exact tolerable level scales down with ACV)
+  severity: major
+  detect: Deck shows only gross new MRR/logos; ask for gross and net revenue retention
+    and monthly logo churn — if they only have 'net new' and can't quote churn, the
+    bucket is likely leaking.
+  sources:
+  - bvp.com
+- id: unit-economics-underwater
+  domain: traction
+  stage:
+  - seed
+  - series-a
+  wedge: general
+  title: Unit economics that don't work at scale
+  why: If it costs more to acquire and serve a customer than that customer is worth,
+    growth destroys value and more funding only accelerates the loss.
+  threshold: 'common rules of thumb: LTV:CAC below ~3:1 and CAC payback beyond ~12-18
+    months are warning signs (vary with gross margin and category)'
+  severity: major
+  detect: Ask for CAC, gross margin, LTV (or payback period) and how each is calculated;
+    vague answers, blended CAC that excludes paid, or LTV using lifetimes longer than
+    the company has existed are tells.
+  sources:
+  - bvp.com
+- id: no-engagement-frequency
+  domain: traction
+  stage:
+  - seed
+  wedge: general
+  title: Users acquired but not engaging (low DAU/MAU)
+  why: A large registered base with low usage frequency means the product isn't habitual,
+    which predicts poor retention and weak monetization regardless of headline user
+    counts.
+  threshold: for products that should be daily-use, DAU/MAU is commonly held to ~20%+
+    as a 'good' bar; the benchmark is meaningless for inherently low-frequency products
+  severity: minor
+  detect: Deck quotes MAU but never DAU or session frequency; ask for DAU/MAU ratio
+    and core-action frequency per user — absence of these for a product that should
+    be used daily signals shallow engagement.
+  sources:
+  - a16z.com

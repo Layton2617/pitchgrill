@@ -1,0 +1,157 @@
+cell: cb:intro-network
+type: grilling
+wedge: cross-border-cn
+items:
+- id: ri-1
+  theme: reverse-dd
+  stage:
+  - pre-seed
+  - seed
+  wedge: cross-border-cn
+  question: How did you get to me? Who do we know in common?
+  strong_answer: 'Name the specific connector and the real basis of the relationship:
+    ''X, who led your Series B at [portfolio co], introduced us — she''s been advising
+    us on US GTM since January.'' A warm intro from someone the investor actually
+    trusts converts roughly 2-3x better than cold (industry-typical, per YC), because
+    the referrer is staking their own credibility. If it''s genuinely cold, say so
+    plainly and lead with traction instead of pretending there''s a connection — a
+    fabricated ''mutual friend'' is instantly checkable and torches you.'
+  weak_answer: '''We found you on Crunchbase / your fund''s website looked like a
+    fit.'' Or worse, name-dropping a connection so thin the connector wouldn''t remember
+    you. This reads as spray-and-pray and signals you have no US network at all —
+    the exact red flag a CN team needs to overcome.'
+  sources:
+  - https://www.ycombinator.com/library/65-how-to-cold-email-investors
+  - https://a16z.com/16-common-questions-about-fundraising/
+- id: ri-2
+  theme: reverse-dd
+  stage:
+  - pre-seed
+  - seed
+  wedge: cross-border-cn
+  question: We get dozens of cold decks a week from teams we've never heard of. Why
+    should yours not go to the bottom of the pile?
+  strong_answer: 'Accept that cold response rates from unknown teams sit in the low
+    single digits (industry-typical) and engineer around it. Per Aaron Harris (YC):
+    don''t open with a vague ''can I get 30 minutes'' — make a concrete ask and show
+    one thing the investor doesn''t already know. For a CN team that means leading
+    with a fact a US investor can''t dismiss: live product, real US/overseas customers,
+    or a growth number (''launched 6 weeks ago, $40K MRR, 30% MoM'' — illustrative).
+    The email should be readable in under 60 seconds, from your @company.com address,
+    jargon-free in sentence one.'
+  weak_answer: A long, generic deck with a 'huge TAM' opener and no evidence of a
+    shipped product or customers. Mass-CC'd or BCC'd outreach. Burying the actual
+    metric three paragraphs down. This is exactly what gets ignored — and from an
+    unknown geography the bar for 'interesting in the first line' is higher, not lower.
+  sources:
+  - https://www.ycombinator.com/blog/aaron-harris-on-fundraising-and-meeting-with-investors/
+  - https://www.ycombinator.com/library/65-how-to-cold-email-investors
+- id: ri-3
+  theme: reverse-dd
+  stage:
+  - seed
+  - series-a
+  wedge: cross-border-cn
+  question: Who else is in this round, and who's leading?
+  strong_answer: 'Convey a competitive round without over-disclosing: ''There''s a
+    lead committed and a couple of others at the table'' (per First Round — competitive
+    rounds signal interest and give later investors ''schmuck insurance''). For a
+    CN-origin team, a credible US lead or recognizable US angels does disproportionate
+    de-risking work because it means someone with local context and reputation already
+    underwrote you. Be honest about whether a lead actually exists — claiming one
+    you don''t have unravels in one reference call.'
+  weak_answer: '''It''s open, we''re talking to a lot of people'' with no lead and
+    no committed names — or implying commitments that aren''t real. Naming 20 funds
+    you''ve pitched also backfires: First Round warns that being seen as a ''shopped
+    deal'' is serious negative signaling, and that travels fast.'
+  sources:
+  - https://review.firstround.com/the-fundraising-wisdom-that-helped-our-founders-raise-18b-in-follow-on-capital/
+- id: ri-4
+  theme: reverse-dd
+  stage:
+  - seed
+  - series-a
+  wedge: cross-border-cn
+  question: What US-based social proof do you have? Who has already underwritten this
+    team with their own money or reputation?
+  strong_answer: 'Lead with the highest-signal proof you actually have, in rough order
+    of weight: a prior US exit by a founder; a tier-1 referral or a respected US operator/angel
+    who wrote a check; participation in a US accelerator. Per First Round, the investors
+    you take early signal quality to the next round — so a small check from a credible
+    US angel can be worth more than a larger check from an unknown source. The point
+    is that someone with US context and skin in the game has already done the diligence
+    a remote CN team can''t otherwise demonstrate.'
+  weak_answer: Listing China-domestic logos the US investor can't evaluate, advisors
+    who gave a name but no money or time, or 'we won [domestic competition].' None
+    of these transfer credibility across the border. Treating brand-name advisors
+    as a substitute for an actual committed investor is the classic tell.
+  sources:
+  - https://review.firstround.com/the-fundraising-wisdom-that-helped-our-founders-raise-18b-in-follow-on-capital/
+  - https://www.crv.com/content/angel-investors-vs-venture-capitalists
+- id: ri-5
+  theme: reverse-dd
+  stage:
+  - pre-seed
+  - seed
+  wedge: cross-border-cn
+  question: If a warm intro converts so much better, why are you cold-emailing me
+    at all?
+  strong_answer: 'Be straight: you don''t yet have a path to this investor through
+    a trusted node, and rather than fake one or burn weeks chasing a tenuous intro,
+    you''re leading with evidence. YC''s own guidance is that obsessing over a warm
+    intro isn''t always worth it — a well-built cold email plus real traction can
+    work. Then immediately convert the cold contact into future warm ones: ask the
+    investor (or a portfolio founder you can reach) for the right next intro. Show
+    you understand the system and are building the network deliberately, not that
+    you''re oblivious to it.'
+  weak_answer: Pretending the cold email is a warm intro, or acting wounded that an
+    unknown overseas team doesn't get the same access as a local repeat founder. Demanding
+    a meeting as an entitlement. This confirms the worst prior — that the team lacks
+    both the network and the self-awareness to build one.
+  sources:
+  - https://www.ycombinator.com/library/65-how-to-cold-email-investors
+  - https://www.ycombinator.com/blog/aaron-harris-on-fundraising-and-meeting-with-investors/
+- id: ri-6
+  theme: reverse-dd
+  stage:
+  - seed
+  - series-a
+  wedge: cross-border-cn
+  question: You're a China team selling to a US/Western market — how do I know you
+    can actually build the relationships and pipeline locally?
+  strong_answer: 'Treat your fundraising network as a live demo of your GTM ability:
+    the same muscle that lands a tier-1 referral or a US design partner is the one
+    that lands US enterprise customers. Show concrete US-side proof points — a US-based
+    cofounder or first GTM hire, paying or pilot US customers, a US entity. CRV''s
+    seed criteria emphasize that institutional investors weigh team and cultural fit
+    alongside market; demonstrating you can navigate the US relationship layer directly
+    answers the cross-border doubt instead of arguing against it.'
+  weak_answer: '''We''ll hire US sales after we raise'' with zero current US presence,
+    customers, or relationships. Relying entirely on a domestic team and remote outreach.
+    This leaves the investor to assume the cross-border execution risk is fully unmitigated
+    — and they''ll price or pass accordingly.'
+  sources:
+  - https://www.crv.com/content/what-seed-investors-look-for
+  - https://a16z.com/how-to-hire-a-strong-founding-team/
+- id: ri-7
+  theme: reverse-dd
+  stage:
+  - seed
+  - series-a
+  wedge: cross-border-cn
+  question: How do I run references on you? I can't easily check a team operating
+    mostly in China.
+  strong_answer: 'Make yourself diligence-able: proactively offer references the investor
+    can actually reach — US-based angels/advisors who''ve worked with you, US customers
+    willing to take a call, a portfolio founder in their network who knows you. The
+    harder you are to reference remotely, the more a verifiable US-side reference
+    chain de-risks you. Volunteering checkable references (rather than waiting to
+    be asked) signals you have nothing to hide and that real US people will vouch
+    — which is precisely the credibility a cold CN inbound otherwise can''t manufacture.'
+  weak_answer: Offering only references inside China who the investor can't realistically
+    call, language-barrier the verification, or getting defensive about why diligence
+    is harder. Any whiff of un-checkable claims compounds the distance problem and
+    gives an easy reason to pass.
+  sources:
+  - https://a16z.com/16-common-questions-about-fundraising/
+  - https://www.crv.com/content/angel-investors-vs-venture-capitalists

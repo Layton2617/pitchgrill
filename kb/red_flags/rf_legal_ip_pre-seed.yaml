@@ -1,0 +1,166 @@
+cell: rf:legal_ip:pre-seed
+type: red_flag
+wedge: general
+items:
+- id: ip-assigned-to-prior-employer
+  domain: legal_ip
+  stage:
+  - pre-seed
+  wedge: general
+  title: Core IP may belong to a founder's prior employer
+  why: If the product was conceived or built while a founder was employed elsewhere
+    (especially under a broad invention-assignment or moonlighting clause), the company
+    may not actually own its core technology, which is a clean-up-or-die problem in
+    DD.
+  threshold: ''
+  severity: kill
+  detect: 'Deck/origin story shows the idea or first prototype predates incorporation
+    or overlaps a founder''s prior FTE job; self-report: ''I built the MVP on nights/weekends
+    while at [BigCo]''; ask whether prior employer''s PIIA/invention-assignment agreement
+    was reviewed and whether a release/waiver exists.'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.cooleygo.com
+- id: no-ip-assignment-from-founders
+  domain: legal_ip
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Founders never assigned their IP to the company
+  why: Without signed CIIAA/PIIA agreements assigning all work product to the entity,
+    the IP legally sits with individuals, so a founder who leaves can walk away owning
+    a piece of the product.
+  threshold: ''
+  severity: kill
+  detect: Ask 'do all founders and the company have signed confidential-information-and-invention-assignment
+    agreements dated at or after incorporation?'; absence, or agreements dated long
+    after work began, is the flag; check whether the cap table entity matches who
+    actually wrote the code.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.cooleygo.com
+  - https://nvca.org
+- id: contractor-ip-not-assigned
+  domain: legal_ip
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Contractor / agency / offshore work lacks work-for-hire assignment
+  why: Under US law code written by a contractor is owned by the contractor by default
+    unless there is a written IP assignment, so early dev built by freelancers or
+    an offshore shop may not be the company's property.
+  threshold: ''
+  severity: major
+  detect: 'Deck mentions an outsourced/agency-built MVP or a ''technical cofounder''
+    who is actually a contractor; self-report: any dev done before hiring W-2 engineers;
+    ask for the signed contractor agreement containing a present-tense IP assignment
+    clause.'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.cooleygo.com
+- id: no-founder-vesting
+  domain: legal_ip
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Founder equity has no vesting (or no acceleration/cliff structure)
+  why: Fully-vested founder stock means a cofounder can quit on day 90 keeping their
+    full stake, leaving a 'dead equity' cap table that investors will refuse to fund
+    until repapered.
+  threshold: 'industry-typical: 4-year vesting with a 1-year cliff'
+  severity: major
+  detect: Ask 'is founder stock subject to vesting, on what schedule, and how much
+    time has already vested?'; flat splits with no vesting, or a departed cofounder
+    still holding a large fully-vested block, are the tells; cross-check cap table
+    against current active founders.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.crv.com
+  - https://firstround.com
+- id: 83b-not-filed
+  domain: legal_ip
+  stage:
+  - pre-seed
+  wedge: general
+  title: 83(b) election not filed within the 30-day window
+  why: A missed 83(b) election on restricted founder stock creates a personal tax
+    mess and signals sloppy formation hygiene that makes investors worry what else
+    was missed.
+  threshold: 83(b) must be filed within 30 days of the stock grant/purchase
+  severity: minor
+  detect: Ask each founder 'did you file an 83(b) within 30 days of your stock purchase,
+    and do you have the certified-mail receipt?'; vague or 'my accountant handled
+    it later' answers are the flag.
+  sources:
+  - https://www.cooleygo.com
+- id: wrong-or-foreign-entity
+  domain: legal_ip
+  stage:
+  - pre-seed
+  wedge: general
+  title: Not a Delaware C-corp (LLC, S-corp, or foreign parent)
+  why: Institutional investors essentially only fund Delaware C-corps, and an LLC
+    or non-US holding company requires a costly, taxable conversion/flip before they
+    can invest.
+  threshold: ''
+  severity: major
+  detect: Self-report of 'we're an LLC for now' or a foreign (e.g. UK/India/Singapore)
+    operating parent with US ops; ask for the entity type and state/country of incorporation
+    and whether a Delaware flip has been scoped.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.cooleygo.com
+  - https://nvca.org
+- id: handshake-equity-no-docs
+  domain: legal_ip
+  stage:
+  - pre-seed
+  wedge: general
+  title: Undocumented equity/IP promises to advisors, friends, or early helpers
+  why: Verbal 'I'll give you X% for helping' promises and unissued advisor grants
+    are latent claims that surface during DD and can blow up the cap table or trigger
+    disputes.
+  threshold: ''
+  severity: major
+  detect: Listen for 'we promised our designer/advisor some equity' with no SAFE,
+    option grant, or advisor agreement; ask whether every person on the cap table
+    has signed paper and whether anyone has been promised equity that isn't yet documented.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://firstround.com
+- id: open-source-license-contamination
+  domain: legal_ip
+  stage:
+  - pre-seed
+  - seed
+  wedge: general
+  title: Copyleft open-source in the proprietary codebase
+  why: Shipping a closed product that links GPL/AGPL-licensed code can legally compel
+    disclosure of your own source, undermining the proprietary-IP thesis investors
+    are paying for.
+  threshold: ''
+  severity: minor
+  detect: Ask 'do you maintain an OSS dependency/license inventory, and is any GPL/AGPL/SSPL
+    code in the product?'; no awareness of license obligations or 'we just grabbed
+    what worked on GitHub' is the flag.
+  sources:
+  - https://www.cooleygo.com
+  - https://www.ycombinator.com/library
+- id: trademark-name-conflict
+  domain: legal_ip
+  stage:
+  - pre-seed
+  wedge: general
+  title: Company/product name has an unresolved trademark conflict
+  why: Building a brand on a name that infringes an existing mark (or has no clearance)
+    risks a forced rebrand later, wasting the equity you built into the name.
+  threshold: ''
+  severity: minor
+  detect: Ask 'did you run a trademark clearance search and do you own the matching
+    domain/handles?'; a name colliding with an established product in a related class,
+    or no clearance at all, is the tell.
+  sources:
+  - https://www.cooleygo.com

@@ -1,0 +1,194 @@
+cell: gr:why-you-team:series-a
+type: grilling
+wedge: general
+items:
+- id: why-you-unfair-advantage
+  theme: why-you-team
+  stage:
+  - series-a
+  wedge: general
+  question: Why are you the right team to build this, specifically — what do you know
+    or have that a smart team funded tomorrow could not replicate in 18 months?
+  strong_answer: 'Names a durable, hard-to-copy edge tied to the founders personally:
+    proprietary distribution (an existing audience, a regulatory license, an exclusive
+    data partnership), years of domain scar tissue that shaped a non-consensus thesis,
+    or a technical capability the team has shipped before. The edge is causally connected
+    to why THIS company wins, not just a resume flex. Founder can articulate what
+    they believe that competitors do not, and why that belief is correct.'
+  weak_answer: Generic credentials ('we're a great team, ex-FAANG, worked hard, move
+    fast') or 'we have first-mover advantage.' Cites passion or execution speed as
+    the moat. Cannot name anything a well-funded competitor couldn't buy or rebuild
+    quickly. Confuses being qualified with being uniquely positioned.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://a16z.com
+  - https://www.firstround.com
+- id: why-you-founder-market-fit
+  theme: why-you-team
+  stage:
+  - series-a
+  wedge: general
+  question: What in your background makes you obsessed with this specific problem
+    — and would you still be working on it if it took ten years and never made you
+    rich?
+  strong_answer: 'Demonstrates authentic founder-market fit: a personal or professional
+    origin story that predates the funding environment, evidence the founder has lived
+    inside the problem (built adjacent products, was the customer, spent years in
+    the industry), and a conviction that survives stress-testing. Shows the problem
+    chose them, not that they scanned a trend list. Long-term commitment is backed
+    by past behavior, not declarations.'
+  weak_answer: The idea came from a trend report, a hackathon, or 'we noticed AI/this
+    market is hot.' Story is reverse-engineered to sound mission-driven. Pivots history
+    reveal the team chases whatever is fundable. Answer focuses on the size of the
+    opportunity rather than any personal connection to the problem.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.sequoiacap.com
+  - https://a16z.com
+- id: why-you-cofounder-equity-split
+  theme: why-you-team
+  stage:
+  - series-a
+  wedge: general
+  question: Walk me through your cofounder equity split and how you decided it — and
+    what happens to those shares if one of you leaves in the next year?
+  strong_answer: 'Split reflects relative contribution and forward-looking commitment,
+    with founder vesting in place (industry-typical: 4-year vest, 1-year cliff) including
+    for the CEO. Founders can explain the rationale calmly and there is no unvested-equity
+    time bomb. A clear decision-making structure exists (who breaks ties). Any departed-cofounder
+    situation is fully cleaned up with no dead equity on the cap table.'
+  weak_answer: A 50/50 'we're equal partners' split with no vesting, or a split made
+    to avoid an awkward conversation. Founders get defensive or vague. A former cofounder
+    still holds a large unvested or fully-vested chunk with no involvement (dead equity).
+    No tie-breaking mechanism — implies future deadlock.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.firstround.com
+  - https://nvca.org
+- id: why-you-conflict-history
+  theme: why-you-team
+  stage:
+  - series-a
+  wedge: general
+  question: What's the hardest disagreement you and your cofounder have had, and how
+    did it actually get resolved?
+  strong_answer: 'Cites a real, substantive conflict (strategy, a key hire, money)
+    and describes a healthy resolution process: surfaced directly, debated on merits,
+    one person disagreed-and-committed. Shows the relationship has been stress-tested
+    under pressure and got stronger. Demonstrates psychological safety and a working
+    conflict-resolution muscle, plus a clear ultimate decision-maker.'
+  weak_answer: '''We never really disagree'' or ''we''re best friends, it just works''
+    — signals either conflict avoidance or a relationship that hasn''t faced real
+    stress yet. Alternatively, describes an unresolved festering tension, or a conflict
+    that ended with someone steamrolling the other. Cannot name a single hard moment,
+    which usually means the hard moments are still coming.'
+  sources:
+  - https://www.firstround.com
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+- id: why-you-key-person-risk
+  theme: why-you-team
+  stage:
+  - series-a
+  wedge: general
+  question: If you got hit by a bus tomorrow, does this company survive — and who
+    actually runs it?
+  strong_answer: 'Acknowledges key-person risk honestly and points to real mitigants:
+    a strong second cofounder or senior team member who could step up, documented
+    knowledge, distributed customer/investor relationships, and critical IP owned
+    by the company (assigned, not in one founder''s head or personal accounts). The
+    bus factor is greater than one in the functions that matter.'
+  weak_answer: Long pause, then 'well, it would be hard.' Single point of failure
+    across product, sales, and fundraising sits in one person. Critical relationships,
+    code, or domain knowledge are entirely undistributed. Treats the question as hypothetical
+    fluff rather than a real risk investors price in.
+  sources:
+  - https://www.bvp.com
+  - https://nvca.org
+  - https://a16z.com
+- id: why-you-scaling-gap
+  theme: why-you-team
+  stage:
+  - series-a
+  wedge: general
+  question: You're great at building — but Series A is about scaling go-to-market.
+    What have you personally never done before that this next stage requires, and
+    how are you closing that gap?
+  strong_answer: 'Self-aware mapping of where the founding team is strong (e.g., product)
+    and where it is thin (e.g., enterprise sales, finance, recruiting at scale). Concrete
+    plan: specific senior hires already in pipeline or recently closed, advisors/mentors
+    actively engaged, evidence the CEO has already started learning the new motion.
+    Shows the founder hires people better than themselves and isn''t threatened by
+    it.'
+  weak_answer: '''We''ll figure it out, we learn fast'' or insists the founding team
+    can do everything. No named gaps, no hiring plan, no senior people in the pipeline.
+    Founder-as-bottleneck pattern: still doing every demo and approving every decision.
+    Defensive when probed on management or GTM experience they lack.'
+  sources:
+  - https://www.firstround.com
+  - https://a16z.com
+  - https://www.sequoiacap.com
+- id: why-you-first-ten-hires
+  theme: why-you-team
+  stage:
+  - series-a
+  wedge: general
+  question: Tell me about the best person you've hired and the worst — and what the
+    bad hire taught you about how you recruit now.
+  strong_answer: Specific stories showing the founder can attract A-players (and why
+    those people chose to join), plus an honest post-mortem on a mis-hire and the
+    concrete process change that resulted. Demonstrates a high talent bar, ability
+    to sell the vision to recruits, willingness to act fast on bad fits, and that
+    early team quality is high enough to be a recruiting magnet.
+  weak_answer: Has never made a hard hiring decision or has never let anyone go ('everyone's
+    been great'). Cannot articulate why top people join. The team is staffed with
+    friends or convenient hires rather than the best available talent. No reflection
+    on hiring mistakes — suggests they'll repeat them at 10x the cost.
+  sources:
+  - https://www.firstround.com
+  - https://www.ycombinator.com/library
+  - https://review.firstround.com
+- id: why-you-ceo-fundability
+  theme: why-you-team
+  stage:
+  - series-a
+  wedge: general
+  question: Series A is where the CEO becomes a full-time recruiter, fundraiser, and
+    storyteller. Show me you can sell — why would the best engineer in your space
+    leave their job to join you?
+  strong_answer: Delivers a crisp, compelling narrative on the spot — the kind that
+    recruits and investors repeat. Can already point to people who left strong jobs
+    to join because of that pitch. Understands the CEO's job is shifting from doing
+    to selling-and-recruiting and embraces it. Demonstrates the magnetism and clarity
+    that makes top talent and capital want in.
+  weak_answer: Pitch is muddled, jargon-heavy, or buries the lede; can't compress
+    the why into two sentences. Visibly more comfortable talking about the tech than
+    selling the mission. Treats recruiting and fundraising as distractions from 'real
+    work.' If the founder can't sell the company to you in the room, investors assume
+    they can't sell it to recruits or customers either.
+  sources:
+  - https://www.ycombinator.com/library
+  - https://a16z.com
+  - https://www.sequoiacap.com
+- id: why-you-commitment-skin
+  theme: why-you-team
+  stage:
+  - series-a
+  wedge: general
+  question: What have you personally given up for this — and is there any scenario
+    short of the company failing where you'd walk away?
+  strong_answer: 'Demonstrates real commitment and opportunity cost: left a lucrative
+    role, has been at it for years through hard times, is all-in financially and otherwise.
+    Reasonable founder salary (not bleeding personally, but not extracting either).
+    Clear that the founder is building for the long haul and won''t bail at the first
+    acquihire offer or for a softer landing. Commitment is shown through past behavior,
+    not promises.'
+  weak_answer: 'Hedged commitment: still has a side project, consulting on the side,
+    or frames the startup as one option among several. Signals they''d take a modest
+    acquihire to escape. Either paying themselves too much (extracting) or in personal
+    financial distress that will force short-term decisions. Cannot point to anything
+    meaningful they sacrificed to be here.'
+  sources:
+  - https://www.ycombinator.com/library
+  - https://www.firstround.com
+  - https://www.crv.com
