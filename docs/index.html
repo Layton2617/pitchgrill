@@ -124,8 +124,10 @@
         </select>
       </div>
     </div>
-    <label for="deck" style="margin-top:14px">Your deck or pitch (optional — improves ranking)</label>
-    <textarea id="deck" placeholder="Paste your deck text, one-pager, or a few sentences about the company..."></textarea>
+    <label style="margin-top:14px">Your deck (optional — improves ranking)</label>
+    <input type="file" id="file" accept=".pdf,.txt,.md">
+    <div id="fileinfo" class="hint"></div>
+    <textarea id="deck" placeholder="Upload a PDF above, or paste your deck text / a few sentences here..."></textarea>
     <button id="run">Show me what VCs will hit</button>
 
     <details>
@@ -153,10 +155,13 @@
   </footer>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 const CAPS = { red_flags: 15, grilling: 10, data_room: 24, deck_lints: 8, benchmarks: 12 };
 const SEV = { kill: 0, major: 1, minor: 2 };
 let KB = null;
+if (window.pdfjsLib) pdfjsLib.GlobalWorkerOptions.workerSrc =
+  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
 const $ = id => document.getElementById(id);
 const esc = s => (s == null ? "" : String(s)).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
@@ -193,6 +198,45 @@ function pick(bucket, { stage, wedge, sector }) {
 function srcLine(it) {
   const s = (it.sources || []).filter(Boolean);
   return s.length ? `<div class="src">${esc(s.join("  ·  "))}</div>` : "";
+}
+
+function toB64(buf) {
+  const bytes = new Uint8Array(buf); let bin = ""; const chunk = 0x8000;
+  for (let i = 0; i < bytes.length; i += chunk) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + chunk));
+  return btoa(bin);
+}
+async function extractPdf(buf) {
+  const pdf = await pdfjsLib.getDocument({ data: buf.slice(0) }).promise;
+  let out = "";
+  for (let i = 1; i <= pdf.numPages; i++) {
+    const page = await pdf.getPage(i);
+    const c = await page.getTextContent();
+    out += c.items.map(x => x.str).join(" ") + "\n";
+  }
+  return out;
+}
+async function handleFile(file) {
+  const status = $("fileinfo");
+  window._deckB64 = null;
+  if (!file) { status.textContent = ""; return; }
+  status.textContent = "Reading " + file.name + "…";
+  const buf = await file.arrayBuffer();
+  if (file.name.toLowerCase().endsWith(".pdf")) {
+    window._deckB64 = window.pdfjsLib ? toB64(buf) : null;
+    try {
+      const text = window.pdfjsLib ? await extractPdf(buf) : "";
+      $("deck").value = text;
+      status.textContent = file.name + " loaded" + (text.trim().length
+        ? " — text extracted."
+        : " — looks image-only; with an API key the AI still reads it, but the no-key checklist can't rank to it.");
+    } catch (e) {
+      status.textContent = file.name + " loaded (couldn't extract text; an API key analysis will still read the PDF).";
+    }
+  } else {
+    $("deck").value = new TextDecoder().decode(buf);
+    status.textContent = file.name + " loaded.";
+  }
+  if (KB) render();
 }
 
 function render() {
@@ -283,7 +327,7 @@ async function analyze() {
   const deck = $("deck").value.trim();
   const box = $("analysis");
   if (!key) { box.innerHTML = `<p class="hint">Paste an API key first.</p>`; return; }
-  if (!deck) { box.innerHTML = `<p class="hint">Paste your deck in the box above first.</p>`; return; }
+  if (!deck && !window._deckB64) { box.innerHTML = `<p class="hint">Add your deck first — upload a PDF or paste text.</p>`; return; }
   box.innerHTML = `<p class="hint">Running… this takes ~20s.</p>`;
 
   const stage = $("stage").value, wedge = $("wedge").value, sector = $("sector").value;
@@ -293,8 +337,16 @@ async function analyze() {
     data_room: pick("data_room", { stage, wedge, sector }),
     benchmarks: pick("benchmarks", { stage, wedge, sector }),
   };
-  const user = "## Knowledge base (your checklist)\n```json\n" + JSON.stringify(subset)
-    + "\n```\n\n## Deck\n" + deck;
+  const kbText = "## Knowledge base (your checklist)\n```json\n" + JSON.stringify(subset) + "\n```";
+  let content;
+  if (window._deckB64) {
+    content = [
+      { type: "document", source: { type: "base64", media_type: "application/pdf", data: window._deckB64 } },
+      { type: "text", text: kbText + "\n\nThe deck is the attached PDF. Analyze it against the knowledge base." },
+    ];
+  } else {
+    content = kbText + "\n\n## Deck\n" + deck;
+  }
   try {
     const r = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
@@ -308,7 +360,7 @@ async function analyze() {
         model: "claude-sonnet-4-6",
         max_tokens: 4000,
         system: SYSTEM,
-        messages: [{ role: "user", content: user }],
+        messages: [{ role: "user", content }],
       }),
     });
     const data = await r.json();
@@ -322,6 +374,7 @@ async function analyze() {
 
 $("run").addEventListener("click", render);
 $("analyze").addEventListener("click", analyze);
+$("file").addEventListener("change", e => handleFile(e.target.files[0]));
 
 fetch("kb.json").then(r => r.json()).then(d => { KB = d; render(); })
   .catch(() => { $("out").innerHTML = `<p class="empty">Could not load the knowledge base.</p>`; });
